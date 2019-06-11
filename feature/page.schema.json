@@ -1,0 +1,599 @@
+{
+  "$id" : "http://sketch.com/page.schema.json",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+    "Color" : {
+      "properties" : {
+        "alpha" : {
+          "type" : "number"
+        },
+        "blue" : {
+          "type" : "number"
+        },
+        "green" : {
+          "type" : "number"
+        },
+        "red" : {
+          "type" : "number"
+        }
+      }
+    },
+    "ExportFormat" : {
+      "properties" : {
+        "absoluteSize" : {
+          "type" : "number"
+        },
+        "fileFormat" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "namingScheme" : {
+          "type" : "number"
+        },
+        "scale" : {
+          "type" : "number"
+        },
+        "visibleScaleType" : {
+          "type" : "number"
+        }
+      }
+    },
+    "ExportOptions" : {
+      "properties" : {
+        "exportFormats" : {
+          "$ref" : "#/definitions/ExportFormat",
+          "items" : {
+            "$ref" : "#/definitions/ExportFormat"
+          },
+          "type" : "array"
+        },
+        "includedLayerIds" : {
+          "type" : "array"
+        },
+        "layerOptions" : {
+          "type" : "number"
+        },
+        "shouldTrim" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "FlowConnection" : {
+      "properties" : {
+        "animationType" : {
+          "type" : "number"
+        },
+        "destinationArtboardID" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Gradient" : {
+      "properties" : {
+        "elipseLength" : {
+          "type" : "number"
+        },
+        "from" : {
+          "type" : "object"
+        },
+        "gradientType" : {
+          "type" : "number"
+        },
+        "stops" : {
+          "$ref" : "#/definitions/GradientStop",
+          "items" : {
+            "$ref" : "#/definitions/GradientStop"
+          },
+          "type" : "array"
+        },
+        "to" : {
+          "type" : "object"
+        }
+      }
+    },
+    "GradientStop" : {
+      "properties" : {
+        "color" : {
+          "$ref" : "#/definitions/Color"
+        },
+        "position" : {
+          "type" : "number"
+        }
+      }
+    },
+    "GraphicsContextSettings" : {
+      "properties" : {
+        "blendMode" : {
+          "type" : "number"
+        },
+        "opacity" : {
+          "type" : "number"
+        }
+      }
+    },
+    "GroupLayout" : {
+      "properties" : {
+
+      }
+    },
+    "Layer" : {
+      "properties" : {
+        "booleanOperation" : {
+          "type" : "number"
+        },
+        "exportOptions" : {
+          "$ref" : "#/definitions/ExportOptions"
+        },
+        "flow" : {
+          "$ref" : "#/definitions/FlowConnection"
+        },
+        "frame" : {
+          "$ref" : "#/definitions/Rect"
+        },
+        "isFixedToViewport" : {
+          "type" : "boolean"
+        },
+        "isFlippedHorizontal" : {
+          "type" : "boolean"
+        },
+        "isFlippedVertical" : {
+          "type" : "boolean"
+        },
+        "isLocked" : {
+          "type" : "boolean"
+        },
+        "isVisible" : {
+          "type" : "boolean"
+        },
+        "layerListExpandedType" : {
+          "type" : "number"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "nameIsFixed" : {
+          "type" : "boolean"
+        },
+        "originalObjectID" : {
+          "type" : "string"
+        },
+        "resizingConstraint" : {
+          "type" : "number"
+        },
+        "resizingType" : {
+          "type" : "number"
+        },
+        "rotation" : {
+          "type" : "number"
+        },
+        "shouldBreakMaskChain" : {
+          "type" : "boolean"
+        },
+        "userInfo" : {
+          "type" : "object"
+        }
+      }
+    },
+    "LayoutGrid" : {
+      "properties" : {
+        "columnWidth" : {
+          "type" : "number"
+        },
+        "drawHorizontal" : {
+          "type" : "boolean"
+        },
+        "drawHorizontalLines" : {
+          "type" : "boolean"
+        },
+        "drawVertical" : {
+          "type" : "boolean"
+        },
+        "gutterHeight" : {
+          "type" : "number"
+        },
+        "guttersOutside" : {
+          "type" : "boolean"
+        },
+        "gutterWidth" : {
+          "type" : "number"
+        },
+        "horizontalOffset" : {
+          "type" : "number"
+        },
+        "isEnabled" : {
+          "type" : "boolean"
+        },
+        "numberOfColumns" : {
+          "type" : "number"
+        },
+        "rowHeightMultiplication" : {
+          "type" : "number"
+        },
+        "totalWidth" : {
+          "type" : "number"
+        }
+      }
+    },
+    "Rect" : {
+      "properties" : {
+        "constrainProportions" : {
+          "type" : "boolean"
+        },
+        "height" : {
+          "type" : "number"
+        },
+        "width" : {
+          "type" : "number"
+        },
+        "x" : {
+          "type" : "number"
+        },
+        "y" : {
+          "type" : "number"
+        }
+      }
+    },
+    "RulerData" : {
+      "properties" : {
+        "base" : {
+          "type" : "number"
+        },
+        "guides" : {
+          "type" : "array"
+        }
+      }
+    },
+    "SimpleGrid" : {
+      "properties" : {
+        "gridSize" : {
+          "type" : "number"
+        },
+        "isEnabled" : {
+          "type" : "boolean"
+        },
+        "thickGridTimes" : {
+          "type" : "number"
+        }
+      }
+    },
+    "Style" : {
+      "properties" : {
+        "blur" : {
+          "$ref" : "#/definitions/StyleBlur"
+        },
+        "borderOptions" : {
+          "$ref" : "#/definitions/StyleBorderOptions"
+        },
+        "borders" : {
+          "$ref" : "#/definitions/StyleBorder",
+          "items" : {
+            "$ref" : "#/definitions/StyleBorder"
+          },
+          "type" : "array"
+        },
+        "colorControls" : {
+          "$ref" : "#/definitions/StyleColorControls"
+        },
+        "contextSettings" : {
+          "$ref" : "#/definitions/GraphicsContextSettings"
+        },
+        "endMarkerType" : {
+          "type" : "number"
+        },
+        "fills" : {
+          "$ref" : "#/definitions/StyleFill",
+          "items" : {
+            "$ref" : "#/definitions/StyleFill"
+          },
+          "type" : "array"
+        },
+        "innerShadows" : {
+          "$ref" : "#/definitions/StyleInnerShadow",
+          "items" : {
+            "$ref" : "#/definitions/StyleInnerShadow"
+          },
+          "type" : "array"
+        },
+        "miterLimit" : {
+          "type" : "number"
+        },
+        "shadows" : {
+          "$ref" : "#/definitions/StyleShadow",
+          "items" : {
+            "$ref" : "#/definitions/StyleShadow"
+          },
+          "type" : "array"
+        },
+        "startMarkerType" : {
+          "type" : "number"
+        },
+        "textStyle" : {
+          "$ref" : "#/definitions/TextStyle"
+        },
+        "windingRule" : {
+          "type" : "number"
+        }
+      }
+    },
+    "StyleBlur" : {
+      "properties" : {
+        "center" : {
+          "type" : "object"
+        },
+        "isEnabled" : {
+          "type" : "boolean"
+        },
+        "motionAngle" : {
+          "type" : "number"
+        },
+        "radius" : {
+          "type" : "number"
+        },
+        "saturation" : {
+          "type" : "number"
+        },
+        "type" : {
+          "type" : "number"
+        }
+      }
+    },
+    "StyleBorder" : {
+      "properties" : {
+        "color" : {
+          "$ref" : "#/definitions/Color"
+        },
+        "contextSettings" : {
+          "$ref" : "#/definitions/GraphicsContextSettings"
+        },
+        "fillType" : {
+          "type" : "number"
+        },
+        "gradient" : {
+          "$ref" : "#/definitions/Gradient"
+        },
+        "isEnabled" : {
+          "type" : "boolean"
+        },
+        "position" : {
+          "type" : "number"
+        },
+        "thickness" : {
+          "type" : "number"
+        }
+      }
+    },
+    "StyleBorderOptions" : {
+      "properties" : {
+        "dashPattern" : {
+          "type" : "array"
+        },
+        "isEnabled" : {
+          "type" : "boolean"
+        },
+        "lineCapStyle" : {
+          "type" : "number"
+        },
+        "lineJoinStyle" : {
+          "type" : "number"
+        }
+      }
+    },
+    "StyleColorControls" : {
+      "properties" : {
+        "brightness" : {
+          "type" : "number"
+        },
+        "contrast" : {
+          "type" : "number"
+        },
+        "hue" : {
+          "type" : "number"
+        },
+        "isEnabled" : {
+          "type" : "boolean"
+        },
+        "saturation" : {
+          "type" : "number"
+        }
+      }
+    },
+    "StyleFill" : {
+      "properties" : {
+        "color" : {
+          "$ref" : "#/definitions/Color"
+        },
+        "contextSettings" : {
+          "$ref" : "#/definitions/GraphicsContextSettings"
+        },
+        "fillType" : {
+          "type" : "number"
+        },
+        "gradient" : {
+          "$ref" : "#/definitions/Gradient"
+        },
+        "image" : {
+          "type" : "object"
+        },
+        "isEnabled" : {
+          "type" : "boolean"
+        },
+        "noiseIndex" : {
+          "type" : "number"
+        },
+        "noiseIntensity" : {
+          "type" : "number"
+        },
+        "patternFillType" : {
+          "type" : "number"
+        },
+        "patternTileScale" : {
+          "type" : "number"
+        }
+      }
+    },
+    "StyleInnerShadow" : {
+      "properties" : {
+        "blurRadius" : {
+          "type" : "number"
+        },
+        "color" : {
+          "$ref" : "#/definitions/Color"
+        },
+        "contextSettings" : {
+          "$ref" : "#/definitions/GraphicsContextSettings"
+        },
+        "isEnabled" : {
+          "type" : "boolean"
+        },
+        "offsetX" : {
+          "type" : "number"
+        },
+        "offsetY" : {
+          "type" : "number"
+        },
+        "spread" : {
+          "type" : "number"
+        }
+      }
+    },
+    "StyleShadow" : {
+      "properties" : {
+        "blurRadius" : {
+          "type" : "number"
+        },
+        "color" : {
+          "$ref" : "#/definitions/Color"
+        },
+        "contextSettings" : {
+          "$ref" : "#/definitions/GraphicsContextSettings"
+        },
+        "isEnabled" : {
+          "type" : "boolean"
+        },
+        "offsetX" : {
+          "type" : "number"
+        },
+        "offsetY" : {
+          "type" : "number"
+        },
+        "spread" : {
+          "type" : "number"
+        }
+      }
+    },
+    "TextStyle" : {
+      "properties" : {
+        "encodedAttributes" : {
+          "type" : "object"
+        },
+        "verticalAlignment" : {
+          "type" : "number"
+        }
+      }
+    }
+  },
+  "description" : "A page in the Schema",
+  "properties" : {
+    "booleanOperation" : {
+      "type" : "number"
+    },
+    "clippingMaskMode" : {
+      "type" : "number"
+    },
+    "exportOptions" : {
+      "$ref" : "#/definitions/ExportOptions"
+    },
+    "flow" : {
+      "$ref" : "#/definitions/FlowConnection"
+    },
+    "frame" : {
+      "$ref" : "#/definitions/Rect"
+    },
+    "grid" : {
+      "$ref" : "#/definitions/SimpleGrid"
+    },
+    "groupLayout" : {
+      "$ref" : "#/definitions/GroupLayout"
+    },
+    "hasClickThrough" : {
+      "type" : "boolean"
+    },
+    "hasClippingMask" : {
+      "type" : "boolean"
+    },
+    "horizontalRulerData" : {
+      "$ref" : "#/definitions/RulerData"
+    },
+    "includeInCloudUpload" : {
+      "type" : "boolean"
+    },
+    "isFixedToViewport" : {
+      "type" : "boolean"
+    },
+    "isFlippedHorizontal" : {
+      "type" : "boolean"
+    },
+    "isFlippedVertical" : {
+      "type" : "boolean"
+    },
+    "isLocked" : {
+      "type" : "boolean"
+    },
+    "isVisible" : {
+      "type" : "boolean"
+    },
+    "layerListExpandedType" : {
+      "type" : "number"
+    },
+    "layers" : {
+      "$ref" : "#/definitions/Layer",
+      "items" : {
+        "$ref" : "#/definitions/Layer"
+      },
+      "type" : "array"
+    },
+    "layout" : {
+      "$ref" : "#/definitions/LayoutGrid"
+    },
+    "name" : {
+      "type" : "string"
+    },
+    "nameIsFixed" : {
+      "type" : "boolean"
+    },
+    "originalObjectID" : {
+      "type" : "string"
+    },
+    "resizingConstraint" : {
+      "type" : "number"
+    },
+    "resizingType" : {
+      "type" : "number"
+    },
+    "rotation" : {
+      "type" : "number"
+    },
+    "sharedObjectID" : {
+      "type" : "string"
+    },
+    "sharedStyleID" : {
+      "type" : "string"
+    },
+    "shouldBreakMaskChain" : {
+      "type" : "boolean"
+    },
+    "style" : {
+      "$ref" : "#/definitions/Style"
+    },
+    "userInfo" : {
+      "type" : "object"
+    },
+    "verticalRulerData" : {
+      "$ref" : "#/definitions/RulerData"
+    }
+  },
+  "title" : "page",
+  "type" : "object"
+}
