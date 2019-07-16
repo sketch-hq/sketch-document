@@ -1,5 +1,5 @@
 {
-  "$id" : "http://sketch.com/document.schema.json",
+  "$id" : "http://sketch.com/page.schema.json",
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "definitions" : {
     "ArtboardGroup" : {
@@ -127,17 +127,17 @@
         }
       },
       "required" : [
-        "verticalRulerData",
-        "resizesContent",
-        "isFlowHome",
-        "includeBackgroundColorInExport",
-        "exportOptions",
         "horizontalRulerData",
+        "includeBackgroundColorInExport",
+        "grid",
+        "exportOptions",
         "includeInCloudUpload",
         "backgroundColor",
         "layout",
         "hasBackgroundColor",
-        "grid"
+        "isFlowHome",
+        "verticalRulerData",
+        "resizesContent"
       ]
     },
     "AssetCollection" : {
@@ -184,8 +184,8 @@
         }
       },
       "required" : [
-        "colorAssets",
         "gradientAssets",
+        "colorAssets",
         "imageCollection",
         "images"
       ]
@@ -331,144 +331,144 @@
     },
     "Class" : {
       "enum" : [
-        "gradientStop",
-        "rulerData",
-        "assetCollection",
-        "ovalShape",
-        "styleFill",
-        "styledLayer",
         "overrideProperty",
-        "colorAsset",
-        "exportFormat",
-        "styleBlur",
-        "overrideValue",
+        "color",
+        "starShape",
+        "artboardGroup",
         "hotspotLayer",
+        "rectangleShape",
+        "styleBlur",
+        "shapePath",
+        "sliceLayer",
+        "styleInnerShadow",
+        "curvePoint",
+        "rulerData",
+        "documentData",
+        "exportFormat",
+        "foreignObject",
+        "modelObject",
         "inferredGroupLayout",
+        "ovalShape",
+        "shapeGroup",
+        "assetCollection",
+        "baseGrid",
+        "sharedObject",
+        "symbol",
+        "styledLayer",
+        "textStyle",
+        "bitmapLayer",
+        "styleBasicFill",
+        "sharedTextStyleContainer",
+        "foreignStyle",
+        "rect",
+        "simpleGrid",
+        "styleBorderOptions",
+        "exportOptions",
+        "graphicsContextSettings",
+        "styleShadow",
+        "symbolMaster",
+        "foreignTextStyle",
+        "layerGroup",
+        "styleColorControls",
+        "symbolContainer",
+        "sharedStyleContainer",
+        "shapePathLayer",
+        "imageCollection",
+        "gradientAsset",
+        "styleBorder",
+        "flowConnection",
+        "style",
+        "foreignLayerStyle",
+        "freeformGroupLayout",
+        "textLayer",
+        "exportPreset",
+        "foreignSymbol",
+        "gradientStop",
+        "colorAsset",
+        "gradient",
+        "sharedObjectContainer",
+        "overrideValue",
+        "stylePart",
+        "layoutGrid",
+        "page",
+        "sharedStyle",
+        "symbolInstance",
+        "triangleShape",
+        "groupLayout",
         "layer",
         "polygonShape",
-        "symbolContainer",
-        "flowConnection",
-        "foreignObject",
-        "gradientAsset",
-        "freeformGroupLayout",
-        "styleColorControls",
-        "imageCollection",
-        "styleBorder",
-        "modelObject",
-        "graphicsContextSettings",
-        "shapeGroup",
-        "symbolInstance",
-        "symbolMaster",
-        "sharedObjectContainer",
-        "textStyle",
-        "triangleShape",
-        "baseGrid",
-        "page",
-        "foreignStyle",
-        "shapePath",
-        "sharedStyleContainer",
-        "styleInnerShadow",
-        "sharedTextStyleContainer",
-        "rectangleShape",
-        "simpleGrid",
-        "symbol",
-        "styleBasicFill",
-        "styleShadow",
-        "artboardGroup",
-        "foreignTextStyle",
-        "assetContainer",
-        "foreignLayerStyle",
-        "starShape",
-        "curvePoint",
-        "bitmapLayer",
-        "sharedObject",
-        "layoutGrid",
-        "layerGroup",
-        "sharedStyle",
-        "style",
-        "rect",
-        "styleBorderOptions",
-        "exportPreset",
-        "stylePart",
-        "foreignSymbol",
-        "gradient",
-        "shapePathLayer",
-        "exportOptions",
-        "sliceLayer",
-        "color",
-        "groupLayout",
-        "textLayer",
-        "documentData"
+        "styleFill",
+        "assetContainer"
       ],
       "tsEnumNames" : [
-        "gradientStop",
-        "rulerData",
-        "assetCollection",
-        "ovalShape",
-        "styleFill",
-        "styledLayer",
         "overrideProperty",
-        "colorAsset",
-        "exportFormat",
-        "styleBlur",
-        "overrideValue",
+        "color",
+        "starShape",
+        "artboardGroup",
         "hotspotLayer",
+        "rectangleShape",
+        "styleBlur",
+        "shapePath",
+        "sliceLayer",
+        "styleInnerShadow",
+        "curvePoint",
+        "rulerData",
+        "documentData",
+        "exportFormat",
+        "foreignObject",
+        "modelObject",
         "inferredGroupLayout",
+        "ovalShape",
+        "shapeGroup",
+        "assetCollection",
+        "baseGrid",
+        "sharedObject",
+        "symbol",
+        "styledLayer",
+        "textStyle",
+        "bitmapLayer",
+        "styleBasicFill",
+        "sharedTextStyleContainer",
+        "foreignStyle",
+        "rect",
+        "simpleGrid",
+        "styleBorderOptions",
+        "exportOptions",
+        "graphicsContextSettings",
+        "styleShadow",
+        "symbolMaster",
+        "foreignTextStyle",
+        "layerGroup",
+        "styleColorControls",
+        "symbolContainer",
+        "sharedStyleContainer",
+        "shapePathLayer",
+        "imageCollection",
+        "gradientAsset",
+        "styleBorder",
+        "flowConnection",
+        "style",
+        "foreignLayerStyle",
+        "freeformGroupLayout",
+        "textLayer",
+        "exportPreset",
+        "foreignSymbol",
+        "gradientStop",
+        "colorAsset",
+        "gradient",
+        "sharedObjectContainer",
+        "overrideValue",
+        "stylePart",
+        "layoutGrid",
+        "page",
+        "sharedStyle",
+        "symbolInstance",
+        "triangleShape",
+        "groupLayout",
         "layer",
         "polygonShape",
-        "symbolContainer",
-        "flowConnection",
-        "foreignObject",
-        "gradientAsset",
-        "freeformGroupLayout",
-        "styleColorControls",
-        "imageCollection",
-        "styleBorder",
-        "modelObject",
-        "graphicsContextSettings",
-        "shapeGroup",
-        "symbolInstance",
-        "symbolMaster",
-        "sharedObjectContainer",
-        "textStyle",
-        "triangleShape",
-        "baseGrid",
-        "page",
-        "foreignStyle",
-        "shapePath",
-        "sharedStyleContainer",
-        "styleInnerShadow",
-        "sharedTextStyleContainer",
-        "rectangleShape",
-        "simpleGrid",
-        "symbol",
-        "styleBasicFill",
-        "styleShadow",
-        "artboardGroup",
-        "foreignTextStyle",
-        "assetContainer",
-        "foreignLayerStyle",
-        "starShape",
-        "curvePoint",
-        "bitmapLayer",
-        "sharedObject",
-        "layoutGrid",
-        "layerGroup",
-        "sharedStyle",
-        "style",
-        "rect",
-        "styleBorderOptions",
-        "exportPreset",
-        "stylePart",
-        "foreignSymbol",
-        "gradient",
-        "shapePathLayer",
-        "exportOptions",
-        "sliceLayer",
-        "color",
-        "groupLayout",
-        "textLayer",
-        "documentData"
+        "styleFill",
+        "assetContainer"
       ],
       "type" : "string"
     },
@@ -625,16 +625,16 @@
         }
       },
       "required" : [
-        "currentPageIndex",
-        "foreignTextStyles",
-        "colorSpace",
-        "assets",
-        "pages",
-        "layerSymbols",
-        "layerStyles",
         "layerTextStyles",
+        "assets",
+        "foreignTextStyles",
+        "layerStyles",
+        "foreignSymbols",
         "foreignLayerStyles",
-        "foreignSymbols"
+        "colorSpace",
+        "layerSymbols",
+        "pages",
+        "currentPageIndex"
       ]
     },
     "ExportFormat" : {
@@ -670,8 +670,8 @@
       },
       "required" : [
         "namingScheme",
-        "visibleScaleType",
-        "scale"
+        "scale",
+        "visibleScaleType"
       ]
     },
     "ExportOptions" : {
@@ -703,8 +703,8 @@
         }
       },
       "required" : [
-        "exportFormats",
-        "includedLayerIds"
+        "includedLayerIds",
+        "exportFormats"
       ]
     },
     "ExportPreset" : {
@@ -846,8 +846,8 @@
         }
       },
       "required" : [
-        "localSharedStyle",
-        "remoteStyleID"
+        "remoteStyleID",
+        "localSharedStyle"
       ]
     },
     "ForeignSymbol" : {
@@ -879,8 +879,8 @@
         }
       },
       "required" : [
-        "symbolMaster",
-        "originalMaster"
+        "originalMaster",
+        "symbolMaster"
       ]
     },
     "ForeignTextStyle" : {
@@ -964,9 +964,9 @@
         }
       },
       "required" : [
-        "to",
+        "from",
         "stops",
-        "from"
+        "to"
       ]
     },
     "GradientAsset" : {
@@ -1035,8 +1035,8 @@
         }
       },
       "required" : [
-        "opacity",
-        "blendMode"
+        "blendMode",
+        "opacity"
       ]
     },
     "GroupLayout" : {
@@ -1241,15 +1241,15 @@
         }
       },
       "required" : [
-        "isVisible",
-        "resizingType",
-        "booleanOperation",
-        "frame",
-        "exportOptions",
-        "resizingConstraint",
-        "isLocked",
         "shouldBreakMaskChain",
-        "name"
+        "resizingType",
+        "name",
+        "frame",
+        "resizingConstraint",
+        "isVisible",
+        "isLocked",
+        "booleanOperation",
+        "exportOptions"
       ]
     },
     "LayerGroup" : {
@@ -1347,9 +1347,9 @@
         }
       },
       "required" : [
-        "groupLayout",
+        "hasClickThrough",
         "layers",
-        "hasClickThrough"
+        "groupLayout"
       ]
     },
     "LayoutGrid" : {
@@ -1402,14 +1402,14 @@
         }
       },
       "required" : [
+        "numberOfColumns",
+        "totalWidth",
+        "columnWidth",
         "gutterWidth",
         "rowHeightMultiplication",
         "guttersOutside",
-        "totalWidth",
-        "numberOfColumns",
-        "drawVertical",
-        "columnWidth",
-        "gutterHeight"
+        "gutterHeight",
+        "drawVertical"
       ]
     },
     "ModelObject" : {
@@ -1432,175 +1432,154 @@
     "Node" : {
       "allOf" : [
         {
-          "$ref" : "#/definitions/StyledLayer"
-        },
-        {
-          "$ref" : "#/definitions/StarShape"
-        },
-        {
-          "$ref" : "#/definitions/DocumentData"
-        },
-        {
-          "$ref" : "#/definitions/BaseGrid"
-        },
-        {
-          "$ref" : "#/definitions/ForeignLayerStyle"
-        },
-        {
-          "$ref" : "#/definitions/StyleInnerShadow"
-        },
-        {
-          "$ref" : "#/definitions/ForeignSymbol"
-        },
-        {
-          "$ref" : "#/definitions/StyleBasicFill"
-        },
-        {
-          "$ref" : "#/definitions/SymbolContainer"
-        },
-        {
-          "$ref" : "#/definitions/OvalShape"
-        },
-        {
-          "$ref" : "#/definitions/InferredGroupLayout"
-        },
-        {
-          "$ref" : "#/definitions/ExportFormat"
-        },
-        {
-          "$ref" : "#/definitions/AssetContainer"
-        },
-        {
-          "$ref" : "#/definitions/SliceLayer"
-        },
-        {
-          "$ref" : "#/definitions/StyleBorderOptions"
-        },
-        {
-          "$ref" : "#/definitions/SimpleGrid"
-        },
-        {
-          "$ref" : "#/definitions/ExportOptions"
-        },
-        {
-          "$ref" : "#/definitions/BitmapLayer"
-        },
-        {
-          "$ref" : "#/definitions/FlowConnection"
-        },
-        {
-          "$ref" : "#/definitions/CurvePoint"
-        },
-        {
-          "$ref" : "#/definitions/StyleBorder"
-        },
-        {
-          "$ref" : "#/definitions/ExportPreset"
-        },
-        {
           "$ref" : "#/definitions/ShapeGroup"
-        },
-        {
-          "$ref" : "#/definitions/SharedStyleContainer"
-        },
-        {
-          "$ref" : "#/definitions/RectangleShape"
-        },
-        {
-          "$ref" : "#/definitions/TriangleShape"
-        },
-        {
-          "$ref" : "#/definitions/SharedTextStyleContainer"
-        },
-        {
-          "$ref" : "#/definitions/ModelObject"
-        },
-        {
-          "$ref" : "#/definitions/SymbolInstance"
         },
         {
           "$ref" : "#/definitions/TextStyle"
         },
         {
-          "$ref" : "#/definitions/ArtboardGroup"
-        },
-        {
-          "$ref" : "#/definitions/Rect"
-        },
-        {
-          "$ref" : "#/definitions/ForeignObject"
-        },
-        {
           "$ref" : "#/definitions/SymbolMaster"
         },
         {
-          "$ref" : "#/definitions/StyleColorControls"
-        },
-        {
-          "$ref" : "#/definitions/GraphicsContextSettings"
-        },
-        {
-          "$ref" : "#/definitions/StyleFill"
-        },
-        {
-          "$ref" : "#/definitions/LayoutGrid"
-        },
-        {
-          "$ref" : "#/definitions/Layer"
-        },
-        {
-          "$ref" : "#/definitions/AssetCollection"
-        },
-        {
-          "$ref" : "#/definitions/PolygonShape"
-        },
-        {
-          "$ref" : "#/definitions/StylePart"
-        },
-        {
-          "$ref" : "#/definitions/TextLayer"
+          "$ref" : "#/definitions/FlowConnection"
         },
         {
           "$ref" : "#/definitions/ForeignTextStyle"
         },
         {
-          "$ref" : "#/definitions/ImageCollection"
-        },
-        {
-          "$ref" : "#/definitions/Style"
-        },
-        {
-          "$ref" : "#/definitions/SharedStyle"
-        },
-        {
-          "$ref" : "#/definitions/Symbol"
-        },
-        {
-          "$ref" : "#/definitions/OverrideValue"
+          "$ref" : "#/definitions/Gradient"
         },
         {
           "$ref" : "#/definitions/ForeignStyle"
         },
         {
-          "$ref" : "#/definitions/Gradient"
+          "$ref" : "#/definitions/StyleBlur"
         },
         {
-          "$ref" : "#/definitions/SharedObjectContainer"
+          "$ref" : "#/definitions/StylePart"
         },
         {
-          "$ref" : "#/definitions/SharedObject"
+          "$ref" : "#/definitions/TriangleShape"
         },
         {
           "$ref" : "#/definitions/ColorAsset"
         },
         {
+          "$ref" : "#/definitions/LayoutGrid"
+        },
+        {
+          "$ref" : "#/definitions/ShapePath"
+        },
+        {
+          "$ref" : "#/definitions/Symbol"
+        },
+        {
+          "$ref" : "#/definitions/RectangleShape"
+        },
+        {
           "$ref" : "#/definitions/FreeformGroupLayout"
         },
         {
-          "$ref" : "#/definitions/StyleShadow"
+          "$ref" : "#/definitions/ForeignObject"
+        },
+        {
+          "$ref" : "#/definitions/HotspotLayer"
         },
         {
           "$ref" : "#/definitions/GradientStop"
+        },
+        {
+          "$ref" : "#/definitions/GradientAsset"
+        },
+        {
+          "$ref" : "#/definitions/SymbolInstance"
+        },
+        {
+          "$ref" : "#/definitions/SharedObjectContainer"
+        },
+        {
+          "$ref" : "#/definitions/ShapePathLayer"
+        },
+        {
+          "$ref" : "#/definitions/SliceLayer"
+        },
+        {
+          "$ref" : "#/definitions/CurvePoint"
+        },
+        {
+          "$ref" : "#/definitions/Page"
+        },
+        {
+          "$ref" : "#/definitions/BitmapLayer"
+        },
+        {
+          "$ref" : "#/definitions/RulerData"
+        },
+        {
+          "$ref" : "#/definitions/DocumentData"
+        },
+        {
+          "$ref" : "#/definitions/Style"
+        },
+        {
+          "$ref" : "#/definitions/ExportOptions"
+        },
+        {
+          "$ref" : "#/definitions/ForeignLayerStyle"
+        },
+        {
+          "$ref" : "#/definitions/SymbolContainer"
+        },
+        {
+          "$ref" : "#/definitions/StyleBorderOptions"
+        },
+        {
+          "$ref" : "#/definitions/StyleBorder"
+        },
+        {
+          "$ref" : "#/definitions/SharedStyle"
+        },
+        {
+          "$ref" : "#/definitions/ModelObject"
+        },
+        {
+          "$ref" : "#/definitions/StyleBasicFill"
+        },
+        {
+          "$ref" : "#/definitions/OverrideValue"
+        },
+        {
+          "$ref" : "#/definitions/ExportPreset"
+        },
+        {
+          "$ref" : "#/definitions/TextLayer"
+        },
+        {
+          "$ref" : "#/definitions/StyleInnerShadow"
+        },
+        {
+          "$ref" : "#/definitions/SharedTextStyleContainer"
+        },
+        {
+          "$ref" : "#/definitions/AssetContainer"
+        },
+        {
+          "$ref" : "#/definitions/StarShape"
+        },
+        {
+          "$ref" : "#/definitions/AssetCollection"
+        },
+        {
+          "$ref" : "#/definitions/GraphicsContextSettings"
+        },
+        {
+          "$ref" : "#/definitions/StyledLayer"
+        },
+        {
+          "$ref" : "#/definitions/Rect"
+        },
+        {
+          "$ref" : "#/definitions/StyleColorControls"
         },
         {
           "$ref" : "#/definitions/Color"
@@ -1609,31 +1588,52 @@
           "$ref" : "#/definitions/OverrideProperty"
         },
         {
-          "$ref" : "#/definitions/HotspotLayer"
+          "$ref" : "#/definitions/Layer"
         },
         {
-          "$ref" : "#/definitions/Page"
+          "$ref" : "#/definitions/OvalShape"
         },
         {
-          "$ref" : "#/definitions/LayerGroup"
+          "$ref" : "#/definitions/InferredGroupLayout"
         },
         {
-          "$ref" : "#/definitions/RulerData"
+          "$ref" : "#/definitions/BaseGrid"
+        },
+        {
+          "$ref" : "#/definitions/SharedObject"
+        },
+        {
+          "$ref" : "#/definitions/SimpleGrid"
+        },
+        {
+          "$ref" : "#/definitions/ExportFormat"
+        },
+        {
+          "$ref" : "#/definitions/ForeignSymbol"
+        },
+        {
+          "$ref" : "#/definitions/ArtboardGroup"
+        },
+        {
+          "$ref" : "#/definitions/SharedStyleContainer"
+        },
+        {
+          "$ref" : "#/definitions/PolygonShape"
+        },
+        {
+          "$ref" : "#/definitions/StyleFill"
         },
         {
           "$ref" : "#/definitions/GroupLayout"
         },
         {
-          "$ref" : "#/definitions/ShapePathLayer"
+          "$ref" : "#/definitions/ImageCollection"
         },
         {
-          "$ref" : "#/definitions/GradientAsset"
+          "$ref" : "#/definitions/StyleShadow"
         },
         {
-          "$ref" : "#/definitions/StyleBlur"
-        },
-        {
-          "$ref" : "#/definitions/ShapePath"
+          "$ref" : "#/definitions/LayerGroup"
         }
       ]
     },
@@ -1753,8 +1753,8 @@
         }
       },
       "required" : [
-        "canOverride",
-        "overrideName"
+        "overrideName",
+        "canOverride"
       ]
     },
     "OverrideValue" : {
@@ -1888,10 +1888,10 @@
         }
       },
       "required" : [
-        "horizontalRulerData",
         "grid",
         "verticalRulerData",
         "includeInCloudUpload",
+        "horizontalRulerData",
         "layout"
       ]
     },
@@ -2273,8 +2273,8 @@
         }
       },
       "required" : [
-        "points",
-        "pointRadiusBehaviour"
+        "pointRadiusBehaviour",
+        "points"
       ]
     },
     "ShapePathLayer" : {
@@ -2758,15 +2758,15 @@
         }
       },
       "required" : [
-        "blur",
+        "contextSettings",
+        "windingRule",
+        "shadows",
+        "fills",
         "colorControls",
         "borders",
         "miterLimit",
-        "shadows",
-        "fills",
+        "blur",
         "borderOptions",
-        "windingRule",
-        "contextSettings",
         "innerShadows"
       ]
     },
@@ -2800,8 +2800,8 @@
       },
       "required" : [
         "contextSettings",
-        "gradient",
-        "fillType"
+        "fillType",
+        "gradient"
       ]
     },
     "StyleBlur" : {
@@ -2837,9 +2837,9 @@
       },
       "required" : [
         "center",
-        "saturation",
+        "radius",
         "motionAngle",
-        "radius"
+        "saturation"
       ]
     },
     "StyleBorder" : {
@@ -2877,8 +2877,8 @@
         }
       },
       "required" : [
-        "thickness",
-        "position"
+        "position",
+        "thickness"
       ]
     },
     "StyleBorderOptions" : {
@@ -2907,9 +2907,9 @@
         }
       },
       "required" : [
+        "lineCapStyle",
         "lineJoinStyle",
-        "dashPattern",
-        "lineCapStyle"
+        "dashPattern"
       ]
     },
     "StyleColorControls" : {
@@ -2941,10 +2941,10 @@
         }
       },
       "required" : [
+        "saturation",
         "hue",
         "brightness",
-        "contrast",
-        "saturation"
+        "contrast"
       ]
     },
     "StyledLayer" : {
@@ -3177,11 +3177,11 @@
       },
       "required" : [
         "blurRadius",
-        "contextSettings",
-        "offsetX",
         "color",
+        "contextSettings",
+        "offsetY",
         "spread",
-        "offsetY"
+        "offsetX"
       ]
     },
     "Symbol" : {
@@ -3573,8 +3573,8 @@
         }
       },
       "required" : [
-        "textBehaviour",
-        "lineSpacingBehaviour"
+        "lineSpacingBehaviour",
+        "textBehaviour"
       ]
     },
     "TextStyle" : {
@@ -3699,66 +3699,111 @@
       ]
     }
   },
-  "description" : "A document in the Schema",
+  "description" : "A page in the Schema",
   "properties" : {
     "_class" : {
       "enum" : [
-        "document"
+        "page"
       ],
       "type" : "string"
     },
-    "assets" : {
-      "$ref" : "#/definitions/AssetCollection"
-    },
-    "colorSpace" : {
+    "booleanOperation" : {
       "type" : "number"
     },
-    "currentPageIndex" : {
+    "clippingMaskMode" : {
       "type" : "number"
     },
     "do_objectID" : {
       "type" : "string"
     },
-    "foreignLayerStyles" : {
-      "items" : {
-        "$ref" : "#/definitions/ForeignLayerStyle"
-      },
-      "type" : "array"
-    },
-    "foreignSymbols" : {
-      "items" : {
-        "$ref" : "#/definitions/ForeignSymbol"
-      },
-      "type" : "array"
-    },
-    "foreignTextStyles" : {
-      "items" : {
-        "$ref" : "#/definitions/ForeignTextStyle"
-      },
-      "type" : "array"
-    },
-    "images" : {
+    "exportOptions" : {
       "type" : "object"
     },
-    "layerStyles" : {
-      "$ref" : "#/definitions/SharedStyleContainer"
+    "flow" : {
+      "type" : "object"
     },
-    "layerSymbols" : {
-      "$ref" : "#/definitions/SymbolContainer"
+    "frame" : {
+      "type" : "object"
     },
-    "layerTextStyles" : {
-      "$ref" : "#/definitions/SharedTextStyleContainer"
+    "grid" : {
+      "$ref" : "#/definitions/SimpleGrid"
     },
-    "pages" : {
-      "items" : {
-        "$ref" : "#/definitions/Page"
-      },
-      "type" : "array"
+    "groupLayout" : {
+      "type" : "object"
+    },
+    "hasClickThrough" : {
+      "type" : "boolean"
+    },
+    "hasClippingMask" : {
+      "type" : "boolean"
+    },
+    "horizontalRulerData" : {
+      "$ref" : "#/definitions/RulerData"
+    },
+    "includeInCloudUpload" : {
+      "type" : "boolean"
+    },
+    "isFixedToViewport" : {
+      "type" : "boolean"
+    },
+    "isFlippedHorizontal" : {
+      "type" : "boolean"
+    },
+    "isFlippedVertical" : {
+      "type" : "boolean"
+    },
+    "isLocked" : {
+      "type" : "boolean"
+    },
+    "isVisible" : {
+      "type" : "boolean"
+    },
+    "layerListExpandedType" : {
+      "type" : "number"
+    },
+    "layers" : {
+      "type" : "object"
+    },
+    "layout" : {
+      "$ref" : "#/definitions/LayoutGrid"
+    },
+    "name" : {
+      "type" : "object"
+    },
+    "nameIsFixed" : {
+      "type" : "boolean"
+    },
+    "originalObjectID" : {
+      "type" : "object"
+    },
+    "resizingConstraint" : {
+      "type" : "number"
+    },
+    "resizingType" : {
+      "type" : "number"
+    },
+    "rotation" : {
+      "type" : "number"
+    },
+    "sharedObjectID" : {
+      "type" : "object"
+    },
+    "sharedStyleID" : {
+      "type" : "object"
+    },
+    "shouldBreakMaskChain" : {
+      "type" : "boolean"
+    },
+    "style" : {
+      "type" : "object"
     },
     "userInfo" : {
       "type" : "object"
+    },
+    "verticalRulerData" : {
+      "$ref" : "#/definitions/RulerData"
     }
   },
-  "title" : "document",
+  "title" : "page",
   "type" : "object"
 }
