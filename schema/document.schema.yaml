@@ -1,0 +1,19 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: https://github.com/BohemianCoding/sketch-file-format#document
+title: Document
+description: The document entry in a Sketch file
+allOf:
+  - $ref: abstract-document.schema.yaml
+  - properties:
+      pages:
+        type: array
+        items:
+          type: object
+          required:
+            - _class
+            - _ref_class
+            - _ref
+          properties:
+            _class: { const: MSJSONFileReference }
+            _ref_class: { const: MSImmutablePage }
+            _ref: { $ref: utils/page-ref.schema.yaml }

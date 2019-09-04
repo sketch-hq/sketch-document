@@ -1,0 +1,8 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: https://github.com/BohemianCoding/sketch-file-format#app-store-variant
+title: App Store Variant
+description: Possible values for the app store variant
+type: string
+enum:
+  - NONAPPSTORE
+  - APPSTORE

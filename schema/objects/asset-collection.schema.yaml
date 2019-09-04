@@ -1,0 +1,13 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: https://github.com/BohemianCoding/sketch-file-format#asset-collection
+title: Asset Collection
+description: TODO
+type: object
+properties:
+  _class: { const: assetCollection }
+  imageCollection: { $ref: image-collection.schema.yaml }
+  colorAssets: { type: array } # TODO
+  gradientAssets: { type: array } # TODO
+  images: { type: array } # TODO
+  colors: { type: array } # TODO
+  gradients: { type: array } # TODO

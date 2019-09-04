@@ -1,0 +1,8 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: https://github.com/BohemianCoding/sketch-file-format#shared-text-style-container
+title: Shared Text Style Container
+description: TODO
+type: object
+properties:
+  _class: { const: sharedStyleContainer }
+  objects: { type: array } # TODO

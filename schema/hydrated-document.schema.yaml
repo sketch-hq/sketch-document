@@ -1,0 +1,15 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: https://github.com/BohemianCoding/sketch-file-format#hydrated-document
+title: Hydrated Document
+description:
+  A document object with its page ref array replaced with an array of full page
+  objects.
+allOf:
+  - $ref: abstract-document.schema.yaml
+  - type: object
+    required:
+      - pages
+    properties:
+      pages:
+        type: array
+        items: { $ref: layers/page.schema.yaml }

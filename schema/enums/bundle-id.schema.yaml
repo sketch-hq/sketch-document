@@ -1,0 +1,9 @@
+$schema: http://json-schema.org/draft-07/schema#
+$id: https://github.com/BohemianCoding/sketch-file-format#bundle-id
+title: Sketch Bundle Identifier
+description: Possible values for the Sketch bundle identifier
+type: string
+enum:
+  - com.bohemiancoding.sketch3
+  - com.bohemiancoding.sketch3.beta
+  - com.bohemiancoding.sketch3.private
