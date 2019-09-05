@@ -1,0 +1,22 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#gradient
+title: Gradient
+description: Gradient fill definition
+type: object
+required:
+  - _class
+  - gradientType
+  - elipseLength
+  - from
+  - to
+  - stops
+properties:
+  _class: { const: gradient }
+  gradientType: { $ref: ../enums/gradient-type.schema.yaml }
+  elipseLength: { type: number }
+  from: { $ref: ../utils/point.schema.yaml }
+  to: { $ref: ../utils/point.schema.yaml }
+  stops:
+    type: array
+    items: { $ref: ./gradient-stop.schema.yaml }
+    exclusiveMinimum: 0

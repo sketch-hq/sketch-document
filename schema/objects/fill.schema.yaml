@@ -1,0 +1,23 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#fill
+title: Fill
+description: Fill value
+type: object
+required:
+  - _class
+  - isEnabled
+  - color
+  - fillType
+  - noiseIndex
+  - noiseIntensity
+  - patternFillType
+  - patternTileScale
+properties:
+  _class: { const: fill }
+  isEnabled: { type: boolean }
+  color: { $ref: ./color.schema.yaml }
+  fillType: { $ref: ../enums/fill-type.schema.yaml }
+  noiseIndex: { type: number }
+  noiseIntensity: { type: number }
+  patternFillType: { $ref: ../enums/pattern-fill-type.schema.yaml }
+  patternTileScale: { type: number }

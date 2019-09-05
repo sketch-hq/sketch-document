@@ -1,0 +1,25 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#style
+title: Style
+description: A style value
+type: object
+required:
+  - _class
+  - borders
+  - fills
+  - startMarkerType
+  - endMarkerType
+  - miterLimit
+  - windingRule
+properties:
+  _class: { const: style }
+  borders:
+    type: array
+    items: { $ref: ./border.schema.yaml }
+  fills:
+    type: array
+    items: { $ref: ./fill.schema.yaml }
+  startMarkerType: { $ref: ../enums/marker-type.schema.yaml }
+  endMarkerType: { $ref: ../enums/marker-type.schema.yaml }
+  miterLimit: { type: integer }
+  windingRule: { £ref: ../enums/winding-rule.schema.yaml }

@@ -1,8 +1,12 @@
-$schema: http://json-schema.org/draft-07/schema#
-$id: https://github.com/BohemianCoding/sketch-file-format#asset-collection
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#image-collection
 title: Image Collection
+deprecated: true
 description: TODO
 type: object
+required:
+  - _class
+  - images
 properties:
   _class: { const: imageCollection }
-  images: { type: object } # TODO
+  images: { type: object }
