@@ -1,0 +1,6 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#resize-constraint
+title: Resize Constraint
+description: Enumeration of the resize constraint types
+type: integer
+# TODO Find out what these enums are

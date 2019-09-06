@@ -1,0 +1,15 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#resize-type
+title: Resize Type
+description: Enumeration of the resize types
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+  - 3
+enumDescriptions:
+  - Stretch
+  - Pin to edge
+  - Resize
+  - Float

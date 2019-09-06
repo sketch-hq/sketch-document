@@ -1,0 +1,13 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#flow-connection
+title: Flow Connection
+description: Flow connection description # TODO
+type: object
+required:
+  - _class
+  - animationType
+  - destinationArtboardID
+properties:
+  _class: { const: MSImmutableFlowConnection }
+  destinationArtboardID: { $ref: ../utils/uuid.schema.yaml }
+  animationType: { $ref: ../enums/animation-type.schema.yaml }
