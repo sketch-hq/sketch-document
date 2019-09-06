@@ -1,0 +1,18 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#font-descriptor
+title: Font Descriptor
+description: A font descriptor value
+type: object
+required:
+  - _class
+  - attributes
+properties:
+  _class: { const: fontDescriptor }
+  attributes:
+    type: object
+    required:
+      - name
+      - size
+    properties:
+      name: { type: string }
+      size: { type: number }

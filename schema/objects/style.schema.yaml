@@ -22,4 +22,11 @@ properties:
   startMarkerType: { $ref: ../enums/marker-type.schema.yaml }
   endMarkerType: { $ref: ../enums/marker-type.schema.yaml }
   miterLimit: { type: integer }
-  windingRule: { £ref: ../enums/winding-rule.schema.yaml }
+  windingRule: { $ref: ../enums/winding-rule.schema.yaml }
+  textStyle: { $ref: ./text-style.schema.yaml }
+  attributedString: { $ref: ./attributed-string.schema.yaml }
+  automaticallyDrawOnUnderlyingPath: { type: boolean }
+  dontSynchroniseWithSymbol: { type: boolean }
+  lineSpacingBehaviour: { $ref: ../enums/line-spacing-behaviour.schema.yaml }
+  textBehaviour: { $ref: ../enums/text-behaviour.schema.yaml }
+  glyphBounds: { $ref: ../utils/point-list-string.schema.yaml }

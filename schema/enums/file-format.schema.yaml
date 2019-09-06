@@ -1,0 +1,21 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#file-format
+title: File Format
+description: Enumeration of file formats used for layer exports
+type: string
+enum:
+  - png
+  - jpg
+  - tiff
+  - eps
+  - pdf
+  - webp
+  - svg
+enumDescriptions:
+  - PNG
+  - JPG
+  - TIFF
+  - EPS
+  - PDF
+  - WEBP
+  - SVG

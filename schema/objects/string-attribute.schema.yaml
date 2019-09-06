@@ -1,0 +1,15 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#string-attribute
+title: String Attribute
+description: String attribute description # TODO
+type: object
+required:
+  - _class
+  - location
+  - length
+  - attributes
+properties:
+  _class: { const: stringAttribute }
+  location: { type: integer }
+  length: { type: integer }
+  attributes: { $ref: ./text-encoded-attributes.schema.yaml }

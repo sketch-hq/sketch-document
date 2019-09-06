@@ -3,11 +3,11 @@ $id: https://github.com/BohemianCoding/sketch-file-format#
 title: File Format
 description:
   This schema describes a representation of a hydrated Sketch file, that is, a
-  Sketch file that has been unzipped, each of its entries parsed to JSON and
+  Sketch file that has been unzipped, all of its entries parsed to JSON and
   merged into a single object
 type: object
 properties:
   document:
-    $ref: hydrated-document.schema.yaml
+    $ref: ./hydrated-document.schema.yaml
   meta:
-    $ref: meta.schema.yaml
+    $ref: ./meta.schema.yaml

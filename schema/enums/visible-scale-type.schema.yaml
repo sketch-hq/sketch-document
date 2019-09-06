@@ -1,0 +1,13 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#visible-scale-type
+title: Visible Scale Type
+description: Enumeration of visible scale types
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+enumDescriptions:
+  - Scale
+  - Width
+  - Height

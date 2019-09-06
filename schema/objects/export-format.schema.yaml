@@ -1,0 +1,21 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#export-format
+title: Export Format
+description: Export format value.
+type: object
+required:
+  - _class
+  - absoluteSize
+  - fileFormat
+  - name
+  - namingScheme
+  - scale
+  - visibleScaleType
+properties:
+  _class: { const: exportFormat }
+  absoluteSize: { type: integer }
+  fileFormat: { $ref: ../enums/file-format.schema.yaml }
+  name: { type: string }
+  namingScheme: { type: integer } # TODO What is this really? An enum?
+  scale: { type: number }
+  visibleScaleType: { $ref: ../emums/visible-scale-type.yaml }

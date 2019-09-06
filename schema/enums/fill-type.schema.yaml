@@ -9,5 +9,5 @@ enum:
   - 2
 enumDescriptions:
   - Color
-  - Gardient
+  - Gradient
   - Pattern

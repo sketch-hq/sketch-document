@@ -1,0 +1,17 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#paragraph-style
+title: Paragraph Style
+description: Paragraphy style value
+type: object
+required:
+  - _class
+  - alignment
+  - maximumLineHeight
+  - minimumLineHeight
+  - paragraphSpacing
+properties:
+  _class: { const: paragraphStyle }
+  alignment: { $ref: ../enums/text-horizontal-alignment.schema.yaml }
+  maximumLineHeight: { type: number }
+  minimumLineHeight: { type: number }
+  paragraphSpacing: { type: number }

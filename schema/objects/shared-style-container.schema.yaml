@@ -5,4 +5,6 @@ description: TODO
 type: object
 properties:
   _class: { const: sharedStyleContainer }
-  objects: { type: array } # TODO
+  objects:
+    type: array
+    items: { $ref: ./shared-style.schema.yaml }

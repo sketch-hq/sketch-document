@@ -1,0 +1,13 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#text-style
+title: Text Style
+description: A text style value
+type: object
+required:
+  - _class
+  - encodedAttributes
+  - verticalAlignment
+properties:
+  _class: { const: textStyle }
+  verticalAlignment: { $ref: ../enums/text-vertical-alignment.schema.yaml }
+  encodedAttributes: { $ref: ./text-encoded-attributes.schema.yaml }

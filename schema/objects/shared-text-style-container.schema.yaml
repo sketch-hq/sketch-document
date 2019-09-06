@@ -5,4 +5,4 @@ description: TODO
 type: object
 properties:
   _class: { const: sharedStyleContainer }
-  objects: { type: array } # TODO
+  objects: { type: array } # TODO What is this?

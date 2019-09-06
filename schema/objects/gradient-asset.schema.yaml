@@ -1,7 +1,7 @@
 $schema: http://json-schema.org/draft-07/schema
 $id: https://github.com/BohemianCoding/sketch-file-format#gradient-asset
 title: Gradient Asset
-description: Stores a gradient
+description: Stores a named gradient
 type: object
 required:
   - _class

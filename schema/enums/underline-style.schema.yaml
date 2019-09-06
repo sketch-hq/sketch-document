@@ -1,0 +1,11 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#underline-style
+title: Underline Style
+description: Enumeration of underline styles
+type: integer
+enum:
+  - 0
+  - 1
+enumDescriptions:
+  - Strike-through
+  - Underlined

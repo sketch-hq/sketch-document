@@ -9,7 +9,8 @@ required:
   - gradientAssets
   - colors
   - images
-  # - imageCollection (deprecated)
+  # - imageCollection
+  # TODO Can image-collection be removed? Code comments in Sketch suggest its no longer in use
 properties:
   _class: { const: assetCollection }
   imageCollection: { $ref: ./image-collection.schema.yaml }

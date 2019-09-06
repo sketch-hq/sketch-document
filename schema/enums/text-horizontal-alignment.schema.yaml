@@ -1,0 +1,17 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#text-horizontal-alignment
+title: Text Horizontal Alignment
+description: Enumeration of horizontal text alignment types
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+enumDescriptions:
+  - Left
+  - Right
+  - Centered
+  - Justified
+  - Natural

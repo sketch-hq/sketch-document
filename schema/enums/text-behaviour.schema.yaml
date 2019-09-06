@@ -1,0 +1,11 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#text-behaviour
+title: Text Behaviour
+description: Enumeration of text behaviour types
+type: integer
+enum:
+  - 0
+  - 1
+enumDescriptions:
+  - Flexible
+  - Fixed
