@@ -1,0 +1,21 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#border
+title: Border
+description: Border value
+type: object
+required:
+  - _class
+  - isEnabled
+  - color
+  - fillType
+  - position
+  - thickness
+properties:
+  _class: { const: border }
+  isEnabled: { type: boolean }
+  color: { $ref: ./color.schema.yaml }
+  fillType: { $ref: ../enums/fill-type.schema.yaml }
+  position: { $ref: ../enums/border-position.schema.yaml }
+  thickness:
+    type: number
+    exclusiveMinimum: 0

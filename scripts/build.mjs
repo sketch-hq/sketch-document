@@ -1,11 +1,13 @@
 /**
- * Builds a distributable schema into the dist folder.
+ * Builds distributable schema into the dist folder.
  */
 
 import refParser from 'json-schema-ref-parser'
 import { writeFileSync } from 'fs'
 import { execSync } from 'child_process'
 
+// TODO: Build more distributable schema than just file-format, e.g. one for
+// document, meta, user, page etc
 refParser.dereference('schema/file-format.schema.yaml', (err, schema) => {
   if (err) {
     console.error(err.message)

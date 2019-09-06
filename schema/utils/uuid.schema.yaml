@@ -1,4 +1,4 @@
-$schema: http://json-schema.org/draft-07/schema#
+$schema: http://json-schema.org/draft-07/schema
 $id: https://github.com/BohemianCoding/sketch-file-format#uuid
 title: UUID
 description: An UUID string

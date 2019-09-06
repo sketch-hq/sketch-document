@@ -1,0 +1,15 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#shared-style
+title: Shared Style
+description: A shared style value
+type: object
+required:
+  - _class
+  - do_objectID
+  - name
+  - value
+properties:
+  _class: { const: sharedStyle }
+  do_objectID: { $ref: ../utils/uuid.schema.yaml }
+  name: { type: string }
+  value: { $ref: ./style.schema.yaml }

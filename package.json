@@ -2,7 +2,7 @@
   "name": "sketch-file-format",
   "version": "0.1.0-alpha.1",
   "license": "UNLICENSED",
-  "main": "dist/sketch-file-format.schema.json",
+  "main": "index.js",
   "devDependencies": {
     "ajv": "6.10.2",
     "chalk": "2.4.2",

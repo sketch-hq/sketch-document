@@ -1,6 +1,0 @@
-$schema: http://json-schema.org/draft-07/schema#
-$id: https://github.com/BohemianCoding/sketch-file-format#page-ref
-title: Page Ref
-description: A page reference
-type: string
-pattern: '^pages/[0-9A-F]{8}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{12}$'
