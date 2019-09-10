@@ -1,6 +1,6 @@
 $schema: http://json-schema.org/draft-07/schema
-$id: https://github.com/BohemianCoding/sketch-file-format#page
-title: Page
+$id: https://github.com/BohemianCoding/sketch-file-format#artboard
+title: Artboard
 description: TODO
 allOf:
   - $ref: ./abstract-group.schema.yaml
@@ -8,13 +8,21 @@ allOf:
     required:
       - _class
       - includeInCloudUpload
+      - backgroundColor
+      - hasBackgroundColor
+      - isFlowHome
+      - resizesContent
     properties:
-      _class: { const: page }
+      _class: { const: artboard }
       includeInCloudUpload:
         type: boolean
         description: TODO
-        default: true
       horizontalRulerData: { $ref: ../objects/ruler-data.schema.yaml }
       verticalRulerData: { $ref: ../objects/ruler-data.schema.yaml }
       layout: { $ref: ../objects/layout-grid.schema.yaml }
       grid: { $ref: ../objects/simple-grid.schema.yaml }
+      backgroundColor: { $ref: ../objects/color.schema.yaml }
+      hasBackgroundColor: { type: boolean }
+      isFlowHome: { type: boolean }
+      resizesContent: { type: boolean }
+      presetDictionary: { $ref: ../objects/artboard-preset.schema.yaml }

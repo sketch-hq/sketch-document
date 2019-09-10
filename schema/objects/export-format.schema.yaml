@@ -18,4 +18,4 @@ properties:
   name: { type: string }
   namingScheme: { type: integer } # TODO What is this really? An enum?
   scale: { type: number }
-  visibleScaleType: { $ref: ../emums/visible-scale-type.yaml }
+  visibleScaleType: { $ref: ../enums/visible-scale-type.schema.yaml }

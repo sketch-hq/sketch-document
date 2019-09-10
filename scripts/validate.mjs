@@ -6,13 +6,14 @@
 
 import refParser from 'json-schema-ref-parser'
 import Ajv from 'ajv'
+import flatted from 'flatted'
 
 const ajv = new Ajv({
   extendRefs: 'fail',
   strictKeywords: true,
 })
 
-refParser.dereference('schema/file-format.schema.yaml', (err, schema) => {
+refParser.bundle('schema/file-format.schema.yaml', (err, schema) => {
   if (err) {
     console.error(err.message)
     process.exit(1)

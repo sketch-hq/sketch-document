@@ -1,8 +1,7 @@
 $schema: http://json-schema.org/draft-07/schema
 $id: https://github.com/BohemianCoding/sketch-file-format#abstract-layer
 title: Abstract Layer
-description:
-  Abstract base schema containing all properties common to all layer types.
+description: Abstract base schema containing all properties common to layers.
 type: object
 required:
   - do_objectID
@@ -27,9 +26,9 @@ required:
 properties:
   do_objectID: { $ref: ../utils/uuid.schema.yaml }
   booleanOperation: { $ref: ../enums/boolean-operation.schema.yaml }
-  exportOptions: { $ref: ./export-options.schema.yaml }
-  frame: { $ref: ./rect.schema.yaml }
-  flow: { $ref: ./flow-connection.schema.yaml }
+  exportOptions: { $ref: ../objects/export-options.schema.yaml }
+  frame: { $ref: ../objects/rect.schema.yaml }
+  flow: { $ref: ../objects/flow-connection.schema.yaml }
   isFixedToViewport: { type: boolean }
   isFlippedHorizontal: { type: boolean }
   isFlippedVertical: { type: boolean }

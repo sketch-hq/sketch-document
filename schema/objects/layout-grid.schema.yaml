@@ -1,0 +1,69 @@
+$schema: http://json-schema.org/draft-07/schema
+$id: https://github.com/BohemianCoding/sketch-file-format#layout-grid
+title: Layout Grid
+description: TODO
+type: object
+required:
+  - _class
+  - isEnabled
+  - columnWidth
+  - gutterHeight
+  - gutterWidth
+  - horizontalOffset
+  - numberOfColumns
+  - rowHeightMultiplication
+  - totalWidth
+  - guttersOutside
+  - drawHorizontal
+  - drawHorizontalLines
+  - drawVertical
+properties:
+  _class: { const: layoutGrid }
+  isEnabled:
+    type: boolean
+    description: TODO
+    default: true
+  columnWidth:
+    type: integer
+    description: TODO
+    default: 0
+  gutterHeight:
+    type: integer
+    description: TODO
+    default: 0
+  gutterWidth:
+    type: integer
+    description: TODO
+    default: 0
+  horizontalOffset:
+    type: integer
+    description: TODO
+    default: 0
+  numberOfColumns:
+    type: integer
+    description: TODO
+    default: 0
+  rowHeightMultiplication:
+    type: integer
+    description: TODO
+    default: 0
+  totalWidth:
+    type: integer
+    description: TODO
+    default: 0
+  guttersOutside:
+    type: boolean
+    description: TODO
+    default: true
+  drawHorizontal:
+    type: boolean
+    description: TODO
+    default: false
+  drawHorizontalLines:
+    type: boolean
+    description: TODO
+    default: false
+  drawVertical:
+    type: boolean
+    description: TODO
+    default: false

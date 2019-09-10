@@ -8,6 +8,9 @@ import { execSync } from 'child_process'
 
 // TODO: Build more distributable schema than just file-format, e.g. one for
 // document, meta, user, page etc
+
+// TODO: Probably need a custom build dereference/build process to handle
+// circular refs
 refParser.dereference('schema/file-format.schema.yaml', (err, schema) => {
   if (err) {
     console.error(err.message)

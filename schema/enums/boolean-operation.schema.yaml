@@ -3,14 +3,14 @@ $id: https://github.com/BohemianCoding/sketch-file-format#boolean-operation
 title: Boolean Operation
 description: Enumeration of boolean operation types
 type: integer
-# TODO Check these values
 enum:
-  - -1
+  - -1 # TODO Check these values, especially this -1 value
   - 0
   - 1
   - 2
   - 3
 enumDescriptions:
+  - N/A
   - None
   - Union
   - Subtract
