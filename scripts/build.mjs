@@ -1,29 +1,31 @@
-/**
- * Builds distributable schema into the dist folder.
- */
-
-import refParser from 'json-schema-ref-parser'
 import { writeFileSync } from 'fs'
 import { execSync } from 'child_process'
+import { assemble } from './assemble.mjs'
+import { basename } from 'path'
 
-// TODO: Build more distributable schema than just file-format, e.g. one for
-// document, meta, user, page etc
+const build = async entry => {
+  const schema = await assemble(entry)
+  writeFileSync(
+    `dist/${basename(entry, '.yaml')}.json`,
+    JSON.stringify(schema, null, 2),
+    { encoding: 'utf8' },
+  )
+}
 
-// TODO: Probably need a custom build dereference/build process to handle
-// circular refs
-refParser.dereference('schema/file-format.schema.yaml', (err, schema) => {
-  if (err) {
-    console.error(err.message)
-    process.exit(1)
-  }
+;(async () => {
+  const keepAlive = setTimeout(() => {}, Infinity)
   execSync('rm -rf dist')
   execSync('mkdir -p dist')
-  writeFileSync(
-    'dist/file-format.schema.json',
-    JSON.stringify(schema, null, 2),
-    {
-      encoding: 'utf8',
-    },
-  )
-  process.exit(0)
-})
+  try {
+    await Promise.all([
+      build('schema/file-format.schema.yaml'),
+      build('schema/document.schema.yaml'),
+      build('schema/meta.schema.yaml'),
+      // build('schema/user.schema.yaml'),
+    ])
+  } catch (e) {
+    console.error(e)
+    process.exit(1)
+  }
+  clearTimeout(keepAlive)
+})()

@@ -1,5 +1,3 @@
-$schema: http://json-schema.org/draft-07/schema
-$id: https://github.com/BohemianCoding/sketch-file-format#abstract-group
 title: Abstract Group
 description: Abstract base schema containing all properties common to groups.
 type: object
@@ -20,7 +18,7 @@ allOf:
       layers:
         description: TODO
         type: array
-        items: { type: object }
-# oneOf: # TODO: Enumerate all layers and groups here
-#   - { $ref: ./artboard.schema.yaml }
-#   - { $ref: ./group.schema.yaml }
+        items:
+          oneOf:
+            - { $ref: ./artboard.schema.yaml }
+            - { $ref: ./group.schema.yaml }

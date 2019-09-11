@@ -1,5 +1,3 @@
-$schema: http://json-schema.org/draft-07/schema
-$id: https://github.com/BohemianCoding/sketch-file-format#flow-connection
 title: Flow Connection
 description: Flow connection description # TODO
 type: object

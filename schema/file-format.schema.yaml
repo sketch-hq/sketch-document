@@ -1,5 +1,3 @@
-$schema: http://json-schema.org/draft-07/schema
-$id: https://github.com/BohemianCoding/sketch-file-format#
 title: File Format
 description:
   This schema describes a representation of a hydrated Sketch file, that is, a
@@ -11,3 +9,4 @@ properties:
     $ref: ./hydrated-document.schema.yaml
   meta:
     $ref: ./meta.schema.yaml
+  # TODO: Add user schema

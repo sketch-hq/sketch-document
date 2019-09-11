@@ -1,5 +1,3 @@
-$schema: http://json-schema.org/draft-07/schema
-$id: https://github.com/BohemianCoding/sketch-file-format#fill
 title: Fill
 description: Fill value
 type: object

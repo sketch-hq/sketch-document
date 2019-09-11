@@ -1,5 +1,3 @@
-$schema: http://json-schema.org/draft-07/schema
-$id: https://github.com/BohemianCoding/sketch-file-format#abstract-layer
 title: Abstract Layer
 description: Abstract base schema containing all properties common to layers.
 type: object
