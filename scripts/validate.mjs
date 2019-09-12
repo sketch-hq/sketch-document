@@ -1,9 +1,14 @@
+/**
+ * Validate the distributed schemas against the meta-schema. This ensures the
+ * schema structure and keywords are valid according to the JSON Schema spec.
+ */
+
 import Ajv from 'ajv'
 import { assemble } from './assemble.mjs'
 
 const ajv = new Ajv({
   extendRefs: 'fail',
-  strictKeywords: true,
+  verbose: true,
 })
 
 const validate = async entry => {
@@ -21,7 +26,6 @@ const validate = async entry => {
       validate('schema/file-format.schema.yaml'),
       validate('schema/document.schema.yaml'),
       validate('schema/meta.schema.yaml'),
-      // validate('schema/user.schema.yaml'),
     ])
   } catch (e) {
     console.error(e)

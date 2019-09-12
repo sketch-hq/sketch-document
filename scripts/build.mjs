@@ -1,3 +1,7 @@
+/**
+ * Build all distributable schemas into the `dist` folder.
+ */
+
 import { writeFileSync } from 'fs'
 import { execSync } from 'child_process'
 import { assemble } from './assemble.mjs'
@@ -21,7 +25,6 @@ const build = async entry => {
       build('schema/file-format.schema.yaml'),
       build('schema/document.schema.yaml'),
       build('schema/meta.schema.yaml'),
-      // build('schema/user.schema.yaml'),
     ])
   } catch (e) {
     console.error(e)

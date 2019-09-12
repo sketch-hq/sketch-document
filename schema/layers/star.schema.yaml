@@ -1,0 +1,21 @@
+title: Star
+description: TODO
+type: object
+allOf:
+  - $ref: ./abstract-layer.schema.yaml
+  - type: object
+    required:
+      - _class
+      - edited
+      - isClosed
+      - pointRadiusBehaviour
+    properties:
+      _class: { const: star }
+      edited: { type: boolean }
+      isClosed: { type: boolean }
+      pointRadiusBehaviour:
+        { $ref: ../enums/points-radius-behaviour.schema.yaml }
+      points:
+        type: array
+        items: { $ref: ../objects/curve-point.schema.yaml }
+# TODO: Abstract shape layer

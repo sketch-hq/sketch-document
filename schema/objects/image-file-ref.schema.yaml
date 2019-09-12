@@ -1,5 +1,5 @@
 title: Image File Ref
-description: An image file reference
+description: TODO
 type: object
 required:
   - _class

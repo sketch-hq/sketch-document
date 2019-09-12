@@ -1,5 +1,5 @@
 title: Text Behaviour
-description: Enumeration of text behaviour types
+description: TODO
 type: integer
 enum:
   - 0

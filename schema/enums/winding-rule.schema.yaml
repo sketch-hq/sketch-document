@@ -1,5 +1,5 @@
 title: Winding Rule
-description: Enumeration of winding rules
+description: TODO
 type: integer
 enum:
   - 0

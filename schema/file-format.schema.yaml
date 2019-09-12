@@ -1,12 +1,21 @@
 title: File Format
 description:
-  This schema describes a representation of a hydrated Sketch file, that is, a
+  This schema describes a representation of an expanded Sketch file, that is, a
   Sketch file that has been unzipped, all of its entries parsed to JSON and
-  merged into a single object
+  merged into a single object. A concrete example of an expanded sketch file is
+  the return value of the `fromFile` function
 type: object
 properties:
   document:
-    $ref: ./hydrated-document.schema.yaml
+    allOf:
+      - $ref: ./abstract-document.schema.yaml
+      - type: object
+        required:
+          - pages
+        properties:
+          pages:
+            type: array
+            items: { $ref: ./layers/page.schema.yaml }
   meta:
     $ref: ./meta.schema.yaml
   # TODO: Add user schema

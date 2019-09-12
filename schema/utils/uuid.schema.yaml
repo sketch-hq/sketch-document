@@ -1,4 +1,4 @@
 title: UUID
-description: An UUID string
+description: UUID string.
 type: string
 pattern: '^[0-9A-F]{8}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{12}$'

@@ -1,7 +1,5 @@
-
-
 title: Foreign Text Style
-description: Foreign text style description # TODO
+description: TODO
 type: object
 required:
   - _class

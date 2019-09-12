@@ -1,5 +1,5 @@
 title: String Attribute
-description: String attribute description # TODO
+description: TODO
 type: object
 required:
   - _class

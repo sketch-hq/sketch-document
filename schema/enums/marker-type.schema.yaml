@@ -1,5 +1,5 @@
 title: Marker Type
-description: Enumeration of marker types
+description: TODO
 type: integer
 enum:
   - 0

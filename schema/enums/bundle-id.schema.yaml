@@ -1,5 +1,5 @@
 title: Sketch Bundle Identifier
-description: Enumeration of Sketch bundle identifiers
+description: TODO
 type: string
 enum:
   - com.bohemiancoding.sketch3

@@ -1,5 +1,5 @@
 title: App Store Variant
-description: Enumeration of app store variants
+description: TODO
 type: string
 enum:
   - NONAPPSTORE

@@ -1,0 +1,15 @@
+title: Curve Mode
+description: TODO
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+enumDescriptions:
+  - None
+  - Straight
+  - Mirrored
+  - Asymmetric
+  - Disconnected

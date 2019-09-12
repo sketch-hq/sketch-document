@@ -1,5 +1,5 @@
 title: Text Transform
-description: Enumeration of text transform types
+description: TODO
 type: integer
 enum:
   - 0

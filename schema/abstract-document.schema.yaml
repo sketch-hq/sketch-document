@@ -1,7 +1,6 @@
-title: Abstract Document
-description: A document object without a pages property
 type: object
 required:
+  - _class
   - do_objectID
   - assets
   - colorSpace
@@ -13,6 +12,7 @@ required:
   - layerSymbols
   - layerTextStyles
 properties:
+  _class: { const: document }
   do_objectID: { $ref: ./utils/uuid.schema.yaml }
   assets: { $ref: ./objects/asset-collection.schema.yaml }
   colorSpace: { $ref: ./enums/color-space.schema.yaml }

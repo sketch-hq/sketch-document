@@ -1,3 +1,7 @@
+/**
+ * Validate the schemas whenever files are edited.
+ */
+
 import fs from 'fs'
 import { execSync } from 'child_process'
 import chalk from 'chalk'
@@ -18,4 +22,5 @@ const validate = () => {
 }
 
 validate()
+
 fs.watch('./schema', { recursive: true }, () => validate())

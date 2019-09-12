@@ -1,5 +1,5 @@
 title: Underline Style
-description: Enumeration of underline styles
+description: TODO
 type: integer
 enum:
   - 0

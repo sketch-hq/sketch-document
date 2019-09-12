@@ -1,5 +1,5 @@
 title: Resize Type
-description: Enumeration of the resize types
+description: TODO
 type: integer
 enum:
   - 0

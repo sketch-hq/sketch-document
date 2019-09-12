@@ -1,5 +1,5 @@
 title: Line Spacing Behaviour
-description: Enumeration of line spacing behaviour types
+description: TODO
 type: integer
 enum:
   - 0

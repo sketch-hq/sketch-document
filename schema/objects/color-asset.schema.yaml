@@ -1,7 +1,5 @@
-
-
 title: Color Asset
-description: Stores a color alongside a name.
+description: TODO
 type: object
 required:
   - _class

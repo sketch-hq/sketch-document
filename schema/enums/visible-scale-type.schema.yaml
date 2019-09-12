@@ -1,5 +1,5 @@
 title: Visible Scale Type
-description: Enumeration of visible scale types
+description: TODO
 type: integer
 enum:
   - 0

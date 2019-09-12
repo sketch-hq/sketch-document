@@ -1,5 +1,5 @@
 title: Color
-description: Color value encoded as alpha, red, green and blue components.
+description: TODO
 type: object
 required:
   - _class

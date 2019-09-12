@@ -1,5 +1,5 @@
 title: Text Horizontal Alignment
-description: Enumeration of horizontal text alignment types
+description: TODO
 type: integer
 enum:
   - 0

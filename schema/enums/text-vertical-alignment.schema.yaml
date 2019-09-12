@@ -1,5 +1,5 @@
 title: Text Vertical Alignment
-description: Enumeration of vertical text alignment types
+description: TODO
 type: integer
 enum:
   - 0

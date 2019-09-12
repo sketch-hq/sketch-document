@@ -1,5 +1,5 @@
 title: Boolean Operation
-description: Enumeration of boolean operation types
+description: TODO
 type: integer
 enum:
   - -1 # TODO Check these values, especially this -1 value

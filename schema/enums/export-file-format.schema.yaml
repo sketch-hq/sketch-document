@@ -1,5 +1,5 @@
 title: Export File Format
-description: Enumeration of the formats used for layer exports
+description: TODO
 type: string
 enum:
   - png

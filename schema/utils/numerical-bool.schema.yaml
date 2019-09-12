@@ -1,5 +1,5 @@
 title: Numerical Boolean
-description: A numerical boolean where 0 is false, and 1 is true
+description: A numerical boolean where 0 is false, and 1 is true.
 type: integer
 enum:
   - 0

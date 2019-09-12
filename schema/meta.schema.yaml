@@ -23,7 +23,7 @@ properties:
     type: object
     propertyNames: { $ref: ./utils/uuid.schema.yaml }
     patternProperties:
-      '^.*$':
+      ^.*$:
         type: object
         properties:
           name: { type: string }
@@ -31,7 +31,7 @@ properties:
             type: object
             propertyNames: { $ref: ./utils/uuid.schema.yaml }
             patternProperties:
-              '^.*$':
+              ^.*$:
                 type: object
                 properties:
                   name: { type: string }

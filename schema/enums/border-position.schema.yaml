@@ -1,5 +1,5 @@
 title: Border Position
-description: Enumeration of border positions
+description: TODO
 type: integer
 enum:
   - 0

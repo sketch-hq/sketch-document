@@ -1,5 +1,5 @@
 title: Color Space
-description: Enumeration of color space values
+description: TODO
 type: integer
 enum:
   - 0

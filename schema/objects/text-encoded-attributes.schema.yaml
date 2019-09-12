@@ -1,5 +1,5 @@
 title: Text Encoded Attributes
-description: Text encoded attributes description # TODO
+description: TODO
 type: object
 required:
   - paragraphStyle
