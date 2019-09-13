@@ -1,0 +1,11 @@
+title: Shape Group Layer
+description: TODO
+allOf:
+  - $ref: ./abstract-group.schema.yaml
+  - type: object
+    required:
+      - _class
+      - windingRule
+    properties:
+      _class: { const: shapeGroup }
+      windingRule: { $ref: ../enums/winding-rule.schema.yaml }

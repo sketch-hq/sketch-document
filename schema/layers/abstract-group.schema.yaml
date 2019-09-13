@@ -1,3 +1,4 @@
+title: Abstract Group
 type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml
@@ -26,3 +27,7 @@ allOf:
             - { $ref: ./shape-path.schema.yaml }
             - { $ref: ./star.schema.yaml }
             - { $ref: ./triangle.schema.yaml }
+            - { $ref: ./shape-group.schema.yaml }
+            - { $ref: ./text.schema.yaml }
+            - { $ref: ./symbol-master.schema.yaml }
+            - { $ref: ./symbol-instance.schema.yaml }

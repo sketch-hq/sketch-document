@@ -1,4 +1,4 @@
-title: Group
+title: Group Layer
 description: TODO
 allOf:
   - $ref: ./abstract-group.schema.yaml

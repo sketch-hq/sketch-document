@@ -1,0 +1,20 @@
+title: Symbol Instance Layer
+description: TODO
+type: object
+allOf:
+  - $ref: ./abstract-layer.schema.yaml
+  - type: object
+    required:
+      - _class
+      - overrideValues
+      - scale
+      - symbolID
+      - verticalSpacing
+    properties:
+      _class: { const: symbolInstance }
+      overrideValues:
+        type: array
+        items: { $ref: ../objects/override-value.schema.yaml }
+      scale: { type: number }
+      symbolID: { $ref: ../utils/uuid.schema.yaml }
+      verticalSpacing: { type: number } # TODO: Confirm this is just a value and not an enum
