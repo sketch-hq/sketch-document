@@ -33,3 +33,4 @@ allOf:
             - { $ref: ./symbol-instance.schema.yaml }
             - { $ref: ./slice.schema.yaml }
             - { $ref: ./hotspot.schema.yaml }
+            - { $ref: ./bitmap.schema.yaml }
