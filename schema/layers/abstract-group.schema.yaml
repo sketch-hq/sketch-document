@@ -31,3 +31,5 @@ allOf:
             - { $ref: ./text.schema.yaml }
             - { $ref: ./symbol-master.schema.yaml }
             - { $ref: ./symbol-instance.schema.yaml }
+            - { $ref: ./slice.schema.yaml }
+            - { $ref: ./hotspot.schema.yaml }
