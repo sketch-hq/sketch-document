@@ -138,15 +138,13 @@ const assemble = async entry => {
     })
   }
 
-  // Convert all $refs from file refs to internal $id definition refs.
-  output = _.mapDeep(output, (v, k) => {
-    if (k === '$ref') {
-      return `#${pathToId(v)}`
-    }
-    return v
-  })
+  // Convert all $refs from file refs to internal $id refs.
+  // From: { $ref: '../enums/fill-type.schema.yaml' }
+  // To: { $ref: '#FillType' }
+  output = _.mapDeep(output, (v, k) => (k === '$ref' ? `#${pathToId(v)}` : v))
 
-  // Convert allOf arrays to single unions
+  // Convert `allOf` to single schemas, the union of all schemes referenced in
+  // the array
   mergeAllOf(output)
 
   // Prune unused definitions

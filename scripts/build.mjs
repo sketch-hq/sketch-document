@@ -25,6 +25,7 @@ const build = async entry => {
       build('schema/file-format.schema.yaml'),
       build('schema/document.schema.yaml'),
       build('schema/meta.schema.yaml'),
+      build('schema/layers/page.schema.yaml'),
     ])
   } catch (e) {
     console.error(e)

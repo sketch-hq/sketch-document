@@ -1,4 +1,4 @@
-title: Shape Path
+title: Oval
 description: TODO
 type: object
 allOf:
@@ -7,4 +7,4 @@ allOf:
     required:
       - _class
     properties:
-      _class: { const: shapePath }
+      _class: { const: oval }

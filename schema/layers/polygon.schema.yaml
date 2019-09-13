@@ -1,4 +1,4 @@
-title: Shape Path
+title: Polygon
 description: TODO
 type: object
 allOf:
@@ -6,5 +6,7 @@ allOf:
   - type: object
     required:
       - _class
+      - numberOfPoints
     properties:
-      _class: { const: shapePath }
+      _class: { const: polygon }
+      numberOfPoints: { type: integer }

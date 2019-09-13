@@ -20,3 +20,9 @@ allOf:
           oneOf:
             - { $ref: ./artboard.schema.yaml }
             - { $ref: ./group.schema.yaml }
+            - { $ref: ./oval.schema.yaml }
+            - { $ref: ./polygon.schema.yaml }
+            - { $ref: ./rectangle.schema.yaml }
+            - { $ref: ./shape-path.schema.yaml }
+            - { $ref: ./star.schema.yaml }
+            - { $ref: ./triangle.schema.yaml }
