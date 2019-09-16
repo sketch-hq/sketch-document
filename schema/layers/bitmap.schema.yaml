@@ -9,8 +9,10 @@ allOf:
       - fillReplacesImage
       - image
       - intendedDPI
+      - clippingMask
     properties:
       _class: { const: bitmap }
       fillReplacesImage: { type: boolean }
       image: { $ref: ../objects/image-file-ref.schema.yaml }
       intendedDPI: { type: integer }
+      clippingMask: { $ref: ../utils/point-list-string.schema.yaml }

@@ -3,8 +3,6 @@ description: TODO
 type: object
 required:
   - _class
-  - borders
-  - fills
   - startMarkerType
   - endMarkerType
   - miterLimit
@@ -22,3 +20,7 @@ properties:
   miterLimit: { type: integer }
   windingRule: { $ref: ../enums/winding-rule.schema.yaml }
   textStyle: { $ref: ./text-style.schema.yaml }
+  shadows:
+    type: array
+    items: { $ref: ./shadow.schema.yaml }
+  contextSettings: { $ref: ./graphics-context-settings.schema.yaml }

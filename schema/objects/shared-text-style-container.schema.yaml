@@ -2,5 +2,5 @@ title: Shared Text Style Container
 description: TODO
 type: object
 properties:
-  _class: { const: sharedStyleContainer }
+  _class: { const: sharedTextStyleContainer }
   objects: { type: array } # TODO What is this?

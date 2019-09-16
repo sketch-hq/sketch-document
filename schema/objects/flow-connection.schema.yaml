@@ -7,5 +7,8 @@ required:
   - destinationArtboardID
 properties:
   _class: { const: MSImmutableFlowConnection }
-  destinationArtboardID: { $ref: ../utils/uuid.schema.yaml }
+  destinationArtboardID:
+    oneOf:
+      - { $ref: ../utils/uuid.schema.yaml }
+      - { const: back }
   animationType: { $ref: ../enums/animation-type.schema.yaml }

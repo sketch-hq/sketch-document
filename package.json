@@ -20,6 +20,7 @@
     "build": "node --experimental-modules --no-warnings scripts/build.mjs",
     "watch": "node --experimental-modules --no-warnings scripts/watch.mjs",
     "assemble": "node --experimental-modules --no-warnings scripts/assemble.mjs",
+    "integration-test": "node --experimental-modules --no-warnings scripts/integration-test.mjs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format-check": "prettier --check **/*.{mjs,md,yaml,json}"
   },

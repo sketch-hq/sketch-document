@@ -1,0 +1,11 @@
+title: Graphics Context Settings
+description: TODO
+type: object
+required:
+  - _class
+  - blendMode
+  - opacity
+properties:
+  _class: { const: graphicsContextSettings }
+  blendMode: { $ref: ../enums/blend-mode.schema.yaml }
+  opacity: { type: number }

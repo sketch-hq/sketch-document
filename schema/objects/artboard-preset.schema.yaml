@@ -4,295 +4,337 @@ type: object
 oneOf:
   - type: object
     description: TODO
-    allowResizedMatching: { $ref: ../utils/numerical-bool.schema.yaml }
-    offersLandscapeVariant: { $ref: ../utils/numerical-bool.schema.yaml }
-    width: { type: integer }
-    height: { type: integer }
-    name: { type: string }
+    properties:
+      allowResizedMatching: { $ref: ../utils/numerical-bool.schema.yaml }
+      offersLandscapeVariant: { $ref: ../utils/numerical-bool.schema.yaml }
+      width: { type: integer }
+      height: { type: integer }
+      name: { type: string }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 1 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 375 }
-    height: { const: 667 }
-    name: { const: iPhone 8 }
+    properties:
+      allowResizedMatching: { const: 1 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 375 }
+      height: { const: 667 }
+      name: { const: iPhone 8 }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 1 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 414 }
-    height: { const: 736 }
-    name: { const: iPhone 8 Plus }
+    properties:
+      allowResizedMatching: { const: 1 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 414 }
+      height: { const: 736 }
+      name: { const: iPhone 8 Plus }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 1 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 320 }
-    height: { const: 568 }
-    name: { const: iPhone SE }
+    properties:
+      allowResizedMatching: { const: 1 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 320 }
+      height: { const: 568 }
+      name: { const: iPhone SE }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 1 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 375 }
-    height: { const: 812 }
-    name: { const: iPhone XS }
+    properties:
+      allowResizedMatching: { const: 1 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 375 }
+      height: { const: 812 }
+      name: { const: iPhone XS }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 1 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 414 }
-    height: { const: 896 }
-    name: { const: iPhone XR }
+    properties:
+      allowResizedMatching: { const: 1 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 414 }
+      height: { const: 896 }
+      name: { const: iPhone XR }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 1 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 414 }
-    height: { const: 896 }
-    name: { const: iPhone XS Max }
+    properties:
+      allowResizedMatching: { const: 1 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 414 }
+      height: { const: 896 }
+      name: { const: iPhone XS Max }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 768 }
-    height: { const: 1024 }
-    name: { const: 7.9” iPad mini }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 768 }
+      height: { const: 1024 }
+      name: { const: 7.9” iPad mini }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 768 }
-    height: { const: 1024 }
-    name: { const: 9.7” iPad }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 768 }
+      height: { const: 1024 }
+      name: { const: 9.7” iPad }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 834 }
-    height: { const: 1112 }
-    name: { const: 10.5” iPad Air }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 834 }
+      height: { const: 1112 }
+      name: { const: 10.5” iPad Air }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 834 }
-    height: { const: 1194 }
-    name: { const: 11″ iPad Pro }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 834 }
+      height: { const: 1194 }
+      name: { const: 11″ iPad Pro }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 1024 }
-    height: { const: 1366 }
-    name: { const: 12.9″ iPad Pro }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 1024 }
+      height: { const: 1366 }
+      name: { const: 12.9″ iPad Pro }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 0 }
-    width: { const: 136 }
-    height: { const: 170 }
-    name: { const: Apple Watch 38mm }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 0 }
+      width: { const: 136 }
+      height: { const: 170 }
+      name: { const: Apple Watch 38mm }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 0 }
-    width: { const: 162 }
-    height: { const: 197 }
-    name: { const: Apple Watch 40mm }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 0 }
+      width: { const: 162 }
+      height: { const: 197 }
+      name: { const: Apple Watch 40mm }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 0 }
-    width: { const: 156 }
-    height: { const: 195 }
-    name: { const: Apple Watch 42mm }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 0 }
+      width: { const: 156 }
+      height: { const: 195 }
+      name: { const: Apple Watch 42mm }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 0 }
-    width: { const: 184 }
-    height: { const: 224 }
-    name: { const: Apple Watch 44mm }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 0 }
+      width: { const: 184 }
+      height: { const: 224 }
+      name: { const: Apple Watch 44mm }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 0 }
-    width: { const: 1920 }
-    height: { const: 1080 }
-    name: { const: Apple TV }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 0 }
+      width: { const: 1920 }
+      height: { const: 1080 }
+      name: { const: Apple TV }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 0 }
-    width: { const: 1085 }
-    height: { const: 30 }
-    name: { const: Touch Bar }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 0 }
+      width: { const: 1085 }
+      height: { const: 30 }
+      name: { const: Touch Bar }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 360 }
-    height: { const: 640 }
-    name: { const: Android }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 360 }
+      height: { const: 640 }
+      name: { const: Android }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 412 }
-    height: { const: 732 }
-    name: { const: Pixel 2 }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 412 }
+      height: { const: 732 }
+      name: { const: Pixel 2 }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 360 }
-    height: { const: 720 }
-    name: { const: Pixel 2 XL }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 360 }
+      height: { const: 720 }
+      name: { const: Pixel 2 XL }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 360 }
-    height: { const: 720 }
-    name: { const: Pixel 3 }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 360 }
+      height: { const: 720 }
+      name: { const: Pixel 3 }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 360 }
-    height: { const: 740 }
-    name: { const: Pixel 3 XL }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 360 }
+      height: { const: 740 }
+      name: { const: Pixel 3 XL }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 360 }
-    height: { const: 760 }
-    name: { const: Galaxy S10e }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 360 }
+      height: { const: 760 }
+      name: { const: Galaxy S10e }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 360 }
-    height: { const: 760 }
-    name: { const: Galaxy S10 }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 360 }
+      height: { const: 760 }
+      name: { const: Galaxy S10 }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 360 }
-    height: { const: 760 }
-    name: { const: Galaxy S10+ }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 360 }
+      height: { const: 760 }
+      name: { const: Galaxy S10+ }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 600 }
-    height: { const: 960 }
-    name: { const: Nexus 7 }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 600 }
+      height: { const: 960 }
+      name: { const: Nexus 7 }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 768 }
-    height: { const: 1024 }
-    name: { const: Nexus 9 }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 768 }
+      height: { const: 1024 }
+      name: { const: Nexus 9 }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 800 }
-    height: { const: 1280 }
-    name: { const: Nexus 10 }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 800 }
+      height: { const: 1280 }
+      name: { const: Nexus 10 }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 0 }
-    width: { const: 1280 }
-    height: { const: 850 }
-    name: { const: Pixel }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 0 }
+      width: { const: 1280 }
+      height: { const: 850 }
+      name: { const: Pixel }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 320 }
-    height: { const: 1024 }
-    name: { const: Mobile }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 320 }
+      height: { const: 1024 }
+      name: { const: Mobile }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 768 }
-    height: { const: 1024 }
-    name: { const: Tablet }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 768 }
+      height: { const: 1024 }
+      name: { const: Tablet }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 0 }
-    width: { const: 1024 }
-    height: { const: 1024 }
-    name: { const: Desktop }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 0 }
+      width: { const: 1024 }
+      height: { const: 1024 }
+      name: { const: Desktop }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 0 }
-    width: { const: 1440 }
-    height: { const: 1024 }
-    name: { const: Desktop HD }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 0 }
+      width: { const: 1440 }
+      height: { const: 1024 }
+      name: { const: Desktop HD }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 2384 }
-    height: { const: 3370 }
-    name: { const: A0 }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 2384 }
+      height: { const: 3370 }
+      name: { const: A0 }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 1684 }
-    height: { const: 2384 }
-    name: { const: A1 }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 1684 }
+      height: { const: 2384 }
+      name: { const: A1 }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 1191 }
-    height: { const: 1684 }
-    name: { const: A2 }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 1191 }
+      height: { const: 1684 }
+      name: { const: A2 }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 842 }
-    height: { const: 1191 }
-    name: { const: A3 }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 842 }
+      height: { const: 1191 }
+      name: { const: A3 }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 595 }
-    height: { const: 842 }
-    name: { const: A4 }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 595 }
+      height: { const: 842 }
+      name: { const: A4 }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 420 }
-    height: { const: 595 }
-    name: { const: A5 }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 420 }
+      height: { const: 595 }
+      name: { const: A5 }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 297 }
-    height: { const: 420 }
-    name: { const: A6 }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 297 }
+      height: { const: 420 }
+      name: { const: A6 }
   - type: object
     description: TODO
-    allowResizedMatching: { const: 0 }
-    offersLandscapeVariant: { const: 1 }
-    width: { const: 612 }
-    height: { const: 792 }
-    name: { const: Letter }
+    properties:
+      allowResizedMatching: { const: 0 }
+      offersLandscapeVariant: { const: 1 }
+      width: { const: 612 }
+      height: { const: 792 }
+      name: { const: Letter }

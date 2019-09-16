@@ -7,11 +7,7 @@ required:
   - guides
 properties:
   _class: { const: rulerData }
-  base:
-    type: integer
-    description: TODO
-    default: 0
+  base: { type: integer }
   guides:
-    type: integer
-    description: TODO
-    default: 0
+    type: array
+    items: { type: integer }

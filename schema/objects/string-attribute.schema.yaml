@@ -10,4 +10,12 @@ properties:
   _class: { const: stringAttribute }
   location: { type: integer }
   length: { type: integer }
-  attributes: { $ref: ./text-encoded-attributes.schema.yaml }
+  attributes:
+    type: object
+    additionalProperties: false
+    properties:
+      textStyleVerticalAlignmentKey:
+        { $ref: ../enums/text-vertical-alignment.schema.yaml }
+      MSAttributedStringFontAttribute:
+        { $ref: ../objects/font-descriptor.schema.yaml }
+      MSAttributedStringColorAttribute: { $ref: ../objects/color.schema.yaml }

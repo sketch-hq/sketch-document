@@ -3,13 +3,10 @@
  * schema structure and keywords are valid according to the JSON Schema spec.
  */
 
-import Ajv from 'ajv'
 import { assemble } from './assemble.mjs'
+import { getAjvInstance } from './ajv.mjs'
 
-const ajv = new Ajv({
-  extendRefs: 'fail',
-  verbose: true,
-})
+const ajv = getAjvInstance()
 
 const validate = async entry => {
   const schema = await assemble(entry)

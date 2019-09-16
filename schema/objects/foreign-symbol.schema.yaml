@@ -13,5 +13,5 @@ properties:
   libraryID: { $ref: ../utils/uuid.schema.yaml }
   sourceLibraryName: { type: string }
   symbolPrivate: { type: boolean }
-  originalMaster: { type: boolean } # TODO
-  symbolMaster: { type: boolean } # TODO
+  originalMaster: { $ref: ../layers/symbol-master.schema.yaml }
+  symbolMaster: { $ref: ../layers/symbol-master.schema.yaml }

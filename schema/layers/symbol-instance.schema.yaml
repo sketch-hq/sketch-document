@@ -10,6 +10,7 @@ allOf:
       - scale
       - symbolID
       - verticalSpacing
+      - horizontalSpacing
     properties:
       _class: { const: symbolInstance }
       overrideValues:
@@ -18,3 +19,4 @@ allOf:
       scale: { type: number }
       symbolID: { $ref: ../utils/uuid.schema.yaml }
       verticalSpacing: { type: number } # TODO: Confirm this is just a value and not an enum
+      horizontalSpacing: { type: number } # TODO: Confirm this is just a value and not an enum

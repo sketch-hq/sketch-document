@@ -1,0 +1,41 @@
+title: Blend Mode
+description: TODO
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+enumDescriptions:
+  - Normal
+  - Darken
+  - Multiply
+  - Color burn
+  - Lighten
+  - Screen
+  - Color dodge
+  - Overlay
+  - Soft light
+  - Hard light
+  - Difference
+  - Exclusion
+  - Hue
+  - Saturation
+  - Color
+  - Luminosity
+  - Plus darker
+  - Plus lighter

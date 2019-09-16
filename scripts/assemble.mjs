@@ -1,15 +1,16 @@
 /**
- * Gather yaml files, process them and assemble into a single JSON schema file.
- * The top-level schema is the entry path passed to the assemble function. The
+ * Gather yaml files, process and assemble them into a single top-level JSON
+ * schema file, defined by the entry path passed to this assemble function. The
  * resulting schema file will be standalone - only containing internal refs to
  * definitions, and no external file references.
  *
  * Performs the following steps:
  *
  *   - Loads YAML from the file system and converts to POJOs in memory
+ *   - Ensures all `object` schemas have `additionalProperties` set to `false`
  *   - Replaces any references to abstract schemas with concrete schema contents
- *   - Prune any un-used definitions
  *   - Simplify the schemas by merging any `allOf` arrays into single unions
+ *   - Prune any un-used definitions
  */
 
 import yaml from 'js-yaml'
@@ -138,6 +139,18 @@ const assemble = async entry => {
     })
   }
 
+  // Create strict output, by setting `additionalProperties` to `false` on all
+  // `object` schemas. This instructs validators to treat unknown properties
+  // on objects as errors
+  output = jsont.transform(output, [
+    jsont.pathRule('.type', ({ context, match }) =>
+      typeof match === 'string' && match === 'object'
+        ? { ...context, additionalProperties: false }
+        : context,
+    ),
+    jsont.identity,
+  ])
+
   // Convert all $refs from file refs to internal $id refs.
   // From: { $ref: '../enums/fill-type.schema.yaml' }
   // To: { $ref: '#FillType' }
@@ -145,7 +158,7 @@ const assemble = async entry => {
 
   // Convert `allOf` to single schemas, the union of all schemes referenced in
   // the array
-  mergeAllOf(output)
+  mergeAllOf(output, { ignoreAdditionalProperties: true })
 
   // Prune unused definitions
   prune(output)

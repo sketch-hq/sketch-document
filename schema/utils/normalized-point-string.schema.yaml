@@ -1,6 +1,6 @@
 title: Normalized Point String
 description:
-  A string representation of a 2D point, normalised between 0 and 1 in the
-  format {x, y}.
+  A string representation of a 2D point, normalised between -1 and 1 with
+  respect to the parent coordinate space, in the format {x, y}.
 type: string
-pattern: '^{(0\.\d+|1|0), (0\.\d+|1|0)}$'
+pattern: '^{-?\d+(.\d+)?, -?\d+(.\d+)?}$'
