@@ -4,3 +4,7 @@ type: string
 enum:
   - NONAPPSTORE
   - APPSTORE
+  - BETA
+  - PRIVATE
+  - INTERNAL
+  - EXPERIMENTAL
