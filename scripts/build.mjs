@@ -28,6 +28,7 @@ const build = async entry => {
       build('schema/user.schema.yaml'),
       build('schema/layers/page.schema.yaml'),
     ])
+    execSync('yarn prettier --write "dist/*.json"')
   } catch (e) {
     console.error(e)
     process.exit(1)
