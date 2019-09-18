@@ -4,10 +4,6 @@ type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml
   - type: object
-    required:
-      - _class
-      - hasBackgroundColor
-      - backgroundColor
     properties:
       _class: { const: slice }
       hasBackgroundColor: { type: boolean }

@@ -1,12 +1,6 @@
 title: Paragraph Style
 description: TODO
 type: object
-required:
-  - _class
-  - alignment
-  - maximumLineHeight
-  - minimumLineHeight
-  - paragraphSpacing
 properties:
   _class: { const: paragraphStyle }
   alignment: { $ref: ../enums/text-horizontal-alignment.schema.yaml }

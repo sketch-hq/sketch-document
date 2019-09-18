@@ -1,11 +1,6 @@
 title: Override Value
 description: TODO
 type: object
-required:
-  - _class
-  - do_objectID
-  - overrideName
-  - value
 properties:
   _class: { const: overrideValue }
   do_objectID: { $ref: ../utils/uuid.schema.yaml }

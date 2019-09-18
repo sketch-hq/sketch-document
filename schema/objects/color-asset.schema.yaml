@@ -1,10 +1,6 @@
 title: Color Asset
 description: TODO
 type: object
-required:
-  - _class
-  - name
-  - color
 properties:
   _class: { const: MSImmutableColorAsset }
   name: { type: string }

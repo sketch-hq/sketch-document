@@ -1,25 +1,8 @@
 title: Abstract Layer
 type: object
-required:
-  - do_objectID
-  - booleanOperation
-  - exportOptions
-  - frame
-  - isFixedToViewport
-  - isFlippedHorizontal
-  - isFlippedVertical
-  - isLocked
-  - isVisible
-  - layerListExpandedType
-  - name
-  - nameIsFixed
-  - resizingConstraint
-  - resizingType
-  - rotation
-  - shouldBreakMaskChain
-  - clippingMaskMode
-  - hasClippingMask
-  - style
+optional:
+  - flow
+  - userInfo
 properties:
   do_objectID: { $ref: ../utils/uuid.schema.yaml }
   booleanOperation: { $ref: ../enums/boolean-operation.schema.yaml }
@@ -40,5 +23,7 @@ properties:
   shouldBreakMaskChain: { type: boolean }
   hasClippingMask: { type: boolean }
   clippingMaskMode: { type: integer } # TODO Is this an enum? What are the values?
-  userInfo: { type: object }
+  userInfo:
+    type: object
+    additionalProperties: true
   style: { $ref: ../objects/style.schema.yaml }

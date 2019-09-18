@@ -1,12 +1,12 @@
 title: Style
 description: TODO
 type: object
-required:
-  - _class
-  - startMarkerType
-  - endMarkerType
-  - miterLimit
-  - windingRule
+optional:
+  - borders
+  - fills
+  - textStyle
+  - shadows
+  - contextSettings
 properties:
   _class: { const: style }
   borders:

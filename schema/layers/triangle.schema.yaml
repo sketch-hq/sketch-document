@@ -4,9 +4,6 @@ type: object
 allOf:
   - $ref: ./abstract-shape-layer.schema.yaml
   - type: object
-    required:
-      - _class
-      - isEquilateral
     properties:
       _class: { const: triangle }
       isEquilateral: { type: boolean }

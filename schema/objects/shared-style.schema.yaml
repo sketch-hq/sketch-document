@@ -1,11 +1,6 @@
 title: Shared Style
 description: TODO
 type: object
-required:
-  - _class
-  - do_objectID
-  - name
-  - value
 properties:
   _class: { const: sharedStyle }
   do_objectID: { $ref: ../utils/uuid.schema.yaml }

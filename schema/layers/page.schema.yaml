@@ -3,9 +3,9 @@ description: TODO
 allOf:
   - $ref: ./abstract-group.schema.yaml
   - type: object
-    required:
-      - _class
-      - includeInCloudUpload
+    optional:
+      - layout
+      - grid
     properties:
       _class: { const: page }
       includeInCloudUpload:

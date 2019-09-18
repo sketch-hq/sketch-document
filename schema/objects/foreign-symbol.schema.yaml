@@ -1,13 +1,6 @@
 title: Foreign Symbol
 description: TODO
 type: object
-required:
-  - _class
-  - libraryID
-  - sourceLibraryName
-  - symbolPrivate
-  - originalMaster
-  - symbolMaster
 properties:
   _class: { const: MSImmutableForeignSymbol }
   libraryID: { $ref: ../utils/uuid.schema.yaml }

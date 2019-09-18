@@ -1,13 +1,6 @@
 title: Gradient
 description: TODO
 type: object
-required:
-  - _class
-  - gradientType
-  - elipseLength
-  - from
-  - to
-  - stops
 properties:
   _class: { const: gradient }
   gradientType: { $ref: ../enums/gradient-type.schema.yaml }

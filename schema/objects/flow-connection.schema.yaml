@@ -1,10 +1,6 @@
 title: Flow Connection
 description: TODO
 type: object
-required:
-  - _class
-  - animationType
-  - destinationArtboardID
 properties:
   _class: { const: MSImmutableFlowConnection }
   destinationArtboardID:

@@ -3,10 +3,6 @@ type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml
   - type: object
-    required:
-      - edited
-      - isClosed
-      - pointRadiusBehaviour
     properties:
       edited: { type: boolean }
       isClosed: { type: boolean }

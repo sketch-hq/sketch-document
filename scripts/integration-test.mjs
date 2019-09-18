@@ -20,16 +20,18 @@ const validate = async (validator, filepath) => {
   } else {
     console.log(red('  ', name, 'failed'))
     let output = ''
-    validator.errors.forEach(error => {
-      const { keyword, dataPath, schemaPath, params, message, data } = error
-      output += '\n'
-      output += `message: ${message}\n`
-      output += `keyword: ${keyword}\n`
-      output += `schemaPath: ${schemaPath}\n`
-      output += `dataPath: ${dataPath}\n`
-      output += `params: ${util.inspect(params, { depth: 0 })}\n`
-      output += `data: ${util.inspect(data, { depth: 0 })}\n`
-    })
+    validator.errors
+      .filter(error => error.keyword === 'required')
+      .forEach(error => {
+        const { keyword, dataPath, schemaPath, params, message, data } = error
+        output += '\n'
+        output += `message: ${message}\n`
+        output += `keyword: ${keyword}\n`
+        output += `schemaPath: ${schemaPath}\n`
+        output += `dataPath: ${dataPath}\n`
+        output += `params: ${util.inspect(params, { depth: 0 })}\n`
+        output += `data: ${util.inspect(data, { depth: 0 })}\n`
+      })
     console.log(gray(output.replace(/^/gm, '     ')))
   }
   return validator.errors || []

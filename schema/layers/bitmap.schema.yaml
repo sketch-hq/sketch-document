@@ -4,12 +4,6 @@ type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml
   - type: object
-    required:
-      - _class
-      - fillReplacesImage
-      - image
-      - intendedDPI
-      - clippingMask
     properties:
       _class: { const: bitmap }
       fillReplacesImage: { type: boolean }

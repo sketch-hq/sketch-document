@@ -104,6 +104,58 @@ const prune = schema => {
 }
 
 /**
+ * Add `additionalProperties: false` to every object schema, unless it already
+ * has an explicit value.
+ */
+const setAdditionalPropsFalse = schema => {
+  const scan = o => {
+    if (typeof o !== 'object') return
+    if (o.type === 'object' && typeof o.additionalProperties === 'undefined') {
+      o.additionalProperties = false
+    }
+    for (let [k, v] of Object.entries(o)) {
+      if (typeof v === 'object') {
+        scan(v)
+      } else if (Array.isArray(v)) {
+        v.forEach(el => {
+          if (typeof el === 'object') {
+            scan(v)
+          }
+        })
+      }
+    }
+  }
+  scan(schema)
+}
+
+/**
+ * Mark all object schema properties as required, unless mentioned in a
+ * `optional` array.
+ */
+const setAllPropsRequired = schema => {
+  const scan = o => {
+    if (typeof o !== 'object') return
+    if (o.type === 'object' && typeof o.properties === 'object') {
+      const optional = Array.isArray(o.optional) ? o.optional : []
+      o.required = _.difference(Object.keys(o.properties), optional)
+      delete o.optional
+    }
+    for (let [k, v] of Object.entries(o)) {
+      if (typeof v === 'object') {
+        scan(v)
+      } else if (Array.isArray(v)) {
+        v.forEach(el => {
+          if (typeof el === 'object') {
+            scan(v)
+          }
+        })
+      }
+    }
+  }
+  scan(schema)
+}
+
+/**
  * Process the entry schema into a single simplified, pruned, distributable schema.
  */
 const assemble = async entry => {
@@ -144,28 +196,13 @@ const assemble = async entry => {
     })
   }
 
-  // Create strict output, by setting `additionalProperties` to `false` on all
-  // `object` schemas. This instructs validators to treat unknown properties
-  // on objects as errors. Object schemas that already have an explicit
-  // `additionalProperties` value are left alone
-  output = jsont.transform(output, [
-    jsont.pathRule('.type', ({ context, match }) => {
-      if (
-        typeof context.additionalProperties === 'undefined' &&
-        (typeof match === 'string' && match === 'object')
-      ) {
-        return { ...context, additionalProperties: false }
-      } else {
-        return context
-      }
-    }),
-    jsont.identity,
-  ])
-
   // Convert all $refs from file refs to internal $id refs.
   // From: { $ref: '../enums/fill-type.schema.yaml' }
   // To: { $ref: '#FillType' }
   output = _.mapDeep(output, (v, k) => (k === '$ref' ? `#${pathToId(v)}` : v))
+
+  // Make all object properties required
+  setAllPropsRequired(output)
 
   // Convert `allOf` to single schemas, the union of all schemes referenced in
   // the array
@@ -173,6 +210,9 @@ const assemble = async entry => {
 
   // Prune unused definitions
   prune(output)
+
+  // Add `additionaProperties: false` throughout
+  setAdditionalPropsFalse(output)
 
   return output
 }

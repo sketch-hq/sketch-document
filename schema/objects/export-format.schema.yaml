@@ -1,14 +1,6 @@
 title: Export Format
 description: TODO
 type: object
-required:
-  - _class
-  - absoluteSize
-  - fileFormat
-  - name
-  - namingScheme
-  - scale
-  - visibleScaleType
 properties:
   _class: { const: exportFormat }
   absoluteSize: { type: integer }

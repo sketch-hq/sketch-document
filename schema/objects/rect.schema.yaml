@@ -1,13 +1,6 @@
 title: Rect
 description: TODO
 type: object
-required:
-  - _class
-  - constrainProportions
-  - height
-  - width
-  - x
-  - 'y'
 properties:
   _class: { const: rect }
   constrainProportions: { type: boolean }

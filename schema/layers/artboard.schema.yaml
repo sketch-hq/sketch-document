@@ -3,14 +3,10 @@ description: TODO
 allOf:
   - $ref: ./abstract-group.schema.yaml
   - type: object
-    required:
-      - _class
-      - includeInCloudUpload
-      - includeBackgroundColorInExport
-      - backgroundColor
-      - hasBackgroundColor
-      - isFlowHome
-      - resizesContent
+    optional:
+      - grid
+      - layout
+      - presetDictionary
     properties:
       _class: { const: artboard }
       includeInCloudUpload: { type: boolean }

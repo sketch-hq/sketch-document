@@ -1,13 +1,6 @@
 title: Foreign Layer Style
 description: TODO
 type: object
-required:
-  - _class
-  - libraryID
-  - sourceLibraryName
-  - symbolPrivate
-  - remoteStyleID
-  - localSharedStyle
 properties:
   _class: { const: MSImmutableForeignLayerStyle }
   libraryID: { $ref: ../utils/uuid.schema.yaml }

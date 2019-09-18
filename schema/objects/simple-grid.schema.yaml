@@ -1,11 +1,6 @@
 title: Layout Grid
 description: TODO
 type: object
-required:
-  - _class
-  - isEnabled
-  - gridSize
-  - thickGridTimes
 properties:
   _class: { const: simpleGrid }
   isEnabled:

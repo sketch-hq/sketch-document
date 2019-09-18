@@ -1,13 +1,6 @@
 title: Border
 description: TODO
 type: object
-required:
-  - _class
-  - isEnabled
-  - color
-  - fillType
-  - position
-  - thickness
 properties:
   _class: { const: border }
   isEnabled: { type: boolean }

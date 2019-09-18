@@ -1,10 +1,6 @@
 title: Ruler Data
 description: TODO
 type: object
-required:
-  - _class
-  - base
-  - guides
 properties:
   _class: { const: rulerData }
   base: { type: integer }

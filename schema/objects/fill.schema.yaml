@@ -1,15 +1,6 @@
 title: Fill
 description: TODO
 type: object
-required:
-  - _class
-  - isEnabled
-  - color
-  - fillType
-  - noiseIndex
-  - noiseIntensity
-  - patternFillType
-  - patternTileScale
 properties:
   _class: { const: fill }
   isEnabled: { type: boolean }

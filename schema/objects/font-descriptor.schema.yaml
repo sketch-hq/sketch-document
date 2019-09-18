@@ -1,16 +1,10 @@
 title: Font Descriptor
 description: TODO
 type: object
-required:
-  - _class
-  - attributes
 properties:
   _class: { const: fontDescriptor }
   attributes:
     type: object
-    required:
-      - name
-      - size
     properties:
       name: { type: string }
       size: { type: number }

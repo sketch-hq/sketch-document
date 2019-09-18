@@ -1,18 +1,15 @@
 title: String Attribute
 description: TODO
 type: object
-required:
-  - _class
-  - location
-  - length
-  - attributes
 properties:
   _class: { const: stringAttribute }
   location: { type: integer }
   length: { type: integer }
   attributes:
     type: object
-    additionalProperties: false
+    optional:
+      - textStyleVerticalAlignmentKey
+      - MSAttributedStringColorAttribute
     properties:
       textStyleVerticalAlignmentKey:
         { $ref: ../enums/text-vertical-alignment.schema.yaml }

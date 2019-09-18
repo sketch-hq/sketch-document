@@ -1,10 +1,6 @@
 title: Image File Ref
 description: TODO
 type: object
-required:
-  - _class
-  - _ref_class
-  - _ref
 properties:
   _class: { const: MSJSONFileReference }
   _ref_class: { const: MSImageData }

@@ -1,9 +1,6 @@
 title: User
 description: TODO
 type: object
-deprecated: true
-required:
-  - document
 propertyNames:
   oneOf:
     - { $ref: ../utils/uuid.schema.yaml }
@@ -11,9 +8,6 @@ propertyNames:
 properties:
   document:
     type: object
-    required:
-      - pageListHeight
-      - pageListCollapsed
     properties:
       pageListHeight: { type: integer }
       pageListCollapsed: { type: integer }

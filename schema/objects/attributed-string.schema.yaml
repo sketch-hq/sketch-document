@@ -1,10 +1,6 @@
 title: Attributed String
 description: TODO
 type: object
-required:
-  - _class
-  - string
-  - attributes
 properties:
   _class: { const: attributedString }
   string: { type: string }

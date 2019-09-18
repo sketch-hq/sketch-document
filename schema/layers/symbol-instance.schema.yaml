@@ -4,13 +4,6 @@ type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml
   - type: object
-    required:
-      - _class
-      - overrideValues
-      - scale
-      - symbolID
-      - verticalSpacing
-      - horizontalSpacing
     properties:
       _class: { const: symbolInstance }
       overrideValues:

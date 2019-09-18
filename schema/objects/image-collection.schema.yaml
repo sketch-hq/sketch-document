@@ -2,9 +2,6 @@ title: Image Collection
 deprecated: true
 description: TODO
 type: object
-required:
-  - _class
-  - images
 properties:
   _class: { const: imageCollection }
   images: { type: object }

@@ -1,12 +1,6 @@
 title: Color
 description: TODO
 type: object
-required:
-  - _class
-  - alpha
-  - red
-  - green
-  - blue
 properties:
   _class: { const: color }
   alpha: { $ref: ../utils/unit-interval.schema.yaml }

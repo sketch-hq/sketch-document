@@ -1,10 +1,6 @@
 title: Gradient Stop
 description: TODO
 type: object
-required:
-  - _class
-  - color
-  - position
 properties:
   _class: { const: gradientStop }
   color: { $ref: ./color.schema.yaml }

@@ -1,9 +1,6 @@
 title: Curve Point
 description: TODO
 type: object
-required:
-  - _class
-  - cornerRadius
 properties:
   _class: { const: curvePoint }
   cornerRadius: { type: number }

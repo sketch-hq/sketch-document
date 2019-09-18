@@ -1,10 +1,6 @@
 title: Gradient Asset
 description: TODO
 type: object
-required:
-  - _class
-  - name
-  - color
 properties:
   _class: { const: MSImmutableGradientAsset }
   name: { type: string }

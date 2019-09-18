@@ -4,10 +4,6 @@ type: object
 allOf:
   - $ref: ./abstract-shape-layer.schema.yaml
   - type: object
-    required:
-      - _class
-      - fixedRadius
-      - hasConvertedToNewRoundCorners
     properties:
       _class: { const: rectangle }
       fixedRadius: { type: number }

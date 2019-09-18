@@ -1,12 +1,6 @@
 title: Export Options
 description: TODO
 type: object
-required:
-  - _class
-  - exportFormats
-  - includedLayerIds
-  - layerOptions
-  - shouldTrim
 properties:
   _class: { const: exportOptions }
   exportFormats:

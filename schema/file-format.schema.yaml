@@ -10,12 +10,9 @@ properties:
     allOf:
       - $ref: ./abstract-document.schema.yaml
       - type: object
-        required:
-          - pages
         properties:
           pages:
             type: array
             items: { $ref: ./layers/page.schema.yaml }
-  meta:
-    $ref: ./meta.schema.yaml
-  # TODO: Add user schema
+  meta: { $ref: ./meta.schema.yaml }
+  user: { $ref: ./user.schema.yaml }

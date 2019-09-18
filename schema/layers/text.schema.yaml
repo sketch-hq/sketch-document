@@ -4,14 +4,6 @@ type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml
   - type: object
-    required:
-      - _class
-      - attributedString
-      - automaticallyDrawOnUnderlyingPath
-      - dontSynchroniseWithSymbol
-      - lineSpacingBehaviour
-      - textBehaviour
-      - glyphBounds
     properties:
       _class: { const: text }
       attributedString: { $ref: ../objects/attributed-string.schema.yaml }

@@ -1,15 +1,6 @@
 title: Shadow
 description: TODO
 type: object
-required:
-  - _class
-  - isEnabled
-  - blurRadius
-  - color
-  - contextSettings
-  - offsetX
-  - offsetY
-  - spread
 properties:
   _class: { const: shadow }
   isEnabled: { type: boolean }

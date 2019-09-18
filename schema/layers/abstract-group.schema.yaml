@@ -3,9 +3,6 @@ type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml
   - type: object
-    required:
-      - layers
-      - hasClickThrough
     properties:
       hasClickThrough:
         type: boolean

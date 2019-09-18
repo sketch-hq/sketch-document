@@ -4,9 +4,6 @@ type: object
 allOf:
   - $ref: ./abstract-shape-layer.schema.yaml
   - type: object
-    required:
-      - _class
-      - numberOfPoints
     properties:
       _class: { const: polygon }
       numberOfPoints: { type: integer }

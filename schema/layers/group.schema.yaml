@@ -3,7 +3,5 @@ description: TODO
 allOf:
   - $ref: ./abstract-group.schema.yaml
   - type: object
-    required:
-      - _class
     properties:
       _class: { const: group }

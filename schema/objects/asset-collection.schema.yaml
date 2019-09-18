@@ -1,17 +1,9 @@
 title: Asset Collection
 description: TODO
 type: object
-required:
-  - _class
-  - colorAssets
-  - gradientAssets
-  - colors
-  - images
-  # - imageCollection
-  # TODO Can image-collection be removed? Code comments in Sketch suggest its no longer in use
 properties:
   _class: { const: assetCollection }
-  imageCollection: { $ref: ./image-collection.schema.yaml }
+  imageCollection: { $ref: ./image-collection.schema.yaml } # TODO Can image-collection be removed? Code comments in Sketch suggest its no longer in use
   colorAssets:
     type: array
     items: { $ref: ./color-asset.schema.yaml }

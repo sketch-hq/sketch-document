@@ -1,15 +1,19 @@
 title: Text Style
 description: TODO
 type: object
-required:
-  - _class
-  - encodedAttributes
-  - verticalAlignment
 properties:
   _class: { const: textStyle }
   verticalAlignment: { $ref: ../enums/text-vertical-alignment.schema.yaml }
   encodedAttributes:
     type: object
+    optional:
+      - paragraphStyle
+      - MSAttributedStringTextTransformAttribute
+      - underlineStyle
+      - strikethroughStyle
+      - kerning
+      - textStyleVerticalAlignmentKey
+      - MSAttributedStringColorAttribute
     properties:
       paragraphStyle: { $ref: ./paragraph-style.schema.yaml }
       MSAttributedStringTextTransformAttribute:

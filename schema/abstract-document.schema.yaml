@@ -1,16 +1,4 @@
 type: object
-required:
-  - _class
-  - do_objectID
-  - assets
-  - colorSpace
-  - currentPageIndex
-  - foreignLayerStyles
-  - foreignSymbols
-  - foreignTextStyles
-  - layerStyles
-  - layerSymbols
-  - layerTextStyles
 properties:
   _class: { const: document }
   do_objectID: { $ref: ./utils/uuid.schema.yaml }
