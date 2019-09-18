@@ -45,7 +45,7 @@ properties:
   compatibilityVersion: { const: 99 }
   app: { $ref: ./enums/bundle-id.schema.yaml }
   autosaved: { $ref: ./utils/numerical-bool.schema.yaml }
-  variant: { $ref: ./enums/app-store-variant.schema.yaml }
+  variant: { $ref: ./enums/sketch-variant.schema.yaml }
   created:
     type: object
     required:
@@ -63,7 +63,7 @@ properties:
       app: { $ref: ./enums/bundle-id.schema.yaml }
       compatibilityVersion: { const: 99 }
       version: { const: 119 }
-      variant: { $ref: ./enums/app-store-variant.schema.yaml }
+      variant: { $ref: ./enums/sketch-variant.schema.yaml }
   saveHistory:
     type: array
     items: { type: string }
