@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  node: circleci/node@1.1.4
+  node: circleci/node@1.1.6
 jobs:
   build:
     executor: node/default
@@ -8,7 +8,7 @@ jobs:
       - checkout
       - node/install:
           install-npm: false
-          node-version: '12.6.0'
+          node-version: '12.10.0'
           yarn-version: '1.17.3'
       - node/with-cache:
           cache-key: yarn.lock
