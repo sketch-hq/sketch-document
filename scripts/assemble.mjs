@@ -201,17 +201,11 @@ const assemble = async entry => {
   // To: { $ref: '#FillType' }
   output = _.mapDeep(output, (v, k) => (k === '$ref' ? `#${pathToId(v)}` : v))
 
-  // Make all object properties required
+  // Further processing
+
   setAllPropsRequired(output)
-
-  // Convert `allOf` to single schemas, the union of all schemes referenced in
-  // the array
   mergeAllOf(output, { ignoreAdditionalProperties: true })
-
-  // Prune unused definitions
   prune(output)
-
-  // Add `additionaProperties: false` throughout
   setAdditionalPropsFalse(output)
 
   return output
