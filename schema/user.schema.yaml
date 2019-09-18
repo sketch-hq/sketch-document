@@ -1,6 +1,7 @@
 title: User
 description: TODO
 type: object
+deprecated: true
 required:
   - document
 propertyNames:

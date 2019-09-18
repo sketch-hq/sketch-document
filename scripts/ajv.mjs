@@ -1,3 +1,7 @@
+/**
+ * Configure Ajv in one place, and expose to the other scripts.
+ */
+
 import Ajv from 'ajv'
 
 const getAjvInstance = () => {
@@ -7,7 +11,7 @@ const getAjvInstance = () => {
     extendRefs: 'fail',
   })
   ajv.addKeyword('deprecated', {
-    validate: () => true,
+    validate: schema => typeof schema === 'boolean',
   })
   ajv.addKeyword('enumDescriptions', {
     validate: (schema, data, parent) =>
