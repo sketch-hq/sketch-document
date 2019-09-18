@@ -12,8 +12,8 @@ properties:
   _class: { const: gradient }
   gradientType: { $ref: ../enums/gradient-type.schema.yaml }
   elipseLength: { type: number }
-  from: { $ref: ../utils/normalized-point-string.schema.yaml }
-  to: { $ref: ../utils/normalized-point-string.schema.yaml }
+  from: { $ref: ../utils/point-string.schema.yaml }
+  to: { $ref: ../utils/point-string.schema.yaml }
   stops:
     type: array
     items: { $ref: ./gradient-stop.schema.yaml }

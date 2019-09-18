@@ -68,13 +68,14 @@ const gatherDefinitions = async pattern => {
 }
 
 /**
- * Recursively scans schema properties, noting which definitions have been
- * referenced. Any un-referenced definitions are removed. Passed-in schema is
- * modified in-place.
+ * Recursively scans a schema, noting which definitions have been referenced.
+ * Any un-referenced definitions are removed. Passed-in schema is modified
+ * in-place.
  */
 const prune = schema => {
   let ids = []
   const scan = o => {
+    if (typeof o !== 'object') return
     for (let [k, v] of Object.entries(o)) {
       if (k === '$ref') {
         const id = v.substring(1)
@@ -93,7 +94,11 @@ const prune = schema => {
       }
     }
   }
+
   scan(schema.properties)
+  scan(schema.additionalProperties)
+  scan(schema.propertyNames)
+
   ids = _.uniq(ids)
   schema.definitions = _.pick(schema.definitions, ids)
 }
@@ -141,13 +146,19 @@ const assemble = async entry => {
 
   // Create strict output, by setting `additionalProperties` to `false` on all
   // `object` schemas. This instructs validators to treat unknown properties
-  // on objects as errors
+  // on objects as errors. Object schemas that already have an explicit
+  // `additionalProperties` value are left alone
   output = jsont.transform(output, [
-    jsont.pathRule('.type', ({ context, match }) =>
-      typeof match === 'string' && match === 'object'
-        ? { ...context, additionalProperties: false }
-        : context,
-    ),
+    jsont.pathRule('.type', ({ context, match }) => {
+      if (
+        typeof context.additionalProperties === 'undefined' &&
+        (typeof match === 'string' && match === 'object')
+      ) {
+        return { ...context, additionalProperties: false }
+      } else {
+        return context
+      }
+    }),
     jsont.identity,
   ])
 

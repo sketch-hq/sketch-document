@@ -1,0 +1,23 @@
+title: User
+description: TODO
+type: object
+required:
+  - document
+propertyNames:
+  oneOf:
+    - { $ref: ../utils/uuid.schema.yaml }
+    - { const: document }
+properties:
+  document:
+    type: object
+    required:
+      - pageListHeight
+      - pageListCollapsed
+    properties:
+      pageListHeight: { type: integer }
+      pageListCollapsed: { type: integer }
+additionalProperties:
+  type: object
+  properties:
+    scrollOrigin: { $ref: ../utils/point-string.schema.yaml }
+    zoomValue: { type: number }

@@ -21,58 +21,16 @@ const validate = async (validator, filepath) => {
     console.log(red('  ', name, 'failed'))
     let output = ''
     validator.errors.forEach(error => {
-      const {
-        keyword,
-        dataPath,
-        schemaPath,
-        params,
-        message,
-        schema,
-        parentSchema,
-        data,
-      } = error
+      const { keyword, dataPath, schemaPath, params, message, data } = error
       output += '\n'
       output += `message: ${message}\n`
       output += `keyword: ${keyword}\n`
       output += `schemaPath: ${schemaPath}\n`
       output += `dataPath: ${dataPath}\n`
-      output += `params: ${util.inspect(params, { depth: 0, compact: 10 })}\n`
-      // output += `schema: ${util.inspect(schema, { depth: 0, compact: 10 })}\n`
-      // output += `parentSchema: ${util.inspect(parentSchema, {
-      //   depth: 0,
-      //   compact: 10,
-      // })}\n`
+      output += `params: ${util.inspect(params, { depth: 0 })}\n`
       output += `data: ${util.inspect(data, { depth: 0 })}\n`
     })
     console.log(gray(output.replace(/^/gm, '     ')))
-    // console.log(
-    //   gray(
-    //     JSON.stringify(
-    //       validator.errors.map(
-    //         ({
-    //           keyword,
-    //           dataPath,
-    //           schemaPath,
-    //           params,
-    //           message,
-    //           schema,
-    //           parentSchema,
-    //           data,
-    //         }) => ({
-    //           keyword,
-    //           dataPath,
-    //           schemaPath,
-    //           params,
-    //           message,
-    //           filepath,
-    //           data: util.inspect(data),
-    //         }),
-    //       ),
-    //       null,
-    //       2,
-    //     ),
-    //   ).replace(/^/gm, '     '),
-    // )
   }
   return validator.errors || []
 }
@@ -83,6 +41,7 @@ const validate = async (validator, filepath) => {
 
     const docValidator = await createValidator('../dist/document.schema.json')
     const metaValidator = await createValidator('../dist/meta.schema.json')
+    const userValidator = await createValidator('../dist/user.schema.json')
     const pageValidator = await createValidator('../dist/page.schema.json')
 
     const errors = []
@@ -95,23 +54,29 @@ const validate = async (validator, filepath) => {
         errors.push(
           ...(await validate(
             docValidator,
-            `../reference-files/${version}/${folder}/output/document.json`,
+            `../reference-files/${version}/${folder}/document.json`,
           )),
         )
         errors.push(
           ...(await validate(
             metaValidator,
-            `../reference-files/${version}/${folder}/output/meta.json`,
+            `../reference-files/${version}/${folder}/meta.json`,
+          )),
+        )
+        errors.push(
+          ...(await validate(
+            userValidator,
+            `../reference-files/${version}/${folder}/user.json`,
           )),
         )
         const pages = await fs.promises.readdir(
-          `reference-files/${version}/${folder}/output/pages`,
+          `reference-files/${version}/${folder}/pages`,
         )
         for (const page of pages) {
           errors.push(
             ...(await validate(
               pageValidator,
-              `../reference-files/${version}/${folder}/output/pages/${page}`,
+              `../reference-files/${version}/${folder}/pages/${page}`,
             )),
           )
         }

@@ -23,6 +23,7 @@ const validate = async entry => {
       validate('schema/file-format.schema.yaml'),
       validate('schema/document.schema.yaml'),
       validate('schema/meta.schema.yaml'),
+      validate('schema/user.schema.yaml'),
       validate('schema/layers/page.schema.yaml'),
     ])
   } catch (e) {
