@@ -63,9 +63,10 @@ processed out of the final build output by the `assemble` function.
 ### Additional properties
 
 The `additionalProperties` keyword is used by JSON Schema to define whether an
-object allows arbitrary extra properties on iteself beyond those explicitly
-listed. In order to increase strictness we set `additionalProperties` to `false`
-on every object schema in the output, unless already present.
+object allows arbitrary extra properties on itself beyond those explicitly
+listed. According to the spec it defaults to `true`, but in order to increase
+strictness we set it to `false` on every object schema in the output, unless
+already present.
 
 ### Required properties
 
@@ -73,4 +74,4 @@ The `required` keyword is used by JSON Schema to list object properties that
 must be present in order for it to be considered valid. Again, in order to
 increase strictness we automatically set every object property as required. If a
 property is genuinely optional, then it can be listed in the non-standard
-`optional` keyword, which is processes out of the final build output.
+`optional` keyword, which is processed out of the build output.
