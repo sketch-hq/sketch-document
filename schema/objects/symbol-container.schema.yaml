@@ -1,0 +1,6 @@
+title: Symbol container
+description: TODO
+type: object
+properties:
+  _class: { const: symbolContainer }
+  objects: { type: array } # TODO What is this?

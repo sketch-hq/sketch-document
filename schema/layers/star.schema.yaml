@@ -1,0 +1,10 @@
+title: Star Layer
+description: TODO
+type: object
+allOf:
+  - $ref: ./abstract-shape-layer.schema.yaml
+  - type: object
+    properties:
+      _class: { const: star }
+      numberOfPoints: { type: integer }
+      radius: { type: number }

@@ -1,0 +1,10 @@
+title: Foreign Text Style
+description: TODO
+type: object
+properties:
+  _class: { const: MSImmutableForeignTextStyle }
+  libraryID: { $ref: ../utils/uuid.schema.yaml }
+  sourceLibraryName: { type: string }
+  symbolPrivate: { type: boolean }
+  remoteStyleID: { $ref: ../utils/uuid.schema.yaml }
+  localSharedStyle: { $ref: ./shared-style.schema.yaml }

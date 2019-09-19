@@ -1,0 +1,13 @@
+title: Color Space
+description: TODO
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+  - 3
+enumDescriptions:
+  - Tile
+  - Fill
+  - Stretch
+  - Fit

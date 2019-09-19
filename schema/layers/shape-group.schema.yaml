@@ -1,0 +1,11 @@
+title: Shape Group Layer
+description: TODO
+allOf:
+  - $ref: ./abstract-group.schema.yaml
+  - type: object
+    optional:
+      - sharedStyleID
+    properties:
+      _class: { const: shapeGroup }
+      windingRule: { $ref: ../enums/winding-rule.schema.yaml }
+      sharedStyleID: { $ref: ../utils/uuid.schema.yaml }

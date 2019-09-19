@@ -1,0 +1,10 @@
+title: Rect
+description: TODO
+type: object
+properties:
+  _class: { const: rect }
+  constrainProportions: { type: boolean }
+  height: { type: number }
+  width: { type: number }
+  x: { type: number }
+  y: { type: number }

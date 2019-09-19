@@ -1,0 +1,21 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+jobs:
+  build:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install:
+          install-npm: false
+          node-version: '12.10.0'
+          yarn-version: '1.17.3'
+      - node/with-cache:
+          cache-key: yarn.lock
+          steps:
+            - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - run: yarn test
+      - run: yarn validate
+      - run: yarn integration-test
+      - run: yarn format-check

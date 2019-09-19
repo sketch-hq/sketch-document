@@ -1,0 +1,31 @@
+{
+  "name": "sketch-file-format",
+  "version": "0.1.0-alpha.1",
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "devDependencies": {
+    "ajv": "6.10.2",
+    "chalk": "2.4.2",
+    "change-case": "3.1.0",
+    "deepdash": "4.2.14",
+    "globby": "10.0.1",
+    "js-yaml": "3.13.1",
+    "json-schema-merge-allof": "0.6.0",
+    "json-transforms": "1.1.2",
+    "lodash": "4.17.15",
+    "prettier": "1.18.2"
+  },
+  "scripts": {
+    "validate": "node --experimental-modules --no-warnings scripts/validate.mjs",
+    "build": "node --experimental-modules --no-warnings scripts/build.mjs",
+    "watch": "node --experimental-modules --no-warnings scripts/watch.mjs",
+    "assemble": "node --experimental-modules --no-warnings scripts/assemble.mjs",
+    "integration-test": "node --experimental-modules --no-warnings scripts/integration-test.mjs",
+    "test": "echo \"No test specified\"",
+    "format-check": "prettier --check **/*.{mjs,md,yaml,json}"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": "12.10.0"
+  }
+}

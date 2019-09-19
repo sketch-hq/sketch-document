@@ -1,0 +1,21 @@
+type: object
+properties:
+  _class: { const: document }
+  do_objectID: { $ref: ./utils/uuid.schema.yaml }
+  assets: { $ref: ./objects/asset-collection.schema.yaml }
+  colorSpace: { $ref: ./enums/color-space.schema.yaml }
+  currentPageIndex:
+    type: integer
+    minimum: 0
+  foreignLayerStyles:
+    type: array
+    items: { $ref: ./objects/foreign-layer-style.schema.yaml }
+  foreignSymbols:
+    type: array
+    items: { $ref: ./objects/foreign-symbol.schema.yaml }
+  foreignTextStyles:
+    type: array
+    items: { $ref: ./objects/foreign-text-style.schema.yaml }
+  layerStyles: { $ref: ./objects/shared-style-container.schema.yaml }
+  layerSymbols: { $ref: ./objects/symbol-container.schema.yaml }
+  layerTextStyles: { $ref: ./objects/shared-text-style-container.schema.yaml }

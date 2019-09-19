@@ -1,0 +1,9 @@
+title: Image File Ref
+description: TODO
+type: object
+properties:
+  _class: { const: MSJSONFileReference }
+  _ref_class: { const: MSImageData }
+  _ref:
+    type: string
+    pattern: '^images/.*'

@@ -1,0 +1,9 @@
+title: Winding Rule
+description: TODO
+type: integer
+enum:
+  - 0
+  - 1
+enumDescriptions:
+  - Non zero
+  - Even odd

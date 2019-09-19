@@ -1,0 +1,9 @@
+title: Page File Ref
+description: TODO
+type: object
+properties:
+  _class: { const: MSJSONFileReference }
+  _ref_class: { const: MSImmutablePage }
+  _ref:
+    type: string
+    pattern: '^pages/[0-9A-F]{8}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{12}$'

@@ -1,0 +1,12 @@
+title: Bitmap Layer
+description: TODO
+type: object
+allOf:
+  - $ref: ./abstract-layer.schema.yaml
+  - type: object
+    properties:
+      _class: { const: bitmap }
+      fillReplacesImage: { type: boolean }
+      image: { $ref: ../objects/image-file-ref.schema.yaml }
+      intendedDPI: { type: integer }
+      clippingMask: { $ref: ../utils/point-list-string.schema.yaml }

@@ -1,0 +1,13 @@
+title: Export Options
+description: TODO
+type: object
+properties:
+  _class: { const: exportOptions }
+  exportFormats:
+    type: array
+    items: { $ref: ./export-format.schema.yaml }
+  includedLayerIds:
+    type: array
+    items: { $ref: ../utils/uuid.schema.yaml } # TODO Check this
+  layerOptions: { type: integer } # TODO What is this?
+  shouldTrim: { type: boolean }

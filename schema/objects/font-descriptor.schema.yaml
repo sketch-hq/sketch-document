@@ -1,0 +1,10 @@
+title: Font Descriptor
+description: TODO
+type: object
+properties:
+  _class: { const: fontDescriptor }
+  attributes:
+    type: object
+    properties:
+      name: { type: string }
+      size: { type: number }

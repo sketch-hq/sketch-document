@@ -1,0 +1,10 @@
+title: Slice Layer
+description: TODO
+type: object
+allOf:
+  - $ref: ./abstract-layer.schema.yaml
+  - type: object
+    properties:
+      _class: { const: slice }
+      hasBackgroundColor: { type: boolean }
+      backgroundColor: { $ref: ../objects/color.schema.yaml }

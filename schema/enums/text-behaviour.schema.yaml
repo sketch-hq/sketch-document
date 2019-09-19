@@ -1,0 +1,9 @@
+title: Text Behaviour
+description: TODO
+type: integer
+enum:
+  - 0
+  - 1
+enumDescriptions:
+  - Flexible
+  - Fixed

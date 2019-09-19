@@ -1,0 +1,11 @@
+title: Export Format
+description: TODO
+type: object
+properties:
+  _class: { const: exportFormat }
+  absoluteSize: { type: integer }
+  fileFormat: { $ref: ../enums/export-file-format.schema.yaml }
+  name: { type: string }
+  namingScheme: { type: integer } # TODO What is this really? An enum?
+  scale: { type: number }
+  visibleScaleType: { $ref: ../enums/visible-scale-type.schema.yaml }

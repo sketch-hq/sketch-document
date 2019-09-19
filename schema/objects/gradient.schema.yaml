@@ -1,0 +1,13 @@
+title: Gradient
+description: TODO
+type: object
+properties:
+  _class: { const: gradient }
+  gradientType: { $ref: ../enums/gradient-type.schema.yaml }
+  elipseLength: { type: number }
+  from: { $ref: ../utils/point-string.schema.yaml }
+  to: { $ref: ../utils/point-string.schema.yaml }
+  stops:
+    type: array
+    items: { $ref: ./gradient-stop.schema.yaml }
+    exclusiveMinimum: 0

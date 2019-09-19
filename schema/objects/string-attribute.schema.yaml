@@ -1,0 +1,18 @@
+title: String Attribute
+description: TODO
+type: object
+properties:
+  _class: { const: stringAttribute }
+  location: { type: integer }
+  length: { type: integer }
+  attributes:
+    type: object
+    optional:
+      - textStyleVerticalAlignmentKey
+      - MSAttributedStringColorAttribute
+    properties:
+      textStyleVerticalAlignmentKey:
+        { $ref: ../enums/text-vertical-alignment.schema.yaml }
+      MSAttributedStringFontAttribute:
+        { $ref: ../objects/font-descriptor.schema.yaml }
+      MSAttributedStringColorAttribute: { $ref: ../objects/color.schema.yaml }

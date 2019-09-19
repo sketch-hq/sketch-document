@@ -1,0 +1,22 @@
+title: Artboard Layer
+description: TODO
+allOf:
+  - $ref: ./abstract-group.schema.yaml
+  - type: object
+    optional:
+      - grid
+      - layout
+      - presetDictionary
+    properties:
+      _class: { const: artboard }
+      includeInCloudUpload: { type: boolean }
+      includeBackgroundColorInExport: { type: boolean }
+      horizontalRulerData: { $ref: ../objects/ruler-data.schema.yaml }
+      verticalRulerData: { $ref: ../objects/ruler-data.schema.yaml }
+      layout: { $ref: ../objects/layout-grid.schema.yaml }
+      grid: { $ref: ../objects/simple-grid.schema.yaml }
+      backgroundColor: { $ref: ../objects/color.schema.yaml }
+      hasBackgroundColor: { type: boolean }
+      isFlowHome: { type: boolean }
+      resizesContent: { type: boolean }
+      presetDictionary: { $ref: ../objects/artboard-preset.schema.yaml }

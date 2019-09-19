@@ -1,0 +1,10 @@
+title: Sketch Variant
+description: TODO
+type: string
+enum:
+  - NONAPPSTORE
+  - APPSTORE
+  - BETA
+  - PRIVATE
+  - INTERNAL
+  - EXPERIMENTAL

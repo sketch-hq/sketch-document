@@ -1,0 +1,18 @@
+title: Page Layer
+description: TODO
+allOf:
+  - $ref: ./abstract-group.schema.yaml
+  - type: object
+    optional:
+      - layout
+      - grid
+    properties:
+      _class: { const: page }
+      includeInCloudUpload:
+        type: boolean
+        description: TODO
+        default: true
+      horizontalRulerData: { $ref: ../objects/ruler-data.schema.yaml }
+      verticalRulerData: { $ref: ../objects/ruler-data.schema.yaml }
+      layout: { $ref: ../objects/layout-grid.schema.yaml }
+      grid: { $ref: ../objects/simple-grid.schema.yaml }

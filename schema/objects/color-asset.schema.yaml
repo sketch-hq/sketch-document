@@ -1,0 +1,7 @@
+title: Color Asset
+description: TODO
+type: object
+properties:
+  _class: { const: MSImmutableColorAsset }
+  name: { type: string }
+  color: { $ref: ./color.schema.yaml }

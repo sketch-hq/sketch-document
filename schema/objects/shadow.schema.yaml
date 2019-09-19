@@ -1,0 +1,12 @@
+title: Shadow
+description: TODO
+type: object
+properties:
+  _class: { const: shadow }
+  isEnabled: { type: boolean }
+  blurRadius: { type: number }
+  color: { $ref: ./color.schema.yaml }
+  contextSettings: { $ref: ./graphics-context-settings.schema.yaml }
+  offsetX: { type: number }
+  offsetY: { type: number }
+  spread: { type: number }

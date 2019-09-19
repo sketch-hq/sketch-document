@@ -1,0 +1,9 @@
+title: Color
+description: TODO
+type: object
+properties:
+  _class: { const: color }
+  alpha: { $ref: ../utils/unit-interval.schema.yaml }
+  red: { $ref: ../utils/unit-interval.schema.yaml }
+  green: { $ref: ../utils/unit-interval.schema.yaml }
+  blue: { $ref: ../utils/unit-interval.schema.yaml }

@@ -1,0 +1,9 @@
+title: Ruler Data
+description: TODO
+type: object
+properties:
+  _class: { const: rulerData }
+  base: { type: integer }
+  guides:
+    type: array
+    items: { type: integer }

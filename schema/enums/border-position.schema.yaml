@@ -1,0 +1,11 @@
+title: Border Position
+description: TODO
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+enumDescriptions:
+  - Center
+  - Inside
+  - Outside

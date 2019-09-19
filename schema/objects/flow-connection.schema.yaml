@@ -1,0 +1,10 @@
+title: Flow Connection
+description: TODO
+type: object
+properties:
+  _class: { const: MSImmutableFlowConnection }
+  destinationArtboardID:
+    oneOf:
+      - { $ref: ../utils/uuid.schema.yaml }
+      - { const: back }
+  animationType: { $ref: ../enums/animation-type.schema.yaml }

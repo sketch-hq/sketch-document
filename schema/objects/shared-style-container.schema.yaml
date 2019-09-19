@@ -1,0 +1,8 @@
+title: Shared Style Container
+description: TODO
+type: object
+properties:
+  _class: { const: sharedStyleContainer }
+  objects:
+    type: array
+    items: { $ref: ./shared-style.schema.yaml }

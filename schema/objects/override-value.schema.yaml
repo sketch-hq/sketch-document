@@ -1,0 +1,19 @@
+title: Override Value
+description: TODO
+type: object
+properties:
+  _class: { const: overrideValue }
+  do_objectID: { $ref: ../utils/uuid.schema.yaml }
+  overrideName:
+    oneOf:
+      - type: string
+        pattern: '^[0-9A-F]{8}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{12}_stringValue$'
+      - type: string
+        pattern: '^[0-9A-F]{8}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{12}_symbolID$'
+      - type: string
+        pattern: '^[0-9A-F]{8}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{12}_image$'
+  value:
+    oneOf:
+      - { type: string }
+      - { $ref: ../utils/uuid.schema.yaml }
+      - { $ref: ./image-file-ref.schema.yaml }

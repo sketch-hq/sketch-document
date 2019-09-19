@@ -1,0 +1,6 @@
+title: Point List String
+description:
+  'A string representation of a series of 2D points, in the format {{x, y},
+  {x,y}}.'
+type: string
+pattern: '^{(({-?\d+(.\d+)?, -?\d+(.\d+)?}, )+)?{-?\d+(.\d+)?, -?\d+(.\d+)?}}$'

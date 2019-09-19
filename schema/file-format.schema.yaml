@@ -1,0 +1,18 @@
+title: File Format
+description:
+  This schema describes a representation of an expanded Sketch file, that is, a
+  Sketch file that has been unzipped, all of its entries parsed to JSON and
+  merged into a single object. A concrete example of an expanded sketch file is
+  the return value of the `fromFile` function
+type: object
+properties:
+  document:
+    allOf:
+      - $ref: ./abstract-document.schema.yaml
+      - type: object
+        properties:
+          pages:
+            type: array
+            items: { $ref: ./layers/page.schema.yaml }
+  meta: { $ref: ./meta.schema.yaml }
+  user: { $ref: ./user.schema.yaml }

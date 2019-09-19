@@ -1,0 +1,9 @@
+title: Attributed String
+description: TODO
+type: object
+properties:
+  _class: { const: attributedString }
+  string: { type: string }
+  attributes:
+    type: array
+    items: { $ref: ./string-attribute.schema.yaml }

@@ -1,0 +1,21 @@
+title: Symbol Master Layer
+description: TODO
+type: object
+allOf:
+  - $ref: ./abstract-group.schema.yaml
+  - type: object
+    properties:
+      _class: { const: symbolMaster }
+      backgroundColor: { $ref: ../objects/color.schema.yaml }
+      hasBackgroundColor: { type: boolean }
+      horizontalRulerData: { $ref: ../objects/ruler-data.schema.yaml }
+      includeBackgroundColorInExport: { type: boolean }
+      includeInCloudUpload: { type: boolean }
+      isFlowHome: { type: boolean }
+      resizesContent: { type: boolean }
+      verticalRulerData: { $ref: ../objects/ruler-data.schema.yaml }
+      includeBackgroundColorInInstance: { type: boolean }
+      symbolID: { $ref: ../utils/uuid.schema.yaml }
+      changeIdentifier: { type: integer } # TODO: What is this?
+      allowsOverrides: { type: boolean }
+      overrideProperties: { type: array } # TODO: What is this?

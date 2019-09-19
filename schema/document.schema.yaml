@@ -1,0 +1,11 @@
+title: Document
+description: The document entry in a Sketch file.
+allOf:
+  - $ref: ./abstract-document.schema.yaml
+  - type: object
+    required:
+      - pages
+    properties:
+      pages:
+        type: array
+        items: { $ref: ./objects/page-file-ref.schema.yaml }

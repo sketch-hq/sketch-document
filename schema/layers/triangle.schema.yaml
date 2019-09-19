@@ -1,0 +1,9 @@
+title: Triangle Layer
+description: TODO
+type: object
+allOf:
+  - $ref: ./abstract-shape-layer.schema.yaml
+  - type: object
+    properties:
+      _class: { const: triangle }
+      isEquilateral: { type: boolean }

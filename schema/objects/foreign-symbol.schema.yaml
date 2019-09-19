@@ -1,0 +1,10 @@
+title: Foreign Symbol
+description: TODO
+type: object
+properties:
+  _class: { const: MSImmutableForeignSymbol }
+  libraryID: { $ref: ../utils/uuid.schema.yaml }
+  sourceLibraryName: { type: string }
+  symbolPrivate: { type: boolean }
+  originalMaster: { $ref: ../layers/symbol-master.schema.yaml }
+  symbolMaster: { $ref: ../layers/symbol-master.schema.yaml }

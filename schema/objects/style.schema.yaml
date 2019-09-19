@@ -1,0 +1,26 @@
+title: Style
+description: TODO
+type: object
+optional:
+  - borders
+  - fills
+  - textStyle
+  - shadows
+  - contextSettings
+properties:
+  _class: { const: style }
+  borders:
+    type: array
+    items: { $ref: ./border.schema.yaml }
+  fills:
+    type: array
+    items: { $ref: ./fill.schema.yaml }
+  startMarkerType: { $ref: ../enums/marker-type.schema.yaml }
+  endMarkerType: { $ref: ../enums/marker-type.schema.yaml }
+  miterLimit: { type: integer }
+  windingRule: { $ref: ../enums/winding-rule.schema.yaml }
+  textStyle: { $ref: ./text-style.schema.yaml }
+  shadows:
+    type: array
+    items: { $ref: ./shadow.schema.yaml }
+  contextSettings: { $ref: ./graphics-context-settings.schema.yaml }

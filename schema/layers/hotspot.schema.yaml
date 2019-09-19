@@ -1,0 +1,8 @@
+title: Hotspot Layer
+description: TODO
+type: object
+allOf:
+  - $ref: ./abstract-layer.schema.yaml
+  - type: object
+    properties:
+      _class: { const: MSImmutableHotspotLayer }

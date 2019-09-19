@@ -1,0 +1,7 @@
+title: Gradient Asset
+description: TODO
+type: object
+properties:
+  _class: { const: MSImmutableGradientAsset }
+  name: { type: string }
+  gradient: { $ref: ./gradient.schema.yaml }

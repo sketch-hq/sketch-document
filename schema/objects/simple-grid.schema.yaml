@@ -1,0 +1,14 @@
+title: Simple Grid
+description: TODO
+type: object
+properties:
+  _class: { const: simpleGrid }
+  isEnabled:
+    type: boolean
+    description: TODO
+  gridSize:
+    type: integer
+    description: TODO
+  thickGridTimes:
+    type: integer
+    description: TODO

@@ -1,0 +1,13 @@
+title: Resize Type
+description: TODO
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+  - 3
+enumDescriptions:
+  - Stretch
+  - Pin to edge
+  - Resize
+  - Float

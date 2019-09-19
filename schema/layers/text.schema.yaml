@@ -1,0 +1,15 @@
+title: Text Layer
+description: TODO
+type: object
+allOf:
+  - $ref: ./abstract-layer.schema.yaml
+  - type: object
+    properties:
+      _class: { const: text }
+      attributedString: { $ref: ../objects/attributed-string.schema.yaml }
+      automaticallyDrawOnUnderlyingPath: { type: boolean }
+      dontSynchroniseWithSymbol: { type: boolean }
+      lineSpacingBehaviour:
+        { $ref: ../enums/line-spacing-behaviour.schema.yaml }
+      textBehaviour: { $ref: ../enums/text-behaviour.schema.yaml }
+      glyphBounds: { $ref: ../utils/point-list-string.schema.yaml }

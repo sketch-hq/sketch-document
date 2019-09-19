@@ -1,0 +1,11 @@
+title: Text Vertical Alignment
+description: TODO
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+enumDescriptions:
+  - Top
+  - Centered
+  - Bottom

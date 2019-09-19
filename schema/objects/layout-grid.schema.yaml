@@ -1,0 +1,16 @@
+title: Layout Grid
+type: object
+properties:
+  _class: { const: layoutGrid }
+  isEnabled: { type: boolean }
+  columnWidth: { type: integer }
+  gutterHeight: { type: integer }
+  gutterWidth: { type: integer }
+  horizontalOffset: { type: integer }
+  numberOfColumns: { type: integer }
+  rowHeightMultiplication: { type: integer }
+  totalWidth: { type: integer }
+  guttersOutside: { type: boolean }
+  drawHorizontal: { type: boolean }
+  drawHorizontalLines: { type: boolean }
+  drawVertical: { type: boolean }

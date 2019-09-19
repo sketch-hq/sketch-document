@@ -1,0 +1,33 @@
+title: Abstract Group
+type: object
+allOf:
+  - $ref: ./abstract-layer.schema.yaml
+  - type: object
+    properties:
+      hasClickThrough:
+        type: boolean
+        description: TODO
+      groupLayout:
+        type: object
+        properties:
+          _class: { const: MSImmutableFreeformGroupLayout } # TODO: What is this? Is it still in use?
+      layers:
+        description: TODO
+        type: array
+        items:
+          oneOf:
+            - { $ref: ./artboard.schema.yaml }
+            - { $ref: ./group.schema.yaml }
+            - { $ref: ./oval.schema.yaml }
+            - { $ref: ./polygon.schema.yaml }
+            - { $ref: ./rectangle.schema.yaml }
+            - { $ref: ./shape-path.schema.yaml }
+            - { $ref: ./star.schema.yaml }
+            - { $ref: ./triangle.schema.yaml }
+            - { $ref: ./shape-group.schema.yaml }
+            - { $ref: ./text.schema.yaml }
+            - { $ref: ./symbol-master.schema.yaml }
+            - { $ref: ./symbol-instance.schema.yaml }
+            - { $ref: ./slice.schema.yaml }
+            - { $ref: ./hotspot.schema.yaml }
+            - { $ref: ./bitmap.schema.yaml }

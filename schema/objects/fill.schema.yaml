@@ -1,0 +1,12 @@
+title: Fill
+description: TODO
+type: object
+properties:
+  _class: { const: fill }
+  isEnabled: { type: boolean }
+  color: { $ref: ./color.schema.yaml }
+  fillType: { $ref: ../enums/fill-type.schema.yaml }
+  noiseIndex: { type: number }
+  noiseIntensity: { type: number }
+  patternFillType: { $ref: ../enums/pattern-fill-type.schema.yaml }
+  patternTileScale: { type: number }

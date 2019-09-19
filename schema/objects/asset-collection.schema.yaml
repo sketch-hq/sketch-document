@@ -1,0 +1,21 @@
+title: Asset Collection
+description: TODO
+type: object
+properties:
+  _class: { const: assetCollection }
+  imageCollection: { $ref: ./image-collection.schema.yaml } # TODO Can image-collection be removed? Code comments in Sketch suggest its no longer in use
+  colorAssets:
+    type: array
+    items: { $ref: ./color-asset.schema.yaml }
+  gradientAssets:
+    type: array
+    items: { $ref: ./gradient-asset.schema.yaml }
+  images:
+    type: array
+    items: { $ref: ./image-file-ref.schema.yaml }
+  colors:
+    type: array
+    items: { $ref: ./color.schema.yaml }
+  gradients:
+    type: array
+    items: { $ref: ./gradient.schema.yaml }

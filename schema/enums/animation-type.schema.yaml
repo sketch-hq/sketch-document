@@ -1,0 +1,15 @@
+title: Animation Type
+description: TODO
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+enumDescriptions:
+  - None
+  - Slide from left
+  - Slide from right
+  - Slide from bottom
+  - Slide from top

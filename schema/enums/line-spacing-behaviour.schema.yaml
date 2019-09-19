@@ -1,0 +1,11 @@
+title: Line Spacing Behaviour
+description: TODO
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+enumDescriptions:
+  - Constant baseline
+  - Variable
+  - '2' # TODO What is the description for 2?

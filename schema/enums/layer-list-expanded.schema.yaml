@@ -1,0 +1,11 @@
+title: Layer List Expanded
+description: TODO
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+enumDescriptions:
+  - Undecided
+  - Collapsed
+  - Expanded

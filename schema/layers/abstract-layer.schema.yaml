@@ -1,0 +1,29 @@
+title: Abstract Layer
+type: object
+optional:
+  - flow
+  - userInfo
+properties:
+  do_objectID: { $ref: ../utils/uuid.schema.yaml }
+  booleanOperation: { $ref: ../enums/boolean-operation.schema.yaml }
+  exportOptions: { $ref: ../objects/export-options.schema.yaml }
+  frame: { $ref: ../objects/rect.schema.yaml }
+  flow: { $ref: ../objects/flow-connection.schema.yaml }
+  isFixedToViewport: { type: boolean }
+  isFlippedHorizontal: { type: boolean }
+  isFlippedVertical: { type: boolean }
+  isLocked: { type: boolean }
+  isVisible: { type: boolean }
+  layerListExpandedType: { $ref: ../enums/layer-list-expanded.schema.yaml }
+  name: { type: string }
+  nameIsFixed: { type: boolean }
+  resizingConstraint: { $ref: ../enums/resize-constraint.schema.yaml }
+  resizingType: { $ref: ../enums/resize-type.schema.yaml }
+  rotation: { type: number }
+  shouldBreakMaskChain: { type: boolean }
+  hasClippingMask: { type: boolean }
+  clippingMaskMode: { type: integer } # TODO Is this an enum? What are the values?
+  userInfo:
+    type: object
+    additionalProperties: true
+  style: { $ref: ../objects/style.schema.yaml }

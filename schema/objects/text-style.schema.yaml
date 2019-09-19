@@ -1,0 +1,27 @@
+title: Text Style
+description: TODO
+type: object
+properties:
+  _class: { const: textStyle }
+  verticalAlignment: { $ref: ../enums/text-vertical-alignment.schema.yaml }
+  encodedAttributes:
+    type: object
+    optional:
+      - paragraphStyle
+      - MSAttributedStringTextTransformAttribute
+      - underlineStyle
+      - strikethroughStyle
+      - kerning
+      - textStyleVerticalAlignmentKey
+      - MSAttributedStringColorAttribute
+    properties:
+      paragraphStyle: { $ref: ./paragraph-style.schema.yaml }
+      MSAttributedStringTextTransformAttribute:
+        $ref: ../enums/text-transform.schema.yaml
+      underlineStyle: { $ref: ../enums/underline-style.schema.yaml }
+      strikethroughStyle: { const: 0 } # TODO What is this? Is it in use? Should it be an enum?
+      kerning: { type: number }
+      MSAttributedStringFontAttribute: { $ref: ./font-descriptor.schema.yaml }
+      textStyleVerticalAlignmentKey:
+        $ref: ../enums/text-vertical-alignment.schema.yaml # TODO What is this? How does it differ from verticalAlignment?
+      MSAttributedStringColorAttribute: { $ref: ./color.schema.yaml }

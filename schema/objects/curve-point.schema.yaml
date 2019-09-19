@@ -1,0 +1,12 @@
+title: Curve Point
+description: TODO
+type: object
+properties:
+  _class: { const: curvePoint }
+  cornerRadius: { type: number }
+  curveFrom: { $ref: ../utils/point-string.schema.yaml }
+  curveTo: { $ref: ../utils/point-string.schema.yaml }
+  hasCurveFrom: { type: boolean }
+  hasCurveTo: { type: boolean }
+  curveMode: { $ref: ../enums/curve-mode.schema.yaml }
+  point: { $ref: ../utils/point-string.schema.yaml }

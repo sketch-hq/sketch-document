@@ -1,0 +1,10 @@
+title: Rectangle Layer
+description: TODO
+type: object
+allOf:
+  - $ref: ./abstract-shape-layer.schema.yaml
+  - type: object
+    properties:
+      _class: { const: rectangle }
+      fixedRadius: { type: number }
+      hasConvertedToNewRoundCorners: { type: boolean }

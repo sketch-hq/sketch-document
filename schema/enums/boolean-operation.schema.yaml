@@ -1,0 +1,15 @@
+title: Boolean Operation
+description: TODO
+type: integer
+enum:
+  - -1 # TODO Check these values, especially this -1 value
+  - 0
+  - 1
+  - 2
+  - 3
+enumDescriptions:
+  - N/A
+  - None
+  - Union
+  - Subtract
+  - Difference

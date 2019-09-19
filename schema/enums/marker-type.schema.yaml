@@ -1,0 +1,19 @@
+title: Marker Type
+description: TODO
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+enumDescriptions:
+  - Open arrow
+  - Filled arrow
+  - Line
+  - Open circle
+  - Filled circle
+  - Open square
+  - Filled square

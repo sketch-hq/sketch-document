@@ -1,0 +1,7 @@
+title: Gradient Stop
+description: TODO
+type: object
+properties:
+  _class: { const: gradientStop }
+  color: { $ref: ./color.schema.yaml }
+  position: { $ref: ../utils/unit-interval.schema.yaml }
