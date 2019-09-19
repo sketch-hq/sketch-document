@@ -160,11 +160,13 @@ const setAllPropsRequired = schema => {
  */
 const assemble = async entry => {
   const abstractSchemas = await gatherDefinitions('**/*abstract*.schema.yaml')
-
+  const pkg = (await import('../package.json')).default
   let output = {
     ...(await loadSchema(entry)),
     $schema: 'http://json-schema.org/draft-07/schema#',
-    $id: `https://www.sketch.com/schemas/${basename(entry, '.yaml')}.json`,
+    $id: `https://developer.sketch.com/schemas/${pkg.name}/${
+      pkg.version
+    }/${basename(entry, '.yaml')}.json`,
     definitions: await gatherDefinitions('**/*.schema.yaml'),
   }
 

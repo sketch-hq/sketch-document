@@ -1,4 +1,4 @@
-title: Layout Gr
+title: Layout Grid
 type: object
 properties:
   _class: { const: layoutGrid }
