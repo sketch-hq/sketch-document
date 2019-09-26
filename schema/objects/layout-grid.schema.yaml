@@ -1,5 +1,5 @@
 title: Layout Grid
-todo: Defines the layout settings for an artboard or page
+description: Defines the layout settings for an artboard or page
 type: object
 properties:
   _class: { const: layoutGrid }
