@@ -1,5 +1,5 @@
 title: Slice Layer
-description: TODO
+description: Slice layers allow the content beneath their frame to be exported
 type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml

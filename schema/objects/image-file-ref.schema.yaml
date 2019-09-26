@@ -1,5 +1,5 @@
 title: Image File Ref
-description: TODO
+description: Defines a reference to an image file within the document zip
 type: object
 properties:
   _class: { const: MSJSONFileReference }

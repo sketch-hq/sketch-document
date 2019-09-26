@@ -1,5 +1,5 @@
 title: Shape Path Layer
-description: TODO
+description: Shape path layers are the result of adding a vector layer
 type: object
 allOf:
   - $ref: ./abstract-shape-layer.schema.yaml

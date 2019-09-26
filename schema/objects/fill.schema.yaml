@@ -1,5 +1,5 @@
 title: Fill
-description: TODO
+description: Defines a fill style
 type: object
 properties:
   _class: { const: fill }

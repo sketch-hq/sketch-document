@@ -1,5 +1,5 @@
-title: Color Space
-description: TODO
+title: Pattern Fill Type
+description: Enumeration of pattern fill types
 type: integer
 enum:
   - 0

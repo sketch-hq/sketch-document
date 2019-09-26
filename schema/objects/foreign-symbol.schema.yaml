@@ -1,5 +1,5 @@
 title: Foreign Symbol
-description: TODO
+description: Defines a symbol that has been imported from a library
 type: object
 properties:
   _class: { const: MSImmutableForeignSymbol }

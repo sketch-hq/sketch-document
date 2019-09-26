@@ -1,14 +1,8 @@
 title: Simple Grid
-description: TODO
+description: Defines the grid settings for an artboard or page
 type: object
 properties:
   _class: { const: simpleGrid }
-  isEnabled:
-    type: boolean
-    description: TODO
-  gridSize:
-    type: integer
-    description: TODO
-  thickGridTimes:
-    type: integer
-    description: TODO
+  isEnabled: { type: boolean }
+  gridSize: { type: integer }
+  thickGridTimes: { type: integer }

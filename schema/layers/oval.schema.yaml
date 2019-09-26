@@ -1,5 +1,5 @@
 title: Oval Layer
-description: TODO
+description: Oval layers are the result of adding an oval shape to the canvas
 type: object
 allOf:
   - $ref: ./abstract-shape-layer.schema.yaml

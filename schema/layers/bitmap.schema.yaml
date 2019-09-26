@@ -1,5 +1,5 @@
 title: Bitmap Layer
-description: TODO
+description: Bitmap layers house a single image
 type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml

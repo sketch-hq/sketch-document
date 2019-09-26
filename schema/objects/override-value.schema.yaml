@@ -1,5 +1,5 @@
 title: Override Value
-description: TODO
+description: Defines an individual symbol override
 type: object
 properties:
   _class: { const: overrideValue }

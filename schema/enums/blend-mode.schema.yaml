@@ -1,5 +1,5 @@
 title: Blend Mode
-description: TODO
+description: Enumeration of the blend modes that can be applied to fills
 type: integer
 enum:
   - 0

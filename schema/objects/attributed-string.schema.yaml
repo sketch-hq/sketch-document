@@ -1,5 +1,6 @@
 title: Attributed String
-description: TODO
+description:
+  Defines character strings and associated styling applied to character ranges
 type: object
 properties:
   _class: { const: attributedString }

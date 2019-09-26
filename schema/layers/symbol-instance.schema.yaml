@@ -1,5 +1,5 @@
 title: Symbol Instance Layer
-description: TODO
+description: Symbol instance layers represent an instance of a symbol master
 type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml

@@ -1,5 +1,5 @@
 title: Sketch Variant
-description: TODO
+description: Enumeration of the Sketch variants
 type: string
 enum:
   - NONAPPSTORE

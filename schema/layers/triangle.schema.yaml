@@ -1,5 +1,6 @@
 title: Triangle Layer
-description: TODO
+description:
+  Triangle layers are the result of adding a triangle shape to the canvas
 type: object
 allOf:
   - $ref: ./abstract-shape-layer.schema.yaml

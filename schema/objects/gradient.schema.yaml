@@ -1,5 +1,5 @@
 title: Gradient
-description: TODO
+description: Defines a gradient
 type: object
 properties:
   _class: { const: gradient }

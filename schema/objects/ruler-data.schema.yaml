@@ -1,5 +1,5 @@
 title: Ruler Data
-description: TODO
+description: Defines persisted ruler positions on artboards, pages and symbols
 type: object
 properties:
   _class: { const: rulerData }

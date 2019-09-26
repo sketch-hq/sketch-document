@@ -1,5 +1,6 @@
 title: Color Space
-description: TODO
+description:
+  Enumeration of the color profiles Sketch can use to render a document
 type: integer
 enum:
   - 0

@@ -1,5 +1,5 @@
 title: Page File Ref
-description: TODO
+description: Defines a reference to a JSON page file within the document zip
 type: object
 properties:
   _class: { const: MSJSONFileReference }

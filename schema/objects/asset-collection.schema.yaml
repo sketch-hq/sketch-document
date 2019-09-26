@@ -1,5 +1,5 @@
 title: Asset Collection
-description: TODO
+description: Collection of global document objects
 type: object
 properties:
   _class: { const: assetCollection }

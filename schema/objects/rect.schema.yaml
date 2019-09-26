@@ -1,5 +1,5 @@
 title: Rect
-description: TODO
+description: Defines an abstract rectangle
 type: object
 properties:
   _class: { const: rect }

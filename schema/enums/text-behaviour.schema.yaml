@@ -1,5 +1,5 @@
 title: Text Behaviour
-description: TODO
+description: Enumeration of the behaviours for text layers
 type: integer
 enum:
   - 0

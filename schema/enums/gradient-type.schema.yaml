@@ -1,5 +1,5 @@
 title: Gradient Type
-description: TODO
+description: Enumeration of the gradient types
 type: integer
 enum:
   - 0

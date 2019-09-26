@@ -1,4 +1,5 @@
 title: Abstract Group
+description: Abstract base schema for all layers that behave as groups
 type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml

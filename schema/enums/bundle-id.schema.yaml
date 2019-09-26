@@ -1,5 +1,6 @@
 title: Sketch Bundle Identifier
-description: TODO
+description:
+  Enumeration of the Apple bundle ids for the various variants of Sketch
 type: string
 enum:
   - com.bohemiancoding.sketch3
@@ -7,3 +8,9 @@ enum:
   - com.bohemiancoding.sketch3.private
   - com.bohemiancoding.sketch3.internal
   - com.bohemiancoding.sketch3.experimental
+enumDescriptions:
+  - Public release
+  - Beta
+  - Private
+  - Internal
+  - Experimental

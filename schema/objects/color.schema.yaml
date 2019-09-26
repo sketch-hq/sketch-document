@@ -1,5 +1,5 @@
 title: Color
-description: TODO
+description: Defines a RGBA color value
 type: object
 properties:
   _class: { const: color }

@@ -1,5 +1,5 @@
 title: Symbol Master Layer
-description: TODO
+description: A symbol master layer represents a reusable group of layers
 type: object
 allOf:
   - $ref: ./abstract-group.schema.yaml

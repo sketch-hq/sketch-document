@@ -1,5 +1,5 @@
 title: Export Options
-description: TODO
+description: Defines a layer's export options
 type: object
 properties:
   _class: { const: exportOptions }

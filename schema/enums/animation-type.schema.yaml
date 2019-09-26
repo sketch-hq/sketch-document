@@ -1,5 +1,6 @@
 title: Animation Type
-description: TODO
+description:
+  Enumeration of the animation transition types between prototype screens
 type: integer
 enum:
   - 0
