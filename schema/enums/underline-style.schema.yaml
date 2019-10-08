@@ -5,5 +5,5 @@ enum:
   - 0
   - 1
 enumDescriptions:
-  - Strike-through
+  - None
   - Underlined

@@ -1,0 +1,5 @@
+title: Freeform Group Layout
+description: Normal group layout
+type: object
+properties:
+  _class: { const: MSImmutableFreeformGroupLayout }

@@ -1,5 +1,5 @@
 title: Marker Type
-description: TODO
+description: Enumeration of the possible types of vector line endings
 type: integer
 enum:
   - 0

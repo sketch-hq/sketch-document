@@ -1,11 +1,13 @@
 title: Export Format
 description: Defines an export format, as listed in a layer's export options
 type: object
+optional:
+  - namingScheme
 properties:
   _class: { const: exportFormat }
   absoluteSize: { type: integer }
   fileFormat: { $ref: ../enums/export-file-format.schema.yaml }
   name: { type: string }
-  namingScheme: { type: integer } # TODO What is this really? An enum?
+  namingScheme: { $ref: ../enums/export-format-naming-scheme.schema.yaml }
   scale: { type: number }
   visibleScaleType: { $ref: ../enums/visible-scale-type.schema.yaml }

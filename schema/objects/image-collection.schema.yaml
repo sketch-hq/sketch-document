@@ -1,7 +1,0 @@
-title: Image Collection
-deprecated: true
-description: TODO
-type: object
-properties:
-  _class: { const: imageCollection }
-  images: { type: object }

@@ -11,7 +11,7 @@ allOf:
       groupLayout:
         type: object
         properties:
-          _class: { const: MSImmutableFreeformGroupLayout } # TODO: What is this? Is it still in use?
+          _class: { $ref: ../objects/freeform-group-layout.schema.yaml }
       layers:
         description: TODO
         type: array

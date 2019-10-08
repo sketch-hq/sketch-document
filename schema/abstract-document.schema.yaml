@@ -17,5 +17,4 @@ properties:
     type: array
     items: { $ref: ./objects/foreign-text-style.schema.yaml }
   layerStyles: { $ref: ./objects/shared-style-container.schema.yaml }
-  layerSymbols: { $ref: ./objects/symbol-container.schema.yaml }
   layerTextStyles: { $ref: ./objects/shared-text-style-container.schema.yaml }

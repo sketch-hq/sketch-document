@@ -1,11 +1,9 @@
 title: Line Spacing Behaviour
-description: TODO
+description: Enumeration of line spacing behaviour for fixed line height text
 type: integer
 enum:
   - 0
   - 1
-  - 2
 enumDescriptions:
-  - Constant baseline
-  - Variable
-  - '2' # TODO What is the description for 2?
+  - Consistent baseline
+  - Legacy

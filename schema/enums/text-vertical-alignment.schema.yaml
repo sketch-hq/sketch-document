@@ -7,5 +7,5 @@ enum:
   - 2
 enumDescriptions:
   - Top
-  - Centered
+  - Middle
   - Bottom

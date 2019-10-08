@@ -1,0 +1,9 @@
+title: Export Format Naming Scheme
+description: Enumeration of the possible types of export format naming schemes
+type: integer
+enum:
+  - 0
+  - 1
+enumDescriptions:
+  - Suffix
+  - Prefix
