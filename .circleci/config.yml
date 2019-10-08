@@ -8,8 +8,8 @@ jobs:
       - checkout
       - node/install:
           install-npm: false
+          install-yarn: false
           node-version: '12.10.0'
-          yarn-version: '1.17.3'
       - node/with-cache:
           cache-key: yarn.lock
           steps:

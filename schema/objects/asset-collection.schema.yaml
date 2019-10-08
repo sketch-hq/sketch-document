@@ -1,8 +1,11 @@
 title: Asset Collection
 description: Collection of global document objects
 type: object
+optional:
+  - imageCollection
 properties:
   _class: { const: assetCollection }
+  imageCollection: { $ref: ./image-collection.schema.yaml }
   colorAssets:
     type: array
     items: { $ref: ./color-asset.schema.yaml }

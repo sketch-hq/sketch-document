@@ -1,0 +1,7 @@
+title: Image Collection
+deprecated: true
+description: Legacy object only retained for migrating older documents.
+type: object
+properties:
+  _class: { const: imageCollection }
+  images: { type: object }

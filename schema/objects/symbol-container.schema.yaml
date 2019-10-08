@@ -1,0 +1,6 @@
+title: Symbol container
+description: Legacy object only retained for migrating older documents.
+type: object
+properties:
+  _class: { const: symbolContainer }
+  objects: { type: array }
