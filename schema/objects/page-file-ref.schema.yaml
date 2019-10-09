@@ -1,5 +1,5 @@
 title: Page File Ref
-description: Defines a reference to a JSON page file within the document zip
+description: Defines a reference to a JSON page file within the document bundle
 type: object
 properties:
   _class: { const: MSJSONFileReference }
