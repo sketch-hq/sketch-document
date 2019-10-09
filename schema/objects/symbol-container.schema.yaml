@@ -1,5 +1,6 @@
 title: Symbol container
 description: Legacy object only retained for migrating older documents.
+deprecated: true
 type: object
 properties:
   _class: { const: symbolContainer }
