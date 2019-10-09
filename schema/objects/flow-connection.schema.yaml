@@ -1,5 +1,5 @@
 title: Flow Connection
-description: TODO
+description: Defines a connection between elements in a prototype
 type: object
 properties:
   _class: { const: MSImmutableFlowConnection }

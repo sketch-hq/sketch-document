@@ -1,5 +1,5 @@
 title: Group Layer
-description: TODO
+description: Group layers are a document organisation aid
 allOf:
   - $ref: ./abstract-group.schema.yaml
   - type: object

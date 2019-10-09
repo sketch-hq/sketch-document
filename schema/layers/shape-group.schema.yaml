@@ -1,5 +1,5 @@
 title: Shape Group Layer
-description: TODO
+description: Shape groups layers group together multiple shape layers
 allOf:
   - $ref: ./abstract-group.schema.yaml
   - type: object

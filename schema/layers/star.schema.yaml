@@ -1,5 +1,5 @@
 title: Star Layer
-description: TODO
+description: Star layers are the result of adding a star shape to the canvas
 type: object
 allOf:
   - $ref: ./abstract-shape-layer.schema.yaml

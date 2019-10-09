@@ -1,4 +1,5 @@
 title: Abstract Shape Layer
+description: Abstract base layer for all shape layers
 type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml

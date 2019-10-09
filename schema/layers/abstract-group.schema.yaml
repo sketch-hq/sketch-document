@@ -1,16 +1,16 @@
 title: Abstract Group
+description: Abstract base schema for all layers that behave as groups
 type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml
   - type: object
+    optional:
+      - groupLayout
     properties:
       hasClickThrough:
         type: boolean
         description: TODO
-      groupLayout:
-        type: object
-        properties:
-          _class: { const: MSImmutableFreeformGroupLayout } # TODO: What is this? Is it still in use?
+      groupLayout: { $ref: ../objects/freeform-group-layout.schema.yaml }
       layers:
         description: TODO
         type: array

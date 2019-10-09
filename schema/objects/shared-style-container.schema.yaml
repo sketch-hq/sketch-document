@@ -1,5 +1,5 @@
 title: Shared Style Container
-description: TODO
+description: Defines a document's list of reusable styles
 type: object
 properties:
   _class: { const: sharedStyleContainer }

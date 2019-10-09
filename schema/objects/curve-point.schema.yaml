@@ -1,5 +1,5 @@
 title: Curve Point
-description: TODO
+description: Defines a shape layer curve point
 type: object
 properties:
   _class: { const: curvePoint }

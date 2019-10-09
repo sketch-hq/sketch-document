@@ -1,5 +1,7 @@
 title: Winding Rule
-description: TODO
+description:
+  Enumeration of the winding rule that controls how fills behave in shapes with
+  complex paths
 type: integer
 enum:
   - 0

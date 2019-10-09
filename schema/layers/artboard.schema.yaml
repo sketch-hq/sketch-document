@@ -1,5 +1,7 @@
 title: Artboard Layer
-description: TODO
+description:
+  Artboard layers are a document organisation aid. They have a fixed frame that
+  usually map to variations of device dimensions or viewport sizes
 allOf:
   - $ref: ./abstract-group.schema.yaml
   - type: object

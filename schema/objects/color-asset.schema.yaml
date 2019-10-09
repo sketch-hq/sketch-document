@@ -1,5 +1,5 @@
 title: Color Asset
-description: TODO
+description: Defines a reusable color asset
 type: object
 properties:
   _class: { const: MSImmutableColorAsset }

@@ -1,8 +1,9 @@
 title: Boolean Operation
-description: TODO
+description:
+  Enumeration of the boolean operations that can be applied to combine shapes
 type: integer
 enum:
-  - -1 # TODO Check these values, especially this -1 value
+  - -1
   - 0
   - 1
   - 2

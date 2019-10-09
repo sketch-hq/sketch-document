@@ -1,5 +1,5 @@
 title: Foreign Layer Style
-description: TODO
+description: Defines a layer style that has been imported from a library
 type: object
 properties:
   _class: { const: MSImmutableForeignLayerStyle }

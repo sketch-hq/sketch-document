@@ -1,5 +1,5 @@
 title: Text Layer
-description: TODO
+description: A text layer represents a discrete block or line of text
 type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml

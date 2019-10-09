@@ -1,6 +1,6 @@
 title: Image Collection
 deprecated: true
-description: TODO
+description: Legacy object only retained for migrating older documents.
 type: object
 properties:
   _class: { const: imageCollection }

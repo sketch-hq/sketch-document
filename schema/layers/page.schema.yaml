@@ -1,5 +1,6 @@
 title: Page Layer
-description: TODO
+description:
+  Page layers are the top level organisational abstraction within a document
 allOf:
   - $ref: ./abstract-group.schema.yaml
   - type: object

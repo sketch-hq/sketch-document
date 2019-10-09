@@ -1,5 +1,5 @@
 title: Curve Mode
-description: TODO
+description: Enumeration of the curve modes that can be applied to vector points
 type: integer
 enum:
   - 0

@@ -1,5 +1,5 @@
 title: Graphics Context Settings
-description: TODO
+description: Defines the opacity and blend mode of a style or shadow
 type: object
 properties:
   _class: { const: graphicsContextSettings }

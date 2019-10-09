@@ -1,5 +1,6 @@
 title: Rectangle Layer
-description: TODO
+description:
+  Rectangle layers are the result of adding a rectangle shape to the canvas
 type: object
 allOf:
   - $ref: ./abstract-shape-layer.schema.yaml

@@ -1,5 +1,5 @@
 title: Foreign Text Style
-description: TODO
+description: Defines a text style that has been imported from a library
 type: object
 properties:
   _class: { const: MSImmutableForeignTextStyle }

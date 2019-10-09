@@ -1,6 +1,7 @@
 title: Symbol container
-description: TODO
+description: Legacy object only retained for migrating older documents.
+deprecated: true
 type: object
 properties:
   _class: { const: symbolContainer }
-  objects: { type: array } # TODO What is this?
+  objects: { type: array }

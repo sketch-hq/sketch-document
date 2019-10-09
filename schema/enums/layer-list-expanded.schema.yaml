@@ -1,5 +1,5 @@
 title: Layer List Expanded
-description: TODO
+description: Enumeration of the expansion states in the layer list UI
 type: integer
 enum:
   - 0

@@ -1,9 +1,9 @@
 title: Underline Style
-description: TODO
+description: Enumeration of the text style underline options
 type: integer
 enum:
   - 0
   - 1
 enumDescriptions:
-  - Strike-through
+  - None
   - Underlined

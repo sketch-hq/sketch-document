@@ -1,5 +1,5 @@
 title: Gradient Asset
-description: TODO
+description: Defines a reusable gradient asset
 type: object
 properties:
   _class: { const: MSImmutableGradientAsset }

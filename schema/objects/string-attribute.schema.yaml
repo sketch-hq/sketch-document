@@ -1,5 +1,6 @@
 title: String Attribute
-description: TODO
+description:
+  Defines an attribute assigned to a range of characters in an attributed string
 type: object
 properties:
   _class: { const: stringAttribute }

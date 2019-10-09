@@ -1,4 +1,5 @@
 title: Layout Grid
+description: Defines the layout settings for an artboard or page
 type: object
 properties:
   _class: { const: layoutGrid }

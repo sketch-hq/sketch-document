@@ -1,8 +1,14 @@
 title: Points Radius Behaviour
-description: TODO
+description:
+  Enumeration of the possible values for corner rounding on shape points.
 type: integer
 enum:
   - -1
   - 0
   - 1
   - 2
+enumDescriptions:
+  - Disabled
+  - Legacy
+  - Rounded
+  - Smooth

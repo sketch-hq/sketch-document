@@ -1,5 +1,5 @@
 title: Hotspot Layer
-description: TODO
+description: Hotspot layers define clickable hotspots for use with prototypes
 type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml

@@ -1,0 +1,9 @@
+title: Underline Style
+description: Enumeration of the text style strikethrough options
+type: integer
+enum:
+  - 0
+  - 1
+enumDescriptions:
+  - None
+  - Strikethrough

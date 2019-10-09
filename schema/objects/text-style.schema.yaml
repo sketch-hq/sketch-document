@@ -1,5 +1,5 @@
 title: Text Style
-description: TODO
+description: Defines text style
 type: object
 properties:
   _class: { const: textStyle }
