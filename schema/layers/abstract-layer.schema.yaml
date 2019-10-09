@@ -18,7 +18,11 @@ properties:
   layerListExpandedType: { $ref: ../enums/layer-list-expanded.schema.yaml }
   name: { type: string }
   nameIsFixed: { type: boolean }
-  resizingConstraint: { $ref: ../enums/resize-constraint.schema.yaml }
+  resizingConstraint:
+    description: Bitfield representing the resizing constraint
+    type: integer
+    minimum: 0
+    maximum: 127
   resizingType: { $ref: ../enums/resize-type.schema.yaml }
   rotation: { type: number }
   shouldBreakMaskChain: { type: boolean }
