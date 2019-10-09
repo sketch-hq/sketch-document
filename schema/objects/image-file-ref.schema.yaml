@@ -1,5 +1,5 @@
 title: Image File Ref
-description: Defines a reference to an image file within the document zip
+description: Defines a reference to an image file within the document bundle
 type: object
 properties:
   _class: { const: MSJSONFileReference }
