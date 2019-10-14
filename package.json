@@ -1,14 +1,25 @@
 {
-  "name": "sketch-file-format",
-  "version": "0.1.0-alpha.1",
-  "license": "UNLICENSED",
+  "name": "@sketchhq/sketch-file-format",
+  "version": "1.0.0",
+  "license": "MIT",
   "main": "index.js",
+  "repository": "github:BohemianCoding/sketch-file-format",
+  "files": [
+    "index.js",
+    "dist/*.json"
+  ],
+  "dependencies": {
+    "standard-version": "7.0.0"
+  },
   "devDependencies": {
     "ajv": "6.10.2",
     "chalk": "2.4.2",
     "change-case": "3.1.0",
+    "commitizen": "4.0.3",
+    "cz-conventional-changelog": "3.0.2",
     "deepdash": "4.2.14",
     "globby": "10.0.1",
+    "husky": "3.0.9",
     "js-yaml": "3.13.1",
     "json-schema-merge-allof": "0.6.0",
     "json-transforms": "1.1.2",
@@ -22,10 +33,22 @@
     "assemble": "node --experimental-modules --no-warnings scripts/assemble.mjs",
     "integration-test": "node --experimental-modules --no-warnings scripts/integration-test.mjs",
     "test": "echo \"No test specified\"",
-    "format-check": "prettier --check **/*.{mjs,md,yaml,json}"
+    "format-check": "prettier --check **/*.{mjs,md,yaml,json}",
+    "release": "standard-version"
   },
-  "dependencies": {},
-  "engines": {
-    "node": "12.10.0"
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "standard-version": {
+    "scripts": {
+      "prerelease": "yarn build && yarn validate && yarn integration-test && yarn test && yarn format-check"
+    }
   }
 }
