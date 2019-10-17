@@ -57,8 +57,9 @@ The `schemas` object above has the following properties. See the
 
 ### HTTP
 
-Schema versions are available to download directly using
-[unpkg](https://unpkg.com/).
+Built schemas are available to download directly over HTTP from unpkg.
+
+- https://unpkg.com/browse/@sketch-hq/sketch-file-format@latest/dist/
 
 ### Other platforms
 
@@ -67,36 +68,52 @@ requests please open an issue.
 
 ## Schemas
 
-| Schema      | Description                                                                                                                                           | Entrypoint                       | Build output                   |
+| Schema      | Description                                                                                                                                           | Yaml entrypoint                  | Built schema                   |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ------------------------------ |
 | File Format | Schema for a Sketch file that has been unzipped and its entries parsed into a single object, with page references replaced with concrete page objects | `schema/file-format.schema.yaml` | `dist/file-format.schema.json` |
 | Document    | Schema for the document JSON entry in a Sketch ZIP file                                                                                               | `schema/document.schema.yaml`    | `dist/document.schema.json`    |
-| Page        | Schema for the pages JSON entries in a Sketch ZIP file                                                                                                | `schema/layers/page.schema.yaml` | `dist/page.schema.json`        |
+| Page        | Schema for the page JSON entries in a Sketch ZIP file                                                                                                 | `schema/layers/page.schema.yaml` | `dist/page.schema.json`        |
 | Meta        | Schema for the meta JSON entry in a Sketch ZIP file                                                                                                   | `schema/meta.schema.yaml`        | `dist/meta.schema.json`        |
 | User        | Schema for the user JSON entry in a Sketch ZIP file                                                                                                   | `schema/user.schema.yaml`        | `dist/user.schema.json`        |
 
-## Sketch version mapping
+## Sketch document version mapping
 
-Conceptually this file format spec will sit upstream of Sketch. This means we
-will endeavour to release a new version of this spec before or closely following
-the version of Sketch that supports it.
+Currently Sketch documents declare both their
+[_document version_ and _app version_](https://developer.sketch.com/file-format/versioning).
+These schemas are directly related to the _document version_ only, which can
+change less frequently than the Sketch major version.
 
-The file format version will follow semver, remaining independent of the Sketch
-app version.
-
-That means if breaking changes are introduced to the schemas (that is, the
-schemas fail to validate a document that was considered valid by previous
-versions) then we bump the major version here. Likewise, if we make changes in a
-backwards compatible manner (like adding a new field, and marking another
-deprecated) then we make a minor version bump here, irrespective of the version
-changes happening on the Sketch app.
+Conceptually this file format spec sits _upstream_ of Sketch. This means we will
+endeavour to release a new version of this spec before or closely following the
+version of Sketch that supports it. A future goal is that this file format spec
+is incorporated into Sketch's build and test process, formalising the
+relationship between the two.
 
 The table below indicates the relationship between file format versions and the
-Sketch app.
+document version.
 
-| File Format | Sketch |
-| ----------- | ------ |
-| 1.0.0       | 57     |
+| File Format Schemas | Document version             |
+| ------------------- | ---------------------------- |
+| `1.0.0`             | `119` (Sketch `55.2 - 57.0`) |
+
+### Semver
+
+The version of these file format schemas will follow
+[semver](https://semver.org/), remaining entirely independent of the Sketch app
+version.
+
+- **Major version bump** The schemas fail to validate a document that was
+  previously considered valid by prior versions
+- **Minor version bump** Introduction of changes in a backwards compatible
+  manner, for example adding a new field while adding a deprecated flag on an
+  old one
+- **Patch version bump** Bug fixes, documentation improvements and other trivial
+  changes that don't affect the semantics of the schemas
+
+> This repo enforces use of semantic
+> [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to
+> automate semver changes and changelog generation, so please think carefully
+> about your commit _types_ when you make a contribution.
 
 ## Scripts
 

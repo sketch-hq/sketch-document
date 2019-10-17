@@ -8,9 +8,7 @@
     "index.js",
     "dist/*.json"
   ],
-  "dependencies": {
-    "standard-version": "7.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "ajv": "6.10.2",
     "chalk": "2.4.2",
@@ -24,7 +22,8 @@
     "json-schema-merge-allof": "0.6.0",
     "json-transforms": "1.1.2",
     "lodash": "4.17.15",
-    "prettier": "1.18.2"
+    "prettier": "1.18.2",
+    "standard-version": "7.0.0"
   },
   "scripts": {
     "validate": "node --experimental-modules --no-warnings scripts/validate.mjs",
