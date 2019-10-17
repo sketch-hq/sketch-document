@@ -43,7 +43,7 @@ npm install @sketch-hq/sketch-file-format
 ```
 
 ```
-const schemas = require('@sketchhq/sketch-file-format')
+const schemas = require('@sketch-hq/sketch-file-format')
 ```
 
 The `schemas` object above has the following properties. See the
