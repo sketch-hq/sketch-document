@@ -39,7 +39,7 @@ comments etc.
 ### JavaScript
 
 ```
-npm install @sketchhq/sketch-file-format
+npm install @sketch-hq/sketch-file-format
 ```
 
 ```
