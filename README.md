@@ -81,7 +81,7 @@ Conceptually this file format spec will sit upstream of Sketch. This means we
 will endeavour to release a new version of this spec before or closely following
 the version of Sketch that supports it.
 
-The file format version will follow semver, remaining independant of the Sketch
+The file format version will follow semver, remaining independent of the Sketch
 app version.
 
 That means if breaking changes are introduced to the schemas (that is, the
