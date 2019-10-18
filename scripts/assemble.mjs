@@ -162,9 +162,10 @@ const assemble = async entry => {
   const abstractSchemas = await gatherDefinitions('**/*abstract*.schema.yaml')
   const pkg = (await import('../package.json')).default
   const $schema = 'http://json-schema.org/draft-07/schema#'
-  const $id = `https://unpkg.com/browse/${pkg.name}@${
-    pkg.version
-  }/dist/${basename(entry, '.yaml')}.json`
+  const $id = `https://unpkg.com/${pkg.name}@${pkg.version}/dist/${basename(
+    entry,
+    '.yaml',
+  )}.json`
   let output = {
     ...(await loadSchema(entry)),
     $schema,
