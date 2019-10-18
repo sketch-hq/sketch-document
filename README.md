@@ -105,6 +105,8 @@ document version.
 | ------------------ | ---------------------------- |
 | `1.0.*`            | `119` (Sketch `55.2 - 57.0`) |
 
+> Check the [changelog](./CHANGELOG.md) for more information.
+
 ### Semver
 
 The version of these file format schemas will strictly follow
