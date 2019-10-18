@@ -36,7 +36,9 @@ comments etc.
 
 ## Usage
 
-### JavaScript
+### Node/TypeScript/JavaScript
+
+Setup/create your npm-based JavaScript project as usual, then
 
 ```
 npm install @sketch-hq/sketch-file-format
@@ -61,6 +63,13 @@ Built schemas are available to download directly over HTTP from unpkg.
 
 - https://unpkg.com/browse/@sketch-hq/sketch-file-format@latest/dist/
 
+### From source
+
+1. Check you have sufficient versions of Yarn (>=1.13) and Node (>=12) installed
+1. Check out the repo
+1. Run `yarn` to setup the dependencies
+1. Run `yarn build` to generate the schemas into the `dist` folder
+
 ### Other platforms
 
 Other platforms and package managers can be supported in future, if you have any
@@ -80,8 +89,8 @@ requests please open an issue.
 
 Currently Sketch documents declare both their
 [_document version_ and _app version_](https://developer.sketch.com/file-format/versioning).
-These schemas are directly related to the _document version_ only, which can
-change less frequently than the Sketch major version.
+These schemas are related to the _document version_ only, which can change less
+frequently than the Sketch major version.
 
 Conceptually this file format spec sits _upstream_ of Sketch. This means we will
 endeavour to release a new version of this spec before or closely following the
@@ -92,21 +101,21 @@ relationship between the two.
 The table below indicates the relationship between file format versions and the
 document version.
 
-| File Format Schemas | Document version             |
-| ------------------- | ---------------------------- |
-| `1.0.0`             | `119` (Sketch `55.2 - 57.0`) |
+| Sketch file format | Sketch document version      |
+| ------------------ | ---------------------------- |
+| `1.0.*`            | `119` (Sketch `55.2 - 57.0`) |
 
 ### Semver
 
-The version of these file format schemas will follow
+The version of these file format schemas will strictly follow
 [semver](https://semver.org/), remaining entirely independent of the Sketch app
-version.
+or document version.
 
 - **Major version bump** The schemas fail to validate a document that was
   previously considered valid by prior versions
 - **Minor version bump** Introduction of changes in a backwards compatible
-  manner, for example adding a new field while adding a deprecated flag on an
-  old one
+  manner, for example adding a new optional field and/or§ adding a deprecated
+  flag on an old one
 - **Patch version bump** Bug fixes, documentation improvements and other trivial
   changes that don't affect the semantics of the schemas
 
