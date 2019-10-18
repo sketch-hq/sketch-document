@@ -33,7 +33,8 @@
     "integration-test": "node --experimental-modules --no-warnings scripts/integration-test.mjs",
     "test": "echo \"No test specified\"",
     "format-check": "prettier --check **/*.{mjs,md,yaml,json}",
-    "release": "standard-version --no-verify"
+    "release": "standard-version --no-verify",
+    "prepublishOnly": "yarn build"
   },
   "config": {
     "commitizen": {
