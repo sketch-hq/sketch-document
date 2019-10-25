@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "license": "MIT",
   "main": "index.js",
-  "repository": "github:BohemianCoding/sketch-file-format",
+  "repository": "github:sketch-hq/sketch-file-format",
   "files": [
     "index.js",
     "dist/*.json"
