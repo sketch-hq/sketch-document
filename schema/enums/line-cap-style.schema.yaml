@@ -1,0 +1,11 @@
+title: Line Cap Style
+description: Enumeration of the line cap styles
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+enumDescriptions:
+  - Butt
+  - Round
+  - Projecting

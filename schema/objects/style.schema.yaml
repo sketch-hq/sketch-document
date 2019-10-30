@@ -4,6 +4,7 @@ type: object
 optional:
   - blur
   - borders
+  - borderOptions
   - contextSettings
   - fills
   - shadows
@@ -13,6 +14,7 @@ properties:
   borders:
     type: array
     items: { $ref: ./border.schema.yaml }
+  borderOptions: { $ref: ./border-options.schema.yaml }
   blur: { $ref: ./blur.schema.yaml }
   fills:
     type: array

@@ -1,0 +1,11 @@
+title: Border Options
+description: Defines border options
+type: object
+properties:
+  _class: { const: borderOptions }
+  isEnabled: { type: boolean }
+  dashPattern:
+    type: array
+    items: { type: number }
+  lineCapStyle: { $ref: ../enums/line-cap-style.schema.yaml }
+  lineJoinStyle: { $ref: ../enums/line-join-style.schema.yaml }

@@ -1,0 +1,11 @@
+title: Line Join Style
+description: Enumeration of the line join styles
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+enumDescriptions:
+  - Miter
+  - Round
+  - Bevel
