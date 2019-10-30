@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/sketch-hq/sketch-file-format/compare/v1.1.0...v1.1.1) (2019-10-30)
+
+
+### Bug Fixes
+
+* add optional borderOptions style property ([1f30fef](https://github.com/sketch-hq/sketch-file-format/commit/1f30fef7d550bd9feb96ffb49bd8de21b8111a46))
+* add optional exportPresets property ([00a6202](https://github.com/sketch-hq/sketch-file-format/commit/00a62022806ed6da0ba5aec3cf5454ade0a7dbac))
+
 ## [1.1.0](https://github.com/sketch-hq/sketch-file-format/compare/v1.0.3...v1.1.0) (2019-10-30)
 
 
