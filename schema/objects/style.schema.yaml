@@ -9,6 +9,7 @@ optional:
   - fills
   - shadows
   - textStyle
+  - colorControls
 properties:
   _class: { const: style }
   borders:
@@ -28,3 +29,4 @@ properties:
     type: array
     items: { $ref: ./shadow.schema.yaml }
   contextSettings: { $ref: ./graphics-context-settings.schema.yaml }
+  colorControls: { $ref: ./color-controls.schema.yaml }

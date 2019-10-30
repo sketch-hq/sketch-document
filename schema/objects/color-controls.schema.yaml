@@ -1,0 +1,10 @@
+title: Color Controls
+description: Defines color adjust styles on images
+type: object
+properties:
+  _class: { const: colorControls }
+  isEnabled: { type: boolean }
+  brightness: { $ref: ../utils/unit-interval.schema.yaml }
+  contrast: { $ref: ../utils/unit-interval.schema.yaml }
+  hue: { $ref: ../utils/unit-interval.schema.yaml }
+  saturation: { $ref: ../utils/unit-interval.schema.yaml }
