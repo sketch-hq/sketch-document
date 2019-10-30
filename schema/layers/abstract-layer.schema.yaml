@@ -4,6 +4,9 @@ type: object
 optional:
   - flow
   - userInfo
+  - hasClippingMask
+  - clippingMaskMode
+  - style
 properties:
   do_objectID: { $ref: ../utils/uuid.schema.yaml }
   booleanOperation: { $ref: ../enums/boolean-operation.schema.yaml }
@@ -27,7 +30,7 @@ properties:
   rotation: { type: number }
   shouldBreakMaskChain: { type: boolean }
   hasClippingMask: { type: boolean }
-  clippingMaskMode: { type: integer } # TODO Is this an enum? What are the values?
+  clippingMaskMode: { type: integer }
   userInfo:
     type: object
     additionalProperties: true

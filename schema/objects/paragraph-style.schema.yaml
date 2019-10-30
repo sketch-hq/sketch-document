@@ -1,6 +1,9 @@
 title: Paragraph Style
 description: Defines the paragraph style within a text style
 type: object
+optional:
+  - maximumLineHeight
+  - minimumLineHeight
 properties:
   _class: { const: paragraphStyle }
   alignment: { $ref: ../enums/text-horizontal-alignment.schema.yaml }

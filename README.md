@@ -27,6 +27,10 @@ comments etc.
 > make the most of the tooling in this repo, although this sort of developer
 > environment is purely optional.
 
+## Related projects
+
+- [sketch-reference-files](https://github.com/sketch-hq/sketch-reference-files/)
+
 ## Use cases
 
 - Documents the file format over time
@@ -36,9 +40,9 @@ comments etc.
 
 ## Usage
 
-### Node/TypeScript/JavaScript
+### JavaScript
 
-Setup/create your npm-based JavaScript project as usual, then
+Add the npm module using `npm` or `yarn`
 
 ```
 npm install @sketch-hq/sketch-file-format
@@ -48,14 +52,19 @@ npm install @sketch-hq/sketch-file-format
 const schemas = require('@sketch-hq/sketch-file-format')
 ```
 
-The `schemas` object above has the following properties. See the
-[Schemas](./#schemas) section for definitions.
+The shape of the `schemas` object above is illustrated by the following type
+definition (see the [Schemas](./#schemas) section for explanations):
 
-- `fileFormat`
-- `document`
-- `page`
-- `meta`
-- `user`
+```typescript
+type Schemas = {
+  version: number // Supported document version
+  fileFormat: JSONSchema
+  document: JSONSchema
+  page: JSONSchema
+  meta: JSONSchema
+  user: JSONSchema
+}
+```
 
 ### HTTP
 
@@ -65,7 +74,7 @@ Built schemas are available to download directly over HTTP from unpkg.
 
 ### From source
 
-1. Check you have sufficient versions of Yarn (>=1.13) and Node (>=12) installed
+1. Check you have modern versions of Yarn and Node installed
 1. Check out the repo
 1. Run `yarn` to setup the dependencies
 1. Run `yarn build` to generate the schemas into the `dist` folder
@@ -89,36 +98,40 @@ requests please open an issue.
 
 Currently Sketch documents declare both their
 [_document version_ and _app version_](https://developer.sketch.com/file-format/versioning).
-These schemas are related to the _document version_ only, which can change less
-frequently than the Sketch major version.
+These schemas are related to the _document version_ only. This value can change
+less frequently than the Sketch desktop app version but will increment everytime
+there's any change to the Sketch file format.
 
 Conceptually this file format spec sits _upstream_ of Sketch. This means we will
 endeavour to release a new version of this spec before or closely following the
 version of Sketch that supports it. A future goal is that this file format spec
-is incorporated into Sketch's build and test process, formalising the
-relationship between the two.
+is incorporated into our internal processes, strengthening the relationship
+between this spec and our products that implement it.
 
 The table below indicates the relationship between file format versions and the
 document version.
 
 | Sketch file format | Sketch document version      |
 | ------------------ | ---------------------------- |
-| `1.0.*`            | `119` (Sketch `55.2 - 57.0`) |
+| `1.*.*`            | `119` (Sketch `55.2 - 57.1`) |
 
 > Check the [changelog](./CHANGELOG.md) for more information.
 
 ### Semver
 
-The version of these file format schemas will strictly follow
-[semver](https://semver.org/), remaining entirely independent of the Sketch app
-or document version.
+The version of these file format schemas will follow
+[semver](https://semver.org/), remaining independent of the Sketch version.
 
 - **Major version bump** The schemas fail to validate a document that was
-  previously considered valid by prior versions
-- **Minor version bump** Introduction of changes in a backwards compatible
-  manner, for example adding a new optional field and/or§ adding a deprecated
-  flag on an old one
-- **Patch version bump** Bug fixes, documentation improvements and other trivial
+  previously considered valid by prior versions. A change in Sketch document
+  version will mean a major bump too, since document version is currently
+  declared as a constant in the schemas
+- **Minor version bump** While any document version change results in a major
+  bump we're unlikely to see many backwards compatible new features and an
+  associated minor version bump. This may change in future though as we
+  normalise the relationship between this spec and other Sketch products, in
+  which case we'll be able to make better use of the full semver semantics
+- **Patch version bump** Bug fixes, documentation improvements or trivial
   changes that don't affect the semantics of the schemas
 
 > This repo enforces use of semantic

@@ -3,22 +3,23 @@ import chalk from 'chalk'
 import path from 'path'
 import { getAjvInstance } from './ajv.mjs'
 import util from 'util'
+import npmModule from '../index.js'
+import referenceFiles from '@sketch-hq/sketch-reference-files'
 
 const { red, green, inverse, gray, whiteBright } = chalk
-const versions = ['57']
+
+const referenceFileGroup = referenceFiles.default.find(
+  group => group.document === npmModule.version,
+)
+
 const ajv = getAjvInstance()
 
-const loadJson = async filepath => (await import(filepath)).default
-
-const createValidator = async filepath => ajv.compile(await loadJson(filepath))
-
-const validate = async (validator, filepath) => {
-  const name = path.basename(filepath)
-  const valid = validator(await loadJson(filepath))
+const validate = (validator, data, name) => {
+  const valid = validator(data)
   if (valid) {
-    console.log(green('  ', name, 'OK'))
+    console.log(green(`  ${name} schema OK`))
   } else {
-    console.log(red('  ', name, 'failed'))
+    console.log(red(`  ${name} schema failed`))
     let output = ''
     validator.errors.forEach(error => {
       const { keyword, dataPath, schemaPath, params, message, data } = error
@@ -35,62 +36,36 @@ const validate = async (validator, filepath) => {
   return validator.errors || []
 }
 
-;(async () => {
-  try {
-    const keepAlive = setTimeout(() => {}, Infinity)
+const docValidator = ajv.compile(npmModule.document)
+const metaValidator = ajv.compile(npmModule.meta)
+const userValidator = ajv.compile(npmModule.user)
+const pageValidator = ajv.compile(npmModule.page)
 
-    const docValidator = await createValidator('../dist/document.schema.json')
-    const metaValidator = await createValidator('../dist/meta.schema.json')
-    const userValidator = await createValidator('../dist/user.schema.json')
-    const pageValidator = await createValidator('../dist/page.schema.json')
+const integrationTest = () => {
+  console.log(inverse(`\n  Testing against document ${npmModule.version}\n `))
 
-    const errors = []
-
-    for (const version of versions) {
-      console.log(inverse(`\n  Sketch ${version}  \n`))
-      const folders = await fs.promises.readdir(`reference-files/${version}`)
-      for (const folder of folders) {
-        console.log(whiteBright(folder))
-        errors.push(
-          ...(await validate(
-            docValidator,
-            `../reference-files/${version}/${folder}/document.json`,
-          )),
-        )
-        errors.push(
-          ...(await validate(
-            metaValidator,
-            `../reference-files/${version}/${folder}/meta.json`,
-          )),
-        )
-        errors.push(
-          ...(await validate(
-            userValidator,
-            `../reference-files/${version}/${folder}/user.json`,
-          )),
-        )
-        const pages = await fs.promises.readdir(
-          `reference-files/${version}/${folder}/pages`,
-        )
-        for (const page of pages) {
-          errors.push(
-            ...(await validate(
-              pageValidator,
-              `../reference-files/${version}/${folder}/pages/${page}`,
-            )),
-          )
-        }
-      }
+  const errors = []
+  for (const file of referenceFileGroup.files) {
+    console.log(whiteBright(file.name))
+    errors.push(...validate(docValidator, file.data.document, 'Document'))
+    errors.push(...validate(metaValidator, file.data.meta, 'Meta'))
+    errors.push(...validate(userValidator, file.data.user, 'User'))
+    for (const page of file.data.pages) {
+      errors.push(...validate(pageValidator, page, 'Page'))
     }
-
-    if (errors.length > 0) {
-      console.error(red(`\n${errors.length} errors\n`))
-      process.exit(1)
-    } else {
-      process.exit(0)
-    }
-  } catch (err) {
-    console.log(err)
-    process.exit(1)
   }
-})()
+
+  if (errors.length > 0) {
+    console.error(red(`\n${errors.length} errors\n`))
+    throw 'Failed'
+  } else {
+    console.log(green('\nSuccess\n'))
+  }
+}
+
+try {
+  integrationTest()
+} catch (err) {
+  console.error(err)
+  process.exit(1)
+}
