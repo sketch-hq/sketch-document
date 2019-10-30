@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/sketch-hq/sketch-file-format/compare/v1.0.3...v1.1.0) (2019-10-30)
+
+
+### Features
+
+* integrate the new sketch-reference-files dependency ([#17](https://github.com/sketch-hq/sketch-file-format/issues/17)) ([3b9bc98](https://github.com/sketch-hq/sketch-file-format/commit/3b9bc9891092ca63ae94d17ada9811908ac53d49)), closes [#13](https://github.com/sketch-hq/sketch-file-format/issues/13)
+
 ### [1.0.3](https://github.com/sketch-hq/sketch-file-format/compare/v1.0.2...v1.0.3) (2019-10-25)
 
 ### [1.0.2](https://github.com/sketch-hq/sketch-file-format/compare/v1.0.1...v1.0.2) (2019-10-18)
