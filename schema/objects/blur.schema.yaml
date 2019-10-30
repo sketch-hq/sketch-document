@@ -1,0 +1,14 @@
+title: Blur
+description: Defines a blur style
+type: object
+optional:
+  - motionAngle
+  - radius
+properties:
+  _class: { const: blur }
+  isEnabled: { type: boolean }
+  center: { $ref: ../utils/point-string.schema.yaml }
+  motionAngle: { type: number }
+  radius: { type: number }
+  saturation: { type: number }
+  type: { $ref: ../enums/blur-type.schema.yaml }

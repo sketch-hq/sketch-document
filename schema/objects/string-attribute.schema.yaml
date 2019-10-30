@@ -11,9 +11,13 @@ properties:
     optional:
       - textStyleVerticalAlignmentKey
       - MSAttributedStringColorAttribute
+      - kerning
+      - paragraphStyle
     properties:
+      kerning: { type: number }
       textStyleVerticalAlignmentKey:
         { $ref: ../enums/text-vertical-alignment.schema.yaml }
       MSAttributedStringFontAttribute:
         { $ref: ../objects/font-descriptor.schema.yaml }
       MSAttributedStringColorAttribute: { $ref: ../objects/color.schema.yaml }
+      paragraphStyle: { $ref: ./paragraph-style.schema.yaml }

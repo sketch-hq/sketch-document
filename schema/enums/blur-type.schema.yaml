@@ -1,0 +1,13 @@
+title: Blur Type
+description: Enumeration of the various blur types
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+  - 3
+enumDescriptions:
+  - Gaussian
+  - Motion
+  - Zoom
+  - Background

@@ -10,6 +10,7 @@
   ],
   "dependencies": {},
   "devDependencies": {
+    "@sketch-hq/sketch-reference-files": "2.0.0",
     "ajv": "6.10.2",
     "chalk": "2.4.2",
     "change-case": "3.1.0",

@@ -34,14 +34,23 @@ properties:
     type: object
     properties:
       commit: { type: string }
-      appVersion: { const: '57' }
+      appVersion: { type: string }
       build: { type: integer }
       app: { $ref: ./enums/bundle-id.schema.yaml }
-      compatibilityVersion: { const: 99 }
-      version: { const: 119 }
+      compatibilityVersion: { type: number }
+      version: { type: number }
       variant: { $ref: ./enums/sketch-variant.schema.yaml }
   saveHistory:
     type: array
     items: { type: string }
-  appVersion: { const: '57' }
+  appVersion:
+    type: string
+    enum:
+      - '55.2'
+      - '56'
+      - '56.1'
+      - '56.2'
+      - '56.3'
+      - '57'
+      - '57.1'
   build: { type: integer }

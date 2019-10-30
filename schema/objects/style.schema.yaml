@@ -2,16 +2,18 @@ title: Style
 description: Defines a layer style
 type: object
 optional:
+  - blur
   - borders
-  - fills
-  - textStyle
-  - shadows
   - contextSettings
+  - fills
+  - shadows
+  - textStyle
 properties:
   _class: { const: style }
   borders:
     type: array
     items: { $ref: ./border.schema.yaml }
+  blur: { $ref: ./blur.schema.yaml }
   fills:
     type: array
     items: { $ref: ./fill.schema.yaml }
