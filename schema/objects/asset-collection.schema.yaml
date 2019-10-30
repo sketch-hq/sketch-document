@@ -3,6 +3,7 @@ description: Collection of global document objects
 type: object
 optional:
   - imageCollection
+  - exportPresets
 properties:
   _class: { const: assetCollection }
   imageCollection: { $ref: ./image-collection.schema.yaml }
@@ -21,3 +22,4 @@ properties:
   gradients:
     type: array
     items: { $ref: ./gradient.schema.yaml }
+  exportPresets: { type: array }
