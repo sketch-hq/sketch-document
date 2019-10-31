@@ -27,6 +27,28 @@ comments etc.
 > make the most of the tooling in this repo, although this sort of developer
 > environment is purely optional.
 
+## Sketch document version mapping
+
+Currently Sketch documents declare both their
+[_document version_ and _app version_](https://developer.sketch.com/file-format/versioning).
+These schemas are related to the _document version_ only. This value can change
+less frequently than the Sketch desktop app version but will increment everytime
+there's any change to the Sketch file format.
+
+Conceptually this file format spec sits _upstream_ of Sketch. This means we will
+endeavour to release a new version of this spec before or closely following the
+version of Sketch that supports it. A future goal is that this file format spec
+is incorporated into our internal processes, strengthening the relationship
+between this spec and our products that implement it.
+
+The table below indicates the relationship between file format versions and the
+document version.
+
+| Sketch file format | Sketch document version  |
+| ------------------ | ------------------------ |
+| `1.*.*`            | `119` Sketch 55.2 - 57.1 |
+| `2.*.*`            | `120` Sketch 58          |
+
 ## Related projects
 
 - [sketch-reference-files](https://github.com/sketch-hq/sketch-reference-files/)
@@ -93,27 +115,6 @@ requests please open an issue.
 | Page        | Schema for the page JSON entries in a Sketch ZIP file                                                                                                 | `schema/layers/page.schema.yaml` | `dist/page.schema.json`        |
 | Meta        | Schema for the meta JSON entry in a Sketch ZIP file                                                                                                   | `schema/meta.schema.yaml`        | `dist/meta.schema.json`        |
 | User        | Schema for the user JSON entry in a Sketch ZIP file                                                                                                   | `schema/user.schema.yaml`        | `dist/user.schema.json`        |
-
-## Sketch document version mapping
-
-Currently Sketch documents declare both their
-[_document version_ and _app version_](https://developer.sketch.com/file-format/versioning).
-These schemas are related to the _document version_ only. This value can change
-less frequently than the Sketch desktop app version but will increment everytime
-there's any change to the Sketch file format.
-
-Conceptually this file format spec sits _upstream_ of Sketch. This means we will
-endeavour to release a new version of this spec before or closely following the
-version of Sketch that supports it. A future goal is that this file format spec
-is incorporated into our internal processes, strengthening the relationship
-between this spec and our products that implement it.
-
-The table below indicates the relationship between file format versions and the
-document version.
-
-| Sketch file format | Sketch document version      |
-| ------------------ | ---------------------------- |
-| `1.*.*`            | `119` (Sketch `55.2 - 57.1`) |
 
 > Check the [changelog](./CHANGELOG.md) for more information.
 
