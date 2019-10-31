@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/sketch-hq/sketch-file-format/compare/v2.0.0...v3.0.0) (2019-10-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* The schemas will not validate document versions other than 121
+
+### Features
+
+* support for Sketch document version 121 ([b3dbe9b](https://github.com/sketch-hq/sketch-file-format/commit/b3dbe9b01d259e16b09080575f898f50d563bcde)), closes [#16](https://github.com/sketch-hq/sketch-file-format/issues/16)
+
 ## [2.0.0](https://github.com/sketch-hq/sketch-file-format/compare/v1.1.4...v2.0.0) (2019-10-31)
 
 
