@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/sketch-hq/sketch-file-format/compare/v1.1.4...v2.0.0) (2019-10-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* The schemas will no longer validate Sketch files for document versions less than 120
+
+### Features
+
+* add MIT license ([4ab5ff8](https://github.com/sketch-hq/sketch-file-format/commit/4ab5ff82e417077ffc06416312bbe1e8e3214c3d))
+* support for Sketch document version 120 ([#18](https://github.com/sketch-hq/sketch-file-format/issues/18)) ([3d72640](https://github.com/sketch-hq/sketch-file-format/commit/3d726406bfe6a3c2a5803213cc3c6cbe906f29ff))
+
 ### [1.1.4](https://github.com/sketch-hq/sketch-file-format/compare/v1.1.3...v1.1.4) (2019-10-31)
 
 
