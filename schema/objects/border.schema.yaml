@@ -1,6 +1,9 @@
 title: Border
 description: Defines a border style
 type: object
+optional:
+  - contextSettings
+  - gradient
 properties:
   _class: { const: border }
   isEnabled: { type: boolean }
@@ -10,3 +13,5 @@ properties:
   thickness:
     type: number
     exclusiveMinimum: 0
+  contextSettings: { $ref: ./graphics-context-settings.schema.yaml }
+  gradient: { $ref: ./gradient.schema.yaml }
