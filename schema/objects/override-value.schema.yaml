@@ -1,6 +1,8 @@
 title: Override Value
 description: Defines an individual symbol override
 type: object
+optional:
+  - do_objectID
 properties:
   _class: { const: overrideValue }
   do_objectID: { $ref: ../utils/uuid.schema.yaml }

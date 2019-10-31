@@ -10,6 +10,7 @@ optional:
   - textStyle
 properties:
   _class: { const: style }
+  do_objectID: { $ref: ../utils/uuid.schema.yaml }
   borders:
     type: array
     items: { $ref: ./border.schema.yaml }

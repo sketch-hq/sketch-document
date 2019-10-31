@@ -5,6 +5,13 @@ properties:
   _class: { const: fontDescriptor }
   attributes:
     type: object
+    optional:
+      - variation
     properties:
       name: { type: string }
       size: { type: number }
+      variation:
+        type: object
+        patternProperties:
+          ^\d*$:: { type: number }
+        additionalProperties: true

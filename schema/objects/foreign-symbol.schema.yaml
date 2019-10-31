@@ -3,6 +3,7 @@ description: Defines a symbol that has been imported from a library
 type: object
 properties:
   _class: { const: MSImmutableForeignSymbol }
+  do_objectID: { $ref: ../utils/uuid.schema.yaml }
   libraryID: { $ref: ../utils/uuid.schema.yaml }
   sourceLibraryName: { type: string }
   symbolPrivate: { type: boolean }
