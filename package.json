@@ -4,6 +4,14 @@
   "license": "MIT",
   "main": "index.js",
   "repository": "github:sketch-hq/sketch-file-format",
+  "keywords": [
+    "sketch",
+    "sketch files",
+    "file format",
+    "file spec",
+    "json",
+    "json schema"
+  ],
   "files": [
     "index.js",
     "dist/*.json"
