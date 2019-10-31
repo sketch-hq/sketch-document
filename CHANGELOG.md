@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.4](https://github.com/sketch-hq/sketch-file-format/compare/v1.1.3...v1.1.4) (2019-10-31)
+
+
+### Bug Fixes
+
+* add contextSettings and gradient as optional props to border objects ([5696383](https://github.com/sketch-hq/sketch-file-format/commit/569638390f5002447670ecb9342e624ec6d03223))
+* add contextSettings and gradient as optional props to the fill object ([acf8bfc](https://github.com/sketch-hq/sketch-file-format/commit/acf8bfc6a2ae210179049a038842a0d879e21d10))
+* add optional innerShadows style prop ([de81722](https://github.com/sketch-hq/sketch-file-format/commit/de8172260d331fc5e16df5ec186d44a53997ee69))
+* the prop presetDictionary was the wrong type, also add to symbol master ([da62a1a](https://github.com/sketch-hq/sketch-file-format/commit/da62a1aee46b344f73272ead1d675d6564c95a7d))
+
 ### [1.1.3](https://github.com/sketch-hq/sketch-file-format/compare/v1.1.2...v1.1.3) (2019-10-31)
 
 ### [1.1.2](https://github.com/sketch-hq/sketch-file-format/compare/v1.1.1...v1.1.2) (2019-10-30)
