@@ -1,0 +1,11 @@
+title: Inferred Layout Anchor
+description: Enumeration of the anchor types for inferred (aka smart) layout
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+enumDescriptions:
+  - Min
+  - Middle
+  - Max

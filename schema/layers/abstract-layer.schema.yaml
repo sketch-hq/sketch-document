@@ -35,3 +35,4 @@ properties:
     type: object
     additionalProperties: true
   style: { $ref: ../objects/style.schema.yaml }
+  maintainScrollPosition: { type: boolean }

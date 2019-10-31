@@ -1,0 +1,7 @@
+title: Inferred Group Layout
+description: Inferred group layout defines smart layout options
+type: object
+properties:
+  _class: { const: MSImmutableInferredGroupLayout }
+  axis: { $ref: ../enums/inferred-layout-axis.schema.yaml }
+  layoutAnchor: { $ref: ../enums/inferred-layout-anchor.schema.yaml }

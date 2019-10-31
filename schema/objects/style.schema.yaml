@@ -4,13 +4,10 @@ type: object
 optional:
   - blur
   - borders
-  - borderOptions
   - contextSettings
   - fills
   - shadows
   - textStyle
-  - colorControls
-  - innerShadows
 properties:
   _class: { const: style }
   borders:

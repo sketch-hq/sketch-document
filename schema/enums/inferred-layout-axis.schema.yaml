@@ -1,0 +1,11 @@
+title: Inferred Layout Axis
+description: Enumeration of the axis types for inferred (aka smart) layout
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+enumDescriptions:
+  - None
+  - Horizontal
+  - Vertical
