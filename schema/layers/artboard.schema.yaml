@@ -21,4 +21,4 @@ allOf:
       hasBackgroundColor: { type: boolean }
       isFlowHome: { type: boolean }
       resizesContent: { type: boolean }
-      presetDictionary: { $ref: ../objects/artboard-preset.schema.yaml }
+      presetDictionary: { type: object }

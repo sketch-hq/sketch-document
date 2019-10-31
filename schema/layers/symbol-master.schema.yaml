@@ -4,6 +4,8 @@ type: object
 allOf:
   - $ref: ./abstract-group.schema.yaml
   - type: object
+    optional:
+      - presetDictionary
     properties:
       _class: { const: symbolMaster }
       backgroundColor: { $ref: ../objects/color.schema.yaml }
@@ -19,3 +21,4 @@ allOf:
       changeIdentifier: { type: integer }
       allowsOverrides: { type: boolean }
       overrideProperties: { type: array }
+      presetDictionary: { type: object }
