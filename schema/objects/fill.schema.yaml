@@ -1,6 +1,9 @@
 title: Fill
 description: Defines a fill style
 type: object
+optional:
+  - contextSettings
+  - gradient
 properties:
   _class: { const: fill }
   isEnabled: { type: boolean }
@@ -10,3 +13,5 @@ properties:
   noiseIntensity: { type: number }
   patternFillType: { $ref: ../enums/pattern-fill-type.schema.yaml }
   patternTileScale: { type: number }
+  contextSettings: { $ref: ./graphics-context-settings.schema.yaml }
+  gradient: { $ref: ./gradient.schema.yaml }
