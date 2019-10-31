@@ -10,6 +10,7 @@ optional:
   - shadows
   - textStyle
   - colorControls
+  - innerShadows
 properties:
   _class: { const: style }
   borders:
@@ -28,5 +29,8 @@ properties:
   shadows:
     type: array
     items: { $ref: ./shadow.schema.yaml }
+  innerShadows:
+    type: array
+    items: { $ref: ./inner-shadow.schema.yaml }
   contextSettings: { $ref: ./graphics-context-settings.schema.yaml }
   colorControls: { $ref: ./color-controls.schema.yaml }
