@@ -7,12 +7,12 @@ allOf:
     optional:
       - groupLayout
     properties:
-      hasClickThrough:
-        type: boolean
-        description: TODO
-      groupLayout: { $ref: ../objects/freeform-group-layout.schema.yaml }
+      hasClickThrough: { type: boolean }
+      groupLayout:
+        oneOf:
+          - { $ref: ../objects/freeform-group-layout.schema.yaml }
+          - { $ref: ../objects/inferred-group-layout.schema.yaml }
       layers:
-        description: TODO
         type: array
         items:
           oneOf:

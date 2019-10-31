@@ -1,9 +1,6 @@
 title: Fill
 description: Defines a fill style
 type: object
-optional:
-  - contextSettings
-  - gradient
 properties:
   _class: { const: fill }
   isEnabled: { type: boolean }

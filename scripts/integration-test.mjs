@@ -51,7 +51,9 @@ const integrationTest = () => {
     errors.push(...validate(metaValidator, file.data.meta, 'Meta'))
     errors.push(...validate(userValidator, file.data.user, 'User'))
     for (const page of file.data.pages) {
-      errors.push(...validate(pageValidator, page, 'Page'))
+      errors.push(
+        ...validate(pageValidator, page, `Page "${page.do_objectID}"`),
+      )
     }
   }
 

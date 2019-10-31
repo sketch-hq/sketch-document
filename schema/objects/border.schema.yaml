@@ -1,9 +1,6 @@
 title: Border
 description: Defines a border style
 type: object
-optional:
-  - contextSettings
-  - gradient
 properties:
   _class: { const: border }
   isEnabled: { type: boolean }
