@@ -3,13 +3,13 @@ import chalk from 'chalk'
 import path from 'path'
 import { getAjvInstance } from './ajv.mjs'
 import util from 'util'
-import npmModule from '../index.js'
+import npmModule from '../dist/index.js'
 import referenceFiles from '@sketch-hq/sketch-reference-files'
 
 const { red, green, inverse, gray, whiteBright } = chalk
 
 const referenceFileGroup = referenceFiles.default.find(
-  group => group.document === npmModule.version,
+  group => group.document === npmModule.default.version,
 )
 
 const ajv = getAjvInstance()
@@ -36,13 +36,15 @@ const validate = (validator, data, name) => {
   return validator.errors || []
 }
 
-const docValidator = ajv.compile(npmModule.document)
-const metaValidator = ajv.compile(npmModule.meta)
-const userValidator = ajv.compile(npmModule.user)
-const pageValidator = ajv.compile(npmModule.page)
+const docValidator = ajv.compile(npmModule.default.document)
+const metaValidator = ajv.compile(npmModule.default.meta)
+const userValidator = ajv.compile(npmModule.default.user)
+const pageValidator = ajv.compile(npmModule.default.page)
 
 const integrationTest = () => {
-  console.log(inverse(`\n  Testing against document ${npmModule.version}\n `))
+  console.log(
+    inverse(`\n  Testing against document ${npmModule.default.version}\n `),
+  )
 
   const errors = []
   for (const file of referenceFileGroup.files) {

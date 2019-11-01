@@ -14,8 +14,7 @@
     "json schema"
   ],
   "files": [
-    "index.js",
-    "dist/*.json"
+    "dist"
   ],
   "dependencies": {
     "@types/json-schema": "7.0.3"
@@ -61,7 +60,7 @@
   },
   "standard-version": {
     "scripts": {
-      "prerelease": "yarn build && yarn validate && yarn integration-test && yarn test && yarn format-check"
+      "prerelease": "yarn build && yarn tsc && yarn validate && yarn integration-test && yarn test && yarn format-check"
     }
   }
 }
