@@ -72,20 +72,20 @@ npm install @sketch-hq/sketch-file-format
 ```
 
 ```
-const schemas = require('@sketch-hq/sketch-file-format')
+import schemas from '@sketch-hq/sketch-file-format'
 ```
 
 The shape of the `schemas` object above is illustrated by the following type
-definition (see the [Schemas](./#schemas) section for explanations):
+definition (see the schema table below for explanations):
 
 ```typescript
 type Schemas = {
-  version: number // Supported document version
-  fileFormat: JSONSchema
-  document: JSONSchema
-  page: JSONSchema
-  meta: JSONSchema
-  user: JSONSchema
+  version: number // Supported Sketch document version
+  document: JSONSchema7
+  fileFormat: JSONSchema7
+  meta: JSONSchema7
+  page: JSONSchema7
+  user: JSONSchema7
 }
 ```
 
@@ -119,7 +119,7 @@ requests please open an issue.
 
 > Check the [changelog](./CHANGELOG.md) for more information.
 
-### Semver
+## Semver
 
 The version of these file format schemas will follow
 [semver](https://semver.org/), remaining independent of the Sketch version.
