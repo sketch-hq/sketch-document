@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/sketch-hq/sketch-file-format/compare/v3.0.0...v3.1.0) (2019-11-01)
+
+
+### Features
+
+* typeScript support ([363ddb9](https://github.com/sketch-hq/sketch-file-format/commit/363ddb962cbd2961896bafbec8a681d2c34c86eb))
+
+
+### Bug Fixes
+
+* fix integration tests to use typescript module ([8849f23](https://github.com/sketch-hq/sketch-file-format/commit/8849f23f0b8abb8ed1cb31e2f9c26ae655faf070))
+
 ## [3.0.0](https://github.com/sketch-hq/sketch-file-format/compare/v2.0.0...v3.0.0) (2019-10-31)
 
 
