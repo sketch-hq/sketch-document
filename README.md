@@ -52,18 +52,20 @@ document version.
 
 ## Related projects
 
-- [sketch-reference-files](https://github.com/sketch-hq/sketch-reference-files/)
+- [sketch-file-format-ts](https://github.com/sketch-hq/sketch-file-format-ts)
+- [sketch-reference-files](https://github.com/sketch-hq/sketch-reference-files)
 
 ## Use cases
 
 - Documents the file format over time
 - Validate programmatically generated Sketch documents
 - Use as a source for deriving types and schemas for code that works with
-  representations of Sketch documents
+  representations of Sketch documents (see
+  [sketch-file-format-ts](https://github.com/sketch-hq/sketch-file-format-ts))
 
 ## Usage
 
-### JavaScript
+### JavaScript/TypeScript
 
 Add the npm module using `npm` or `yarn`
 
