@@ -6,14 +6,11 @@ jobs:
     executor: node/default
     steps:
       - checkout
-      - node/install:
-          install-npm: false
-          install-yarn: false
-          node-version: '12.10.0'
       - node/with-cache:
           cache-key: yarn.lock
           steps:
             - run: yarn install --frozen-lockfile
+      - run: yarn commitlint
       - run: yarn build
       - run: yarn tsc
       - run: yarn test

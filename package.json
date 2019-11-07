@@ -20,6 +20,8 @@
     "@types/json-schema": "7.0.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "8.2.0",
+    "@commitlint/config-conventional": "8.2.0",
     "@sketch-hq/sketch-reference-files": "2.0.0",
     "ajv": "6.10.2",
     "chalk": "2.4.2",
@@ -46,7 +48,8 @@
     "test": "echo \"No test specified\"",
     "format-check": "prettier --check **/*.{mjs,md,yaml,json}",
     "release": "HUSKY_SKIP_HOOKS=1 standard-version --no-verify",
-    "prepublishOnly": "yarn build && yarn tsc"
+    "prepublishOnly": "yarn build && yarn tsc",
+    "commitlint": "commitlint --from HEAD~1 --to HEAD --verbose"
   },
   "config": {
     "commitizen": {
