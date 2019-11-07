@@ -7,6 +7,7 @@ optional:
   - hasClippingMask
   - clippingMaskMode
   - style
+  - sharedStyleID
 properties:
   do_objectID: { $ref: ../utils/uuid.schema.yaml }
   booleanOperation: { $ref: ../enums/boolean-operation.schema.yaml }
@@ -28,6 +29,7 @@ properties:
     maximum: 127
   resizingType: { $ref: ../enums/resize-type.schema.yaml }
   rotation: { type: number }
+  sharedStyleID: { $ref: ../utils/uuid.schema.yaml }
   shouldBreakMaskChain: { type: boolean }
   hasClippingMask: { type: boolean }
   clippingMaskMode: { type: integer }
