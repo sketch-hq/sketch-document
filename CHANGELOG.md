@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/sketch-hq/sketch-file-format/compare/v3.1.0...v3.1.1) (2019-11-07)
+
+
+### Bug Fixes
+
+* add allowsDefaultTighteningForTruncation prop to paragraph style objects ([d86e6a7](https://github.com/sketch-hq/sketch-file-format/commit/d86e6a7ea9d7b63031298205ef6f8caeac54ad9a))
+* add optional sharedStyleID to abstract-layer schema  ([#26](https://github.com/sketch-hq/sketch-file-format/issues/26)) ([e616c7a](https://github.com/sketch-hq/sketch-file-format/commit/e616c7a9b7ac844559972b63147cdf33f7ec5ec3))
+* incorrect class name for inner shadows ([#24](https://github.com/sketch-hq/sketch-file-format/issues/24)) ([249e0a4](https://github.com/sketch-hq/sketch-file-format/commit/249e0a45b0cb69f9914f0561dffd5c8e717d976d))
+
 ## [3.1.0](https://github.com/sketch-hq/sketch-file-format/compare/v3.0.0...v3.1.0) (2019-11-01)
 
 
