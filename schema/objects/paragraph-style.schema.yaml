@@ -10,3 +10,4 @@ properties:
   maximumLineHeight: { type: number }
   minimumLineHeight: { type: number }
   paragraphSpacing: { type: number }
+  allowsDefaultTighteningForTruncation: { type: number }
