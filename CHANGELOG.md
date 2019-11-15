@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/sketch-hq/sketch-file-format/compare/v3.1.1...v3.2.0) (2019-11-15)
+
+
+### Features
+
+* add MSJSONOriginalDataReference schema ([b266355](https://github.com/sketch-hq/sketch-file-format/commit/b266355fea705bb347d68758dadd3e33094ca316))
+
+
+### Bug Fixes
+
+* add optional image prop to fill schema ([97d6baf](https://github.com/sketch-hq/sketch-file-format/commit/97d6baf61de49cc1563ae270c5a8a9c1f7c0b5ac))
+* allow usage of MSJSONOriginalDataReference in bitmap layers ([c69f215](https://github.com/sketch-hq/sketch-file-format/commit/c69f215b80c8c8e5ea023a7a34d6a5e4d1a2d063))
+
 ### [3.1.1](https://github.com/sketch-hq/sketch-file-format/compare/v3.1.0...v3.1.1) (2019-11-07)
 
 
