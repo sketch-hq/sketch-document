@@ -1,6 +1,8 @@
 title: Fill
 description: Defines a fill style
 type: object
+optional:
+  - image
 properties:
   _class: { const: fill }
   isEnabled: { type: boolean }
@@ -12,3 +14,7 @@ properties:
   patternTileScale: { type: number }
   contextSettings: { $ref: ./graphics-context-settings.schema.yaml }
   gradient: { $ref: ./gradient.schema.yaml }
+  image:
+    oneOf:
+      - { $ref: ../objects/image-file-ref.schema.yaml }
+      - { $ref: ../objects/image-data-ref.schema.yaml }
