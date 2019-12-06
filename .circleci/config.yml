@@ -6,6 +6,10 @@ jobs:
     executor: node/default
     steps:
       - checkout
+      - node/install:
+          install-npm: false
+          install-yarn: false
+          node-version: '12.10.0'
       - node/with-cache:
           cache-key: yarn.lock
           steps:
