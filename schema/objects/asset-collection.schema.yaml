@@ -14,7 +14,10 @@ properties:
     items: { $ref: ./gradient-asset.schema.yaml }
   images:
     type: array
-    items: { $ref: ./image-file-ref.schema.yaml }
+    items:
+      oneOf:
+        - { $ref: ./image-file-ref.schema.yaml }
+        - { $ref: ./image-data-ref.schema.yaml }
   colors:
     type: array
     items: { $ref: ./color.schema.yaml }

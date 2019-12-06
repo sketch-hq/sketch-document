@@ -59,5 +59,8 @@
     "scripts": {
       "prerelease": "yarn build && yarn validate && yarn integration-test && yarn test && yarn format-check"
     }
+  },
+  "publishConfig": {
+    "tag": "v2"
   }
 }
