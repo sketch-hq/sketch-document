@@ -2,7 +2,7 @@ title: Inner Shadow
 description: Defines an inner shadow style
 type: object
 properties:
-  _class: { const: shadow }
+  _class: { const: innerShadow }
   isEnabled: { type: boolean }
   blurRadius: { type: number }
   color: { $ref: ./color.schema.yaml }

@@ -1,0 +1,17 @@
+title: Image Data Ref
+description: Defines a reference to an image data within the document bundle
+type: object
+properties:
+  _class: { const: MSJSONOriginalDataReference }
+  _ref_class: { const: MSImageData }
+  _ref:
+    type: string
+    pattern: '^images/.*'
+  data:
+    type: object
+    properties:
+      _data: { type: string }
+  sha1:
+    type: object
+    properties:
+      _data: { type: string }
