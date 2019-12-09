@@ -4,7 +4,7 @@ type: integer
 enum:
   - 0
   - 1
-  - 2
+  - 4
 enumDescriptions:
   - Color
   - Gradient
