@@ -2,4 +2,4 @@ title: Point String
 description: |
   A formatted string representation of a 2D point, e.g. {1, 1}.
 type: string
-pattern: '^{-?\d+(.\d+)?, -?\d+(.\d+)?}$'
+pattern: '^{-?\d+(.\d+)?(e-\d+)?, -?\d+(.\d+)?(e-\d+)?}$'

@@ -4,7 +4,19 @@ type: object
 properties:
   _class: { const: colorControls }
   isEnabled: { type: boolean }
-  brightness: { $ref: ../utils/unit-interval.schema.yaml }
-  contrast: { $ref: ../utils/unit-interval.schema.yaml }
-  hue: { $ref: ../utils/unit-interval.schema.yaml }
-  saturation: { $ref: ../utils/unit-interval.schema.yaml }
+  brightness:
+    type: number
+    minimum: -100
+    maximum: 100
+  contrast:
+    type: number
+    minimum: -100
+    maximum: 100
+  hue:
+    type: number
+    minimum: -100
+    maximum: 100
+  saturation:
+    type: number
+    minimum: -100
+    maximum: 100
