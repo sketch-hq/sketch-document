@@ -20,5 +20,7 @@ allOf:
       symbolID: { $ref: ../utils/uuid.schema.yaml }
       changeIdentifier: { type: integer }
       allowsOverrides: { type: boolean }
-      overrideProperties: { type: array }
+      overrideProperties:
+        type: array
+        items: { $ref: ../objects/override-property.schema.yaml }
       presetDictionary: { type: object }

@@ -3,5 +3,6 @@ description: Defines a reusable gradient asset
 type: object
 properties:
   _class: { const: MSImmutableGradientAsset }
+  do_objectID: { $ref: ./utils/uuid.schema.yaml }
   name: { type: string }
   gradient: { $ref: ./gradient.schema.yaml }
