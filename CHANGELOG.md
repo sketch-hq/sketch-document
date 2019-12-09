@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.1](https://github.com/sketch-hq/sketch-file-format/compare/v3.2.0...v3.2.1) (2019-12-09)
+
+
+### Bug Fixes
+
+* correctness fixes from [@raveclassic](https://github.com/raveclassic) ([#43](https://github.com/sketch-hq/sketch-file-format/issues/43)) ([a0905a0](https://github.com/sketch-hq/sketch-file-format/commit/a0905a02af70bd589777bf68825c41e1d5048047)), closes [#40](https://github.com/sketch-hq/sketch-file-format/issues/40) [#35](https://github.com/sketch-hq/sketch-file-format/issues/35) [#34](https://github.com/sketch-hq/sketch-file-format/issues/34) [#33](https://github.com/sketch-hq/sketch-file-format/issues/33) [#32](https://github.com/sketch-hq/sketch-file-format/issues/32) [#31](https://github.com/sketch-hq/sketch-file-format/issues/31) [#30](https://github.com/sketch-hq/sketch-file-format/issues/30) [#29](https://github.com/sketch-hq/sketch-file-format/issues/29)
+
 ## [3.2.0](https://github.com/sketch-hq/sketch-file-format/compare/v3.1.1...v3.2.0) (2019-11-15)
 
 
