@@ -1,0 +1,7 @@
+title: Override Property
+description: Defines override properties on symbol masters
+type: object
+properties:
+  _class: { const: MSImmutableOverrideProperty }
+  overrideName: { $ref: ./override-name.schema.yaml }
+  canOverride: { type: boolean }

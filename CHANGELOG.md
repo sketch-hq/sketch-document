@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.6](https://github.com/sketch-hq/sketch-file-format/compare/v1.1.4...v1.1.6) (2019-12-09)
+
+
+### Bug Fixes
+
+* hotfixes from [@raveclassic](https://github.com/raveclassic) ([830cb03](https://github.com/sketch-hq/sketch-file-format/commit/830cb03d66c5c16f1e34a6315a980475cfe5f0d1))
+
 ### [1.1.5](https://github.com/sketch-hq/sketch-file-format/compare/v1.1.4...v1.1.5) (2019-12-06)
 
 
