@@ -1,0 +1,9 @@
+title: Override Name
+description: Defines the valid string patterns for an override name
+oneOf:
+  - type: string
+    pattern: '^[0-9A-F]{8}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{12}_stringValue$'
+  - type: string
+    pattern: '^[0-9A-F]{8}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{12}_symbolID$'
+  - type: string
+    pattern: '^[0-9A-F]{8}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{4}\-[0-9A-F]{12}_image$'

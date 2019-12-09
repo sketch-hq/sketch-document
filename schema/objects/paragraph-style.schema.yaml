@@ -4,6 +4,7 @@ type: object
 optional:
   - maximumLineHeight
   - minimumLineHeight
+  - alignment
 properties:
   _class: { const: paragraphStyle }
   alignment: { $ref: ../enums/text-horizontal-alignment.schema.yaml }

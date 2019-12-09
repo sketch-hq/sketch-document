@@ -10,4 +10,4 @@ properties:
   stops:
     type: array
     items: { $ref: ./gradient-stop.schema.yaml }
-    exclusiveMinimum: 0
+    minItems: 1

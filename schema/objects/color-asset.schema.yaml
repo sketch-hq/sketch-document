@@ -3,5 +3,6 @@ description: Defines a reusable color asset
 type: object
 properties:
   _class: { const: MSImmutableColorAsset }
+  do_objectID: { $ref: ./utils/uuid.schema.yaml }
   name: { type: string }
   color: { $ref: ./color.schema.yaml }
