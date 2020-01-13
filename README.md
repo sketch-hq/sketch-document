@@ -50,6 +50,14 @@ document version.
 | `2.*.*`            | `120` Sketch 58          |
 | `3.*.*`            | `121` Sketch 59 - 61     |
 
+## Repo branches
+
+| Branch          | Description                          |
+| --------------- | ------------------------------------ |
+| `master`        | Current active major version         |
+| `next`          | Marshalling area next major version  |
+| `v1`, `v2` etc. | Branches for previous major versions |
+
 ## Related projects
 
 - [sketch-file-format-ts](https://github.com/sketch-hq/sketch-file-format-ts)
