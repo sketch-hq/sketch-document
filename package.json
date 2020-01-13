@@ -22,7 +22,7 @@
   "devDependencies": {
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
-    "@sketch-hq/sketch-reference-files": "2.0.0",
+    "@sketch-hq/sketch-reference-files": "2.1.0",
     "ajv": "6.10.2",
     "chalk": "2.4.2",
     "change-case": "3.1.0",
@@ -41,9 +41,8 @@
   },
   "scripts": {
     "validate": "node --experimental-modules --no-warnings scripts/validate.mjs",
-    "build": "node --experimental-modules --no-warnings scripts/build.mjs",
+    "build": "node --experimental-modules --no-warnings scripts/build.mjs && yarn tsc",
     "watch": "node --experimental-modules --no-warnings scripts/watch.mjs",
-    "assemble": "node --experimental-modules --no-warnings scripts/assemble.mjs",
     "integration-test": "node --experimental-modules --no-warnings scripts/integration-test.mjs",
     "test": "echo \"No test specified\"",
     "format-check": "prettier --check **/*.{mjs,md,yaml,json}",
@@ -63,7 +62,7 @@
   },
   "standard-version": {
     "scripts": {
-      "prerelease": "yarn build && yarn tsc && yarn validate && yarn integration-test && yarn test && yarn format-check"
+      "prerelease": "yarn build && yarn validate && yarn integration-test && yarn test && yarn format-check"
     }
   }
 }
