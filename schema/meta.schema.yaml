@@ -47,4 +47,6 @@ properties:
     type: string
     enum:
       - '59'
+      - '60'
+      - '61'
   build: { type: integer }
