@@ -1,7 +1,8 @@
 import { JSONSchema7 } from 'json-schema'
 
 type Schemas = {
-  version: number
+  version: number // Latest supported Sketch document version
+  versions: number[] // All supported versions
   document: JSONSchema7
   fileFormat: JSONSchema7
   meta: JSONSchema7
@@ -10,7 +11,8 @@ type Schemas = {
 }
 
 const schemas: Schemas = {
-  version: 121,
+  version: 123,
+  versions: [121, 122, 123],
   fileFormat: require('./file-format.schema.json'),
   document: require('./document.schema.json'),
   meta: require('./meta.schema.json'),

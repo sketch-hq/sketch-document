@@ -8,10 +8,6 @@ import referenceFiles from '@sketch-hq/sketch-reference-files'
 
 const { red, green, inverse, gray, whiteBright } = chalk
 
-const referenceFileGroup = referenceFiles.default.find(
-  group => group.document === npmModule.default.version,
-)
-
 const ajv = getAjvInstance()
 
 const validate = (validator, data, name) => {
@@ -41,10 +37,17 @@ const metaValidator = ajv.compile(npmModule.default.meta)
 const userValidator = ajv.compile(npmModule.default.user)
 const pageValidator = ajv.compile(npmModule.default.page)
 
-const integrationTest = () => {
-  console.log(
-    inverse(`\n  Testing against document ${npmModule.default.version}\n `),
+const integrationTest = version => {
+  console.log(inverse(`\n  Testing against document ${version}  \n`))
+
+  const referenceFileGroup = referenceFiles.default.find(
+    group => group.document === version,
   )
+
+  if (!referenceFileGroup) {
+    console.log(gray('\nSkipped - no reference files for version\n'))
+    return
+  }
 
   const errors = []
   for (const file of referenceFileGroup.files) {
@@ -68,7 +71,10 @@ const integrationTest = () => {
 }
 
 try {
-  integrationTest()
+  const { versions } = npmModule.default
+  for (const version of versions) {
+    integrationTest(version)
+  }
 } catch (err) {
   console.error(err)
   process.exit(1)

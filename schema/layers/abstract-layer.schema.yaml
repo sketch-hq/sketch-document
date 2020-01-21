@@ -8,6 +8,7 @@ optional:
   - clippingMaskMode
   - style
   - sharedStyleID
+  - maintainScrollPosition
 properties:
   do_objectID: { $ref: ../utils/uuid.schema.yaml }
   booleanOperation: { $ref: ../enums/boolean-operation.schema.yaml }

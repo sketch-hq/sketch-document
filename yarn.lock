@@ -178,10 +178,10 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@sketch-hq/sketch-reference-files@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-reference-files/-/sketch-reference-files-2.1.0.tgz#ed3bbd503e3f021d9c1e74591c3c74d8aa4c0619"
-  integrity sha512-71Zp4NWZZenJQkRRnVM9xiz0Vte5xWgRr+QCFHHjZTZVghze3IjzJBv2eeR+O9H1AOTnYcC5UhJm4RJEDrCGdw==
+"@sketch-hq/sketch-reference-files@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-reference-files/-/sketch-reference-files-2.2.0.tgz#0f17863acbe1f8e0653910358fc016abae633546"
+  integrity sha512-wKDWxDJ7p3sMoN1QzD+BC2B7uKwNY0X+nzVqk1kxm8EC//bOBC32OQbPWYaANZBkvlZs735grumK4y2ehNCn/A==
 
 "@types/events@*":
   version "3.0.0"

@@ -44,11 +44,11 @@ between this spec and our products that implement it.
 The table below indicates the relationship between file format versions and the
 document version.
 
-| Sketch file format | Sketch document version  |
-| ------------------ | ------------------------ |
-| `1.*.*`            | `119` Sketch 55.2 - 57.1 |
-| `2.*.*`            | `120` Sketch 58          |
-| `3.*.*`            | `121` Sketch 59 - 61     |
+| Sketch file format | Sketch document version    |
+| ------------------ | -------------------------- |
+| `1.*.*`            | `119` Sketch 55.2 - 57.1   |
+| `2.*.*`            | `120` Sketch 58            |
+| `3.*.*`            | `121 - 123` Sketch 59 - 62 |
 
 ## Repo branches
 
