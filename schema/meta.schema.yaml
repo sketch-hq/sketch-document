@@ -22,7 +22,12 @@ properties:
                 type: object
                 properties:
                   name: { type: string }
-  version: { const: 121 }
+  version:
+    type: integer
+    enum:
+      - 121
+      - 122
+      - 123
   fonts:
     type: array
     items: { type: string }
@@ -49,4 +54,5 @@ properties:
       - '59'
       - '60'
       - '61'
+      - '62'
   build: { type: integer }

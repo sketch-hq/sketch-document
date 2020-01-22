@@ -1,6 +1,8 @@
 title: Flow Connection
 description: Defines a connection between elements in a prototype
 type: object
+optional:
+  - maintainScrollPosition
 properties:
   _class: { const: MSImmutableFlowConnection }
   destinationArtboardID:
@@ -8,3 +10,4 @@ properties:
       - { $ref: ../utils/uuid.schema.yaml }
       - { const: back }
   animationType: { $ref: ../enums/animation-type.schema.yaml }
+  maintainScrollPosition: { type: boolean }
