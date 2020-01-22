@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/sketch-hq/sketch-file-format/compare/v3.2.1...v3.3.0) (2020-01-22)
+
+
+### Features
+
+* document version 123 support ([#47](https://github.com/sketch-hq/sketch-file-format/issues/47)) ([b3e17c2](https://github.com/sketch-hq/sketch-file-format/commit/b3e17c2b2ccaf9e9f719b04cc8cf6ae12a4a5870))
+
 ### [3.2.1](https://github.com/sketch-hq/sketch-file-format/compare/v3.2.0...v3.2.1) (2019-12-09)
 
 
