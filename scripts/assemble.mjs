@@ -52,7 +52,7 @@ const loadSchema = path =>
   })
 
 /**
- * Given a minimatch glob pattern, returns all matching schemas in an bject
+ * Given a minimatch glob pattern, returns all matching schemas in an object
  * keyed by $id.
  */
 const gatherDefinitions = async pattern => {
@@ -78,7 +78,7 @@ const prune = schema => {
     if (typeof o !== 'object') return
     for (let [k, v] of Object.entries(o)) {
       if (k === '$ref') {
-        const id = v.substring(1)
+        const id = [...v.split('/')].pop()
         if (!ids.includes(id)) {
           ids.push(id)
           scan(schema.definitions[id])
@@ -201,10 +201,12 @@ const assemble = async entry => {
     })
   }
 
-  // Convert all $refs from file refs to internal $id refs.
-  // From: { $ref: '../enums/fill-type.schema.yaml' }
-  // To: { $ref: '#FillType' }
-  output = _.mapDeep(output, (v, k) => (k === '$ref' ? `#${pathToId(v)}` : v))
+  // Convert all $refs from file paths to pointers into the definitions object
+  //    From: { $ref: '../enums/fill-type.schema.yaml' }
+  //    To: { $ref: '#/definitions/FillType' }
+  output = _.mapDeep(output, (v, k) =>
+    k === '$ref' ? `#/definitions/${pathToId(v)}` : v,
+  )
 
   // Further processing
 
