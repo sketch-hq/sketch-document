@@ -8,3 +8,5 @@ enum:
   - PRIVATE
   - INTERNAL
   - EXPERIMENTAL
+  - TESTING
+  - UNITTEST
