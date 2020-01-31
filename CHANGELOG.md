@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.4.0](https://github.com/sketch-hq/sketch-file-format/compare/v3.2.1...v3.4.0) (2020-01-31)
+
+
+### Features
+
+* change ref format to a pointer into the definitions obj ([#52](https://github.com/sketch-hq/sketch-file-format/issues/52)) ([b4fab0c](https://github.com/sketch-hq/sketch-file-format/commit/b4fab0c855eaee00380639f91b19b34b1cd4d7b5))
+* document version 123 support ([#47](https://github.com/sketch-hq/sketch-file-format/issues/47)) ([b3e17c2](https://github.com/sketch-hq/sketch-file-format/commit/b3e17c2b2ccaf9e9f719b04cc8cf6ae12a4a5870))
+
 ## [3.3.0](https://github.com/sketch-hq/sketch-file-format/compare/v3.2.1...v3.3.0) (2020-01-22)
 
 
