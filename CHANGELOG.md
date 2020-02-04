@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.1](https://github.com/sketch-hq/sketch-file-format/compare/v3.4.0...v3.4.1) (2020-02-04)
+
+
+### Bug Fixes
+
+* fix strikethrough-style title ([#54](https://github.com/sketch-hq/sketch-file-format/issues/54)) ([d607764](https://github.com/sketch-hq/sketch-file-format/commit/d60776493e944831bf8638e5d3ff441aa66e9b98))
+* remove sharedStyleID from shape-group schema ([#55](https://github.com/sketch-hq/sketch-file-format/issues/55)) ([c28664e](https://github.com/sketch-hq/sketch-file-format/commit/c28664ef45d2322df33db99b083da887ea2a65aa))
+* tweaks related to using spec in internal tests ([#53](https://github.com/sketch-hq/sketch-file-format/issues/53)) ([6bceb50](https://github.com/sketch-hq/sketch-file-format/commit/6bceb50486826e194076d5762dcb65ad6c69044e))
+
 ## [3.4.0](https://github.com/sketch-hq/sketch-file-format/compare/v3.2.1...v3.4.0) (2020-01-31)
 
 
