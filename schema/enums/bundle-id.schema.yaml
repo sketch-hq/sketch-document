@@ -8,9 +8,11 @@ enum:
   - com.bohemiancoding.sketch3.private
   - com.bohemiancoding.sketch3.internal
   - com.bohemiancoding.sketch3.experimental
+  - com.bohemiancoding.sketch3.testing
 enumDescriptions:
   - Public release
   - Beta
   - Private
   - Internal
   - Experimental
+  - Testing

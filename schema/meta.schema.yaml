@@ -48,11 +48,5 @@ properties:
   saveHistory:
     type: array
     items: { type: string }
-  appVersion:
-    type: string
-    enum:
-      - '59'
-      - '60'
-      - '61'
-      - '62'
+  appVersion: { type: string }
   build: { type: integer }
