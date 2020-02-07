@@ -12,3 +12,4 @@ properties:
       - { type: string }
       - { $ref: ../utils/uuid.schema.yaml }
       - { $ref: ./image-file-ref.schema.yaml }
+      - { $ref: ./image-data-ref.schema.yaml }
