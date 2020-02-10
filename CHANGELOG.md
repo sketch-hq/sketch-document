@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.3](https://github.com/sketch-hq/sketch-file-format/compare/v2.0.0...v2.0.3) (2020-02-10)
+
+
+### Bug Fixes
+
+* hot fixes from [@raveclassic](https://github.com/raveclassic) ([f5afbbc](https://github.com/sketch-hq/sketch-file-format/commit/f5afbbc923c71901e65b1d75c4ec9703aa96cada))
+* override values can also be image-data-refs ([f4c7d0f](https://github.com/sketch-hq/sketch-file-format/commit/f4c7d0f31387708e8a3d094818c39a9d6376bc5d))
+
 ### [2.0.2](https://github.com/sketch-hq/sketch-file-format/compare/v2.0.0...v2.0.2) (2019-12-09)
 
 
