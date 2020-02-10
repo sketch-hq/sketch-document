@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.2](https://github.com/sketch-hq/sketch-file-format/compare/v3.4.1...v3.4.2) (2020-02-10)
+
+
+### Bug Fixes
+
+* override values can also be image-data-refs ([#56](https://github.com/sketch-hq/sketch-file-format/issues/56)) ([650ced8](https://github.com/sketch-hq/sketch-file-format/commit/650ced8200f3f5890a4267ae3e3a14d90b960e9c))
+
 ### [3.4.1](https://github.com/sketch-hq/sketch-file-format/compare/v3.4.0...v3.4.1) (2020-02-04)
 
 
