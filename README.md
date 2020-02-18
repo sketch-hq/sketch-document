@@ -162,6 +162,7 @@ The version of these file format schemas will follow
 | yarn test             | Unit tests (not implemented yet)                                                                                                                                       |
 | yarn format-check     | Checks the repo with Prettier                                                                                                                                          |
 | yarn release          | Tags the repo and updates the changelog and semver automatically based on commit history. You'll still need to push the changes and `yarn publish` manually afterwards |
+| yarn validate-file    | Validate an arbitrary Sketch file with the current schemas, e.g. `yarn validate-file /absolute/path/to/file.sketch`                                                    |
 
 ## Processing during build
 
