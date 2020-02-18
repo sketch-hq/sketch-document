@@ -9,15 +9,12 @@ jobs:
       - node/install:
           install-npm: false
           install-yarn: false
-          node-version: '12.10.0'
+          node-version: '13.8.0'
       - node/with-cache:
           cache-key: yarn.lock
           steps:
-            - run: yarn install --frozen-lockfile
+            - run: yarn install --frozen-lockfile --offline
       - run: yarn commitlint
       - run: yarn build
-      - run: yarn tsc
-      - run: yarn test
-      - run: yarn validate
-      - run: yarn integration-test
+      - run: yarn validate-schemas
       - run: yarn format-check

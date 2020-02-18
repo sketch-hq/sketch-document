@@ -23,6 +23,10 @@
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
     "@sketch-hq/sketch-reference-files": "2.2.0",
+    "@types/js-yaml": "3.12.2",
+    "@types/json-schema-merge-allof": "0.6.0",
+    "@types/lodash": "4.14.149",
+    "@types/node": "13.7.1",
     "ajv": "6.10.2",
     "chalk": "2.4.2",
     "change-case": "3.1.0",
@@ -37,17 +41,20 @@
     "lodash": "4.17.15",
     "prettier": "1.18.2",
     "standard-version": "7.0.0",
-    "typescript": "3.6.4"
+    "typescript": "3.8.1-rc"
   },
   "scripts": {
-    "validate": "node --experimental-modules --no-warnings scripts/validate.mjs",
-    "build": "node --experimental-modules --no-warnings scripts/build.mjs && yarn tsc",
-    "watch": "node --experimental-modules --no-warnings scripts/watch.mjs",
-    "integration-test": "node --experimental-modules --no-warnings scripts/integration-test.mjs",
+    "build": "yarn build:schemas && yarn build:pkg",
+    "build:schemas": "tsc --project tsconfig.schemas.json && yarn n src/build-schemas.js",
+    "build:pkg": "rm -rf dist && mkdir -p dist && tsc --project tsconfig.pkg.json",
+    "validate-schemas": "tsc && yarn n src/validate-schemas.js",
+    "validate-reference-files": "yarn build:schemas && tsc && yarn n src/validate-reference-files.js",
+    "validate-file": "yarn build:schemas && tsc && yarn n src/validate-file.js",
+    "n": "node --experimental-json-modules --es-module-specifier-resolution=node",
     "test": "echo \"No test specified\"",
     "format-check": "prettier --check **/*.{mjs,md,yaml,json}",
     "release": "HUSKY_SKIP_HOOKS=1 standard-version --no-verify",
-    "prepublishOnly": "yarn build && yarn tsc",
+    "prepublishOnly": "yarn build",
     "commitlint": "commitlint --from HEAD~1 --to HEAD --verbose"
   },
   "config": {
