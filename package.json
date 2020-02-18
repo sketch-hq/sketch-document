@@ -39,6 +39,7 @@
     "json-schema-merge-allof": "0.6.0",
     "json-transforms": "1.1.2",
     "lodash": "4.17.15",
+    "node-stream-zip": "1.9.1",
     "prettier": "1.18.2",
     "standard-version": "7.0.0",
     "typescript": "3.8.1-rc"
