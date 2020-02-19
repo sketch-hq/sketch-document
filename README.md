@@ -1,85 +1,72 @@
 # Sketch File Format
 
-> JSON Schemas for the Sketch file format
+JSON Schemas for Sketch files
+
+> 🙋‍♀️ If you're writing code that reads or writes Sketch file JSON, you should be
+> implementing this file format specification – either by using the schemas to
+> validate your input and output, installing our
+> [TypeScript types](https://github.com/sketch-hq/sketch-file-format-ts) or
+> using the schemas to generate your own model, factory or type code.
 
 ## Overview
 
-> 🚧 This project is a work in progress, and we don't recommend you base
-> production code on it for the time being. Raise an issue with any questions or
-> suggestions
-
-The objective is to craft a set of schemas that strictly adhere to the
+These schemas describe as closely as possible the shape of Sketch file JSON, as
+it appears on disk. The schemas adhere to the
 [Draft 7](https://json-schema.org/draft-07/json-schema-release-notes.html) JSON
-Schema spec, and describe as closely as possible the shape of Sketch file JSON,
-as it appears on disk.
+Schema spec and are published to npm.
 
-Tooling is used to check the correctness of the schemas against the public spec,
-and additionally confirm that the schemas are able to successfully validate real
-Sketch documents.
-
-In order to aid maintainability the schema is split up into multiple reusable
+In order to aid maintainability the schema are split up into multiple reusable
 sub-schema in separate files, and combined in a build step. Yaml is used to
-improve readability of the schemas, introduce the possibility of leaving
+improve readability of the schemas, and introduced the possibility of leaving
 comments etc.
 
-> The schema Yaml files in this repo are hand-editable but tooling can be used
-> to improve the developer experience. Node, yarn and VS Code are required to
-> make the most of the tooling in this repo, although this sort of developer
-> environment is purely optional.
+Potential use cases include,
 
-## Sketch document version mapping
+- Document the Sketch file format
+- Validate programmatically generated Sketch documents
+- Use as a data source for
+  - Generating type code (see
+    [sketch-file-format-ts](https://github.com/sketch-hq/sketch-file-format-ts))
+  - Generating other model and factory code
+  - Generating schemas in other formats, e.g. GraphQL or similar
+
+## Relationship to the Sketch Mac application
+
+Conceptually this file format spec sits _upstream_ of Sketch, and all other
+projects that implement it. This means we will endeavour to release a new
+version of this spec before the version of Sketch that supports it.
 
 Currently Sketch documents declare both their
 [_document version_ and _app version_](https://developer.sketch.com/file-format/versioning).
-These schemas are related to the _document version_ only. This value can change
-less frequently than the Sketch desktop app version but will increment everytime
-there's any change to the Sketch file format.
+These schemas however are related to the _document version_ only. This value can
+change less frequently than the Sketch Mac app but is guaranteed to increment
+everytime there's any change to the format of Sketch file JSON.
 
-Conceptually this file format spec sits _upstream_ of Sketch. This means we will
-endeavour to release a new version of this spec before or closely following the
-version of Sketch that supports it. A future goal is that this file format spec
-is incorporated into our internal processes, strengthening the relationship
-between this spec and our products that implement it.
+The table below indicates the relationship between file format spec semver, the
+document version and the Sketch Mac app.
 
-The table below indicates the relationship between file format versions and the
-document version.
-
-| Sketch file format | Sketch document version    |
-| ------------------ | -------------------------- |
-| `1.*.*`            | `119` Sketch 55.2 - 57.1   |
-| `2.*.*`            | `120` Sketch 58            |
-| `3.*.*`            | `121 - 123` Sketch 59 - 62 |
-
-## Repo branches
-
-| Branch          | Description                          |
-| --------------- | ------------------------------------ |
-| `master`        | Current active major version         |
-| `next`          | Marshalling area next major version  |
-| `v1`, `v2` etc. | Branches for previous major versions |
+| File format spec semver | Sketch document version | Sketch Mac app     |
+| ----------------------- | ----------------------- | ------------------ |
+| `1.*.*`                 | `119`                   | Sketch 55.2 - 57.1 |
+| `2.*.*`                 | `120`                   | Sketch 58          |
+| `3.*.*`                 | `121 - 123`             | Sketch 59 - 63.1   |
 
 ## Related projects
 
 - [sketch-file-format-ts](https://github.com/sketch-hq/sketch-file-format-ts)
 - [sketch-reference-files](https://github.com/sketch-hq/sketch-reference-files)
 
-## Use cases
-
-- Documents the file format over time
-- Validate programmatically generated Sketch documents
-- Use as a source for deriving types and schemas for code that works with
-  representations of Sketch documents (see
-  [sketch-file-format-ts](https://github.com/sketch-hq/sketch-file-format-ts))
-
 ## Usage
 
 ### JavaScript/TypeScript
 
-Add the npm module using `npm` or `yarn`
+Add the npm module using `npm` or `yarn`,
 
 ```
 npm install @sketch-hq/sketch-file-format
 ```
+
+And then,
 
 ```
 import schemas from '@sketch-hq/sketch-file-format'
@@ -90,7 +77,8 @@ definition (see the schema table below for explanations):
 
 ```typescript
 type Schemas = {
-  version: number // Supported Sketch document version
+  version: number // Latest supported Sketch document version
+  versions: number[] // All supported Sketch document versions
   document: JSONSchema7
   fileFormat: JSONSchema7
   meta: JSONSchema7
@@ -129,52 +117,110 @@ requests please open an issue.
 
 > Check the [changelog](./CHANGELOG.md) for more information.
 
-## Semver
+## Development
+
+This section of the readme is related to developing the file format spec. If you
+just want to consume the schemas you can safely ignore this.
+
+The schema Yaml files in this repo are hand-editable but tooling can be used to
+improve the developer experience. Node, yarn and VS Code are required to make
+the most of the tooling in this repo, although this sort of developer
+environment is purely optional.
+
+- The required Node version is listed in the [.nvmrc](./.nvmrc) file
+- Yarn `1.13` or later is required, and delegates to the Yarn binary checked in
+  at `.yarn/releases`
+
+### Repo branches
+
+| Branch          | Description                          |
+| --------------- | ------------------------------------ |
+| `master`        | Main development branch              |
+| `v1`, `v2` etc. | Branches for previous major versions |
+
+### Scripts
+
+| Script                        | Description                                                                                                                                                                                                                                                                                      |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| yarn build                    | Builds the schema and the module entrypoint to `dist/`                                                                                                                                                                                                                                           |
+| yarn validate-schemas         | Checks the schema for correctness against the Draft 7 meta-schema                                                                                                                                                                                                                                |
+| yarn validate-reference-files | Builds the schemas and uses them to validate the suite of Sketch files from the [sketch-reference-files](https://github.com/sketch-hq/sketch-reference-files) repo. You need to pass the document versions you want to validate as an argument, e.g. `yarn validate-reference-files 121,122,123` |
+| yarn validate-file            | Validate an arbitrary Sketch file with the current schemas, e.g. `yarn validate-file /absolute/path/to/file.sketch`                                                                                                                                                                              |
+| yarn format-check             | Checks the repo with Prettier                                                                                                                                                                                                                                                                    |
+
+### Semver
 
 The version of these file format schemas will follow
 [semver](https://semver.org/), remaining independent of the Sketch version.
 
-- **Major version bump** The schemas fail to validate a document that was
-  previously considered valid by prior versions. A change in Sketch document
-  version will mean a major bump too, since document version is currently
-  declared as a constant in the schemas
-- **Minor version bump** While any document version change results in a major
-  bump we're unlikely to see many backwards compatible new features and an
-  associated minor version bump. This may change in future though as we
-  normalise the relationship between this spec and other Sketch products, in
-  which case we'll be able to make better use of the full semver semantics
-- **Patch version bump** Bug fixes, documentation improvements or trivial
-  changes that don't affect the semantics of the schemas
+Our ambition is to remain pragmatic while selecting semver bump types.
+Technically even a patch change can introduce breaking changes to some clients
+downstream. Use the table below as a guide only.
 
-> This repo enforces use of semantic
-> [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to
-> automate semver changes and changelog generation, so please think carefully
-> about your commit _types_ when you make a contribution.
+| Bump type | Discussion                                                                                                                                                                                                                                               |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Major     | Implies the addition of major changes that may be backwards incompatible, e.g. the transition of a property from optional to required. The schemas will fail to validate Sketch documents considered valid by the previous version before the major bump |
+| Minor     | Implies the addition of a new backwards compatible feature, e.g. the addition of a new optional property                                                                                                                                                 |
+| Patch     | Implies a bug fix or trivial change, but could introduce a breaking change if a dependant package was previously implementing buggy schemas                                                                                                              |
+| Pre       | Bumps between prereleases convey no specific semantics                                                                                                                                                                                                   |
 
-## Scripts
+### Workflows
 
-| Script                | Description                                                                                                                                                            |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| yarn build            | Builds distributable schema into the `dist` folder                                                                                                                     |
-| yarn validate         | Checks the schema for correctness against the Draft 7 meta-schema                                                                                                      |
-| yarn watch            | Runs `yarn validate` whenever a Yaml file changes in the `schema/` folder                                                                                              |
-| yarn integration-test | Uses the built schemas to validate real Sketch files, false negatives are treated as test failures                                                                     |
-| yarn test             | Unit tests (not implemented yet)                                                                                                                                       |
-| yarn format-check     | Checks the repo with Prettier                                                                                                                                          |
-| yarn release          | Tags the repo and updates the changelog and semver automatically based on commit history. You'll still need to push the changes and `yarn publish` manually afterwards |
-| yarn validate-file    | Validate an arbitrary Sketch file with the current schemas, e.g. `yarn validate-file /absolute/path/to/file.sketch`                                                    |
+#### Conventional commits
 
-## Processing during build
+Try and use the [conventional commits](https://www.conventionalcommits.org/)
+convention when writing commit messages. This isn't enforced, but you can use
+the `yarn commit` command (in place of `git commit -m "foo"`) to open an
+interactive CLI to walk you through generating a properly formatted commit
+message.
+
+#### Updating the schemas
+
+1. Update the schema yaml source files to reflect your changes to the
+   specification
+1. Use the `yarn validate-schemas` script to check that your changes are valid
+   according to JSON Schema Draft 7
+1. Use the `yarn validate-file` and `yarn validate-reference-files` scripts to
+   validate real Sketch files with your updated schemas
+1. Determine the semver bump type and call `yarn changeset` to create an intent
+   to release your changes (read more about changesets
+   [here](https://github.com/atlassian/changesets)).
+1. Open a PR to `master`
+
+#### Creating a release
+
+1. Merge the release PR maintained by the changesets
+   [GitHub action](https://github.com/changesets/action).
+
+#### Creating a pre-release
+
+> ℹ️ This section is work in progress until we release our first pre-release.
+> Pre-releases will be used as a staging area to publish changes to the
+> specification required by an as-yet unreleased version of the Sketch Mac app.
+
+1. Create a new branch to track the pre-release, e.g. `v5`
+1. Read the changesets pre-release
+   [docs](https://github.com/atlassian/changesets/blob/master/docs/prereleases.md)
+1. Enter pre-release mode on the branch `yarn changeset pre enter next`
+1. Commit the changes and push the branch. This branch will act as a stand-in
+   for `master` for all work related to the pre-release
+1. PR into the new branch with feature branches, calling `yarn changeset` as per
+   normal to signal intents to publish. Since this is a pre-release it's likely
+   that we'll be marshalling a major version bump
+1. When ready to publish the pre-release call `yarn changeset version` and then
+   `yarn release`
+
+### Processing during build
 
 While the build output is valid JSON Schema, the Yaml source files are not. They
 include a number of approaches to aid maintainability, listed below.
 
-### Abstract schemas
+#### Abstract schemas
 
 Abstract schemas are a device to aid DRYness in the Yaml source. They are
 processed out of the final build output by the `assemble` function.
 
-### Additional properties
+#### Additional properties
 
 The `additionalProperties` keyword is used by JSON Schema to define whether an
 object allows arbitrary extra properties on itself beyond those explicitly
@@ -182,7 +228,7 @@ listed. According to the spec it defaults to `true`, but in order to increase
 strictness we set it to `false` on every object schema in the output, unless
 already present.
 
-### Required properties
+#### Required properties
 
 The `required` keyword is used by JSON Schema to list object properties that
 must be present in order for it to be considered valid. Again, in order to

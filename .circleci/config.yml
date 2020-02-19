@@ -14,7 +14,6 @@ jobs:
           cache-key: yarn.lock
           steps:
             - run: yarn install --frozen-lockfile --offline
-      - run: yarn commitlint
       - run: yarn build
       - run: yarn validate-schemas
       - run: yarn format-check
