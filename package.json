@@ -1,6 +1,6 @@
 {
   "name": "@sketch-hq/sketch-file-format",
-  "version": "3.4.2",
+  "version": "3.4.3",
   "license": "MIT",
   "main": "dist/index",
   "types": "dist/index",
@@ -13,9 +13,7 @@
     "json",
     "json schema"
   ],
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "dependencies": {
     "@types/json-schema": "7.0.4"
   },
