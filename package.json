@@ -17,31 +17,29 @@
     "dist"
   ],
   "dependencies": {
-    "@types/json-schema": "7.0.3"
+    "@types/json-schema": "7.0.4"
   },
   "devDependencies": {
+    "@changesets/cli": "2.5.1",
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
+    "@commitlint/prompt-cli": "8.3.5",
     "@sketch-hq/sketch-reference-files": "2.2.0",
     "@types/js-yaml": "3.12.2",
     "@types/json-schema-merge-allof": "0.6.0",
     "@types/lodash": "4.14.149",
     "@types/node": "13.7.1",
-    "ajv": "6.10.2",
-    "chalk": "2.4.2",
-    "change-case": "3.1.0",
-    "commitizen": "4.0.3",
-    "cz-conventional-changelog": "3.0.2",
-    "deepdash": "4.2.14",
-    "globby": "10.0.1",
-    "husky": "3.0.9",
+    "ajv": "6.11.0",
+    "chalk": "3.0.0",
+    "change-case": "4.1.1",
+    "deepdash": "4.5.1",
+    "globby": "11.0.0",
     "js-yaml": "3.13.1",
     "json-schema-merge-allof": "0.6.0",
     "json-transforms": "1.1.2",
     "lodash": "4.17.15",
     "node-stream-zip": "1.9.1",
-    "prettier": "1.18.2",
-    "standard-version": "7.0.0",
+    "prettier": "1.19.1",
     "typescript": "3.8.1-rc"
   },
   "scripts": {
@@ -54,23 +52,6 @@
     "n": "node --experimental-json-modules --es-module-specifier-resolution=node",
     "test": "echo \"No test specified\"",
     "format-check": "prettier --check **/*.{mjs,md,yaml,json}",
-    "release": "HUSKY_SKIP_HOOKS=1 standard-version --no-verify",
-    "prepublishOnly": "yarn build",
-    "commitlint": "commitlint --from HEAD~1 --to HEAD --verbose"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
-    }
-  },
-  "standard-version": {
-    "scripts": {
-      "prerelease": "yarn build && yarn validate && yarn integration-test && yarn test && yarn format-check"
-    }
+    "release": "yarn build && changeset publish"
   }
 }
