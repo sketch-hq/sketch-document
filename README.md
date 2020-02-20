@@ -16,7 +16,7 @@ it appears on disk. The schemas adhere to the
 Schema spec and are published to npm.
 
 In order to aid maintainability the schema are split up into multiple reusable
-sub-schema in separate files, and combined in a build step. Yaml is used to
+sub-schema in separate files, and combined in a build step. YAML is used to
 improve readability of the schemas, and introduced the possibility of leaving
 comments etc.
 
@@ -24,11 +24,11 @@ Potential use cases include,
 
 - Document the Sketch file format
 - Validate programmatically generated Sketch documents
-- Use as a data source for
-  - Generating type code (see
+- Use as a data source for generating:
+  - Type code, (see
     [sketch-file-format-ts](https://github.com/sketch-hq/sketch-file-format-ts))
-  - Generating other model and factory code
-  - Generating schemas in other formats, e.g. GraphQL or similar
+  - Other model and factory code
+  - Schemas in other formats, e.g. GraphQL or similar
 
 ## Relationship to the Sketch Mac application
 
@@ -107,7 +107,7 @@ requests please open an issue.
 
 ## Schemas
 
-| Schema      | Description                                                                                                                                           | Yaml entrypoint                  | Built schema                   |
+| Schema      | Description                                                                                                                                           | YAML entrypoint                  | Built schema                   |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ------------------------------ |
 | File Format | Schema for a Sketch file that has been unzipped and its entries parsed into a single object, with page references replaced with concrete page objects | `schema/file-format.schema.yaml` | `dist/file-format.schema.json` |
 | Document    | Schema for the document JSON entry in a Sketch ZIP file                                                                                               | `schema/document.schema.yaml`    | `dist/document.schema.json`    |
@@ -122,7 +122,7 @@ requests please open an issue.
 This section of the readme is related to developing the file format spec. If you
 just want to consume the schemas you can safely ignore this.
 
-The schema Yaml files in this repo are hand-editable but tooling can be used to
+The schema YAML files in this repo are hand-editable but tooling can be used to
 improve the developer experience. Node, yarn and VS Code are required to make
 the most of the tooling in this repo, although this sort of developer
 environment is purely optional.
@@ -131,7 +131,7 @@ environment is purely optional.
 - Yarn `1.13` or later is required, and delegates to the Yarn binary checked in
   at `.yarn/releases`
 
-### Repo branches
+### Repository branches
 
 | Branch          | Description                          |
 | --------------- | ------------------------------------ |
@@ -176,23 +176,18 @@ message.
 
 #### Updating the schemas
 
-1. Update the schema yaml source files to reflect your changes to the
+1. Update the schema YAML source files to reflect your changes to the
    specification
 1. Use the `yarn validate-schemas` script to check that your changes are valid
    according to JSON Schema Draft 7
 1. Use the `yarn validate-file` and `yarn validate-reference-files` scripts to
-   validate real Sketch files with your updated schemas
+   validate real Sketch files with your updated schemas.
 1. Determine the semver bump type and call `yarn changeset` to create an intent
    to release your changes (read more about changesets
    [here](https://github.com/atlassian/changesets)).
 1. Open a PR to `master`
 
-#### Creating a release
-
-1. Merge the release PR maintained by the changesets
-   [GitHub action](https://github.com/changesets/action).
-
-#### Creating a pre-release
+#### Pre-release
 
 > ℹ️ This section is work in progress until we release our first pre-release.
 > Pre-releases will be used as a staging area to publish changes to the
@@ -201,23 +196,28 @@ message.
 1. Create a new branch to track the pre-release, e.g. `v5`
 1. Read the changesets pre-release
    [docs](https://github.com/atlassian/changesets/blob/master/docs/prereleases.md)
-1. Enter pre-release mode on the branch `yarn changeset pre enter next`
+1. Enter pre-release mode on the branch `yarn changeset pre enter {tag}`
 1. Commit the changes and push the branch. This branch will act as a stand-in
    for `master` for all work related to the pre-release
 1. PR into the new branch with feature branches, calling `yarn changeset` as per
    normal to signal intents to publish. Since this is a pre-release it's likely
    that we'll be marshalling a major version bump
-1. When ready to publish the pre-release call `yarn changeset version` and then
-   `yarn release`
+1. Publishing pre-releases is not automated, so when you're ready to publish the
+   pre-release call `yarn changeset version` and then `yarn release`
+
+#### Release
+
+1. Merge the release PR maintained by the changesets
+   [GitHub Action](https://github.com/changesets/action).
 
 ### Processing during build
 
-While the build output is valid JSON Schema, the Yaml source files are not. They
+While the build output is valid JSON Schema, the YAML source files are not. They
 include a number of approaches to aid maintainability, listed below.
 
 #### Abstract schemas
 
-Abstract schemas are a device to aid DRYness in the Yaml source. They are
+Abstract schemas are a device to aid DRYness in the YAML source. They are
 processed out of the final build output by the `assemble` function.
 
 #### Additional properties
