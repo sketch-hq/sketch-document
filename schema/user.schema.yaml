@@ -1,5 +1,4 @@
 title: User
-description: TODO
 type: object
 propertyNames:
   oneOf:
@@ -8,9 +7,17 @@ propertyNames:
 properties:
   document:
     type: object
+    optional:
+      - expandedSymbolPathsInSidebar
+      - expandedTextStylePathsInPopover
+      - expandedTextStylePathsInPopover
+      - libraryListCollapsed
     properties:
       pageListHeight: { type: integer }
-      pageListCollapsed: { type: integer }
+      pageListCollapsed: { $ref: ../utils/numerical-bool.schema.yaml }
+      expandedSymbolPathsInSidebar: { type: array }
+      expandedTextStylePathsInPopover: { type: array }
+      libraryListCollapsed: { $ref: ../utils/numerical-bool.schema.yaml }
 additionalProperties:
   type: object
   properties:
