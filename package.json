@@ -51,7 +51,7 @@
     "validate-file": "yarn build:schemas && tsc && yarn n src/validate-file.js",
     "n": "node --experimental-json-modules --es-module-specifier-resolution=node",
     "test": "echo \"No test specified\"",
-    "format-check": "prettier --check **/*.{mjs,md,yaml,json}",
+    "format-check": "prettier --check {schema/{**/,}*.yaml,*.md,src/*.ts}",
     "release": "yarn build && changeset publish"
   }
 }
