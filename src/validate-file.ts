@@ -1,5 +1,5 @@
 import StreamZip from 'node-stream-zip'
-import type { ErrorObject } from 'ajv'
+import { ErrorObject } from 'ajv'
 import util from 'util'
 
 import { getAjvInstance } from './utils'

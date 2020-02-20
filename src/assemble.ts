@@ -13,8 +13,6 @@
  *   - Prune any un-used definitions
  */
 
-import type { JSONSchema7 } from 'json-schema'
-
 import yaml from 'js-yaml'
 import fs from 'fs'
 import globby from 'globby'
@@ -24,6 +22,7 @@ import deepdash from 'deepdash'
 import _ from 'lodash'
 import jsont from 'json-transforms'
 import mergeAllOf from 'json-schema-merge-allof'
+import { JSONSchema7 } from 'json-schema'
 
 deepdash(_)
 
@@ -189,16 +188,19 @@ const assemble = async (entry: string) => {
   while (containsAbstractRefs) {
     containsAbstractRefs = false
     output = jsont.transform(output, [
-      jsont.pathRule('.$ref', ({ context, match }: { context: any, match: any}) => {
-        if (typeof match === 'string' && match.includes('abstract')) {
-          const { title, description, $id, $ref, ...rest } = abstractSchemas[
-            pathToId(match)
-          ]
-          return _.cloneDeep(rest)
-        } else {
-          return context
-        }
-      }),
+      jsont.pathRule(
+        '.$ref',
+        ({ context, match }: { context: any; match: any }) => {
+          if (typeof match === 'string' && match.includes('abstract')) {
+            const { title, description, $id, $ref, ...rest } = abstractSchemas[
+              pathToId(match)
+            ]
+            return _.cloneDeep(rest)
+          } else {
+            return context
+          }
+        },
+      ),
       jsont.identity,
     ])
     // @ts-ignore
