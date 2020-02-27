@@ -28,6 +28,8 @@ properties:
       - 121
       - 122
       - 123
+      - 124
+      - 125
   fonts:
     type: array
     items: { type: string }
