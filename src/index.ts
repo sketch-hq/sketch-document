@@ -21,8 +21,8 @@ type Schemas = {
 }
 
 const schemas: Schemas = {
-  version: 123,
-  versions: [121, 122, 123],
+  version: [...metaSchema.properties.version.enum].pop() || 0,
+  versions: [...metaSchema.properties.version.enum],
   fileFormat: fileFormatSchema as JSONSchema7,
   document: docSchema as JSONSchema7,
   meta: metaSchema as JSONSchema7,
