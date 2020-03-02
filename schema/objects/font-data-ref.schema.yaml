@@ -1,0 +1,17 @@
+title: Font Data Ref
+description: Defines a reference to base64 font data within the document bundle
+type: object
+properties:
+  _class: { const: MSJSONOriginalDataReference }
+  _ref_class: { const: MSEmbeddedFontData }
+  _ref:
+    type: string
+    pattern: '^fonts/.*'
+  data:
+    type: object
+    properties:
+      _data: { type: string }
+  sha1:
+    type: object
+    properties:
+      _data: { type: string }
