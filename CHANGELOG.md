@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 3.5.0
+
+### Minor Changes
+
+- 03e3835: Add support for document model version 126 and embedded fonts
+
 ## 3.4.4
 
 ### Patch Changes
