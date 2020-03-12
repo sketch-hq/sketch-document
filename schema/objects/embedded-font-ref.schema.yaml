@@ -6,3 +6,4 @@ properties:
   embeddedFontData: { $ref: ./font-data-ref.schema.yaml }
   fontFamilyName: { type: string }
   fontFileType: { type: string }
+  embedded: { type: boolean }
