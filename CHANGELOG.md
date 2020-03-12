@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 3.5.1
+
+### Patch Changes
+
+- 2f53dc8: Add embedded prop to Embedded Font Reference schema
+
 ## 3.5.0
 
 ### Minor Changes
