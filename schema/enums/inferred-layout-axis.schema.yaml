@@ -4,8 +4,6 @@ type: integer
 enum:
   - 0
   - 1
-  - 2
 enumDescriptions:
-  - None
   - Horizontal
   - Vertical
