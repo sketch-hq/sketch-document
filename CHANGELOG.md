@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 3.5.3
+
+### Patch Changes
+
+- 47d6e83: Fix incorrect enum values in layout axis schema
+
 ## 3.5.2
 
 ### Patch Changes
