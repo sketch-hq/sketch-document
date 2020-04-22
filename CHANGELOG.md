@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 3.5.4
+
+### Patch Changes
+
+- 384590c: Support document version 128
+
 ## 3.5.3
 
 ### Patch Changes
