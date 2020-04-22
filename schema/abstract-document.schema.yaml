@@ -2,6 +2,7 @@ type: object
 optional:
   - layerSymbols
   - embeddedFontReferences
+  - autoEmbedFonts
 properties:
   _class: { const: document }
   do_objectID: { $ref: ./utils/uuid.schema.yaml }
@@ -25,3 +26,4 @@ properties:
   embeddedFontReferences:
     type: array
     items: { $ref: ./objects/embedded-font-ref.schema.yaml }
+  autoEmbedFonts: { type: boolean }
