@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 3.5.5
+
+### Patch Changes
+
+- d0e73e9: Add support for `agreedToFontEmbedding` property
+
 ## 3.5.4
 
 ### Patch Changes
