@@ -5,6 +5,8 @@ description:
   merged into a single object. A concrete example of an expanded sketch file is
   the return value of the `fromFile` function
 type: object
+optional:
+  - workspace
 properties:
   document:
     allOf:
@@ -16,3 +18,4 @@ properties:
             items: { $ref: ./layers/page.schema.yaml }
   meta: { $ref: ./meta.schema.yaml }
   user: { $ref: ./user.schema.yaml }
+  workspace: { $ref: ./workspace.schema.yaml }
