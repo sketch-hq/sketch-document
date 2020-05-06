@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 3.5.6
+
+### Patch Changes
+
+- 7b43342: Add workspace schema.
+
 ## 3.5.5
 
 ### Patch Changes
