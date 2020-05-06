@@ -1,0 +1,29 @@
+title: Assistants Workspace Entry
+description:
+  Contains Assistant configuration that travels with the document in the file
+  workspace. Maintains a record of which Assistants have been installed to the
+  document and where they've been installed from in the `dependencies` field.
+  Additionally Assistant metadata from their package.json files are cached in
+  the `dependencyMetadata` field.
+type: object
+properties:
+  dependencies:
+    type: object
+    patternProperties:
+      ^.+$: { type: string }
+  dependencyMetadata:
+    type: object
+    patternProperties:
+      ^.+$:
+        type: object
+        properties:
+          sketch: { type: string }
+          homepage: { type: string }
+          name: { type: string }
+          version: { type: string }
+          sketch-assistants:
+            type: object
+            properties:
+              title: { type: string }
+              icon: { type: string }
+              description: { type: string }

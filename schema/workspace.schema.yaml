@@ -1,0 +1,16 @@
+title: Workspace
+description:
+  The workspace is a folder in the Sketch file archive that can contain
+  arbitrary JSON files, allowing Sketch and 3rd party products and tools to
+  store settings that should travel with the Sketch document. To avoid clashes
+  or settings being overridden, select a unique name for your workspace file. A
+  workspace file named `assistants` has been reserved for Sketch Assistant
+  settings, and is specified below. Note that custom layer-level data should
+  continue to be stored in `userInfo` of these objects, not within the
+  workspace.
+type: object
+additionalProperties:
+  type: object
+  additionalProperties: true
+properties:
+  assistants: { $ref: ./objects/assistants-workspace.schema.yaml }
