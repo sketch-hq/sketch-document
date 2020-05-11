@@ -1,0 +1,11 @@
+title: Foreign Swatch
+description: Defines a swatch that has been imported from a library
+type: object
+properties:
+  _class: { const: MSImmutableForeignSwatch }
+  do_objectID: { $ref: ../utils/uuid.schema.yaml }
+  libraryID: { $ref: ../utils/uuid.schema.yaml }
+  sourceLibraryName: { type: string }
+  symbolPrivate: { type: boolean }
+  remoteSwatchID: { $ref: ../utils/uuid.schema.yaml }
+  localSwatch: { $ref: ./swatch.schema.yaml }
