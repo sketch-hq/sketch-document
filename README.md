@@ -114,6 +114,7 @@ requests please open an issue.
 | Page        | Schema for the page JSON entries in a Sketch ZIP file                                                                                                 | `schema/layers/page.schema.yaml` | `dist/page.schema.json`        |
 | Meta        | Schema for the meta JSON entry in a Sketch ZIP file                                                                                                   | `schema/meta.schema.yaml`        | `dist/meta.schema.json`        |
 | User        | Schema for the user JSON entry in a Sketch ZIP file                                                                                                   | `schema/user.schema.yaml`        | `dist/user.schema.json`        |
+| Workspace   | Schema for the workspace JSON entry in a Sketch ZIP file                                                                                              | `schema/workspace.schema.yaml`   | `dist/workspace.schema.json`   |
 
 > Check the [changelog](./CHANGELOG.md) for more information.
 
