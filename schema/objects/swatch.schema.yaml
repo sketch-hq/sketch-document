@@ -1,0 +1,8 @@
+title: Swatch
+description: Defines a swatch color variable.
+type: object
+properties:
+  _class: { const: swatch }
+  do_objectID: { $ref: ../utils/uuid.schema.yaml }
+  name: { type: string }
+  value: { $ref: ./color.schema.yaml }

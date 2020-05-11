@@ -1,9 +1,12 @@
 title: Color
 description: Defines a RGBA color value
 type: object
+optional:
+  - swatchID
 properties:
   _class: { const: color }
   alpha: { $ref: ../utils/unit-interval.schema.yaml }
   red: { $ref: ../utils/unit-interval.schema.yaml }
   green: { $ref: ../utils/unit-interval.schema.yaml }
   blue: { $ref: ../utils/unit-interval.schema.yaml }
+  swatchID: { $ref: ../utils/uuid.schema.yaml }
