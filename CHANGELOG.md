@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 3.6.0
+
+### Minor Changes
+
+- 3543475: Add support for document version `130` (color swatches).
+
 ## 3.5.6
 
 ### Patch Changes
