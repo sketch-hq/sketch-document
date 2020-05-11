@@ -4,6 +4,8 @@ optional:
   - embeddedFontReferences
   - autoEmbedFonts
   - agreedToFontEmbedding
+  - foreignSwatches
+  - sharedSwatches
 properties:
   _class: { const: document }
   do_objectID: { $ref: ./utils/uuid.schema.yaml }
@@ -21,9 +23,13 @@ properties:
   foreignTextStyles:
     type: array
     items: { $ref: ./objects/foreign-text-style.schema.yaml }
+  foreignSwatches:
+    type: array
+    items: { $ref: ./objects/foreign-swatch.schema.yaml }
   layerStyles: { $ref: ./objects/shared-style-container.schema.yaml }
   layerTextStyles: { $ref: ./objects/shared-text-style-container.schema.yaml }
   layerSymbols: { $ref: ./objects/symbol-container.schema.yaml }
+  sharedSwatches: { $ref: ./objects/swatch-container.schema.yaml }
   embeddedFontReferences:
     type: array
     items: { $ref: ./objects/embedded-font-ref.schema.yaml }
