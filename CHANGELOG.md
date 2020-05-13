@@ -1,5 +1,13 @@
 # @sketch-hq/sketch-file-format
 
+## 3.6.1
+
+### Patch Changes
+
+- 922d77f: Fix embedded font related properties to match changes made during
+  feature's development.
+- fda5f6c: Make file reference and data reference schemas generalized.
+
 ## 3.6.0
 
 ### Minor Changes
