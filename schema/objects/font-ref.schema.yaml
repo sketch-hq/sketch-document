@@ -1,9 +1,9 @@
 title: Font Reference
-description: Defines font data in the document
+description: Defines a reference to font data embedded in the document
 type: object
 properties:
   _class: { const: fontReference }
-  fontData: { $ref: ./font-data-ref.schema.yaml }
+  fontData: { $ref: ./data-ref.schema.yaml }
   fontFamilyName: { type: string }
   fontFileName: { type: string }
   options: { type: integer }

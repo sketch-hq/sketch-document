@@ -8,4 +8,4 @@ allOf:
     properties:
       pages:
         type: array
-        items: { $ref: ./objects/page-file-ref.schema.yaml }
+        items: { $ref: ./objects/file-ref.schema.yaml }

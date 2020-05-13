@@ -9,7 +9,7 @@ allOf:
       fillReplacesImage: { type: boolean }
       image:
         oneOf:
-          - { $ref: ../objects/image-file-ref.schema.yaml }
-          - { $ref: ../objects/image-data-ref.schema.yaml }
+          - { $ref: ../objects/file-ref.schema.yaml }
+          - { $ref: ../objects/data-ref.schema.yaml }
       intendedDPI: { type: integer }
       clippingMask: { $ref: ../utils/point-list-string.schema.yaml }

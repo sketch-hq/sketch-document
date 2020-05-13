@@ -1,12 +1,17 @@
-title: Image Data Ref
-description: Defines a reference to an image data within the document bundle
+title: Data Reference
+description: Defines inline base64 data
 type: object
 properties:
   _class: { const: MSJSONOriginalDataReference }
-  _ref_class: { const: MSImageData }
-  _ref:
+  _ref_class:
     type: string
-    pattern: '^images/.*'
+    enum:
+      - MSImageData
+      - MSFontData
+    enumDescriptions:
+      - MSImageData
+      - MSFontData
+  _ref: { type: string }
   data:
     type: object
     properties:
