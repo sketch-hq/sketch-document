@@ -1,9 +1,0 @@
-title: Embedded Font Reference
-description: Defines font data embedded in the document
-type: object
-properties:
-  _class: { const: embeddedFontReference }
-  embeddedFontData: { $ref: ./font-data-ref.schema.yaml }
-  fontFamilyName: { type: string }
-  fontFileType: { type: string }
-  embedded: { type: boolean }
