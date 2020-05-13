@@ -16,5 +16,5 @@ properties:
   gradient: { $ref: ./gradient.schema.yaml }
   image:
     oneOf:
-      - { $ref: ../objects/image-file-ref.schema.yaml }
-      - { $ref: ../objects/image-data-ref.schema.yaml }
+      - { $ref: ../objects/file-ref.schema.yaml }
+      - { $ref: ../objects/data-ref.schema.yaml }

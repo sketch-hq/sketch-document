@@ -17,8 +17,8 @@ properties:
     type: array
     items:
       oneOf:
-        - { $ref: ./image-file-ref.schema.yaml }
-        - { $ref: ./image-data-ref.schema.yaml }
+        - { $ref: ./file-ref.schema.yaml }
+        - { $ref: ./data-ref.schema.yaml }
   colors:
     type: array
     items: { $ref: ./color.schema.yaml }

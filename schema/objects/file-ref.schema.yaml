@@ -1,0 +1,14 @@
+title: File Reference
+description: Defines a reference to a file within the document bundle
+type: object
+properties:
+  _class: { const: MSJSONFileReference }
+  _ref_class:
+    type: string
+    enum:
+      - MSImageData
+      - MSImmutablePage
+    enumDescriptions:
+      - MSImageData
+      - MSImmutablePage
+  _ref: { type: string }
