@@ -12,5 +12,7 @@ type: object
 additionalProperties:
   type: object
   additionalProperties: true
+optional:
+  - assistants
 properties:
   assistants: { $ref: ./objects/assistants-workspace.schema.yaml }
