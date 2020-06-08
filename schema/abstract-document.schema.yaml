@@ -2,8 +2,6 @@ type: object
 optional:
   - layerSymbols
   - fontReferences
-  - autoEmbedFonts
-  - agreedToFontEmbedding
   - foreignSwatches
   - sharedSwatches
 properties:
@@ -33,5 +31,3 @@ properties:
   fontReferences:
     type: array
     items: { $ref: ./objects/font-ref.schema.yaml }
-  autoEmbedFonts: { type: boolean }
-  agreedToFontEmbedding: { type: boolean }
