@@ -35,6 +35,7 @@ properties:
       - 128
       - 129
       - 130
+      - 131
   fonts:
     type: array
     items: { type: string }
