@@ -1,5 +1,13 @@
 # @sketch-hq/sketch-file-format
 
+## 3.6.2
+
+### Patch Changes
+
+- b46c865: Remove unused property `dependencyMetadata` from Assistants
+  workspace, and make the workspace itself optional.
+- a285772: Remove unused props related to embedded fonts.
+
 ## 3.6.1
 
 ### Patch Changes
