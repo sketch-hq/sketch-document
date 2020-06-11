@@ -6,7 +6,7 @@
 
 - b46c865: Remove unused property `dependencyMetadata` from Assistants
   workspace, and make the workspace itself optional.
-- a285772: Remove unused props related to embedded fonts.
+- a285772: Support document version `131` and remove unused props related to embedded fonts.
 
 ## 3.6.1
 
