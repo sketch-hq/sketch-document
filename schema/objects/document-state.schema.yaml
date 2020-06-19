@@ -1,0 +1,6 @@
+title: Document State
+description:
+  Container for ephemeral document state. For now this is just a placeholder,
+  and will see additions in future document versions.
+type: object
+additionalProperties: true

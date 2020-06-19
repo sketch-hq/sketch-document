@@ -4,6 +4,7 @@ optional:
   - fontReferences
   - foreignSwatches
   - sharedSwatches
+  - documentState
 properties:
   _class: { const: document }
   do_objectID: { $ref: ./utils/uuid.schema.yaml }
@@ -31,3 +32,4 @@ properties:
   fontReferences:
     type: array
     items: { $ref: ./objects/font-ref.schema.yaml }
+  documentState: { $ref: ./objects/document-state.schema.yaml }
