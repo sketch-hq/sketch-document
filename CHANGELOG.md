@@ -1,12 +1,20 @@
 # @sketch-hq/sketch-file-format
 
+## 3.6.3
+
+### Patch Changes
+
+- b2e06cd: Add support for document version `132` and the `documentState`
+  property.
+
 ## 3.6.2
 
 ### Patch Changes
 
 - b46c865: Remove unused property `dependencyMetadata` from Assistants
   workspace, and make the workspace itself optional.
-- a285772: Support document version `131` and remove unused props related to embedded fonts.
+- a285772: Support document version `131` and remove unused props related to
+  embedded fonts.
 
 ## 3.6.1
 
