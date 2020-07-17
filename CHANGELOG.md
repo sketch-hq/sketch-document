@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 3.6.4
+
+### Patch Changes
+
+- 40af149: Document version bump to `133` (no other schema changes).
+
 ## 3.6.3
 
 ### Patch Changes
