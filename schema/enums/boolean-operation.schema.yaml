@@ -9,8 +9,8 @@ enum:
   - 2
   - 3
 enumDescriptions:
-  - N/A
   - None
   - Union
   - Subtract
+  - Intersection
   - Difference
