@@ -1,5 +1,13 @@
 # @sketch-hq/sketch-file-format
 
+## 3.6.5
+
+### Patch Changes
+
+- 19b357e: Do not define Assistants workspace item here in the file format.
+  Assistants workspace is now only defined in the
+  [Assistant Types](https://github.com/sketch-hq/sketch-assistants/tree/main/packages/types).
+
 ## 3.6.4
 
 ### Patch Changes
