@@ -1,6 +1,6 @@
 {
   "name": "@sketch-hq/sketch-file-format",
-  "version": "3.6.5",
+  "version": "3.6.6",
   "license": "MIT",
   "main": "dist/index",
   "types": "dist/index",

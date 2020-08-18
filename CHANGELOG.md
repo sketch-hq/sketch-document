@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 3.6.6
+
+### Patch Changes
+
+- fe001be: Fix the boolean operation enum mapping incorrect values.
+
 ## 3.6.5
 
 ### Patch Changes
