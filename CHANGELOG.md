@@ -1,5 +1,12 @@
 # @sketch-hq/sketch-file-format
 
+## 3.6.7
+
+### Patch Changes
+
+- 36fa40f: Support document version 134, which adds `do_objectID` properties to
+  object container schemas.
+
 ## 3.6.6
 
 ### Patch Changes
