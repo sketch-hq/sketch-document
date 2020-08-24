@@ -2,6 +2,9 @@ title: Symbol container
 description: Legacy object only retained for migrating older documents.
 deprecated: true
 type: object
+optional:
+  - do_objectID
 properties:
+  do_objectID: { $ref: ./utils/uuid.schema.yaml }
   _class: { const: symbolContainer }
   objects: { type: array }

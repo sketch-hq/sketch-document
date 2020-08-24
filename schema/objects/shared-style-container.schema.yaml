@@ -1,7 +1,10 @@
 title: Shared Style Container
 description: Defines a document's list of reusable styles
 type: object
+optional:
+  - do_objectID
 properties:
+  do_objectID: { $ref: ./utils/uuid.schema.yaml }
   _class: { const: sharedStyleContainer }
   objects:
     type: array

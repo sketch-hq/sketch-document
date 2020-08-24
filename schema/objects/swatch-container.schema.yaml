@@ -1,8 +1,11 @@
 title: Swatch Container
 description: Defines a document's list of swatches
 type: object
+optional:
+  - do_objectID
 properties:
   _class: { const: swatchContainer }
+  do_objectID: { $ref: ./utils/uuid.schema.yaml }
   objects:
     type: array
     items: { $ref: ./swatch.schema.yaml }
