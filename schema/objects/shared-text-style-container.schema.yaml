@@ -1,7 +1,10 @@
 title: Shared Text Style Container
 description: Defines a document's list of reusable text styles
 type: object
+optional:
+  - do_objectID
 properties:
+  do_objectID: { $ref: ./utils/uuid.schema.yaml }
   _class: { const: sharedTextStyleContainer }
   objects:
     type: array
