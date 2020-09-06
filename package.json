@@ -13,7 +13,9 @@
     "json",
     "json schema"
   ],
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@types/json-schema": "7.0.4"
   },
@@ -31,6 +33,7 @@
     "chalk": "3.0.0",
     "change-case": "4.1.1",
     "deepdash": "4.5.1",
+    "dot-prop": "4.2.1",
     "globby": "11.0.0",
     "js-yaml": "3.13.1",
     "json-schema-merge-allof": "0.6.0",
@@ -38,7 +41,8 @@
     "lodash": "4.17.15",
     "node-stream-zip": "1.9.1",
     "prettier": "1.19.1",
-    "typescript": "3.8.1-rc"
+    "typescript": "3.8.1-rc",
+    "yargs-parser": "18.1.2"
   },
   "scripts": {
     "build": "yarn build:schemas && yarn build:pkg",
