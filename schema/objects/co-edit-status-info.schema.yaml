@@ -1,0 +1,8 @@
+title: Collaborative Editing Status Info
+description:
+  Object containing status information about collaborative editing.
+type: object
+properties:
+  _class: { const: SharedEditing.MSCoEditStatusInfo }
+  shareID: { $ref: ../utils/uuid.schema.yaml }
+  statusString: { type: string }

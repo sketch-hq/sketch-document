@@ -4,3 +4,7 @@ description:
   and will see additions in future document versions.
 type: object
 additionalProperties: true
+optional:
+  - patchInfo
+properties:
+  patchInfo: { $ref: ./patch-info.schema.yaml }
