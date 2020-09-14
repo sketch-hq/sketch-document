@@ -1,6 +1,5 @@
 title: Collaborative Editing Status
-description:
-  Enumeration of the possible collaborative editing status strings.
+description: Enumeration of the possible collaborative editing status strings.
 type: string
 enum:
   - COLLABORATING

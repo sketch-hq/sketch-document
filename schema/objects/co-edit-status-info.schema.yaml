@@ -1,6 +1,5 @@
 title: Collaborative Editing Status Info
-description:
-  Object containing status information about collaborative editing.
+description: Object containing status information about collaborative editing.
 type: object
 properties:
   _class: { const: SharedEditing.MSCoEditStatusInfo }
