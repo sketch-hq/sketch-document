@@ -12,3 +12,6 @@ properties:
   localPatches:
     type: array
     items: { $ref: ./file-ref.schema.yaml }
+  receivedPatches:
+     type: array
+     items: { $ref: ./file-ref.schema.yaml }
