@@ -13,5 +13,5 @@ properties:
     type: array
     items: { $ref: ./file-ref.schema.yaml }
   receivedPatches:
-     type: array
-     items: { $ref: ./file-ref.schema.yaml }
+    type: array
+    items: { $ref: ./file-ref.schema.yaml }
