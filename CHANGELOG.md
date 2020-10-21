@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 3.6.8
+
+### Patch Changes
+
+- 3f9aa0c: Add support for Sketch Feature Preview variant
+
 ## 3.6.7
 
 ### Patch Changes
