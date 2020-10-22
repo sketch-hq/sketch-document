@@ -6,6 +6,7 @@ enum:
   - com.bohemiancoding.sketch3
   - com.bohemiancoding.sketch3.beta
   - com.bohemiancoding.sketch3.private
+  - com.bohemiancoding.sketch3.feature-preview
   - com.bohemiancoding.sketch3.internal
   - com.bohemiancoding.sketch3.experimental
   - com.bohemiancoding.sketch3.testing
@@ -13,6 +14,7 @@ enumDescriptions:
   - Public release
   - Beta
   - Private
+  - Feature preview
   - Internal
   - Experimental
   - Testing
