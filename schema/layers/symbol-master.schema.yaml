@@ -18,7 +18,6 @@ allOf:
       verticalRulerData: { $ref: ../objects/ruler-data.schema.yaml }
       includeBackgroundColorInInstance: { type: boolean }
       symbolID: { $ref: ../utils/uuid.schema.yaml }
-      changeIdentifier: { type: integer }
       allowsOverrides: { type: boolean }
       overrideProperties:
         type: array
