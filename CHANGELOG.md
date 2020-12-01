@@ -1,5 +1,17 @@
 # @sketch-hq/sketch-file-format
 
+## 3.7.0
+
+### Minor Changes
+
+- 91b0885: Add `missingLibraryFontAcknowledged` property and increase document
+  version to `135`.
+
+### Patch Changes
+
+- f2a5494: Fix overrideName regex to support layerStyle and nested symbols
+- b42a651: Remove changeIdentifier from symbol master
+
 ## 3.6.9
 
 ### Patch Changes
