@@ -1,5 +1,13 @@
 # @sketch-hq/sketch-file-format
 
+## 3.7.1
+
+### Patch Changes
+
+- d3ac7d2: Make symbol source inherit directly from artboard
+- 4176aa2: Fix layers property to only allow correct types in pages, artboards
+  and other layer types
+
 ## 3.7.0
 
 ### Minor Changes
