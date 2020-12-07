@@ -136,7 +136,7 @@ environment is purely optional.
 
 | Branch          | Description                          |
 | --------------- | ------------------------------------ |
-| `master`        | Main development branch              |
+| `main`          | Main development branch              |
 | `v1`, `v2` etc. | Branches for previous major versions |
 
 ### Scripts
@@ -186,7 +186,7 @@ message.
 1. Determine the semver bump type and call `yarn changeset` to create an intent
    to release your changes (read more about changesets
    [here](https://github.com/atlassian/changesets)).
-1. Open a PR to `master`
+1. Open a PR to `main`
 
 #### Pre-release
 
@@ -196,10 +196,10 @@ message.
 
 1. Create a new branch to track the pre-release, e.g. `v5`
 1. Read the changesets pre-release
-   [docs](https://github.com/atlassian/changesets/blob/master/docs/prereleases.md)
+   [docs](https://github.com/atlassian/changesets/blob/main/docs/prereleases.md)
 1. Enter pre-release mode on the branch `yarn changeset pre enter {tag}`
 1. Commit the changes and push the branch. This branch will act as a stand-in
-   for `master` for all work related to the pre-release
+   for `main` for all work related to the pre-release
 1. PR into the new branch with feature branches, calling `yarn changeset` as per
    normal to signal intents to publish. Since this is a pre-release it's likely
    that we'll be marshalling a major version bump
