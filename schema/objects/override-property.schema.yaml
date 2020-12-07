@@ -1,5 +1,5 @@
 title: Override Property
-description: Defines override properties on symbol masters
+description: Defines override properties on symbol sources
 type: object
 properties:
   _class: { const: MSImmutableOverrideProperty }
