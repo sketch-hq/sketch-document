@@ -3,22 +3,38 @@ description:
   Artboard layers are a document organisation aid. They have a fixed frame that
   usually map to variations of device dimensions or viewport sizes
 allOf:
-  - $ref: ./abstract-group.schema.yaml
+  - $ref: ./abstract-root-layer.schema.yaml
+  # Note: Any changes must be replicated in symbol sources which share the
+  # data structure with artboards but their schemas are not currently set to
+  # inherit directly for simplicity of inheritence tree.
   - type: object
     optional:
-      - grid
-      - layout
       - presetDictionary
     properties:
       _class: { const: artboard }
-      includeInCloudUpload: { type: boolean }
-      includeBackgroundColorInExport: { type: boolean }
-      horizontalRulerData: { $ref: ../objects/ruler-data.schema.yaml }
-      verticalRulerData: { $ref: ../objects/ruler-data.schema.yaml }
-      layout: { $ref: ../objects/layout-grid.schema.yaml }
-      grid: { $ref: ../objects/simple-grid.schema.yaml }
       backgroundColor: { $ref: ../objects/color.schema.yaml }
       hasBackgroundColor: { type: boolean }
+      includeBackgroundColorInExport: { type: boolean }
       isFlowHome: { type: boolean }
       resizesContent: { type: boolean }
       presetDictionary: { type: object }
+      layers:
+        type: array
+        items:
+          oneOf:
+            - { $ref: ./group.schema.yaml }
+            - { $ref: ./oval.schema.yaml }
+            - { $ref: ./polygon.schema.yaml }
+            - { $ref: ./rectangle.schema.yaml }
+            - { $ref: ./shape-path.schema.yaml }
+            - { $ref: ./star.schema.yaml }
+            - { $ref: ./triangle.schema.yaml }
+            - { $ref: ./shape-group.schema.yaml }
+            - { $ref: ./text.schema.yaml }
+            - { $ref: ./symbol-instance.schema.yaml }
+            - { $ref: ./slice.schema.yaml }
+            - { $ref: ./hotspot.schema.yaml }
+            - { $ref: ./bitmap.schema.yaml }
+        description:
+          Artboards can contain any layer or layer group except root layers such
+          as other artboards and symbol sources
