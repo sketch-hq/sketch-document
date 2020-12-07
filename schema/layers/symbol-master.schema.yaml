@@ -2,13 +2,41 @@ title: Symbol Source Layer
 description: A symbol source layer represents a reusable group of layers
 type: object
 allOf:
-  - $ref: ./artboard.schema.yaml
+  - $ref: ./abstract-root-layer.schema.yaml
   - type: object
+    optional:
+      - presetDictionary
     properties:
       _class: { const: symbolMaster }
+      backgroundColor: { $ref: ../objects/color.schema.yaml }
+      hasBackgroundColor: { type: boolean }
       includeBackgroundColorInInstance: { type: boolean }
+      includeBackgroundColorInExport: { type: boolean }
+      isFlowHome: { type: boolean }
+      resizesContent: { type: boolean }
+      presetDictionary: { type: object }
       symbolID: { $ref: ../utils/uuid.schema.yaml }
       allowsOverrides: { type: boolean }
       overrideProperties:
         type: array
         items: { $ref: ../objects/override-property.schema.yaml }
+      layers:
+        type: array
+        items:
+          oneOf:
+            - { $ref: ./group.schema.yaml }
+            - { $ref: ./oval.schema.yaml }
+            - { $ref: ./polygon.schema.yaml }
+            - { $ref: ./rectangle.schema.yaml }
+            - { $ref: ./shape-path.schema.yaml }
+            - { $ref: ./star.schema.yaml }
+            - { $ref: ./triangle.schema.yaml }
+            - { $ref: ./shape-group.schema.yaml }
+            - { $ref: ./text.schema.yaml }
+            - { $ref: ./symbol-instance.schema.yaml }
+            - { $ref: ./slice.schema.yaml }
+            - { $ref: ./hotspot.schema.yaml }
+            - { $ref: ./bitmap.schema.yaml }
+        description:
+          Symbol sources can contain any layer or layer group except root layers
+          such as artboards and other symbol sources

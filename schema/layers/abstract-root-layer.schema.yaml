@@ -1,0 +1,26 @@
+title: Abstract Root Layer
+description:
+  Abstract base schema for pages and artboards, representing the root of a layer
+  hierarchy
+type: object
+allOf:
+  - $ref: ./abstract-layer.schema.yaml
+  - type: object
+    optional:
+      - layout
+      - grid
+      - groupLayout
+    properties:
+      hasClickThrough: { type: boolean }
+      horizontalRulerData: { $ref: ../objects/ruler-data.schema.yaml }
+      verticalRulerData: { $ref: ../objects/ruler-data.schema.yaml }
+      layout: { $ref: ../objects/layout-grid.schema.yaml }
+      grid: { $ref: ../objects/simple-grid.schema.yaml }
+      groupLayout:
+        oneOf:
+          - { $ref: ../objects/freeform-group-layout.schema.yaml }
+          - { $ref: ../objects/inferred-group-layout.schema.yaml }
+      includeInCloudUpload:
+        type: boolean
+        description: Deprecated, no longer used by Sketch Cloud
+        default: true
