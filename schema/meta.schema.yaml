@@ -4,6 +4,8 @@ description:
   artboards appearing in the file, fonts used, the version of Sketch used to
   save the file etc.
 type: object
+optional:
+  - coeditCompatibilityVersion
 properties:
   commit: { type: string }
   pagesAndArtboards:
@@ -40,21 +42,26 @@ properties:
       - 133
       - 134
       - 135
+      - 136
   fonts:
     type: array
     items: { type: string }
   compatibilityVersion: { const: 99 }
+  coeditCompatibilityVersion: { type: number }
   app: { $ref: ./enums/bundle-id.schema.yaml }
   autosaved: { $ref: ./utils/numerical-bool.schema.yaml }
   variant: { $ref: ./enums/sketch-variant.schema.yaml }
   created:
     type: object
+    optional:
+      - coeditCompatibilityVersion
     properties:
       commit: { type: string }
       appVersion: { type: string }
       build: { type: integer }
       app: { $ref: ./enums/bundle-id.schema.yaml }
       compatibilityVersion: { type: number }
+      coeditCompatibilityVersion: { type: number }
       version: { type: number }
       variant: { $ref: ./enums/sketch-variant.schema.yaml }
   saveHistory:
