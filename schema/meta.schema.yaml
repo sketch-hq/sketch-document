@@ -4,6 +4,8 @@ description:
   artboards appearing in the file, fonts used, the version of Sketch used to
   save the file etc.
 type: object
+optional:
+  - coeditCompatibilityVersion
 properties:
   commit: { type: string }
   pagesAndArtboards:
