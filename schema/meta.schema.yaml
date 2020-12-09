@@ -40,10 +40,12 @@ properties:
       - 133
       - 134
       - 135
+      - 136
   fonts:
     type: array
     items: { type: string }
   compatibilityVersion: { const: 99 }
+  coeditCompatibilityVersion: { type: number }
   app: { $ref: ./enums/bundle-id.schema.yaml }
   autosaved: { $ref: ./utils/numerical-bool.schema.yaml }
   variant: { $ref: ./enums/sketch-variant.schema.yaml }
@@ -55,6 +57,7 @@ properties:
       build: { type: integer }
       app: { $ref: ./enums/bundle-id.schema.yaml }
       compatibilityVersion: { type: number }
+      coeditCompatibilityVersion: { type: number }
       version: { type: number }
       variant: { $ref: ./enums/sketch-variant.schema.yaml }
   saveHistory:
