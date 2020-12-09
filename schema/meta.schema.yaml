@@ -51,6 +51,8 @@ properties:
   variant: { $ref: ./enums/sketch-variant.schema.yaml }
   created:
     type: object
+    optional:
+      - coeditCompatibilityVersion
     properties:
       commit: { type: string }
       appVersion: { type: string }
