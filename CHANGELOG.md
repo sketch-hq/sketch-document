@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 3.7.2
+
+### Patch Changes
+
+- 0464c6b: Bump version and add coeditCompatibilityVersion
+
 ## 3.7.1
 
 ### Patch Changes
