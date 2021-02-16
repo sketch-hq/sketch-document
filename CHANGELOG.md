@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 3.7.3
+
+### Patch Changes
+
+- c76a8a9: Remove unnecessary escape characters in UUID pattern
+
 ## 3.7.2
 
 ### Patch Changes
