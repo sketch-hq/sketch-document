@@ -15,7 +15,7 @@
   ],
   "files": ["dist"],
   "dependencies": {
-    "@types/json-schema": "7.0.4"
+    "@types/json-schema": "7.0.7"
   },
   "devDependencies": {
     "@sketch-hq/sketch-reference-files": "2.3.0",
@@ -29,7 +29,7 @@
     "deepdash": "5.3.5",
     "globby": "11.0.3",
     "js-yaml": "4.0.0",
-    "json-schema-merge-allof": "0.6.0",
+    "json-schema-merge-allof": "0.8.1",
     "json-transforms": "1.1.2",
     "lodash": "4.17.21",
     "node-stream-zip": "1.13.2"
