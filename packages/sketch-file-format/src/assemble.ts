@@ -223,7 +223,7 @@ const assemble = async (entry: string) => {
 
   setAllPropsRequired(output)
 
-  mergeAllOf(output as JSONSchema7, { ignoreAdditionalProperties: true })
+  output = mergeAllOf(output, { ignoreAdditionalProperties: true })
   prune(output)
   setAdditionalPropsFalse(output)
 
