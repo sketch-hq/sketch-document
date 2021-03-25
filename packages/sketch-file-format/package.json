@@ -1,0 +1,49 @@
+{
+  "name": "@sketch-hq/sketch-file-format",
+  "version": "3.7.3",
+  "license": "MIT",
+  "main": "dist/index",
+  "types": "dist/index",
+  "repository": "github:sketch-hq/sketch-file-format",
+  "keywords": [
+    "sketch",
+    "sketch files",
+    "file format",
+    "file spec",
+    "json",
+    "json schema"
+  ],
+  "files": ["dist"],
+  "dependencies": {
+    "@types/json-schema": "7.0.4"
+  },
+  "devDependencies": {
+    "@sketch-hq/sketch-reference-files": "2.3.0",
+    "@types/js-yaml": "4.0.0",
+    "@types/json-schema-merge-allof": "0.6.0",
+    "@types/lodash": "4.14.168",
+    "@types/node": "14.14.35",
+    "ajv": "7.2.3",
+    "chalk": "4.1.0",
+    "change-case": "4.1.2",
+    "deepdash": "5.3.5",
+    "globby": "11.0.3",
+    "js-yaml": "4.0.0",
+    "json-schema-merge-allof": "0.6.0",
+    "json-transforms": "1.1.2",
+    "lodash": "4.17.21",
+    "node-stream-zip": "1.13.2"
+  },
+  "scripts": {
+    "build": "yarn build:schemas && yarn build:pkg",
+    "build:schemas": "tsc --project tsconfig.schemas.json && yarn n src/build-schemas.js",
+    "build:pkg": "rm -rf dist && mkdir -p dist && tsc --project tsconfig.pkg.json",
+    "validate-schemas": "tsc && yarn n src/validate-schemas.js",
+    "validate-reference-files": "yarn build:schemas && tsc && yarn n src/validate-reference-files.js",
+    "validate-file": "yarn build:schemas && tsc && yarn n src/validate-file.js",
+    "n": "node --experimental-json-modules --es-module-specifier-resolution=node",
+    "test": "echo \"No test specified\"",
+    "format-check": "prettier --check {schema/{**/,}*.yaml,*.md,src/*.ts}",
+    "release": "yarn build && changeset publish"
+  }
+}

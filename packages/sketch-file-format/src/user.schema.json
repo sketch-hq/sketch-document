@@ -1,0 +1,78 @@
+{
+  "title": "User",
+  "type": "object",
+  "propertyNames": {
+    "oneOf": [
+      {
+        "$ref": "#/definitions/Uuid"
+      },
+      {
+        "const": "document"
+      }
+    ]
+  },
+  "properties": {
+    "document": {
+      "type": "object",
+      "required": ["pageListHeight", "pageListCollapsed"],
+      "properties": {
+        "pageListHeight": {
+          "type": "integer"
+        },
+        "pageListCollapsed": {
+          "$ref": "#/definitions/NumericalBool"
+        },
+        "expandedSymbolPathsInSidebar": {
+          "type": "array"
+        },
+        "expandedTextStylePathsInPopover": {
+          "type": "array"
+        },
+        "libraryListCollapsed": {
+          "$ref": "#/definitions/NumericalBool"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": {
+    "type": "object",
+    "required": ["scrollOrigin", "zoomValue"],
+    "properties": {
+      "scrollOrigin": {
+        "$ref": "#/definitions/PointString"
+      },
+      "zoomValue": {
+        "type": "number"
+      }
+    },
+    "additionalProperties": false
+  },
+  "$id": "https://unpkg.com/@sketch-hq/sketch-file-format@3.7.1/dist/user.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "NumericalBool": {
+      "title": "Numerical Boolean",
+      "description": "A numerical boolean where 0 is false, and 1 is true.",
+      "type": "integer",
+      "enum": [0, 1],
+      "enumDescriptions": ["True", "False"],
+      "$id": "#NumericalBool"
+    },
+    "PointString": {
+      "title": "Point String",
+      "description": "A formatted string representation of a 2D point, e.g. {1, 1}.\n",
+      "type": "string",
+      "pattern": "^{-?\\d+(.\\d+)?(e-\\d+)?, -?\\d+(.\\d+)?(e-\\d+)?}$",
+      "$id": "#PointString"
+    },
+    "Uuid": {
+      "title": "UUID",
+      "description": "UUID string.",
+      "type": "string",
+      "pattern": "^[0-9A-F]{8}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{12}$",
+      "$id": "#Uuid"
+    }
+  },
+  "required": ["document"]
+}
