@@ -1,0 +1,4590 @@
+{
+  "title": "File Format",
+  "description": "This schema describes a representation of an expanded Sketch file, that is, a Sketch file that has been unzipped, all of its entries parsed to JSON and merged into a single object. A concrete example of an expanded sketch file is the return value of the `fromFile` function",
+  "type": "object",
+  "properties": {
+    "document": {
+      "type": "object",
+      "required": [
+        "_class",
+        "assets",
+        "colorSpace",
+        "currentPageIndex",
+        "do_objectID",
+        "foreignLayerStyles",
+        "foreignSymbols",
+        "foreignTextStyles",
+        "layerStyles",
+        "layerTextStyles",
+        "pages"
+      ],
+      "properties": {
+        "_class": {
+          "const": "document"
+        },
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "assets": {
+          "$ref": "#/definitions/AssetCollection"
+        },
+        "colorSpace": {
+          "$ref": "#/definitions/ColorSpace"
+        },
+        "currentPageIndex": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "foreignLayerStyles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ForeignLayerStyle"
+          }
+        },
+        "foreignSymbols": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ForeignSymbol"
+          }
+        },
+        "foreignTextStyles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ForeignTextStyle"
+          }
+        },
+        "foreignSwatches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ForeignSwatch"
+          }
+        },
+        "layerStyles": {
+          "$ref": "#/definitions/SharedStyleContainer"
+        },
+        "layerTextStyles": {
+          "$ref": "#/definitions/SharedTextStyleContainer"
+        },
+        "layerSymbols": {
+          "$ref": "#/definitions/SymbolContainer"
+        },
+        "sharedSwatches": {
+          "$ref": "#/definitions/SwatchContainer"
+        },
+        "fontReferences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FontRef"
+          }
+        },
+        "documentState": {
+          "$ref": "#/definitions/DocumentState"
+        },
+        "pages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Page"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "meta": {
+      "$ref": "#/definitions/Meta"
+    },
+    "user": {
+      "$ref": "#/definitions/User"
+    },
+    "workspace": {
+      "$ref": "#/definitions/Workspace"
+    }
+  },
+  "$id": "https://unpkg.com/@sketch-hq/sketch-file-format@3.7.1/dist/file-format.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Uuid": {
+      "title": "UUID",
+      "description": "UUID string.",
+      "type": "string",
+      "pattern": "^[0-9A-F]{8}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{12}$",
+      "$id": "#Uuid"
+    },
+    "AssetCollection": {
+      "title": "Asset Collection",
+      "description": "Collection of global document objects",
+      "type": "object",
+      "$id": "#AssetCollection",
+      "required": [
+        "_class",
+        "do_objectID",
+        "colorAssets",
+        "gradientAssets",
+        "images",
+        "colors",
+        "gradients",
+        "exportPresets"
+      ],
+      "properties": {
+        "_class": {
+          "const": "assetCollection"
+        },
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "imageCollection": {
+          "$ref": "#/definitions/ImageCollection"
+        },
+        "colorAssets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ColorAsset"
+          }
+        },
+        "gradientAssets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GradientAsset"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/FileRef"
+              },
+              {
+                "$ref": "#/definitions/DataRef"
+              }
+            ]
+          }
+        },
+        "colors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Color"
+          }
+        },
+        "gradients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Gradient"
+          }
+        },
+        "exportPresets": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ImageCollection": {
+      "title": "Image Collection",
+      "deprecated": true,
+      "description": "Legacy object only retained for migrating older documents.",
+      "type": "object",
+      "$id": "#ImageCollection",
+      "required": ["_class", "images"],
+      "properties": {
+        "_class": {
+          "const": "imageCollection"
+        },
+        "images": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "ColorAsset": {
+      "title": "Color Asset",
+      "description": "Defines a reusable color asset",
+      "type": "object",
+      "$id": "#ColorAsset",
+      "required": ["_class", "do_objectID", "name", "color"],
+      "properties": {
+        "_class": {
+          "const": "MSImmutableColorAsset"
+        },
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "$ref": "#/definitions/Color"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Color": {
+      "title": "Color",
+      "description": "Defines a RGBA color value",
+      "type": "object",
+      "$id": "#Color",
+      "required": ["_class", "alpha", "red", "green", "blue"],
+      "properties": {
+        "_class": {
+          "const": "color"
+        },
+        "alpha": {
+          "$ref": "#/definitions/UnitInterval"
+        },
+        "red": {
+          "$ref": "#/definitions/UnitInterval"
+        },
+        "green": {
+          "$ref": "#/definitions/UnitInterval"
+        },
+        "blue": {
+          "$ref": "#/definitions/UnitInterval"
+        },
+        "swatchID": {
+          "$ref": "#/definitions/Uuid"
+        }
+      },
+      "additionalProperties": false
+    },
+    "UnitInterval": {
+      "title": "Unit Interval",
+      "description": "The set of all real numbers that are greater than or equal to 0 and less than or equal to 1. Used within Sketch documents to encode normalised scalar values, for example RGB color components.",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "$id": "#UnitInterval"
+    },
+    "GradientAsset": {
+      "title": "Gradient Asset",
+      "description": "Defines a reusable gradient asset",
+      "type": "object",
+      "$id": "#GradientAsset",
+      "required": ["_class", "do_objectID", "name", "gradient"],
+      "properties": {
+        "_class": {
+          "const": "MSImmutableGradientAsset"
+        },
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "name": {
+          "type": "string"
+        },
+        "gradient": {
+          "$ref": "#/definitions/Gradient"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Gradient": {
+      "title": "Gradient",
+      "description": "Defines a gradient",
+      "type": "object",
+      "$id": "#Gradient",
+      "required": [
+        "_class",
+        "gradientType",
+        "elipseLength",
+        "from",
+        "to",
+        "stops"
+      ],
+      "properties": {
+        "_class": {
+          "const": "gradient"
+        },
+        "gradientType": {
+          "$ref": "#/definitions/GradientType"
+        },
+        "elipseLength": {
+          "type": "number"
+        },
+        "from": {
+          "$ref": "#/definitions/PointString"
+        },
+        "to": {
+          "$ref": "#/definitions/PointString"
+        },
+        "stops": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/GradientStop"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "GradientType": {
+      "title": "Gradient Type",
+      "description": "Enumeration of the gradient types",
+      "type": "integer",
+      "enum": [0, 1, 2],
+      "enumDescriptions": ["Linear", "Radial", "Angular"],
+      "$id": "#GradientType"
+    },
+    "PointString": {
+      "title": "Point String",
+      "description": "A formatted string representation of a 2D point, e.g. {1, 1}.\n",
+      "type": "string",
+      "pattern": "^{-?\\d+(.\\d+)?(e-\\d+)?, -?\\d+(.\\d+)?(e-\\d+)?}$",
+      "$id": "#PointString"
+    },
+    "GradientStop": {
+      "title": "Gradient Stop",
+      "description": "Defines a position on a gradient that marks the end of a transition to a new color",
+      "type": "object",
+      "$id": "#GradientStop",
+      "required": ["_class", "color", "position"],
+      "properties": {
+        "_class": {
+          "const": "gradientStop"
+        },
+        "color": {
+          "$ref": "#/definitions/Color"
+        },
+        "position": {
+          "$ref": "#/definitions/UnitInterval"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FileRef": {
+      "title": "File Reference",
+      "description": "Defines a reference to a file within the document bundle",
+      "type": "object",
+      "$id": "#FileRef",
+      "required": ["_class", "_ref_class", "_ref"],
+      "properties": {
+        "_class": {
+          "const": "MSJSONFileReference"
+        },
+        "_ref_class": {
+          "type": "string",
+          "enum": ["MSImageData", "MSImmutablePage"],
+          "enumDescriptions": ["MSImageData", "MSImmutablePage"]
+        },
+        "_ref": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DataRef": {
+      "title": "Data Reference",
+      "description": "Defines inline base64 data",
+      "type": "object",
+      "$id": "#DataRef",
+      "required": ["_class", "_ref_class", "_ref", "data", "sha1"],
+      "properties": {
+        "_class": {
+          "const": "MSJSONOriginalDataReference"
+        },
+        "_ref_class": {
+          "type": "string",
+          "enum": ["MSImageData", "MSFontData"],
+          "enumDescriptions": ["MSImageData", "MSFontData"]
+        },
+        "_ref": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "required": ["_data"],
+          "properties": {
+            "_data": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "sha1": {
+          "type": "object",
+          "required": ["_data"],
+          "properties": {
+            "_data": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "ColorSpace": {
+      "title": "Color Space",
+      "description": "Enumeration of the color profiles Sketch can use to render a document",
+      "type": "integer",
+      "enum": [0, 1, 2],
+      "enumDescriptions": ["Unmanaged", "sRGB", "P3"],
+      "$id": "#ColorSpace"
+    },
+    "ForeignLayerStyle": {
+      "title": "Foreign Layer Style",
+      "description": "Defines a layer style that has been imported from a library",
+      "type": "object",
+      "$id": "#ForeignLayerStyle",
+      "required": [
+        "_class",
+        "do_objectID",
+        "libraryID",
+        "sourceLibraryName",
+        "symbolPrivate",
+        "remoteStyleID",
+        "localSharedStyle"
+      ],
+      "properties": {
+        "_class": {
+          "const": "MSImmutableForeignLayerStyle"
+        },
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "libraryID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "sourceLibraryName": {
+          "type": "string"
+        },
+        "symbolPrivate": {
+          "type": "boolean"
+        },
+        "remoteStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "localSharedStyle": {
+          "$ref": "#/definitions/SharedStyle"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SharedStyle": {
+      "title": "Shared Style",
+      "description": "Defines a reusable style",
+      "type": "object",
+      "$id": "#SharedStyle",
+      "required": ["_class", "do_objectID", "name", "value"],
+      "properties": {
+        "_class": {
+          "const": "sharedStyle"
+        },
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/definitions/Style"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Style": {
+      "title": "Style",
+      "description": "Defines a layer style",
+      "type": "object",
+      "$id": "#Style",
+      "required": [
+        "_class",
+        "do_objectID",
+        "borderOptions",
+        "startMarkerType",
+        "endMarkerType",
+        "miterLimit",
+        "windingRule",
+        "innerShadows",
+        "colorControls"
+      ],
+      "properties": {
+        "_class": {
+          "const": "style"
+        },
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "borders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Border"
+          }
+        },
+        "borderOptions": {
+          "$ref": "#/definitions/BorderOptions"
+        },
+        "blur": {
+          "$ref": "#/definitions/Blur"
+        },
+        "fills": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Fill"
+          }
+        },
+        "startMarkerType": {
+          "$ref": "#/definitions/MarkerType"
+        },
+        "endMarkerType": {
+          "$ref": "#/definitions/MarkerType"
+        },
+        "miterLimit": {
+          "type": "integer"
+        },
+        "windingRule": {
+          "$ref": "#/definitions/WindingRule"
+        },
+        "textStyle": {
+          "$ref": "#/definitions/TextStyle"
+        },
+        "shadows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Shadow"
+          }
+        },
+        "innerShadows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InnerShadow"
+          }
+        },
+        "contextSettings": {
+          "$ref": "#/definitions/GraphicsContextSettings"
+        },
+        "colorControls": {
+          "$ref": "#/definitions/ColorControls"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Border": {
+      "title": "Border",
+      "description": "Defines a border style",
+      "type": "object",
+      "$id": "#Border",
+      "required": [
+        "_class",
+        "isEnabled",
+        "color",
+        "fillType",
+        "position",
+        "thickness",
+        "contextSettings",
+        "gradient"
+      ],
+      "properties": {
+        "_class": {
+          "const": "border"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "color": {
+          "$ref": "#/definitions/Color"
+        },
+        "fillType": {
+          "$ref": "#/definitions/FillType"
+        },
+        "position": {
+          "$ref": "#/definitions/BorderPosition"
+        },
+        "thickness": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "contextSettings": {
+          "$ref": "#/definitions/GraphicsContextSettings"
+        },
+        "gradient": {
+          "$ref": "#/definitions/Gradient"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FillType": {
+      "title": "Fill Type",
+      "description": "Enumeration of the fill types",
+      "type": "integer",
+      "enum": [0, 1, 4],
+      "enumDescriptions": ["Color", "Gradient", "Pattern"],
+      "$id": "#FillType"
+    },
+    "BorderPosition": {
+      "title": "Border Position",
+      "description": "Enumeration of border positions",
+      "type": "integer",
+      "enum": [0, 1, 2],
+      "enumDescriptions": ["Center", "Inside", "Outside"],
+      "$id": "#BorderPosition"
+    },
+    "GraphicsContextSettings": {
+      "title": "Graphics Context Settings",
+      "description": "Defines the opacity and blend mode of a style or shadow",
+      "type": "object",
+      "$id": "#GraphicsContextSettings",
+      "required": ["_class", "blendMode", "opacity"],
+      "properties": {
+        "_class": {
+          "const": "graphicsContextSettings"
+        },
+        "blendMode": {
+          "$ref": "#/definitions/BlendMode"
+        },
+        "opacity": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "BlendMode": {
+      "title": "Blend Mode",
+      "description": "Enumeration of the blend modes that can be applied to fills",
+      "type": "integer",
+      "enum": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+      "enumDescriptions": [
+        "Normal",
+        "Darken",
+        "Multiply",
+        "Color burn",
+        "Lighten",
+        "Screen",
+        "Color dodge",
+        "Overlay",
+        "Soft light",
+        "Hard light",
+        "Difference",
+        "Exclusion",
+        "Hue",
+        "Saturation",
+        "Color",
+        "Luminosity",
+        "Plus darker",
+        "Plus lighter"
+      ],
+      "$id": "#BlendMode"
+    },
+    "BorderOptions": {
+      "title": "Border Options",
+      "description": "Defines border options",
+      "type": "object",
+      "$id": "#BorderOptions",
+      "required": [
+        "_class",
+        "isEnabled",
+        "dashPattern",
+        "lineCapStyle",
+        "lineJoinStyle"
+      ],
+      "properties": {
+        "_class": {
+          "const": "borderOptions"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "dashPattern": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "lineCapStyle": {
+          "$ref": "#/definitions/LineCapStyle"
+        },
+        "lineJoinStyle": {
+          "$ref": "#/definitions/LineJoinStyle"
+        }
+      },
+      "additionalProperties": false
+    },
+    "LineCapStyle": {
+      "title": "Line Cap Style",
+      "description": "Enumeration of the line cap styles",
+      "type": "integer",
+      "enum": [0, 1, 2],
+      "enumDescriptions": ["Butt", "Round", "Projecting"],
+      "$id": "#LineCapStyle"
+    },
+    "LineJoinStyle": {
+      "title": "Line Join Style",
+      "description": "Enumeration of the line join styles",
+      "type": "integer",
+      "enum": [0, 1, 2],
+      "enumDescriptions": ["Miter", "Round", "Bevel"],
+      "$id": "#LineJoinStyle"
+    },
+    "Blur": {
+      "title": "Blur",
+      "description": "Defines a blur style",
+      "type": "object",
+      "$id": "#Blur",
+      "required": ["_class", "isEnabled", "center", "saturation", "type"],
+      "properties": {
+        "_class": {
+          "const": "blur"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "center": {
+          "$ref": "#/definitions/PointString"
+        },
+        "motionAngle": {
+          "type": "number"
+        },
+        "radius": {
+          "type": "number"
+        },
+        "saturation": {
+          "type": "number"
+        },
+        "type": {
+          "$ref": "#/definitions/BlurType"
+        }
+      },
+      "additionalProperties": false
+    },
+    "BlurType": {
+      "title": "Blur Type",
+      "description": "Enumeration of the various blur types",
+      "type": "integer",
+      "enum": [0, 1, 2, 3],
+      "enumDescriptions": ["Gaussian", "Motion", "Zoom", "Background"],
+      "$id": "#BlurType"
+    },
+    "Fill": {
+      "title": "Fill",
+      "description": "Defines a fill style",
+      "type": "object",
+      "$id": "#Fill",
+      "required": [
+        "_class",
+        "isEnabled",
+        "color",
+        "fillType",
+        "noiseIndex",
+        "noiseIntensity",
+        "patternFillType",
+        "patternTileScale",
+        "contextSettings",
+        "gradient"
+      ],
+      "properties": {
+        "_class": {
+          "const": "fill"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "color": {
+          "$ref": "#/definitions/Color"
+        },
+        "fillType": {
+          "$ref": "#/definitions/FillType"
+        },
+        "noiseIndex": {
+          "type": "number"
+        },
+        "noiseIntensity": {
+          "type": "number"
+        },
+        "patternFillType": {
+          "$ref": "#/definitions/PatternFillType"
+        },
+        "patternTileScale": {
+          "type": "number"
+        },
+        "contextSettings": {
+          "$ref": "#/definitions/GraphicsContextSettings"
+        },
+        "gradient": {
+          "$ref": "#/definitions/Gradient"
+        },
+        "image": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FileRef"
+            },
+            {
+              "$ref": "#/definitions/DataRef"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "PatternFillType": {
+      "title": "Pattern Fill Type",
+      "description": "Enumeration of pattern fill types",
+      "type": "integer",
+      "enum": [0, 1, 2, 3],
+      "enumDescriptions": ["Tile", "Fill", "Stretch", "Fit"],
+      "$id": "#PatternFillType"
+    },
+    "MarkerType": {
+      "title": "Marker Type",
+      "description": "Enumeration of the possible types of vector line endings",
+      "type": "integer",
+      "enum": [0, 1, 2, 3, 4, 5, 6],
+      "enumDescriptions": [
+        "Open arrow",
+        "Filled arrow",
+        "Line",
+        "Open circle",
+        "Filled circle",
+        "Open square",
+        "Filled square"
+      ],
+      "$id": "#MarkerType"
+    },
+    "WindingRule": {
+      "title": "Winding Rule",
+      "description": "Enumeration of the winding rule that controls how fills behave in shapes with complex paths",
+      "type": "integer",
+      "enum": [0, 1],
+      "enumDescriptions": ["Non zero", "Even odd"],
+      "$id": "#WindingRule"
+    },
+    "TextStyle": {
+      "title": "Text Style",
+      "description": "Defines text style",
+      "type": "object",
+      "$id": "#TextStyle",
+      "required": ["_class", "verticalAlignment", "encodedAttributes"],
+      "properties": {
+        "_class": {
+          "const": "textStyle"
+        },
+        "verticalAlignment": {
+          "$ref": "#/definitions/TextVerticalAlignment"
+        },
+        "encodedAttributes": {
+          "type": "object",
+          "required": ["MSAttributedStringFontAttribute"],
+          "properties": {
+            "paragraphStyle": {
+              "$ref": "#/definitions/ParagraphStyle"
+            },
+            "MSAttributedStringTextTransformAttribute": {
+              "$ref": "#/definitions/TextTransform"
+            },
+            "underlineStyle": {
+              "$ref": "#/definitions/UnderlineStyle"
+            },
+            "strikethroughStyle": {
+              "const": 0
+            },
+            "kerning": {
+              "type": "number"
+            },
+            "MSAttributedStringFontAttribute": {
+              "$ref": "#/definitions/FontDescriptor"
+            },
+            "textStyleVerticalAlignmentKey": {
+              "$ref": "#/definitions/TextVerticalAlignment"
+            },
+            "MSAttributedStringColorAttribute": {
+              "$ref": "#/definitions/Color"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "TextVerticalAlignment": {
+      "title": "Text Vertical Alignment",
+      "description": "Enumeration of the text style vertical alighment options",
+      "type": "integer",
+      "enum": [0, 1, 2],
+      "enumDescriptions": ["Top", "Middle", "Bottom"],
+      "$id": "#TextVerticalAlignment"
+    },
+    "ParagraphStyle": {
+      "title": "Paragraph Style",
+      "description": "Defines the paragraph style within a text style",
+      "type": "object",
+      "$id": "#ParagraphStyle",
+      "required": ["_class"],
+      "properties": {
+        "_class": {
+          "const": "paragraphStyle"
+        },
+        "alignment": {
+          "$ref": "#/definitions/TextHorizontalAlignment"
+        },
+        "maximumLineHeight": {
+          "type": "number"
+        },
+        "minimumLineHeight": {
+          "type": "number"
+        },
+        "paragraphSpacing": {
+          "type": "number"
+        },
+        "allowsDefaultTighteningForTruncation": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TextHorizontalAlignment": {
+      "title": "Text Horizontal Alignment",
+      "description": "Enumeration of the horizontal alignment options for paragraphs",
+      "type": "integer",
+      "enum": [0, 1, 2, 3, 4],
+      "enumDescriptions": ["Left", "Right", "Centered", "Justified", "Natural"],
+      "$id": "#TextHorizontalAlignment"
+    },
+    "TextTransform": {
+      "title": "Text Transform",
+      "description": "Enumeration of the text style transformations options",
+      "type": "integer",
+      "enum": [0, 1, 2],
+      "enumDescriptions": ["None", "Uppercase", "Lowercase"],
+      "$id": "#TextTransform"
+    },
+    "UnderlineStyle": {
+      "title": "Underline Style",
+      "description": "Enumeration of the text style underline options",
+      "type": "integer",
+      "enum": [0, 1],
+      "enumDescriptions": ["None", "Underlined"],
+      "$id": "#UnderlineStyle"
+    },
+    "FontDescriptor": {
+      "title": "Font Descriptor",
+      "description": "Defines a font selection",
+      "type": "object",
+      "$id": "#FontDescriptor",
+      "required": ["_class", "attributes"],
+      "properties": {
+        "_class": {
+          "const": "fontDescriptor"
+        },
+        "attributes": {
+          "type": "object",
+          "required": ["name", "size"],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "size": {
+              "type": "number"
+            },
+            "variation": {
+              "type": "object",
+              "additionalProperties": true,
+              "patternProperties": {
+                "^\\d*$:": {
+                  "type": "number"
+                },
+                "^d*$:": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "Shadow": {
+      "title": "Shadow",
+      "description": "Defines a shadow style",
+      "type": "object",
+      "$id": "#Shadow",
+      "required": [
+        "_class",
+        "isEnabled",
+        "blurRadius",
+        "color",
+        "contextSettings",
+        "offsetX",
+        "offsetY",
+        "spread"
+      ],
+      "properties": {
+        "_class": {
+          "const": "shadow"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "blurRadius": {
+          "type": "number"
+        },
+        "color": {
+          "$ref": "#/definitions/Color"
+        },
+        "contextSettings": {
+          "$ref": "#/definitions/GraphicsContextSettings"
+        },
+        "offsetX": {
+          "type": "number"
+        },
+        "offsetY": {
+          "type": "number"
+        },
+        "spread": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "InnerShadow": {
+      "title": "Inner Shadow",
+      "description": "Defines an inner shadow style",
+      "type": "object",
+      "$id": "#InnerShadow",
+      "required": [
+        "_class",
+        "isEnabled",
+        "blurRadius",
+        "color",
+        "contextSettings",
+        "offsetX",
+        "offsetY",
+        "spread"
+      ],
+      "properties": {
+        "_class": {
+          "const": "innerShadow"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "blurRadius": {
+          "type": "number"
+        },
+        "color": {
+          "$ref": "#/definitions/Color"
+        },
+        "contextSettings": {
+          "$ref": "#/definitions/GraphicsContextSettings"
+        },
+        "offsetX": {
+          "type": "number"
+        },
+        "offsetY": {
+          "type": "number"
+        },
+        "spread": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ColorControls": {
+      "title": "Color Controls",
+      "description": "Defines color adjust styles on images",
+      "type": "object",
+      "$id": "#ColorControls",
+      "required": [
+        "_class",
+        "isEnabled",
+        "brightness",
+        "contrast",
+        "hue",
+        "saturation"
+      ],
+      "properties": {
+        "_class": {
+          "const": "colorControls"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "brightness": {
+          "type": "number",
+          "minimum": -100,
+          "maximum": 100
+        },
+        "contrast": {
+          "type": "number",
+          "minimum": -100,
+          "maximum": 100
+        },
+        "hue": {
+          "type": "number",
+          "minimum": -100,
+          "maximum": 100
+        },
+        "saturation": {
+          "type": "number",
+          "minimum": -100,
+          "maximum": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    "ForeignSymbol": {
+      "title": "Foreign Symbol",
+      "description": "Defines a symbol that has been imported from a library",
+      "type": "object",
+      "$id": "#ForeignSymbol",
+      "required": [
+        "_class",
+        "do_objectID",
+        "libraryID",
+        "sourceLibraryName",
+        "symbolPrivate",
+        "originalMaster",
+        "symbolMaster"
+      ],
+      "properties": {
+        "_class": {
+          "const": "MSImmutableForeignSymbol"
+        },
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "libraryID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "sourceLibraryName": {
+          "type": "string"
+        },
+        "symbolPrivate": {
+          "type": "boolean"
+        },
+        "originalMaster": {
+          "$ref": "#/definitions/SymbolMaster"
+        },
+        "symbolMaster": {
+          "$ref": "#/definitions/SymbolMaster"
+        },
+        "missingLibraryFontAcknowledged": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SymbolMaster": {
+      "title": "Symbol Source Layer",
+      "description": "A symbol source layer represents a reusable group of layers",
+      "type": "object",
+      "$id": "#SymbolMaster",
+      "required": [
+        "_class",
+        "allowsOverrides",
+        "backgroundColor",
+        "booleanOperation",
+        "do_objectID",
+        "exportOptions",
+        "frame",
+        "hasBackgroundColor",
+        "hasClickThrough",
+        "horizontalRulerData",
+        "includeBackgroundColorInExport",
+        "includeBackgroundColorInInstance",
+        "includeInCloudUpload",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isFlowHome",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "layers",
+        "name",
+        "nameIsFixed",
+        "overrideProperties",
+        "resizesContent",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "shouldBreakMaskChain",
+        "symbolID",
+        "verticalRulerData"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "hasClickThrough": {
+          "type": "boolean"
+        },
+        "horizontalRulerData": {
+          "$ref": "#/definitions/RulerData"
+        },
+        "verticalRulerData": {
+          "$ref": "#/definitions/RulerData"
+        },
+        "layout": {
+          "$ref": "#/definitions/LayoutGrid"
+        },
+        "grid": {
+          "$ref": "#/definitions/SimpleGrid"
+        },
+        "groupLayout": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FreeformGroupLayout"
+            },
+            {
+              "$ref": "#/definitions/InferredGroupLayout"
+            }
+          ]
+        },
+        "includeInCloudUpload": {
+          "type": "boolean",
+          "description": "Deprecated, no longer used by Sketch Cloud",
+          "default": true
+        },
+        "_class": {
+          "const": "symbolMaster"
+        },
+        "backgroundColor": {
+          "$ref": "#/definitions/Color"
+        },
+        "hasBackgroundColor": {
+          "type": "boolean"
+        },
+        "includeBackgroundColorInInstance": {
+          "type": "boolean"
+        },
+        "includeBackgroundColorInExport": {
+          "type": "boolean"
+        },
+        "isFlowHome": {
+          "type": "boolean"
+        },
+        "resizesContent": {
+          "type": "boolean"
+        },
+        "presetDictionary": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "symbolID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "allowsOverrides": {
+          "type": "boolean"
+        },
+        "overrideProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OverrideProperty"
+          }
+        },
+        "layers": {
+          "type": "array",
+          "description": "Symbol sources can contain any layer or layer group except root layers such as artboards and other symbol sources",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Group"
+              },
+              {
+                "$ref": "#/definitions/Oval"
+              },
+              {
+                "$ref": "#/definitions/Polygon"
+              },
+              {
+                "$ref": "#/definitions/Rectangle"
+              },
+              {
+                "$ref": "#/definitions/ShapePath"
+              },
+              {
+                "$ref": "#/definitions/Star"
+              },
+              {
+                "$ref": "#/definitions/Triangle"
+              },
+              {
+                "$ref": "#/definitions/ShapeGroup"
+              },
+              {
+                "$ref": "#/definitions/Text"
+              },
+              {
+                "$ref": "#/definitions/SymbolInstance"
+              },
+              {
+                "$ref": "#/definitions/Slice"
+              },
+              {
+                "$ref": "#/definitions/Hotspot"
+              },
+              {
+                "$ref": "#/definitions/Bitmap"
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "BooleanOperation": {
+      "title": "Boolean Operation",
+      "description": "Enumeration of the boolean operations that can be applied to combine shapes",
+      "type": "integer",
+      "enum": [-1, 0, 1, 2, 3],
+      "enumDescriptions": [
+        "None",
+        "Union",
+        "Subtract",
+        "Intersection",
+        "Difference"
+      ],
+      "$id": "#BooleanOperation"
+    },
+    "ExportOptions": {
+      "title": "Export Options",
+      "description": "Defines a layer's export options",
+      "type": "object",
+      "$id": "#ExportOptions",
+      "required": [
+        "_class",
+        "exportFormats",
+        "includedLayerIds",
+        "layerOptions",
+        "shouldTrim"
+      ],
+      "properties": {
+        "_class": {
+          "const": "exportOptions"
+        },
+        "exportFormats": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExportFormat"
+          }
+        },
+        "includedLayerIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Uuid"
+          }
+        },
+        "layerOptions": {
+          "type": "integer"
+        },
+        "shouldTrim": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExportFormat": {
+      "title": "Export Format",
+      "description": "Defines an export format, as listed in a layer's export options",
+      "type": "object",
+      "$id": "#ExportFormat",
+      "required": [
+        "_class",
+        "absoluteSize",
+        "fileFormat",
+        "name",
+        "scale",
+        "visibleScaleType"
+      ],
+      "properties": {
+        "_class": {
+          "const": "exportFormat"
+        },
+        "absoluteSize": {
+          "type": "integer"
+        },
+        "fileFormat": {
+          "$ref": "#/definitions/ExportFileFormat"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namingScheme": {
+          "$ref": "#/definitions/ExportFormatNamingScheme"
+        },
+        "scale": {
+          "type": "number"
+        },
+        "visibleScaleType": {
+          "$ref": "#/definitions/VisibleScaleType"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExportFileFormat": {
+      "title": "Export File Format",
+      "description": "Enumeration of the file formats that can be selected in the layer export options",
+      "type": "string",
+      "enum": ["png", "jpg", "tiff", "eps", "pdf", "webp", "svg"],
+      "enumDescriptions": ["PNG", "JPG", "TIFF", "EPS", "PDF", "WEBP", "SVG"],
+      "$id": "#ExportFileFormat"
+    },
+    "ExportFormatNamingScheme": {
+      "title": "Export Format Naming Scheme",
+      "description": "Enumeration of the possible types of export format naming schemes",
+      "type": "integer",
+      "enum": [0, 1],
+      "enumDescriptions": ["Suffix", "Prefix"],
+      "$id": "#ExportFormatNamingScheme"
+    },
+    "VisibleScaleType": {
+      "title": "Visible Scale Type",
+      "description": "Enumeration of the possible values to control how an exported layer will be scaled",
+      "type": "integer",
+      "enum": [0, 1, 2],
+      "enumDescriptions": ["Scale", "Width", "Height"],
+      "$id": "#VisibleScaleType"
+    },
+    "Rect": {
+      "title": "Rect",
+      "description": "Defines an abstract rectangle",
+      "type": "object",
+      "$id": "#Rect",
+      "required": [
+        "_class",
+        "constrainProportions",
+        "height",
+        "width",
+        "x",
+        "y"
+      ],
+      "properties": {
+        "_class": {
+          "const": "rect"
+        },
+        "constrainProportions": {
+          "type": "boolean"
+        },
+        "height": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FlowConnection": {
+      "title": "Flow Connection",
+      "description": "Defines a connection between elements in a prototype",
+      "type": "object",
+      "$id": "#FlowConnection",
+      "required": ["_class", "destinationArtboardID", "animationType"],
+      "properties": {
+        "_class": {
+          "const": "MSImmutableFlowConnection"
+        },
+        "destinationArtboardID": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Uuid"
+            },
+            {
+              "const": "back"
+            }
+          ]
+        },
+        "animationType": {
+          "$ref": "#/definitions/AnimationType"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "AnimationType": {
+      "title": "Animation Type",
+      "description": "Enumeration of the animation transition types between prototype screens",
+      "type": "integer",
+      "enum": [0, 1, 2, 3, 4],
+      "enumDescriptions": [
+        "None",
+        "Slide from left",
+        "Slide from right",
+        "Slide from bottom",
+        "Slide from top"
+      ],
+      "$id": "#AnimationType"
+    },
+    "LayerListExpanded": {
+      "title": "Layer List Expanded",
+      "description": "Enumeration of the expansion states in the layer list UI",
+      "type": "integer",
+      "enum": [0, 1, 2],
+      "enumDescriptions": ["Undecided", "Collapsed", "Expanded"],
+      "$id": "#LayerListExpanded"
+    },
+    "ResizeType": {
+      "title": "Resize Type",
+      "description": "Enumeration of the possible resize types",
+      "type": "integer",
+      "enum": [0, 1, 2, 3],
+      "enumDescriptions": ["Stretch", "Pin to edge", "Resize", "Float"],
+      "$id": "#ResizeType"
+    },
+    "RulerData": {
+      "title": "Ruler Data",
+      "description": "Defines persisted ruler positions on artboards, pages and symbols",
+      "type": "object",
+      "$id": "#RulerData",
+      "required": ["_class", "base", "guides"],
+      "properties": {
+        "_class": {
+          "const": "rulerData"
+        },
+        "base": {
+          "type": "integer"
+        },
+        "guides": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "LayoutGrid": {
+      "title": "Layout Grid",
+      "description": "Defines the layout settings for an artboard or page",
+      "type": "object",
+      "$id": "#LayoutGrid",
+      "required": [
+        "_class",
+        "isEnabled",
+        "columnWidth",
+        "gutterHeight",
+        "gutterWidth",
+        "horizontalOffset",
+        "numberOfColumns",
+        "rowHeightMultiplication",
+        "totalWidth",
+        "guttersOutside",
+        "drawHorizontal",
+        "drawHorizontalLines",
+        "drawVertical"
+      ],
+      "properties": {
+        "_class": {
+          "const": "layoutGrid"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "columnWidth": {
+          "type": "integer"
+        },
+        "gutterHeight": {
+          "type": "integer"
+        },
+        "gutterWidth": {
+          "type": "integer"
+        },
+        "horizontalOffset": {
+          "type": "integer"
+        },
+        "numberOfColumns": {
+          "type": "integer"
+        },
+        "rowHeightMultiplication": {
+          "type": "integer"
+        },
+        "totalWidth": {
+          "type": "integer"
+        },
+        "guttersOutside": {
+          "type": "boolean"
+        },
+        "drawHorizontal": {
+          "type": "boolean"
+        },
+        "drawHorizontalLines": {
+          "type": "boolean"
+        },
+        "drawVertical": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SimpleGrid": {
+      "title": "Simple Grid",
+      "description": "Defines the grid settings for an artboard or page",
+      "type": "object",
+      "$id": "#SimpleGrid",
+      "required": ["_class", "isEnabled", "gridSize", "thickGridTimes"],
+      "properties": {
+        "_class": {
+          "const": "simpleGrid"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "gridSize": {
+          "type": "integer"
+        },
+        "thickGridTimes": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FreeformGroupLayout": {
+      "title": "Freeform Group Layout",
+      "description": "Normal group layout",
+      "type": "object",
+      "$id": "#FreeformGroupLayout",
+      "required": ["_class"],
+      "properties": {
+        "_class": {
+          "const": "MSImmutableFreeformGroupLayout"
+        }
+      },
+      "additionalProperties": false
+    },
+    "InferredGroupLayout": {
+      "title": "Inferred Group Layout",
+      "description": "Inferred group layout defines smart layout options",
+      "type": "object",
+      "$id": "#InferredGroupLayout",
+      "required": ["_class", "axis", "layoutAnchor"],
+      "properties": {
+        "_class": {
+          "const": "MSImmutableInferredGroupLayout"
+        },
+        "axis": {
+          "$ref": "#/definitions/InferredLayoutAxis"
+        },
+        "layoutAnchor": {
+          "$ref": "#/definitions/InferredLayoutAnchor"
+        },
+        "maxSize": {
+          "type": "number"
+        },
+        "minSize": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "InferredLayoutAxis": {
+      "title": "Inferred Layout Axis",
+      "description": "Enumeration of the axis types for inferred (aka smart) layout",
+      "type": "integer",
+      "enum": [0, 1],
+      "enumDescriptions": ["Horizontal", "Vertical"],
+      "$id": "#InferredLayoutAxis"
+    },
+    "InferredLayoutAnchor": {
+      "title": "Inferred Layout Anchor",
+      "description": "Enumeration of the anchor types for inferred (aka smart) layout",
+      "type": "integer",
+      "enum": [0, 1, 2],
+      "enumDescriptions": ["Min", "Middle", "Max"],
+      "$id": "#InferredLayoutAnchor"
+    },
+    "OverrideProperty": {
+      "title": "Override Property",
+      "description": "Defines override properties on symbol sources",
+      "type": "object",
+      "$id": "#OverrideProperty",
+      "required": ["_class", "overrideName", "canOverride"],
+      "properties": {
+        "_class": {
+          "const": "MSImmutableOverrideProperty"
+        },
+        "overrideName": {
+          "$ref": "#/definitions/OverrideName"
+        },
+        "canOverride": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "OverrideName": {
+      "title": "Override Name",
+      "description": "Defines the valid string patterns for an override name",
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "[0-9A-F]{8}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{12}((_stringValue$)|\\/)"
+        },
+        {
+          "type": "string",
+          "pattern": "[0-9A-F]{8}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{12}((_symbolID$)|\\/)"
+        },
+        {
+          "type": "string",
+          "pattern": "[0-9A-F]{8}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{12}((_image$)|\\/)"
+        },
+        {
+          "type": "string",
+          "pattern": "[0-9A-F]{8}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{12}((_layerStyle$)|\\/)"
+        }
+      ],
+      "$id": "#OverrideName"
+    },
+    "Group": {
+      "title": "Group Layer",
+      "description": "Group layers are a document organisation aid",
+      "$id": "#Group",
+      "type": "object",
+      "required": [
+        "_class",
+        "booleanOperation",
+        "do_objectID",
+        "exportOptions",
+        "frame",
+        "hasClickThrough",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "layers",
+        "name",
+        "nameIsFixed",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "shouldBreakMaskChain"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "hasClickThrough": {
+          "type": "boolean"
+        },
+        "groupLayout": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FreeformGroupLayout"
+            },
+            {
+              "$ref": "#/definitions/InferredGroupLayout"
+            }
+          ]
+        },
+        "layers": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Group"
+              },
+              {
+                "$ref": "#/definitions/Oval"
+              },
+              {
+                "$ref": "#/definitions/Polygon"
+              },
+              {
+                "$ref": "#/definitions/Rectangle"
+              },
+              {
+                "$ref": "#/definitions/ShapePath"
+              },
+              {
+                "$ref": "#/definitions/Star"
+              },
+              {
+                "$ref": "#/definitions/Triangle"
+              },
+              {
+                "$ref": "#/definitions/ShapeGroup"
+              },
+              {
+                "$ref": "#/definitions/Text"
+              },
+              {
+                "$ref": "#/definitions/SymbolInstance"
+              },
+              {
+                "$ref": "#/definitions/Slice"
+              },
+              {
+                "$ref": "#/definitions/Hotspot"
+              },
+              {
+                "$ref": "#/definitions/Bitmap"
+              }
+            ]
+          }
+        },
+        "_class": {
+          "const": "group"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Oval": {
+      "title": "Oval Layer",
+      "description": "Oval layers are the result of adding an oval shape to the canvas",
+      "type": "object",
+      "$id": "#Oval",
+      "required": [
+        "_class",
+        "booleanOperation",
+        "do_objectID",
+        "edited",
+        "exportOptions",
+        "frame",
+        "isClosed",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "name",
+        "nameIsFixed",
+        "pointRadiusBehaviour",
+        "points",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "shouldBreakMaskChain"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "edited": {
+          "type": "boolean"
+        },
+        "isClosed": {
+          "type": "boolean"
+        },
+        "pointRadiusBehaviour": {
+          "$ref": "#/definitions/PointsRadiusBehaviour"
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CurvePoint"
+          }
+        },
+        "_class": {
+          "const": "oval"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PointsRadiusBehaviour": {
+      "title": "Points Radius Behaviour",
+      "description": "Enumeration of the possible values for corner rounding on shape points.",
+      "type": "integer",
+      "enum": [-1, 0, 1, 2],
+      "enumDescriptions": ["Disabled", "Legacy", "Rounded", "Smooth"],
+      "$id": "#PointsRadiusBehaviour"
+    },
+    "CurvePoint": {
+      "title": "Curve Point",
+      "description": "Defines a shape layer curve point",
+      "type": "object",
+      "$id": "#CurvePoint",
+      "required": [
+        "_class",
+        "cornerRadius",
+        "curveFrom",
+        "curveTo",
+        "hasCurveFrom",
+        "hasCurveTo",
+        "curveMode",
+        "point"
+      ],
+      "properties": {
+        "_class": {
+          "const": "curvePoint"
+        },
+        "cornerRadius": {
+          "type": "number"
+        },
+        "curveFrom": {
+          "$ref": "#/definitions/PointString"
+        },
+        "curveTo": {
+          "$ref": "#/definitions/PointString"
+        },
+        "hasCurveFrom": {
+          "type": "boolean"
+        },
+        "hasCurveTo": {
+          "type": "boolean"
+        },
+        "curveMode": {
+          "$ref": "#/definitions/CurveMode"
+        },
+        "point": {
+          "$ref": "#/definitions/PointString"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CurveMode": {
+      "title": "Curve Mode",
+      "description": "Enumeration of the curve modes that can be applied to vector points",
+      "type": "integer",
+      "enum": [0, 1, 2, 3, 4],
+      "enumDescriptions": [
+        "None",
+        "Straight",
+        "Mirrored",
+        "Asymmetric",
+        "Disconnected"
+      ],
+      "$id": "#CurveMode"
+    },
+    "Polygon": {
+      "title": "Polygon Layer",
+      "description": "Polygon layers are the result of adding a polygon shape to the canvas",
+      "type": "object",
+      "$id": "#Polygon",
+      "required": [
+        "_class",
+        "booleanOperation",
+        "do_objectID",
+        "edited",
+        "exportOptions",
+        "frame",
+        "isClosed",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "name",
+        "nameIsFixed",
+        "numberOfPoints",
+        "pointRadiusBehaviour",
+        "points",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "shouldBreakMaskChain"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "edited": {
+          "type": "boolean"
+        },
+        "isClosed": {
+          "type": "boolean"
+        },
+        "pointRadiusBehaviour": {
+          "$ref": "#/definitions/PointsRadiusBehaviour"
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CurvePoint"
+          }
+        },
+        "_class": {
+          "const": "polygon"
+        },
+        "numberOfPoints": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Rectangle": {
+      "title": "Rectangle Layer",
+      "description": "Rectangle layers are the result of adding a rectangle shape to the canvas",
+      "type": "object",
+      "$id": "#Rectangle",
+      "required": [
+        "_class",
+        "booleanOperation",
+        "do_objectID",
+        "edited",
+        "exportOptions",
+        "fixedRadius",
+        "frame",
+        "hasConvertedToNewRoundCorners",
+        "isClosed",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "name",
+        "nameIsFixed",
+        "needsConvertionToNewRoundCorners",
+        "pointRadiusBehaviour",
+        "points",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "shouldBreakMaskChain"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "edited": {
+          "type": "boolean"
+        },
+        "isClosed": {
+          "type": "boolean"
+        },
+        "pointRadiusBehaviour": {
+          "$ref": "#/definitions/PointsRadiusBehaviour"
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CurvePoint"
+          }
+        },
+        "_class": {
+          "const": "rectangle"
+        },
+        "fixedRadius": {
+          "type": "number"
+        },
+        "hasConvertedToNewRoundCorners": {
+          "type": "boolean"
+        },
+        "needsConvertionToNewRoundCorners": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ShapePath": {
+      "title": "Shape Path Layer",
+      "description": "Shape path layers are the result of adding a vector layer",
+      "type": "object",
+      "$id": "#ShapePath",
+      "required": [
+        "_class",
+        "booleanOperation",
+        "do_objectID",
+        "edited",
+        "exportOptions",
+        "frame",
+        "isClosed",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "name",
+        "nameIsFixed",
+        "pointRadiusBehaviour",
+        "points",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "shouldBreakMaskChain"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "edited": {
+          "type": "boolean"
+        },
+        "isClosed": {
+          "type": "boolean"
+        },
+        "pointRadiusBehaviour": {
+          "$ref": "#/definitions/PointsRadiusBehaviour"
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CurvePoint"
+          }
+        },
+        "_class": {
+          "const": "shapePath"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Star": {
+      "title": "Star Layer",
+      "description": "Star layers are the result of adding a star shape to the canvas",
+      "type": "object",
+      "$id": "#Star",
+      "required": [
+        "_class",
+        "booleanOperation",
+        "do_objectID",
+        "edited",
+        "exportOptions",
+        "frame",
+        "isClosed",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "name",
+        "nameIsFixed",
+        "numberOfPoints",
+        "pointRadiusBehaviour",
+        "points",
+        "radius",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "shouldBreakMaskChain"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "edited": {
+          "type": "boolean"
+        },
+        "isClosed": {
+          "type": "boolean"
+        },
+        "pointRadiusBehaviour": {
+          "$ref": "#/definitions/PointsRadiusBehaviour"
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CurvePoint"
+          }
+        },
+        "_class": {
+          "const": "star"
+        },
+        "numberOfPoints": {
+          "type": "integer"
+        },
+        "radius": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Triangle": {
+      "title": "Triangle Layer",
+      "description": "Triangle layers are the result of adding a triangle shape to the canvas",
+      "type": "object",
+      "$id": "#Triangle",
+      "required": [
+        "_class",
+        "booleanOperation",
+        "do_objectID",
+        "edited",
+        "exportOptions",
+        "frame",
+        "isClosed",
+        "isEquilateral",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "name",
+        "nameIsFixed",
+        "pointRadiusBehaviour",
+        "points",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "shouldBreakMaskChain"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "edited": {
+          "type": "boolean"
+        },
+        "isClosed": {
+          "type": "boolean"
+        },
+        "pointRadiusBehaviour": {
+          "$ref": "#/definitions/PointsRadiusBehaviour"
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CurvePoint"
+          }
+        },
+        "_class": {
+          "const": "triangle"
+        },
+        "isEquilateral": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ShapeGroup": {
+      "title": "Shape Group Layer",
+      "description": "Shape groups layers group together multiple shape layers",
+      "$id": "#ShapeGroup",
+      "type": "object",
+      "required": [
+        "_class",
+        "booleanOperation",
+        "do_objectID",
+        "exportOptions",
+        "frame",
+        "hasClickThrough",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "layers",
+        "name",
+        "nameIsFixed",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "shouldBreakMaskChain",
+        "windingRule"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "hasClickThrough": {
+          "type": "boolean"
+        },
+        "groupLayout": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FreeformGroupLayout"
+            },
+            {
+              "$ref": "#/definitions/InferredGroupLayout"
+            }
+          ]
+        },
+        "layers": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Group"
+              },
+              {
+                "$ref": "#/definitions/Oval"
+              },
+              {
+                "$ref": "#/definitions/Polygon"
+              },
+              {
+                "$ref": "#/definitions/Rectangle"
+              },
+              {
+                "$ref": "#/definitions/ShapePath"
+              },
+              {
+                "$ref": "#/definitions/Star"
+              },
+              {
+                "$ref": "#/definitions/Triangle"
+              },
+              {
+                "$ref": "#/definitions/ShapeGroup"
+              },
+              {
+                "$ref": "#/definitions/Text"
+              },
+              {
+                "$ref": "#/definitions/SymbolInstance"
+              },
+              {
+                "$ref": "#/definitions/Slice"
+              },
+              {
+                "$ref": "#/definitions/Hotspot"
+              },
+              {
+                "$ref": "#/definitions/Bitmap"
+              }
+            ]
+          }
+        },
+        "_class": {
+          "const": "shapeGroup"
+        },
+        "windingRule": {
+          "$ref": "#/definitions/WindingRule"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Text": {
+      "title": "Text Layer",
+      "description": "A text layer represents a discrete block or line of text",
+      "type": "object",
+      "$id": "#Text",
+      "required": [
+        "_class",
+        "attributedString",
+        "automaticallyDrawOnUnderlyingPath",
+        "booleanOperation",
+        "do_objectID",
+        "dontSynchroniseWithSymbol",
+        "exportOptions",
+        "frame",
+        "glyphBounds",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "lineSpacingBehaviour",
+        "name",
+        "nameIsFixed",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "shouldBreakMaskChain",
+        "textBehaviour"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "_class": {
+          "const": "text"
+        },
+        "attributedString": {
+          "$ref": "#/definitions/AttributedString"
+        },
+        "automaticallyDrawOnUnderlyingPath": {
+          "type": "boolean"
+        },
+        "dontSynchroniseWithSymbol": {
+          "type": "boolean"
+        },
+        "lineSpacingBehaviour": {
+          "$ref": "#/definitions/LineSpacingBehaviour"
+        },
+        "textBehaviour": {
+          "$ref": "#/definitions/TextBehaviour"
+        },
+        "glyphBounds": {
+          "$ref": "#/definitions/PointListString"
+        }
+      },
+      "additionalProperties": false
+    },
+    "AttributedString": {
+      "title": "Attributed String",
+      "description": "Defines character strings and associated styling applied to character ranges",
+      "type": "object",
+      "$id": "#AttributedString",
+      "required": ["_class", "string", "attributes"],
+      "properties": {
+        "_class": {
+          "const": "attributedString"
+        },
+        "string": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StringAttribute"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "StringAttribute": {
+      "title": "String Attribute",
+      "description": "Defines an attribute assigned to a range of characters in an attributed string",
+      "type": "object",
+      "$id": "#StringAttribute",
+      "required": ["_class", "location", "length", "attributes"],
+      "properties": {
+        "_class": {
+          "const": "stringAttribute"
+        },
+        "location": {
+          "type": "integer"
+        },
+        "length": {
+          "type": "integer"
+        },
+        "attributes": {
+          "type": "object",
+          "required": ["MSAttributedStringFontAttribute"],
+          "properties": {
+            "kerning": {
+              "type": "number"
+            },
+            "textStyleVerticalAlignmentKey": {
+              "$ref": "#/definitions/TextVerticalAlignment"
+            },
+            "MSAttributedStringFontAttribute": {
+              "$ref": "#/definitions/FontDescriptor"
+            },
+            "MSAttributedStringColorAttribute": {
+              "$ref": "#/definitions/Color"
+            },
+            "paragraphStyle": {
+              "$ref": "#/definitions/ParagraphStyle"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "LineSpacingBehaviour": {
+      "title": "Line Spacing Behaviour",
+      "description": "Enumeration of line spacing behaviour for fixed line height text",
+      "type": "integer",
+      "enum": [0, 1, 2],
+      "enumDescriptions": ["None", "Legacy", "Consistent baseline"],
+      "$id": "#LineSpacingBehaviour"
+    },
+    "TextBehaviour": {
+      "title": "Text Behaviour",
+      "description": "Enumeration of the behaviours for text layers",
+      "type": "integer",
+      "enum": [0, 1, 2],
+      "enumDescriptions": ["Flexible", "Fixed", "FixedWidthAndHeight"],
+      "$id": "#TextBehaviour"
+    },
+    "PointListString": {
+      "title": "Point List String",
+      "description": "A string representation of a series of 2D points, in the format {{x, y}, {x,y}}.",
+      "type": "string",
+      "pattern": "^{(({-?\\d+(.\\d+)?, -?\\d+(.\\d+)?}, )+)?{-?\\d+(.\\d+)?, -?\\d+(.\\d+)?}}$",
+      "$id": "#PointListString"
+    },
+    "SymbolInstance": {
+      "title": "Symbol Instance Layer",
+      "description": "Symbol instance layers represent an instance of a symbol source",
+      "type": "object",
+      "$id": "#SymbolInstance",
+      "required": [
+        "_class",
+        "booleanOperation",
+        "do_objectID",
+        "exportOptions",
+        "frame",
+        "horizontalSpacing",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "name",
+        "nameIsFixed",
+        "overrideValues",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "scale",
+        "shouldBreakMaskChain",
+        "symbolID",
+        "verticalSpacing"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "_class": {
+          "const": "symbolInstance"
+        },
+        "overrideValues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OverrideValue"
+          }
+        },
+        "scale": {
+          "type": "number"
+        },
+        "symbolID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "verticalSpacing": {
+          "type": "number"
+        },
+        "horizontalSpacing": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "OverrideValue": {
+      "title": "Override Value",
+      "description": "Defines an individual symbol override",
+      "type": "object",
+      "$id": "#OverrideValue",
+      "required": ["_class", "overrideName", "value"],
+      "properties": {
+        "_class": {
+          "const": "overrideValue"
+        },
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "overrideName": {
+          "$ref": "#/definitions/OverrideName"
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/definitions/Uuid"
+            },
+            {
+              "$ref": "#/definitions/FileRef"
+            },
+            {
+              "$ref": "#/definitions/DataRef"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Slice": {
+      "title": "Slice Layer",
+      "description": "Slice layers allow the content beneath their frame to be exported",
+      "type": "object",
+      "$id": "#Slice",
+      "required": [
+        "_class",
+        "backgroundColor",
+        "booleanOperation",
+        "do_objectID",
+        "exportOptions",
+        "frame",
+        "hasBackgroundColor",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "name",
+        "nameIsFixed",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "shouldBreakMaskChain"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "_class": {
+          "const": "slice"
+        },
+        "hasBackgroundColor": {
+          "type": "boolean"
+        },
+        "backgroundColor": {
+          "$ref": "#/definitions/Color"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Hotspot": {
+      "title": "Hotspot Layer",
+      "description": "Hotspot layers define clickable hotspots for use with prototypes",
+      "type": "object",
+      "$id": "#Hotspot",
+      "required": [
+        "_class",
+        "booleanOperation",
+        "do_objectID",
+        "exportOptions",
+        "frame",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "name",
+        "nameIsFixed",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "shouldBreakMaskChain"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "_class": {
+          "const": "MSImmutableHotspotLayer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Bitmap": {
+      "title": "Bitmap Layer",
+      "description": "Bitmap layers house a single image",
+      "type": "object",
+      "$id": "#Bitmap",
+      "required": [
+        "_class",
+        "booleanOperation",
+        "clippingMask",
+        "do_objectID",
+        "exportOptions",
+        "fillReplacesImage",
+        "frame",
+        "image",
+        "intendedDPI",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "name",
+        "nameIsFixed",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "shouldBreakMaskChain"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "_class": {
+          "const": "bitmap"
+        },
+        "fillReplacesImage": {
+          "type": "boolean"
+        },
+        "image": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FileRef"
+            },
+            {
+              "$ref": "#/definitions/DataRef"
+            }
+          ]
+        },
+        "intendedDPI": {
+          "type": "integer"
+        },
+        "clippingMask": {
+          "$ref": "#/definitions/PointListString"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ForeignTextStyle": {
+      "title": "Foreign Text Style",
+      "description": "Defines a text style that has been imported from a library",
+      "type": "object",
+      "$id": "#ForeignTextStyle",
+      "required": [
+        "_class",
+        "libraryID",
+        "sourceLibraryName",
+        "symbolPrivate",
+        "remoteStyleID",
+        "localSharedStyle"
+      ],
+      "properties": {
+        "_class": {
+          "const": "MSImmutableForeignTextStyle"
+        },
+        "libraryID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "sourceLibraryName": {
+          "type": "string"
+        },
+        "symbolPrivate": {
+          "type": "boolean"
+        },
+        "remoteStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "localSharedStyle": {
+          "$ref": "#/definitions/SharedStyle"
+        },
+        "missingLibraryFontAcknowledged": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ForeignSwatch": {
+      "title": "Foreign Swatch",
+      "description": "Defines a swatch that has been imported from a library",
+      "type": "object",
+      "$id": "#ForeignSwatch",
+      "required": [
+        "_class",
+        "do_objectID",
+        "libraryID",
+        "sourceLibraryName",
+        "symbolPrivate",
+        "remoteSwatchID",
+        "localSwatch"
+      ],
+      "properties": {
+        "_class": {
+          "const": "MSImmutableForeignSwatch"
+        },
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "libraryID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "sourceLibraryName": {
+          "type": "string"
+        },
+        "symbolPrivate": {
+          "type": "boolean"
+        },
+        "remoteSwatchID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "localSwatch": {
+          "$ref": "#/definitions/Swatch"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Swatch": {
+      "title": "Swatch",
+      "description": "Defines a swatch color variable.",
+      "type": "object",
+      "$id": "#Swatch",
+      "required": ["_class", "do_objectID", "name", "value"],
+      "properties": {
+        "_class": {
+          "const": "swatch"
+        },
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/definitions/Color"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SharedStyleContainer": {
+      "title": "Shared Style Container",
+      "description": "Defines a document's list of reusable styles",
+      "type": "object",
+      "$id": "#SharedStyleContainer",
+      "required": ["_class", "objects"],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "_class": {
+          "const": "sharedStyleContainer"
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SharedStyle"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "SharedTextStyleContainer": {
+      "title": "Shared Text Style Container",
+      "description": "Defines a document's list of reusable text styles",
+      "type": "object",
+      "$id": "#SharedTextStyleContainer",
+      "required": ["_class", "objects"],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "_class": {
+          "const": "sharedTextStyleContainer"
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SharedStyle"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "SymbolContainer": {
+      "title": "Symbol container",
+      "description": "Legacy object only retained for migrating older documents.",
+      "deprecated": true,
+      "type": "object",
+      "$id": "#SymbolContainer",
+      "required": ["_class", "objects"],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "_class": {
+          "const": "symbolContainer"
+        },
+        "objects": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SwatchContainer": {
+      "title": "Swatch Container",
+      "description": "Defines a document's list of swatches",
+      "type": "object",
+      "$id": "#SwatchContainer",
+      "required": ["_class", "objects"],
+      "properties": {
+        "_class": {
+          "const": "swatchContainer"
+        },
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Swatch"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "FontRef": {
+      "title": "Font Reference",
+      "description": "Defines a reference to font data embedded in the document",
+      "type": "object",
+      "$id": "#FontRef",
+      "required": [
+        "_class",
+        "fontData",
+        "fontFamilyName",
+        "fontFileName",
+        "options",
+        "postscriptNames"
+      ],
+      "properties": {
+        "_class": {
+          "const": "fontReference"
+        },
+        "fontData": {
+          "$ref": "#/definitions/DataRef"
+        },
+        "fontFamilyName": {
+          "type": "string"
+        },
+        "fontFileName": {
+          "type": "string"
+        },
+        "options": {
+          "type": "integer"
+        },
+        "postscriptNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentState": {
+      "title": "Document State",
+      "description": "Container for ephemeral document state. For now this is just a placeholder, and will see additions in future document versions.",
+      "type": "object",
+      "$id": "#DocumentState",
+      "additionalProperties": true
+    },
+    "Page": {
+      "title": "Page Layer",
+      "description": "Page layers are the top level organisational abstraction within a document",
+      "$id": "#Page",
+      "type": "object",
+      "required": [
+        "_class",
+        "booleanOperation",
+        "do_objectID",
+        "exportOptions",
+        "frame",
+        "hasClickThrough",
+        "horizontalRulerData",
+        "includeInCloudUpload",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "layers",
+        "name",
+        "nameIsFixed",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "shouldBreakMaskChain",
+        "verticalRulerData"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "hasClickThrough": {
+          "type": "boolean"
+        },
+        "horizontalRulerData": {
+          "$ref": "#/definitions/RulerData"
+        },
+        "verticalRulerData": {
+          "$ref": "#/definitions/RulerData"
+        },
+        "layout": {
+          "$ref": "#/definitions/LayoutGrid"
+        },
+        "grid": {
+          "$ref": "#/definitions/SimpleGrid"
+        },
+        "groupLayout": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FreeformGroupLayout"
+            },
+            {
+              "$ref": "#/definitions/InferredGroupLayout"
+            }
+          ]
+        },
+        "includeInCloudUpload": {
+          "type": "boolean",
+          "description": "Deprecated, no longer used by Sketch Cloud",
+          "default": true
+        },
+        "_class": {
+          "const": "page"
+        },
+        "layers": {
+          "type": "array",
+          "description": "Pages can contain any layer or layer group but no pages",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Artboard"
+              },
+              {
+                "$ref": "#/definitions/Group"
+              },
+              {
+                "$ref": "#/definitions/Oval"
+              },
+              {
+                "$ref": "#/definitions/Polygon"
+              },
+              {
+                "$ref": "#/definitions/Rectangle"
+              },
+              {
+                "$ref": "#/definitions/ShapePath"
+              },
+              {
+                "$ref": "#/definitions/Star"
+              },
+              {
+                "$ref": "#/definitions/Triangle"
+              },
+              {
+                "$ref": "#/definitions/ShapeGroup"
+              },
+              {
+                "$ref": "#/definitions/Text"
+              },
+              {
+                "$ref": "#/definitions/SymbolMaster"
+              },
+              {
+                "$ref": "#/definitions/SymbolInstance"
+              },
+              {
+                "$ref": "#/definitions/Slice"
+              },
+              {
+                "$ref": "#/definitions/Hotspot"
+              },
+              {
+                "$ref": "#/definitions/Bitmap"
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Artboard": {
+      "title": "Artboard Layer",
+      "description": "Artboard layers are a document organisation aid. They have a fixed frame that usually map to variations of device dimensions or viewport sizes",
+      "$id": "#Artboard",
+      "type": "object",
+      "required": [
+        "_class",
+        "backgroundColor",
+        "booleanOperation",
+        "do_objectID",
+        "exportOptions",
+        "frame",
+        "hasBackgroundColor",
+        "hasClickThrough",
+        "horizontalRulerData",
+        "includeBackgroundColorInExport",
+        "includeInCloudUpload",
+        "isFixedToViewport",
+        "isFlippedHorizontal",
+        "isFlippedVertical",
+        "isFlowHome",
+        "isLocked",
+        "isVisible",
+        "layerListExpandedType",
+        "layers",
+        "name",
+        "nameIsFixed",
+        "resizesContent",
+        "resizingConstraint",
+        "resizingType",
+        "rotation",
+        "shouldBreakMaskChain",
+        "verticalRulerData"
+      ],
+      "properties": {
+        "do_objectID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "booleanOperation": {
+          "$ref": "#/definitions/BooleanOperation"
+        },
+        "exportOptions": {
+          "$ref": "#/definitions/ExportOptions"
+        },
+        "frame": {
+          "$ref": "#/definitions/Rect"
+        },
+        "flow": {
+          "$ref": "#/definitions/FlowConnection"
+        },
+        "isFixedToViewport": {
+          "type": "boolean"
+        },
+        "isFlippedHorizontal": {
+          "type": "boolean"
+        },
+        "isFlippedVertical": {
+          "type": "boolean"
+        },
+        "isLocked": {
+          "type": "boolean"
+        },
+        "isVisible": {
+          "type": "boolean"
+        },
+        "layerListExpandedType": {
+          "$ref": "#/definitions/LayerListExpanded"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameIsFixed": {
+          "type": "boolean"
+        },
+        "resizingConstraint": {
+          "description": "Bitfield representing the resizing constraint",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "resizingType": {
+          "$ref": "#/definitions/ResizeType"
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "sharedStyleID": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shouldBreakMaskChain": {
+          "type": "boolean"
+        },
+        "hasClippingMask": {
+          "type": "boolean"
+        },
+        "clippingMaskMode": {
+          "type": "integer"
+        },
+        "userInfo": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        },
+        "maintainScrollPosition": {
+          "type": "boolean"
+        },
+        "hasClickThrough": {
+          "type": "boolean"
+        },
+        "horizontalRulerData": {
+          "$ref": "#/definitions/RulerData"
+        },
+        "verticalRulerData": {
+          "$ref": "#/definitions/RulerData"
+        },
+        "layout": {
+          "$ref": "#/definitions/LayoutGrid"
+        },
+        "grid": {
+          "$ref": "#/definitions/SimpleGrid"
+        },
+        "groupLayout": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FreeformGroupLayout"
+            },
+            {
+              "$ref": "#/definitions/InferredGroupLayout"
+            }
+          ]
+        },
+        "includeInCloudUpload": {
+          "type": "boolean",
+          "description": "Deprecated, no longer used by Sketch Cloud",
+          "default": true
+        },
+        "_class": {
+          "const": "artboard"
+        },
+        "backgroundColor": {
+          "$ref": "#/definitions/Color"
+        },
+        "hasBackgroundColor": {
+          "type": "boolean"
+        },
+        "includeBackgroundColorInExport": {
+          "type": "boolean"
+        },
+        "isFlowHome": {
+          "type": "boolean"
+        },
+        "resizesContent": {
+          "type": "boolean"
+        },
+        "presetDictionary": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "layers": {
+          "type": "array",
+          "description": "Artboards can contain any layer or layer group except root layers such as other artboards and symbol sources",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Group"
+              },
+              {
+                "$ref": "#/definitions/Oval"
+              },
+              {
+                "$ref": "#/definitions/Polygon"
+              },
+              {
+                "$ref": "#/definitions/Rectangle"
+              },
+              {
+                "$ref": "#/definitions/ShapePath"
+              },
+              {
+                "$ref": "#/definitions/Star"
+              },
+              {
+                "$ref": "#/definitions/Triangle"
+              },
+              {
+                "$ref": "#/definitions/ShapeGroup"
+              },
+              {
+                "$ref": "#/definitions/Text"
+              },
+              {
+                "$ref": "#/definitions/SymbolInstance"
+              },
+              {
+                "$ref": "#/definitions/Slice"
+              },
+              {
+                "$ref": "#/definitions/Hotspot"
+              },
+              {
+                "$ref": "#/definitions/Bitmap"
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Meta": {
+      "title": "Meta",
+      "description": "Contains metadata about the Sketch file - information about pages and artboards appearing in the file, fonts used, the version of Sketch used to save the file etc.",
+      "type": "object",
+      "$id": "#Meta",
+      "required": [
+        "commit",
+        "pagesAndArtboards",
+        "version",
+        "fonts",
+        "compatibilityVersion",
+        "app",
+        "autosaved",
+        "variant",
+        "created",
+        "saveHistory",
+        "appVersion",
+        "build"
+      ],
+      "properties": {
+        "commit": {
+          "type": "string"
+        },
+        "pagesAndArtboards": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "#/definitions/Uuid"
+          },
+          "patternProperties": {
+            "^.*$": {
+              "type": "object",
+              "required": ["name", "artboards"],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "artboards": {
+                  "type": "object",
+                  "propertyNames": {
+                    "$ref": "#/definitions/Uuid"
+                  },
+                  "patternProperties": {
+                    "^.*$": {
+                      "type": "object",
+                      "required": ["name"],
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "version": {
+          "type": "integer",
+          "enum": [
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135,
+            136
+          ]
+        },
+        "fonts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "compatibilityVersion": {
+          "const": 99
+        },
+        "coeditCompatibilityVersion": {
+          "type": "number"
+        },
+        "app": {
+          "$ref": "#/definitions/BundleId"
+        },
+        "autosaved": {
+          "$ref": "#/definitions/NumericalBool"
+        },
+        "variant": {
+          "$ref": "#/definitions/SketchVariant"
+        },
+        "created": {
+          "type": "object",
+          "required": [
+            "commit",
+            "appVersion",
+            "build",
+            "app",
+            "compatibilityVersion",
+            "version",
+            "variant"
+          ],
+          "properties": {
+            "commit": {
+              "type": "string"
+            },
+            "appVersion": {
+              "type": "string"
+            },
+            "build": {
+              "type": "integer"
+            },
+            "app": {
+              "$ref": "#/definitions/BundleId"
+            },
+            "compatibilityVersion": {
+              "type": "number"
+            },
+            "coeditCompatibilityVersion": {
+              "type": "number"
+            },
+            "version": {
+              "type": "number"
+            },
+            "variant": {
+              "$ref": "#/definitions/SketchVariant"
+            }
+          },
+          "additionalProperties": false
+        },
+        "saveHistory": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "appVersion": {
+          "type": "string"
+        },
+        "build": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "BundleId": {
+      "title": "Sketch Bundle Identifier",
+      "description": "Enumeration of the Apple bundle ids for the various variants of Sketch",
+      "type": "string",
+      "enum": [
+        "com.bohemiancoding.sketch3",
+        "com.bohemiancoding.sketch3.beta",
+        "com.bohemiancoding.sketch3.private",
+        "com.bohemiancoding.sketch3.feature-preview",
+        "com.bohemiancoding.sketch3.internal",
+        "com.bohemiancoding.sketch3.experimental",
+        "com.bohemiancoding.sketch3.testing"
+      ],
+      "enumDescriptions": [
+        "Public release",
+        "Beta",
+        "Private",
+        "Feature preview",
+        "Internal",
+        "Experimental",
+        "Testing"
+      ],
+      "$id": "#BundleId"
+    },
+    "NumericalBool": {
+      "title": "Numerical Boolean",
+      "description": "A numerical boolean where 0 is false, and 1 is true.",
+      "type": "integer",
+      "enum": [0, 1],
+      "enumDescriptions": ["True", "False"],
+      "$id": "#NumericalBool"
+    },
+    "SketchVariant": {
+      "title": "Sketch Variant",
+      "description": "Enumeration of the Sketch variants",
+      "type": "string",
+      "enum": [
+        "NONAPPSTORE",
+        "APPSTORE",
+        "BETA",
+        "PRIVATE",
+        "FEATURE_PREVIEW",
+        "INTERNAL",
+        "EXPERIMENTAL",
+        "TESTING",
+        "UNITTEST"
+      ],
+      "$id": "#SketchVariant"
+    },
+    "User": {
+      "title": "User",
+      "type": "object",
+      "propertyNames": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/Uuid"
+          },
+          {
+            "const": "document"
+          }
+        ]
+      },
+      "$id": "#User",
+      "required": ["document"],
+      "additionalProperties": {
+        "type": "object",
+        "required": ["scrollOrigin", "zoomValue"],
+        "properties": {
+          "scrollOrigin": {
+            "$ref": "#/definitions/PointString"
+          },
+          "zoomValue": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "properties": {
+        "document": {
+          "type": "object",
+          "required": ["pageListHeight", "pageListCollapsed"],
+          "properties": {
+            "pageListHeight": {
+              "type": "integer"
+            },
+            "pageListCollapsed": {
+              "$ref": "#/definitions/NumericalBool"
+            },
+            "expandedSymbolPathsInSidebar": {
+              "type": "array"
+            },
+            "expandedTextStylePathsInPopover": {
+              "type": "array"
+            },
+            "libraryListCollapsed": {
+              "$ref": "#/definitions/NumericalBool"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "Workspace": {
+      "title": "Workspace",
+      "description": "The workspace is a folder in the Sketch file archive that can contain arbitrary JSON files, allowing Sketch and 3rd party products and tools to store settings that should travel with the Sketch document. To avoid clashes or settings being overridden, select a unique name for your workspace file.",
+      "type": "object",
+      "$id": "#Workspace",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": ["document", "meta", "user"],
+  "additionalProperties": false
+}
