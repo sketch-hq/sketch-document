@@ -197,7 +197,7 @@ const assemble = async (entry) => {
     output = _.mapDeep(output, (v, k) => k === '$ref' ? `#/definitions/${pathToId(v)}` : v);
     // Further processing
     setAllPropsRequired(output);
-    mergeAllOf(output, { ignoreAdditionalProperties: true });
+    output = mergeAllOf(output, { ignoreAdditionalProperties: true });
     prune(output);
     setAdditionalPropsFalse(output);
     return output;
