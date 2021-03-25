@@ -193,8 +193,15 @@ const assemble = async (entry) => {
     // Convert all $refs from file paths to pointers into the definitions object
     //    From: { $ref: '../enums/fill-type.schema.yaml' }
     //    To: { $ref: '#/definitions/FillType' }
-    // @ts-ignore
-    output = _.mapDeep(output, (v, k) => k === '$ref' ? `#/definitions/${pathToId(v)}` : v);
+    const resolveRefs = (o) => {
+        if (typeof o !== "object")
+            return;
+        if (o.hasOwnProperty('$ref'))
+            o['$ref'] = `#/definitions/${pathToId(o['$ref'])}`;
+        for (let k in o)
+            resolveRefs(o[k]);
+    };
+    resolveRefs(output);
     // Further processing
     setAllPropsRequired(output);
     output = mergeAllOf(output, { ignoreAdditionalProperties: true });

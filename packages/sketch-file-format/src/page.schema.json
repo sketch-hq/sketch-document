@@ -1,14 +1,14 @@
 {
   "title": "Page Layer",
   "description": "Page layers are the top level organisational abstraction within a document",
-  "$id": "https://unpkg.com/@sketch-hq/sketch-file-format@3.7.1/dist/page.schema.json",
+  "$id": "https://unpkg.com/@sketch-hq/sketch-file-format@3.7.3/dist/page.schema.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
     "Uuid": {
       "title": "UUID",
       "description": "UUID string.",
       "type": "string",
-      "pattern": "^[0-9A-F]{8}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{12}$",
+      "pattern": "^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$",
       "$id": "#Uuid"
     },
     "BooleanOperation": {
@@ -16,13 +16,7 @@
       "description": "Enumeration of the boolean operations that can be applied to combine shapes",
       "type": "integer",
       "enum": [-1, 0, 1, 2, 3],
-      "enumDescriptions": [
-        "None",
-        "Union",
-        "Subtract",
-        "Intersection",
-        "Difference"
-      ],
+      "enumDescriptions": ["None", "Union", "Subtract", "Intersection", "Difference"],
       "$id": "#BooleanOperation"
     },
     "ExportOptions": {
@@ -30,13 +24,7 @@
       "description": "Defines a layer's export options",
       "type": "object",
       "$id": "#ExportOptions",
-      "required": [
-        "_class",
-        "exportFormats",
-        "includedLayerIds",
-        "layerOptions",
-        "shouldTrim"
-      ],
+      "required": ["_class", "exportFormats", "includedLayerIds", "layerOptions", "shouldTrim"],
       "properties": {
         "_class": {
           "const": "exportOptions"
@@ -67,14 +55,7 @@
       "description": "Defines an export format, as listed in a layer's export options",
       "type": "object",
       "$id": "#ExportFormat",
-      "required": [
-        "_class",
-        "absoluteSize",
-        "fileFormat",
-        "name",
-        "scale",
-        "visibleScaleType"
-      ],
+      "required": ["_class", "absoluteSize", "fileFormat", "name", "scale", "visibleScaleType"],
       "properties": {
         "_class": {
           "const": "exportFormat"
@@ -129,14 +110,7 @@
       "description": "Defines an abstract rectangle",
       "type": "object",
       "$id": "#Rect",
-      "required": [
-        "_class",
-        "constrainProportions",
-        "height",
-        "width",
-        "x",
-        "y"
-      ],
+      "required": ["_class", "constrainProportions", "height", "width", "x", "y"],
       "properties": {
         "_class": {
           "const": "rect"
@@ -442,14 +416,7 @@
       "description": "Defines a gradient",
       "type": "object",
       "$id": "#Gradient",
-      "required": [
-        "_class",
-        "gradientType",
-        "elipseLength",
-        "from",
-        "to",
-        "stops"
-      ],
+      "required": ["_class", "gradientType", "elipseLength", "from", "to", "stops"],
       "properties": {
         "_class": {
           "const": "gradient"
@@ -515,13 +482,7 @@
       "description": "Defines border options",
       "type": "object",
       "$id": "#BorderOptions",
-      "required": [
-        "_class",
-        "isEnabled",
-        "dashPattern",
-        "lineCapStyle",
-        "lineJoinStyle"
-      ],
+      "required": ["_class", "isEnabled", "dashPattern", "lineCapStyle", "lineJoinStyle"],
       "properties": {
         "_class": {
           "const": "borderOptions"
@@ -887,9 +848,6 @@
               "patternProperties": {
                 "^\\d*$:": {
                   "type": "number"
-                },
-                "^d*$:": {
-                  "type": "number"
                 }
               }
             }
@@ -990,14 +948,7 @@
       "description": "Defines color adjust styles on images",
       "type": "object",
       "$id": "#ColorControls",
-      "required": [
-        "_class",
-        "isEnabled",
-        "brightness",
-        "contrast",
-        "hue",
-        "saturation"
-      ],
+      "required": ["_class", "isEnabled", "brightness", "contrast", "hue", "saturation"],
       "properties": {
         "_class": {
           "const": "colorControls"
@@ -1743,13 +1694,7 @@
       "description": "Enumeration of the curve modes that can be applied to vector points",
       "type": "integer",
       "enum": [0, 1, 2, 3, 4],
-      "enumDescriptions": [
-        "None",
-        "Straight",
-        "Mirrored",
-        "Asymmetric",
-        "Disconnected"
-      ],
+      "enumDescriptions": ["None", "Straight", "Mirrored", "Asymmetric", "Disconnected"],
       "$id": "#CurveMode"
     },
     "Polygon": {

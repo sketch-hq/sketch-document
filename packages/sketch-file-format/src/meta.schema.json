@@ -2,6 +2,80 @@
   "title": "Meta",
   "description": "Contains metadata about the Sketch file - information about pages and artboards appearing in the file, fonts used, the version of Sketch used to save the file etc.",
   "type": "object",
+  "$id": "https://unpkg.com/@sketch-hq/sketch-file-format@3.7.3/dist/meta.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Uuid": {
+      "title": "UUID",
+      "description": "UUID string.",
+      "type": "string",
+      "pattern": "^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$",
+      "$id": "#Uuid"
+    },
+    "BundleId": {
+      "title": "Sketch Bundle Identifier",
+      "description": "Enumeration of the Apple bundle ids for the various variants of Sketch",
+      "type": "string",
+      "enum": [
+        "com.bohemiancoding.sketch3",
+        "com.bohemiancoding.sketch3.beta",
+        "com.bohemiancoding.sketch3.private",
+        "com.bohemiancoding.sketch3.feature-preview",
+        "com.bohemiancoding.sketch3.internal",
+        "com.bohemiancoding.sketch3.experimental",
+        "com.bohemiancoding.sketch3.testing"
+      ],
+      "enumDescriptions": [
+        "Public release",
+        "Beta",
+        "Private",
+        "Feature preview",
+        "Internal",
+        "Experimental",
+        "Testing"
+      ],
+      "$id": "#BundleId"
+    },
+    "NumericalBool": {
+      "title": "Numerical Boolean",
+      "description": "A numerical boolean where 0 is false, and 1 is true.",
+      "type": "integer",
+      "enum": [0, 1],
+      "enumDescriptions": ["True", "False"],
+      "$id": "#NumericalBool"
+    },
+    "SketchVariant": {
+      "title": "Sketch Variant",
+      "description": "Enumeration of the Sketch variants",
+      "type": "string",
+      "enum": [
+        "NONAPPSTORE",
+        "APPSTORE",
+        "BETA",
+        "PRIVATE",
+        "FEATURE_PREVIEW",
+        "INTERNAL",
+        "EXPERIMENTAL",
+        "TESTING",
+        "UNITTEST"
+      ],
+      "$id": "#SketchVariant"
+    }
+  },
+  "required": [
+    "commit",
+    "pagesAndArtboards",
+    "version",
+    "fonts",
+    "compatibilityVersion",
+    "app",
+    "autosaved",
+    "variant",
+    "created",
+    "saveHistory",
+    "appVersion",
+    "build"
+  ],
   "properties": {
     "commit": {
       "type": "string"
@@ -46,24 +120,7 @@
     },
     "version": {
       "type": "integer",
-      "enum": [
-        121,
-        122,
-        123,
-        124,
-        125,
-        126,
-        127,
-        128,
-        129,
-        130,
-        131,
-        132,
-        133,
-        134,
-        135,
-        136
-      ]
+      "enum": [121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136]
     },
     "fonts": {
       "type": "array",
@@ -138,79 +195,5 @@
       "type": "integer"
     }
   },
-  "$id": "https://unpkg.com/@sketch-hq/sketch-file-format@3.7.1/dist/meta.schema.json",
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "definitions": {
-    "Uuid": {
-      "title": "UUID",
-      "description": "UUID string.",
-      "type": "string",
-      "pattern": "^[0-9A-F]{8}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{4}\\-[0-9A-F]{12}$",
-      "$id": "#Uuid"
-    },
-    "BundleId": {
-      "title": "Sketch Bundle Identifier",
-      "description": "Enumeration of the Apple bundle ids for the various variants of Sketch",
-      "type": "string",
-      "enum": [
-        "com.bohemiancoding.sketch3",
-        "com.bohemiancoding.sketch3.beta",
-        "com.bohemiancoding.sketch3.private",
-        "com.bohemiancoding.sketch3.feature-preview",
-        "com.bohemiancoding.sketch3.internal",
-        "com.bohemiancoding.sketch3.experimental",
-        "com.bohemiancoding.sketch3.testing"
-      ],
-      "enumDescriptions": [
-        "Public release",
-        "Beta",
-        "Private",
-        "Feature preview",
-        "Internal",
-        "Experimental",
-        "Testing"
-      ],
-      "$id": "#BundleId"
-    },
-    "NumericalBool": {
-      "title": "Numerical Boolean",
-      "description": "A numerical boolean where 0 is false, and 1 is true.",
-      "type": "integer",
-      "enum": [0, 1],
-      "enumDescriptions": ["True", "False"],
-      "$id": "#NumericalBool"
-    },
-    "SketchVariant": {
-      "title": "Sketch Variant",
-      "description": "Enumeration of the Sketch variants",
-      "type": "string",
-      "enum": [
-        "NONAPPSTORE",
-        "APPSTORE",
-        "BETA",
-        "PRIVATE",
-        "FEATURE_PREVIEW",
-        "INTERNAL",
-        "EXPERIMENTAL",
-        "TESTING",
-        "UNITTEST"
-      ],
-      "$id": "#SketchVariant"
-    }
-  },
-  "required": [
-    "commit",
-    "pagesAndArtboards",
-    "version",
-    "fonts",
-    "compatibilityVersion",
-    "app",
-    "autosaved",
-    "variant",
-    "created",
-    "saveHistory",
-    "appVersion",
-    "build"
-  ],
   "additionalProperties": false
 }
