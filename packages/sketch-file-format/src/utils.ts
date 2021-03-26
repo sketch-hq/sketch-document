@@ -6,14 +6,12 @@ import Ajv from 'ajv'
 const getAjvInstance = () => {
   const ajv = new Ajv({
     verbose: true,
-    strict: true,
+    strictKeywords: true,
   })
-  ajv.addKeyword({
-    keyword: 'deprecated', 
+  ajv.addKeyword('deprecated', {
     validate: (schema: any) => typeof schema === 'boolean',
   })
-  ajv.addKeyword({
-    keyword: 'enumDescriptions', 
+  ajv.addKeyword('enumDescriptions', {
     validate: (schema: any, _data: any, parent: any) =>
       Array.isArray(schema) &&
       Array.isArray(parent.enum) &&
