@@ -1,0 +1,25 @@
+name: Test
+on:
+  pull_request:
+    types: [assigned, opened, synchronize, reopened]
+jobs:
+  release:
+    name: Build and Test Monorepo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@main
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@main
+        with:
+          node-version: '14.16.0'
+      - name: Yarn Install
+        run: yarn install --frozen-lockfile --offline
+      - name: Build Packages
+        run: yarn build
+      - name: Test Packages
+        run: yarn test --ci
+      - name: Format Check
+        run: yarn format-check

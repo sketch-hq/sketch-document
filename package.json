@@ -20,6 +20,7 @@
   "scripts": {
     "test": "yarn workspaces run test --ci",
     "build": "yarn workspaces run build",
-    "release": "yarn build && changeset publish"
+    "release": "yarn build && changeset publish",
+    "format-check": "yarn workspaces run format-check"
   }
 }

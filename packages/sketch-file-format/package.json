@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "dist/index",
   "types": "dist/index",
-  "repository": "github:sketch-hq/sketch-file-format",
+  "repository": "github:sketch-hq/sketch-document",
   "keywords": [
     "sketch",
     "sketch files",
