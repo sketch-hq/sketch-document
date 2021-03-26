@@ -21,6 +21,6 @@
     "test": "yarn workspaces run test --ci",
     "build": "yarn workspace @sketch-hq/sketch-file-format run build",
     "release": "yarn build && changeset publish",
-    "prettier-check": "prettier --check \"**/*.{ts,js,md,json}\""
+    "format-check": "prettier --check \"**/*.{ts,js,md,json}\""
   }
 }
