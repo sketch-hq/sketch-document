@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@main
         with:
-          node-version: '13.8.0'
+          node-version: '14.16.0'
       - name: Install Dependencies
         run: yarn
       - name: Create Release Pull Request or Publish to npm
