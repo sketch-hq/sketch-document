@@ -22,7 +22,6 @@
     "@types/js-yaml": "4.0.0",
     "@types/json-schema-merge-allof": "0.6.0",
     "@types/lodash": "4.14.168",
-    "@types/node": "14.14.35",
     "ajv": "6.12.6",
     "chalk": "4.1.0",
     "change-case": "4.1.2",
