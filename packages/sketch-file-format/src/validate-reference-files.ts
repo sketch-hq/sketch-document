@@ -48,7 +48,9 @@ console.log(process.argv)
 const integrationTest = (document: number) => {
   console.log(inverse(`\n  Testing against document ${document}  \n`))
 
-  const referenceFileGroup = refFiles.find(group => group.document === document)
+  const referenceFileGroup = refFiles.find(
+    (group) => group.document === document,
+  )
 
   if (!referenceFileGroup) {
     console.log(gray('\nSkipped - no reference files for version\n'))
@@ -77,7 +79,7 @@ const integrationTest = (document: number) => {
 }
 
 try {
-  const versions = process.argv[2].split(',').map(v => parseInt(v))
+  const versions = process.argv[2].split(',').map((v) => parseInt(v))
   for (const version of versions) {
     integrationTest(version)
   }
