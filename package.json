@@ -19,8 +19,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "yarn workspaces run test --ci",
-    "build": "yarn workspace @sketch-hq/sketch-file-format run build",
-    "release": "yarn build && changeset publish",
-    "format-check": "prettier --check \"**/*.{ts,js,md,json}\""
+    "build": "yarn workspaces run build",
+    "release": "yarn build && changeset publish"
   }
 }
