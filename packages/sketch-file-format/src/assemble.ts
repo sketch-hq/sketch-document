@@ -91,7 +91,7 @@ const prune = (schema: any) => {
       } else if (typeof v === 'object') {
         scan(v)
       } else if (Array.isArray(v)) {
-        v.forEach(el => {
+        v.forEach((el) => {
           if (typeof el === 'object') {
             scan(v)
           }
@@ -122,7 +122,7 @@ const setAdditionalPropsFalse = (schema: any) => {
       if (typeof v === 'object') {
         scan(v)
       } else if (Array.isArray(v)) {
-        v.forEach(el => {
+        v.forEach((el) => {
           if (typeof el === 'object') {
             scan(v)
           }
@@ -149,7 +149,7 @@ const setAllPropsRequired = (schema: any) => {
       if (typeof v === 'object') {
         scan(v)
       } else if (Array.isArray(v)) {
-        v.forEach(el => {
+        v.forEach((el) => {
           if (typeof el === 'object') {
             scan(v)
           }
@@ -215,13 +215,14 @@ const assemble = async (entry: string) => {
   //    From: { $ref: '../enums/fill-type.schema.yaml' }
   //    To: { $ref: '#/definitions/FillType' }
   const resolveRefs = (o: any) => {
-    if (typeof o !== "object") return
-    if (o.hasOwnProperty('$ref')) o['$ref'] = `#/definitions/${pathToId(o['$ref'])}`
+    if (typeof o !== 'object') return
+    if (o.hasOwnProperty('$ref'))
+      o['$ref'] = `#/definitions/${pathToId(o['$ref'])}`
     for (let k in o) resolveRefs(o[k])
   }
 
   resolveRefs(output)
-  
+
   // Further processing
 
   setAllPropsRequired(output)
