@@ -1,5 +1,6 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.base.json",
+  "include": ["src/*.ts"],
   "exclude": [
     "src/validate-reference-files.ts",
     "src/validate-schemas.ts",
