@@ -1,6 +1,8 @@
 title: Foreign Symbol
 description: Defines a symbol that has been imported from a library
 type: object
+optional:
+  - missingLibraryFontAcknowledged
 properties:
   _class: { const: MSImmutableForeignSymbol }
   do_objectID: { $ref: ../utils/uuid.schema.yaml }
@@ -9,3 +11,4 @@ properties:
   symbolPrivate: { type: boolean }
   originalMaster: { $ref: ../layers/symbol-master.schema.yaml }
   symbolMaster: { $ref: ../layers/symbol-master.schema.yaml }
+  missingLibraryFontAcknowledged: { type: boolean }

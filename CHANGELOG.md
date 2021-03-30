@@ -1,5 +1,49 @@
 # @sketch-hq/sketch-file-format
 
+## 3.7.3
+
+### Patch Changes
+
+- c76a8a9: Remove unnecessary escape characters in UUID pattern
+
+## 3.7.2
+
+### Patch Changes
+
+- 0464c6b: Bump version and add coeditCompatibilityVersion
+
+## 3.7.1
+
+### Patch Changes
+
+- d3ac7d2: Make symbol source inherit directly from artboard
+- 4176aa2: Fix layers property to only allow correct types in pages, artboards
+  and other layer types
+
+## 3.7.0
+
+### Minor Changes
+
+- 91b0885: Add `missingLibraryFontAcknowledged` property and increase document
+  version to `135`.
+
+### Patch Changes
+
+- f2a5494: Fix overrideName regex to support layerStyle and nested symbols
+- b42a651: Remove changeIdentifier from symbol master
+
+## 3.6.9
+
+### Patch Changes
+
+- 65693ef: Add missing bundle identifiers for feature preview variant
+
+## 3.6.8
+
+### Patch Changes
+
+- 3f9aa0c: Add support for Sketch Feature Preview variant
+
 ## 3.6.7
 
 ### Patch Changes

@@ -1,6 +1,8 @@
 title: Foreign Text Style
 description: Defines a text style that has been imported from a library
 type: object
+optional:
+  - missingLibraryFontAcknowledged
 properties:
   _class: { const: MSImmutableForeignTextStyle }
   libraryID: { $ref: ../utils/uuid.schema.yaml }
@@ -8,3 +10,4 @@ properties:
   symbolPrivate: { type: boolean }
   remoteStyleID: { $ref: ../utils/uuid.schema.yaml }
   localSharedStyle: { $ref: ./shared-style.schema.yaml }
+  missingLibraryFontAcknowledged: { type: boolean }

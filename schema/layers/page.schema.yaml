@@ -2,18 +2,27 @@ title: Page Layer
 description:
   Page layers are the top level organisational abstraction within a document
 allOf:
-  - $ref: ./abstract-group.schema.yaml
+  - $ref: ./abstract-root-layer.schema.yaml
   - type: object
-    optional:
-      - layout
-      - grid
     properties:
       _class: { const: page }
-      includeInCloudUpload:
-        type: boolean
-        description: TODO
-        default: true
-      horizontalRulerData: { $ref: ../objects/ruler-data.schema.yaml }
-      verticalRulerData: { $ref: ../objects/ruler-data.schema.yaml }
-      layout: { $ref: ../objects/layout-grid.schema.yaml }
-      grid: { $ref: ../objects/simple-grid.schema.yaml }
+      layers:
+        type: array
+        items:
+          oneOf:
+            - { $ref: ./artboard.schema.yaml }
+            - { $ref: ./group.schema.yaml }
+            - { $ref: ./oval.schema.yaml }
+            - { $ref: ./polygon.schema.yaml }
+            - { $ref: ./rectangle.schema.yaml }
+            - { $ref: ./shape-path.schema.yaml }
+            - { $ref: ./star.schema.yaml }
+            - { $ref: ./triangle.schema.yaml }
+            - { $ref: ./shape-group.schema.yaml }
+            - { $ref: ./text.schema.yaml }
+            - { $ref: ./symbol-master.schema.yaml }
+            - { $ref: ./symbol-instance.schema.yaml }
+            - { $ref: ./slice.schema.yaml }
+            - { $ref: ./hotspot.schema.yaml }
+            - { $ref: ./bitmap.schema.yaml }
+        description: Pages can contain any layer or layer group but no pages

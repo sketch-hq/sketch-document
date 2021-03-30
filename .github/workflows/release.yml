@@ -2,18 +2,18 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@master
+        uses: actions/checkout@main
         with:
           fetch-depth: 0
       - name: Setup Node.js
-        uses: actions/setup-node@master
+        uses: actions/setup-node@main
         with:
           node-version: '13.8.0'
       - name: Install Dependencies

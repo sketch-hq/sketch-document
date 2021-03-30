@@ -16,7 +16,6 @@ allOf:
         type: array
         items:
           oneOf:
-            - { $ref: ./artboard.schema.yaml }
             - { $ref: ./group.schema.yaml }
             - { $ref: ./oval.schema.yaml }
             - { $ref: ./polygon.schema.yaml }
@@ -26,7 +25,6 @@ allOf:
             - { $ref: ./triangle.schema.yaml }
             - { $ref: ./shape-group.schema.yaml }
             - { $ref: ./text.schema.yaml }
-            - { $ref: ./symbol-master.schema.yaml }
             - { $ref: ./symbol-instance.schema.yaml }
             - { $ref: ./slice.schema.yaml }
             - { $ref: ./hotspot.schema.yaml }
