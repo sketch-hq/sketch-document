@@ -6,7 +6,6 @@ optional:
   - sharedSwatches
   - documentState
   - patchInfo
-
 properties:
   _class: { const: document }
   do_objectID: { $ref: ./utils/uuid.schema.yaml }
