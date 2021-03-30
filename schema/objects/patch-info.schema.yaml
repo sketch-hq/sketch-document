@@ -7,7 +7,7 @@ description:
 type: object
 properties:
   _class: { const: MSImmutablePatchInfo }
-  status: { $ref: ./co-edit-status-info.schema.yaml }
+  baseVersionID: { $ref: ../utils/uuid.schema.yaml }
   lastIntegratedPatchID: { $ref: ../utils/uuid.schema.yaml }
   localPatches:
     type: array
