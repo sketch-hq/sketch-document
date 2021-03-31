@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "module": "ES6",
+    "module": "ESNext",
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noUnusedLocals": true,
