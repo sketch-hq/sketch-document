@@ -4,6 +4,8 @@
   "compilerOptions": {
     "outDir": "dist",
     "baseUrl": "src",
-    "module": "CommonJS"
+    "module": "CommonJS",
+    "declaration": false,
+    "declarationMap": false
   }
 }

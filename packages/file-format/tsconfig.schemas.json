@@ -6,5 +6,9 @@
     "src/validate-schemas.ts",
     "src/validate-file.ts",
     "src/index.ts"
-  ]
+  ],
+  "compilerOptions": {
+    "declaration": false,
+    "declarationMap": false
+  }
 }

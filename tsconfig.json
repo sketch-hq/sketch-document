@@ -2,7 +2,7 @@
   "files": [],
   "include": [],
   "references": [
-    { "path": "./packages/sketch-file-format" },
-    { "path": "./packages/sketch-file-format-ts" }
+    { "path": "./packages/file-format" },
+    { "path": "./packages/file-format-ts" }
   ]
 }
