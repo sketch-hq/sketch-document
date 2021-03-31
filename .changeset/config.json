@@ -1,8 +1,13 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@0.3.0/schema.json",
+  "$schema": "https://unpkg.com/@changesets/config@1.5.0/schema.json",
   "changelog": "@changesets/cli/changelog",
   "commit": false,
-  "linked": [],
+  "linked": [
+    [
+      "@sketch-hq/sketch-file-format",
+      "@sketch-hq/sketch-file-format-ts"
+    ]
+  ],
   "access": "public",
   "baseBranch": "main"
 }
