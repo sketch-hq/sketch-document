@@ -42,7 +42,7 @@
     "validate-file": "yarn build:schemas && tsc && yarn n src/validate-file.js",
     "n": "node --experimental-json-modules --es-module-specifier-resolution=node",
     "test": "echo \"No test specified\"",
-    "format-check": "prettier --check {schema/{**/,}*.yaml,*.md,src/*.ts}",
+    "format-check": "prettier --check {schema/{**/,}*.yaml,*.md,src/*.ts} --ignore-path ../../.prettierignore",
     "release": "yarn build && changeset publish"
   }
 }
