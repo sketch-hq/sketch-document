@@ -1,10 +1,8 @@
 {
   "extends": "../../tsconfig.base.json",
+  "include": ["index.ts"],
   "compilerOptions": {
-    "declaration": true,
     "outDir": "dist/cjs",
-    "target": "ES6",
     "module": "CommonJS"
-  },
-  "include": ["index.ts"]
+  }
 }
