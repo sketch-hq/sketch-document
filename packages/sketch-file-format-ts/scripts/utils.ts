@@ -126,9 +126,17 @@ export const schemaToTypeNode = (schema: JSONSchema7): ts.TypeNode => {
       }
     default:
       if (schema.const) {
-        return factory.createLiteralTypeNode(
-          factory.createStringLiteral(schema.const as string),
-        )
+        if (typeof schema.const === 'string') {
+          return factory.createLiteralTypeNode(
+            factory.createStringLiteral(schema.const),
+          )
+        }
+        if (typeof schema.const === 'number') {
+          return factory.createLiteralTypeNode(
+            factory.createNumericLiteral(schema.const),
+          )
+        }
+        throw Error(`Unsupported const value ${schema.const}`)
       } else if (schema.$ref) {
         return factory.createTypeReferenceNode(
           factory.createIdentifier(
@@ -167,7 +175,11 @@ export const schemaToTopLevelDeclaration = (
           factory.createIdentifier(
             pascalize(enumDescriptions[index]).replace(/\W/, ''),
           ),
-          factory.createStringLiteral(item as string),
+          typeof item === 'string'
+            ? factory.createStringLiteral(item)
+            : typeof item === 'number'
+            ? factory.createNumericLiteral(item)
+            : undefined,
         ),
       ),
     )
