@@ -5,7 +5,7 @@ import { execSync } from 'child_process'
 import schemasv1 from '@sketch-hq/sketch-file-format-1'
 // @ts-ignore
 import schemasv2 from '@sketch-hq/sketch-file-format-2'
-import schemasv3 from '@sketch-hq/sketch-file-format-3'
+import schemasv3 from '@sketch-hq/sketch-file-format'
 import { JSONSchema7 } from 'json-schema'
 import {
   schemaToTopLevelDeclaration,

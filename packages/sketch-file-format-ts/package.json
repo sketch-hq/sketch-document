@@ -21,7 +21,7 @@
   "devDependencies": {
     "@sketch-hq/sketch-file-format-1": "npm:@sketch-hq/sketch-file-format@1.1.7",
     "@sketch-hq/sketch-file-format-2": "npm:@sketch-hq/sketch-file-format@2.0.3",
-    "@sketch-hq/sketch-file-format-3": "npm:@sketch-hq/sketch-file-format@3.7.3",
+    "@sketch-hq/sketch-file-format": "3.7.3",
     "@types/humps": "2.0.0",
     "humps": "2.0.1",
     "ts-node": "9.1.1"
