@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "include": [],
+  "references": [
+    { "path": "./packages/sketch-file-format" },
+    { "path": "./packages/sketch-file-format-ts" }
+  ]
+}

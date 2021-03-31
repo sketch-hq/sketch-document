@@ -1,14 +1,18 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "module": "ESNext",
+    "module": "ES6",
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "strict": true,
-    "target": "ES2020"
+    "target": "ES6",
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "declarationMap": true,
+    "declaration": true
   },
   "exclude": ["node_modules", "dist"]
 }
