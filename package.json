@@ -7,6 +7,7 @@
   ],
   "dependencies": {
     "@changesets/cli": "2.14.1",
+    "@tsconfig/recommended": "1.0.1",
     "@types/jest": "26.0.21",
     "@types/node": "14.14.35",
     "jest": "26.6.3",
