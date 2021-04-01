@@ -1,9 +1,13 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "@tsconfig/recommended/tsconfig.json",
   "include": ["src/index.ts"],
+  "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "outDir": "dist",
     "baseUrl": "src",
-    "module": "CommonJS"
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true
   }
 }

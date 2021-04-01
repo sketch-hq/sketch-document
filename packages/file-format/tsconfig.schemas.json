@@ -1,14 +1,17 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "@tsconfig/recommended/tsconfig.json",
   "include": ["src/*.ts"],
   "exclude": [
+    "node_modules",
+    "dist",
     "src/validate-reference-files.ts",
     "src/validate-schemas.ts",
     "src/validate-file.ts",
     "src/index.ts"
   ],
   "compilerOptions": {
-    "declaration": false,
-    "declarationMap": false
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   }
 }

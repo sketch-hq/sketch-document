@@ -750,6 +750,11 @@
   resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-reference-files/-/sketch-reference-files-2.3.0.tgz#2e8e186ae2b69d3db483f14bd3393d0f8a952b70"
   integrity sha512-DCLgSWMDm5uiIU5WOY0tk0SsrT0V8/XIOU/zs4YgA0oG5RAENBgfkj4DSdvKVT3zU2mC79WNBCuFHTpPHU6QWA==
 
+"@tsconfig/recommended@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@tsconfig/recommended/-/recommended-1.0.1.tgz#7619bad397e06ead1c5182926c944e0ca6177f52"
+  integrity sha512-2xN+iGTbPBEzGSnVp/Hd64vKJCJWxsi9gfs88x4PPMyEjHJoA3o5BY9r5OLPHIZU2pAQxkSAsJFqn6itClP8mQ==
+
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.14"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.14.tgz#faaeefc4185ec71c389f4501ee5ec84b170cc402"
