@@ -5,6 +5,7 @@ optional:
   - foreignSwatches
   - sharedSwatches
   - documentState
+  - patchInfo
 properties:
   _class: { const: document }
   do_objectID: { $ref: ./utils/uuid.schema.yaml }
@@ -33,3 +34,4 @@ properties:
     type: array
     items: { $ref: ./objects/font-ref.schema.yaml }
   documentState: { $ref: ./objects/document-state.schema.yaml }
+  patchInfo: { $ref: ./objects/patch-info.schema.yaml }

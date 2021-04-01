@@ -1,0 +1,17 @@
+title: Patch Info
+description:
+  Defines ephemeral patch information related to the Cloud collaborative editing
+  feature. This information will only be found behind-the-scenes in Cloud
+  documents and won't be relevant or visible to users parsing or generating
+  their own Sketch documents.
+type: object
+properties:
+  _class: { const: MSImmutablePatchInfo }
+  baseVersionID: { $ref: ../utils/uuid.schema.yaml }
+  lastIntegratedPatchID: { $ref: ../utils/uuid.schema.yaml }
+  localPatches:
+    type: array
+    items: { $ref: ./file-ref.schema.yaml }
+  receivedPatches:
+    type: array
+    items: { $ref: ./file-ref.schema.yaml }

@@ -9,6 +9,6 @@
   "yaml.schemas": {
     "http://json-schema.org/draft-07/schema": "*.schema.yaml"
   },
-  "yaml.completion": true,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "prettier.enable": true
 }
