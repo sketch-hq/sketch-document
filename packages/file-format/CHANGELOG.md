@@ -1,5 +1,12 @@
 # @sketch-hq/sketch-file-format
 
+## 5.2.3
+
+### Patch Changes
+
+- 34bb488: Add schemas for coedit patch info.
+- 0ec06d1: Migration to monorepo
+
 ## 3.7.3
 
 ### Patch Changes
