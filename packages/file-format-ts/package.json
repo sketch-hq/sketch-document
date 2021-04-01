@@ -30,7 +30,6 @@
     "generate": "ts-node ./scripts/generate.ts",
     "build": "rm -rf dist && yarn generate && tsc --project tsconfig.json && tsc --project tsconfig.esm.json",
     "test": "jest",
-    "release": "yarn build && changeset publish",
     "format-check": "prettier --check {**/,}*.{ts,md,json} --ignore-path ../../.prettierignore"
   }
 }
