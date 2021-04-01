@@ -1,14 +1,8 @@
 {
-  "include": ["src/*.ts"],
-  "compilerOptions": {
-    "module": "ESNext",
-    "target": "ES2020",
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "strict": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "moduleResolution": "Node"
-  }
+  "files": [],
+  "include": [],
+  "references": [
+    { "path": "./packages/file-format" },
+    { "path": "./packages/file-format-ts" }
+  ]
 }
