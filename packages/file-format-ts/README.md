@@ -1,24 +1,12 @@
 # Sketch File Format TS
 
-> TypeScript types for the Sketch File Format
+Contains TypeScript types automatically generated from the
+[Sketch File Format](../file-format) JSON Schemas.
 
 ## Overview
 
-This repo contains TypeScript types automatically generated from the
-[Sketch File Format](https://github.com/sketch-hq/sketch-file-format) JSON
-Schemas.
-
 Types are maintained and exported for each Sketch File Format major version. See
 usage instructions below for more information.
-
-## Use cases
-
-- Strongly type objects representing Sketch documents, or fragments of Sketch
-  documents in TypeScript projects
-
-## Related projects
-
-- [sketch-file-format](https://github.com/sketch-hq/sketch-file-format)
 
 ## Usage
 
@@ -100,8 +88,8 @@ const processDocumentContents = (
 
 ## Development
 
-This section of the readme is related to developing the file format spec. If you
-just want to consume the schemas you can safely ignore this.
+Following is further information for making changes to how the types are
+generated.
 
 ### Approach
 
@@ -113,6 +101,9 @@ We depend on multiple major versions of the schemas in package.json using
 and generate types for each one. This means that users that have to implement
 multiple versions of the file format don't need to manually manage multiple
 versions of this package.
+
+Please note that the latest version of the schemas is referenced directly within
+the monorepo and **not** using aliases.
 
 ### Scripts
 
@@ -148,8 +139,3 @@ convention when writing commit messages.
    `index.ts` to export the types, and `scripts/generate.ts` to generate the new
    types
 1. Open a PR to `main`
-
-#### Release
-
-1. Merge the release PR maintained by the changesets
-   [GitHub Action](https://github.com/changesets/action).
