@@ -1,7 +1,7 @@
 {
   "name": "@sketch-hq/sketch-file-format-ts",
   "description": "TypeScript types for the Sketch File Format",
-  "version": "5.2.2",
+  "version": "5.2.3",
   "main": "dist/cjs/index",
   "types": "dist/cjs/index",
   "module": "dist/esm/index",
@@ -21,7 +21,7 @@
   "dependencies": {
     "@sketch-hq/sketch-file-format-1": "npm:@sketch-hq/sketch-file-format@1.1.7",
     "@sketch-hq/sketch-file-format-2": "npm:@sketch-hq/sketch-file-format@2.0.3",
-    "@sketch-hq/sketch-file-format": "3.7.3"
+    "@sketch-hq/sketch-file-format": "5.2.3"
   },
   "devDependencies": {
     "@types/humps": "2.0.0",
