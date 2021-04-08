@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format-ts
 
+## 5.2.4
+
+### Patch Changes
+
+- 6ba4724: Re-include type declarations
+
 ## 5.2.3
 
 ### Patch Changes
