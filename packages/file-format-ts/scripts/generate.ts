@@ -1,7 +1,7 @@
 import * as ts from 'typescript'
 import { writeFileSync } from 'fs'
 import { execSync } from 'child_process'
-import sketchSchemas from '@sketch-hq/sketch-file-format'
+import sketchSchemas, { Schemas } from '@sketch-hq/sketch-file-format'
 import { JSONSchema7 } from 'json-schema'
 import {
   schemaToTopLevelDeclaration,
@@ -14,7 +14,7 @@ type SchemaMap = {
   [key: string]: JSONSchema7
 }
 
-const generate = (schemas: any) => {
+const generate = (schemas: Schemas) => {
   const outFile = 'types.ts'
   const definitions: SchemaMap = {
     ...((schemas.document.definitions as SchemaMap) || {}),

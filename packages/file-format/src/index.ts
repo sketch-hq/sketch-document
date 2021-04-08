@@ -10,7 +10,7 @@ import metaSchema from './meta.schema.json'
 import pageSchema from './page.schema.json'
 import userSchema from './user.schema.json'
 
-type Schemas = {
+export type Schemas = {
   version: number // Latest supported Sketch document version
   versions: number[] // All supported versions
   document: JSONSchema7
