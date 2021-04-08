@@ -3,6 +3,8 @@
   "include": ["src/*.ts"],
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
-    "module": "ESNext"
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   }
 }
