@@ -4,6 +4,7 @@
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "outDir": "dist/esm",
-    "module": "ESNext"
+    "module": "ESNext",
+    "declaration": true
   }
 }
