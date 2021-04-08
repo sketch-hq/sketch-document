@@ -22,12 +22,6 @@ Types for the latest file format are on the default export
 import FileFormat from '@sketch-hq/sketch-file-format-ts'
 ```
 
-Types for historical file formats are accessible via named exports
-
-```typescript
-import { FileFormat1, FileFormat2 } from '@sketch-hq/sketch-file-format-ts'
-```
-
 > Read about how file format versions map to Sketch document versions
 > [here](https://github.com/sketch-hq/sketch-file-format)
 
@@ -64,25 +58,6 @@ const mapLayers = (layers: FileFormat.AnyLayer[]) => {
       // type narrowed to Star layers
     }
   })
-}
-```
-
-Work with representations of Sketch files that could have a range of document
-versions
-
-```typescript
-import {
-  FileFormat1,
-  FileFormat2,
-  FileFormat3,
-} from '@sketch-hq/sketch-file-format-ts'
-
-const processDocumentContents = (
-  contents: FileFormat1.Contents | FileFormat2.Contents | FileFormat3.Contents,
-) => {
-  if (contents.meta.version === 119) {
-    // type narrowed to file format v1, i.e. Sketch documents with version 119
-  }
 }
 ```
 

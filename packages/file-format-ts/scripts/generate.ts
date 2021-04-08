@@ -1,11 +1,7 @@
 import * as ts from 'typescript'
 import { writeFileSync } from 'fs'
 import { execSync } from 'child_process'
-// @ts-ignore
-import schemasv1 from '@sketch-hq/sketch-file-format-1'
-// @ts-ignore
-import schemasv2 from '@sketch-hq/sketch-file-format-2'
-import schemasv3 from '@sketch-hq/sketch-file-format'
+import sketchSchemas, { Schemas } from '@sketch-hq/sketch-file-format'
 import { JSONSchema7 } from 'json-schema'
 import {
   schemaToTopLevelDeclaration,
@@ -18,8 +14,8 @@ type SchemaMap = {
   [key: string]: JSONSchema7
 }
 
-const generate = (version: string, schemas: any) => {
-  const outFile = `${version}-types.ts`
+const generate = (schemas: Schemas) => {
+  const outFile = 'types.ts'
   const definitions: SchemaMap = {
     ...((schemas.document.definitions as SchemaMap) || {}),
     ...((schemas.fileFormat.definitions as SchemaMap) || {}),
@@ -153,6 +149,4 @@ const generate = (version: string, schemas: any) => {
   execSync(`yarn prettier --write ${outFile}`)
 }
 
-generate('v1', schemasv1)
-generate('v2', schemasv2)
-generate('v3', schemasv3)
+generate(sketchSchemas)
