@@ -14,8 +14,7 @@ type SchemaMap = {
   [key: string]: JSONSchema7
 }
 
-const generate = (schemas: Schemas) => {
-  const outFile = 'types.ts'
+const generate = (schemas: Schemas, outFile: string) => {
   const definitions: SchemaMap = {
     ...((schemas.document.definitions as SchemaMap) || {}),
     ...((schemas.fileFormat.definitions as SchemaMap) || {}),
@@ -149,4 +148,4 @@ const generate = (schemas: Schemas) => {
   execSync(`yarn prettier --write ${outFile}`)
 }
 
-generate(sketchSchemas)
+generate(sketchSchemas, './src/types.ts')
