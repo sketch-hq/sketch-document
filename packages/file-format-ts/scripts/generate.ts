@@ -1,4 +1,5 @@
 import * as ts from 'typescript'
+import process from 'process'
 import { writeFileSync } from 'fs'
 import { execSync } from 'child_process'
 import sketchSchemas, { Schemas } from '@sketch-hq/sketch-file-format'
@@ -14,7 +15,7 @@ type SchemaMap = {
   [key: string]: JSONSchema7
 }
 
-const generate = (schemas: Schemas, outFile: string) => {
+const generate = (path: string, schemas: Schemas) => {
   const definitions: SchemaMap = {
     ...((schemas.document.definitions as SchemaMap) || {}),
     ...((schemas.fileFormat.definitions as SchemaMap) || {}),
@@ -129,14 +130,14 @@ const generate = (schemas: Schemas, outFile: string) => {
   ).map((key) => schemaToTopLevelDeclaration(allDefinitions[key]))
 
   writeFileSync(
-    outFile,
+    path,
     ts
       .createPrinter()
       .printList(
         ts.ListFormat.MultiLine,
         ts.factory.createNodeArray(types),
         ts.createSourceFile(
-          outFile,
+          path,
           '',
           ts.ScriptTarget.Latest,
           false,
@@ -145,7 +146,14 @@ const generate = (schemas: Schemas, outFile: string) => {
       ),
   )
 
-  execSync(`yarn prettier --write ${outFile}`)
+  execSync(`yarn prettier --write ${path}`)
 }
 
-generate(sketchSchemas, './src/types.ts')
+/// The path to the generated file must be provided as a command-line argument
+if (process.argv.length < 3) {
+  console.error('missing output file path')
+  process.exit(1)
+}
+
+const outputPath = process.argv[2]
+generate(outputPath, sketchSchemas)
