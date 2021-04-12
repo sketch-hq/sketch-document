@@ -155,5 +155,5 @@ if (process.argv.length < 3) {
   process.exit(1)
 }
 
-const outputPath = process.argv[2]
-generate(outputPath, sketchSchemas)
+const outPath = process.argv[2]
+generate(outPath, sketchSchemas)
