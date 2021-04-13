@@ -1,5 +1,21 @@
 # @sketch-hq/sketch-file-format-ts
 
+## 6.0.0
+
+### Major Changes
+
+- 4704c97: Drop types for older schema versions. This is a breaking change.
+  Instead of `FileFormat1`, `FileFormat2` and `FileFormat3` in addition to the
+  latest file format version as `default`, types are now only exported as
+  `default` for the latest schemas.
+
+  To import specific versions of the file format, use specific versions of
+  `@sketch-hq/sketch-file-format-ts` instead.
+
+### Patch Changes
+
+- fa8a43b: Reorganise source code
+
 ## 5.2.4
 
 ### Patch Changes
