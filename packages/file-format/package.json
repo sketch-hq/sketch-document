@@ -37,12 +37,11 @@
   },
   "scripts": {
     "build": "yarn build:schemas && yarn build:pkg",
-    "build:schemas": "tsc --project tsconfig.schemas.json && yarn n src/build-schemas.js",
+    "build:schemas": "ts-node ./scripts/build-schemas.ts",
     "build:pkg": "rm -rf dist && mkdir -p dist && tsc --project tsconfig.pkg.json",
-    "validate-schemas": "tsc && yarn n src/validate-schemas.js",
-    "validate-reference-files": "yarn build:schemas && tsc && yarn n src/validate-reference-files.js",
-    "validate-file": "yarn build:schemas && tsc && yarn n src/validate-file.js",
-    "n": "node --experimental-json-modules --es-module-specifier-resolution=node",
+    "validate-schemas": "ts-node ./scripts/validate-schemas.ts",
+    "validate-reference-files": "yarn build:schemas && ts-node ./scripts/validate-reference-files.ts",
+    "validate-file": "yarn build:schemas && ts-node ./scripts/validate-file.ts",
     "test": "echo \"No test specified\"",
     "format-check": "prettier --check {schema/{**/,}*.yaml,*.md,src/*.ts} --ignore-path ../../.prettierignore"
   }
