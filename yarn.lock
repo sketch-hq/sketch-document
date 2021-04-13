@@ -735,16 +735,6 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@sketch-hq/sketch-file-format-1@npm:@sketch-hq/sketch-file-format@1.1.7":
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-file-format/-/sketch-file-format-1.1.7.tgz#7de3cdfda10c97d21bbe261e0544ca581d27366e"
-  integrity sha512-tEQxuWgXIFn2fNgAiGDszrEGF/sR16O2kOjkB49PJcI7NWq+rwghr6Fx6nSL8dPNXOpYeSQOHGqTvGlVuo9YEA==
-
-"@sketch-hq/sketch-file-format-2@npm:@sketch-hq/sketch-file-format@2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-file-format/-/sketch-file-format-2.0.3.tgz#ed3077b6e146c947b4fe144ef0cacfc67b7e507e"
-  integrity sha512-l/sLUhHayJEair70vQEGBAldpR3K8Xb+WqZGlrVtJT3aZVGGnEAT8i8n8qNMECWBdEojTxC3gKqgiJu9U98nDw==
-
 "@sketch-hq/sketch-reference-files@2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-reference-files/-/sketch-reference-files-2.3.0.tgz#2e8e186ae2b69d3db483f14bd3393d0f8a952b70"
