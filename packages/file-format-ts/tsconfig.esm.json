@@ -1,7 +1,6 @@
 {
   "extends": "@tsconfig/recommended/tsconfig.json",
-  "include": ["index.ts"],
-  "exclude": ["node_modules", "dist"],
+  "include": ["src/index.ts"],
   "compilerOptions": {
     "outDir": "dist/esm",
     "module": "ESNext",
