@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 6.0.1
+
+### Patch Changes
+
+- c7c1df1: Reorganised source code and simplified build process
+
 ## 5.2.3
 
 ### Patch Changes
