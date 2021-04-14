@@ -36,9 +36,9 @@
     "node-stream-zip": "1.13.2"
   },
   "scripts": {
-    "build": "yarn build:schemas && yarn build:pkg",
+    "build": "yarn build:schemas ./schema ./src && yarn build:pkg",
     "build:schemas": "ts-node ./scripts/build-schemas.ts",
-    "build:pkg": "rm -rf dist && mkdir -p dist && tsc --project tsconfig.pkg.json",
+    "build:pkg": "rm -rf dist && mkdir -p dist && tsc",
     "validate-schemas": "ts-node ./scripts/validate-schemas.ts",
     "validate-reference-files": "yarn build:schemas && ts-node ./scripts/validate-reference-files.ts",
     "validate-file": "yarn build:schemas && ts-node ./scripts/validate-file.ts",

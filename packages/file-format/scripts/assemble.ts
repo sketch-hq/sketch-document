@@ -13,14 +13,16 @@
  *   - Prune any un-used definitions
  */
 
+/// <reference types="./global" />
+
 import yaml from 'js-yaml'
 import fs from 'fs'
 import globby from 'globby'
-import changeCase from 'change-case'
+import { pascalCase } from 'change-case'
 import { basename } from 'path'
 import deepdash from 'deepdash'
 import _ from 'lodash'
-import jsont from 'json-transforms'
+import * as jsont from 'json-transforms'
 import mergeAllOf from 'json-schema-merge-allof'
 import { JSONSchema7 } from 'json-schema'
 
@@ -32,8 +34,7 @@ deepdash(_)
  *   Input:  ./schemas/foo-bar.schema.yaml
  *   Output: FooBar
  */
-const pathToId = (path: string) =>
-  changeCase.pascalCase(basename(path, '.schema.yaml'))
+const pathToId = (path: string) => pascalCase(basename(path, '.schema.yaml'))
 
 /**
  * Returns a Promise that resolves with the POJO representation of

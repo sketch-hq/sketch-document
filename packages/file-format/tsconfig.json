@@ -2,8 +2,11 @@
   "extends": "@tsconfig/recommended/tsconfig.json",
   "include": ["src/index.ts"],
   "compilerOptions": {
-    "module": "ESNext",
+    "outDir": "dist",
+    "baseUrl": "src",
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true
   }
 }
