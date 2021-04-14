@@ -28,6 +28,6 @@
     "generate": "ts-node ./scripts/generate.ts ./src/types.ts",
     "build": "rm -rf dist && yarn generate && tsc --project tsconfig.json && tsc --project tsconfig.esm.json",
     "test": "jest",
-    "format-check": "prettier --check {**/,}*.{ts,md,json} --ignore-path ../../.prettierignore"
+    "format-check": "prettier --check **.{ts,md,json} --ignore-path ../../.prettierignore"
   }
 }
