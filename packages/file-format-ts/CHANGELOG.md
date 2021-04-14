@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format-ts
 
+## 6.0.1
+
+### Patch Changes
+
+- 7ba2909: Updated dependencies
+
 ## 6.0.0
 
 ### Major Changes
