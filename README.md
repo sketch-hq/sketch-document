@@ -35,7 +35,11 @@ documents in TypeScript projects.
 ### Release
 
 1. Following changes, run `yarn changeset` on the feature branch to document
-   changes. On merge, changesets will produce a PR with all changes since the
-   last release.
-1. Merge the release PR maintained by the changesets
-   [GitHub Action](https://github.com/changesets/action).
+   changes.
+1. If changes have been made to the `@sketch-hq/sketch-file-format` make sure to
+   include `@sketch-hq/sketch-file-format-ts` in the changeset.
+1. On merge, changesets will produce a release pull-request named _Version
+   Packages_ with all changes since the last release.
+1. Merge the release pull-request maintained by the changesets
+   [GitHub Action](https://github.com/changesets/action) to publish new releases
+   to NPM.
