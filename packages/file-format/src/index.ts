@@ -1,9 +1,11 @@
 /**
- * This file is the entry point to the published npm module.
+ * This file is the entry point to {@link @sketch-hq/sketch-file-format}.
  */
 
 import { JSONSchema7 } from 'json-schema'
 
+/// All *.schema.json are generated from the schema YAML source by
+/// the `build:schemas` script defined in package.json.
 import fileFormatSchema from './file-format.schema.json'
 import docSchema from './document.schema.json'
 import metaSchema from './meta.schema.json'
