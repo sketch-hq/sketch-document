@@ -13,6 +13,8 @@ properties:
       - expandedTextStylePathsInPopover
       - libraryListCollapsed
     properties:
+      componentSidebarTreeStructure:
+        { $ref: ./enums/component-sidebar-tree-structure.yaml }
       pageListHeight: { type: integer }
       pageListCollapsed: { $ref: ../utils/numerical-bool.schema.yaml }
       expandedSymbolPathsInSidebar: { type: array }

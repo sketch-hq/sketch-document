@@ -1,0 +1,9 @@
+title: Component Sidebar Tree Structure
+description: Enumeration of the tree models components can use.
+type: integer
+enum:
+  - 0
+  - 1
+enumDescriptions:
+  - Nested tree
+  - Flat list
