@@ -20,7 +20,3 @@ allOf:
         oneOf:
           - { $ref: ../objects/freeform-group-layout.schema.yaml }
           - { $ref: ../objects/inferred-group-layout.schema.yaml }
-      includeInCloudUpload:
-        type: boolean
-        description: Deprecated, no longer used by Sketch Cloud
-        default: true
