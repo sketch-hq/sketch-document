@@ -3,43 +3,12 @@ import { ErrorObject } from 'ajv'
 import util from 'util'
 
 import { getAjvInstance } from './utils'
-import schema from './file-format.schema.json'
-
-// TODO: This `fromFile` (and presumably a `toFile`) function should be
-// published publically in the future
-const fromFile = async (filepath: string): Promise<any> => {
-  const archive = new StreamZip({
-    file: filepath,
-    storeEntries: true,
-  })
-
-  const contents = await new Promise((resolve): void => {
-    archive.on('ready', (): void => {
-      const document = JSON.parse(
-        archive.entryDataSync('document.json').toString(),
-      )
-      const pages = document.pages.map((page: { _ref: string }): void =>
-        JSON.parse(archive.entryDataSync(`${page._ref}.json`).toString()),
-      )
-      resolve({
-        document: {
-          ...document,
-          pages,
-        },
-        meta: JSON.parse(archive.entryDataSync('meta.json').toString()),
-        user: JSON.parse(archive.entryDataSync('user.json').toString()),
-      })
-    })
-  })
-
-  archive.close()
-
-  return contents
-}
+import schema from '../src/file-format.schema.json'
+import { fromFile, SketchFile } from '../../file'
 
 const main = async () => {
   const filepath = process.argv[2]
-  const file = await fromFile(filepath)
+  const file: SketchFile = await fromFile(filepath)
   const ajv = getAjvInstance()
   ajv.validate(schema, file)
   if (ajv.errors) {
