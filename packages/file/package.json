@@ -16,7 +16,7 @@
   "scripts": {
     "clean": "rm -Rf dist",
     "build": "yarn clean && tsc --project tsconfig.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\""
   },
   "devDependencies": {
     "@sketch-hq/sketch-file-format-ts": "6.0.1",
