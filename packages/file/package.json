@@ -16,7 +16,8 @@
   "scripts": {
     "clean": "rm -Rf dist",
     "build": "yarn clean && tsc --project tsconfig.json",
-    "test": "echo \"Error: no test specified\""
+    "test": "echo \"Error: no test specified\"",
+    "format-check": "prettier --check **.{ts,md} --ignore-path ../../.prettierignore"
   },
   "devDependencies": {
     "@sketch-hq/sketch-file-format-ts": "6.0.1",
