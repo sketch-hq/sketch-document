@@ -1,5 +1,5 @@
 ---
-"@sketch-hq/sketch-file": patch
+"@sketch-hq/sketch-file": major
 ---
 
 Add sketch-file package
