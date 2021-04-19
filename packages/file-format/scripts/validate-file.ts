@@ -4,7 +4,7 @@ import util from 'util'
 
 import { getAjvInstance } from './utils'
 import schema from '../src/file-format.schema.json'
-import { fromFile, SketchFile } from '../../file'
+import { fromFile, SketchFile } from '@sketch-hq/sketch-file'
 
 const main = async () => {
   const filepath = process.argv[2]
