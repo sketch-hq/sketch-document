@@ -8,7 +8,7 @@ Read and write Sketch documents from TypeScript.
 
 Read a Sketch Library file containing Color Variables, and dump them to JSON:
 
-```js
+```ts
 import { fromFile } from '../index'
 import { resolve } from 'path'
 
@@ -18,14 +18,14 @@ fromFile(resolve(__dirname, sketchDocumentPath)).then((parsedFile) => {
   const doc = parsedFile.contents.document
   if (doc.sharedSwatches) {
     type ColorToken = {
-        name: string
-        value: {
-          r: number
-          g: number
-          b: number
-          a: number
-        }
+      name: string
+      value: {
+        r: number
+        g: number
+        b: number
+        a: number
       }
+    }
     var colors: Array<ColorToken> = []
     doc.sharedSwatches.objects.forEach((color) => {
       colors.push({
