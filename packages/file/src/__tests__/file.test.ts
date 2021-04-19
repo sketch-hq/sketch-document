@@ -1,5 +1,4 @@
-import fromFile from '@sketch-hq/sketch-file'
-import type { SketchFile } from '@sketch-hq/sketch-file'
+import { fromFile, toFile, SketchFile } from '../file'
 import { resolve } from 'path'
 
 describe('fromFile', () => {
