@@ -4,7 +4,7 @@
 
 import path from 'path'
 import StreamZip from 'node-stream-zip'
-import FileFormat from '../../file-format-ts'
+import FileFormat from '@sketch-hq/sketch-file-format-ts'
 import Zip from 'adm-zip'
 
 /**
@@ -110,25 +110,6 @@ const toFile = async (
     })
   })
 }
-
-/**
- * Filter pages out of a SketchFile object based on page ids.
- */
-const filterPages = (
-  file: SketchFile,
-  excludedPageIds: string[],
-): SketchFile => ({
-  ...file,
-  contents: {
-    ...file.contents,
-    document: {
-      ...file.contents.document,
-      pages: file.contents.document.pages.filter(
-        (page: FileFormat.Page) => !excludedPageIds.includes(page.do_objectID),
-      ),
-    },
-  },
-})
 
 /**
  * Represents a Sketch file that is on disk. Collates the filepath with an object typed as Contents

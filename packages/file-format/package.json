@@ -20,7 +20,7 @@
     "@types/json-schema": "7.0.7"
   },
   "devDependencies": {
-    "@sketch-hq/sketch-file-format": "6.0.1",
+    "@sketch-hq/sketch-file": "1.0.0",
     "@sketch-hq/sketch-reference-files": "2.3.0",
     "@types/js-yaml": "4.0.0",
     "@types/json-schema-merge-allof": "0.6.0",
