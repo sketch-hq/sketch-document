@@ -2,6 +2,8 @@
  * This file is the entry point to {@link @sketch-hq/sketch-file}.
  */
 
-import * as File from './file'
+import { fromFile, toFile } from './file'
+import type { SketchFile } from './file'
 
-export default File
+export default { fromFile, toFile }
+export type { SketchFile }
