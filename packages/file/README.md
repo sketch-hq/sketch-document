@@ -9,7 +9,7 @@ Read and write Sketch documents from TypeScript.
 Read a Sketch Library file containing Color Variables, and dump them to JSON:
 
 ```ts
-import { fromFile } from '../index'
+import { fromFile } from '@sketch-hq/sketch-file'
 import { resolve } from 'path'
 
 const sketchDocumentPath = './sketch-color-library.sketch'
