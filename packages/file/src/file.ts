@@ -23,6 +23,7 @@ const fromFile = async (filepath: string): Promise<SketchFile> => {
       )
       const workspace = Object.keys(archive.entries())
         .filter((key) => key.startsWith('workspace/'))
+        .filter((key) => key.endsWith('.json'))
         .reduce((acc, key) => {
           return {
             ...acc,
