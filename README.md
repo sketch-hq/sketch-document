@@ -12,6 +12,12 @@ documents in TypeScript projects.
 - [JSON Schema](./packages/file-format)
 - [TypeScript types](./packages/file-format-ts)
 
+Additionaly, it contains a package with tools to read, parse and write Sketch
+documents from TypeScript. This package is platform agnostic and does not
+require the Sketch application:
+
+- [Sketch File](./packages/file)
+
 ## Development
 
 ### Pre-release
