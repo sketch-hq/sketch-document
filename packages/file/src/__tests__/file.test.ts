@@ -3,6 +3,16 @@ import { resolve } from 'path'
 import FileFormat from '@sketch-hq/sketch-file-format-ts'
 import * as fs from 'fs'
 
+const FILE_WITH_ASSISTANTS = resolve(__dirname, './with-assistants.sketch')
+const FILE_WITH_WORKSPACE_DATA = resolve(
+  __dirname,
+  './with-workspace-data.sketch',
+)
+const FILE_WITH_COLOR_VARIABLES = resolve(
+  __dirname,
+  './with-color-variables.sketch',
+)
+
 describe('toFile', () => {
   const OUTPUT = resolve(__dirname, './generated-file.sketch')
   const blankPage: FileFormat.Page = {
@@ -142,32 +152,44 @@ describe('toFile', () => {
 describe('fromFile', () => {
   var file: SketchFile
   beforeEach(async () => {
-    file = await fromFile(resolve(__dirname, './sketch-sample-file.sketch'))
+    file = await fromFile(FILE_WITH_COLOR_VARIABLES)
   })
+
   test('parses document entry', async (): Promise<void> => {
     expect(file.contents.document._class).toMatchInlineSnapshot(`"document"`)
   })
-  test('parses Color Variables correctly', async (): Promise<void> => {
-    expect(file.contents.document.sharedSwatches?.objects.length).toBe(3)
-  })
+
   test('parses document pages as array of page objects', async (): Promise<void> => {
     expect(file.contents.document.pages[0]._class).toMatchInlineSnapshot(
       `"page"`,
     )
     expect(file.contents.document.pages.length).toBe(2)
   })
+
   test('parses meta entry', async (): Promise<void> => {
     expect(file.contents.meta.version).toMatchInlineSnapshot(`136`)
   })
+
   test('parses user entry', async (): Promise<void> => {
     expect(file.contents.user.document.pageListHeight).toMatchInlineSnapshot(
       `87.5`,
     )
   })
+
+  test('parses Color Variables correctly', async (): Promise<void> => {
+    expect(file.contents.document.sharedSwatches?.objects.length).toBe(3)
+  })
+
+  test('parses Assistants data', async () => {
+    var file = await fromFile(FILE_WITH_ASSISTANTS)
+    console.log(file.contents.workspace.assistants)
+    expect(
+      Object.keys(file.contents.workspace.assistants.dependencies).length,
+    ).toBe(2)
+  })
+
   test('parses random data in the workspace folder', async () => {
-    var file = await fromFile(
-      resolve(__dirname, './sketch-file-with-random-workspace-data.sketch'),
-    )
+    var file = await fromFile(FILE_WITH_WORKSPACE_DATA)
     expect(Object.keys(file.contents.workspace).length).toBe(3)
     expect(file.contents.workspace.fruit.fruit).toBe('Apple')
     expect(file.contents.workspace.quiz.quiz.maths.q2.options[0]).toBe('1')
