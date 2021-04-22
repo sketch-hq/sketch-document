@@ -51,19 +51,15 @@ const fromFile = async (filepath: string): Promise<SketchFile> => {
 }
 
 /**
- * Given a FileFormat.Contents object and a path, this function saves a valid Sketch
- * document to the path.
+ * Given a SketchFile object, this function saves a valid Sketch document.
  */
-const toFile = async (
-  contents: FileFormat.Contents,
-  filepath: string,
-): Promise<void> => {
+const toFile = async (obj: SketchFile): Promise<void> => {
   await new Promise((resolve, reject): void => {
     const sketch = new Zip()
 
     // Write pages first and use the resulting paths for the file
     // references that are stored within the main document.json.
-    const refs = contents.document.pages.map(
+    const refs = obj.contents.document.pages.map(
       (page): FileFormat.FileRef => {
         const p = JSON.stringify(page)
         sketch.addFile(
@@ -80,14 +76,14 @@ const toFile = async (
       },
     )
 
-    // Write root level JSON data for document, user and meta data.
     const data = {
       document: JSON.stringify(<FileFormat.Document>{
-        ...contents.document,
+        ...obj.contents.document,
         pages: refs,
       }),
-      user: JSON.stringify(contents.user),
-      meta: JSON.stringify(contents.meta),
+      user: JSON.stringify(obj.contents.user),
+      meta: JSON.stringify(obj.contents.meta),
+      workspace: JSON.stringify(obj.contents.workspace),
     }
 
     Object.entries(data).map(([key, val]) => {
@@ -98,7 +94,7 @@ const toFile = async (
       )
     })
 
-    sketch.writeZip(filepath, (err) => {
+    sketch.writeZip(obj.filepath, (err) => {
       if (err) {
         reject(err)
         return

@@ -1,5 +1,144 @@
 import { fromFile, toFile, SketchFile } from '../file'
 import { resolve } from 'path'
+import FileFormat from '@sketch-hq/sketch-file-format-ts'
+import * as fs from 'fs'
+
+describe('toFile', () => {
+  const OUTPUT = resolve(__dirname, './generated-file.sketch')
+  const blankPage: FileFormat.Page = {
+    _class: 'page',
+    do_objectID: '628bbfa8-404c-48d5-95b0-3316c1e39fb0',
+    name: 'Blank Page',
+    booleanOperation: -1,
+    isFixedToViewport: false,
+    isFlippedHorizontal: false,
+    isFlippedVertical: false,
+    isLocked: false,
+    isVisible: true,
+    layerListExpandedType: 0,
+    nameIsFixed: false,
+    resizingConstraint: 63,
+    resizingType: FileFormat.ResizeType.Stretch,
+    rotation: 0,
+    shouldBreakMaskChain: false,
+    exportOptions: {
+      _class: 'exportOptions',
+      includedLayerIds: [],
+      layerOptions: 0,
+      shouldTrim: false,
+      exportFormats: [],
+    },
+    frame: {
+      _class: 'rect',
+      constrainProportions: true,
+      height: 0,
+      width: 0,
+      x: 0,
+      y: 0,
+    },
+    clippingMaskMode: 0,
+    hasClippingMask: false,
+    hasClickThrough: true,
+    groupLayout: { _class: 'MSImmutableFreeformGroupLayout' },
+    layers: [],
+    horizontalRulerData: { _class: 'rulerData', base: 0, guides: [] },
+    verticalRulerData: { _class: 'rulerData', base: 0, guides: [] },
+  }
+
+  const contents: FileFormat.Contents = {
+    document: {
+      _class: 'document',
+      assets: {
+        _class: 'assetCollection',
+        colorAssets: [],
+        colors: [],
+        do_objectID: '0377C8BC-E3EC-40BF-A3D9-65812526D041',
+        exportPresets: [],
+        gradientAssets: [],
+        gradients: [],
+        images: [],
+      },
+      colorSpace: FileFormat.ColorSpace.SRGB,
+      currentPageIndex: 0,
+      do_objectID: 'd1ffdd39-4d43-41f7-9cab-b68c82c91c4e',
+      foreignLayerStyles: [],
+      foreignSymbols: [],
+      foreignTextStyles: [],
+      layerStyles: {
+        _class: 'sharedStyleContainer',
+        objects: [],
+        do_objectID: '88d3ce1e-b7af-4133-af56-088a193db726',
+      },
+      layerTextStyles: {
+        _class: 'sharedTextStyleContainer',
+        objects: [],
+        do_objectID: 'b08e8447-b31d-4901-abb7-8284e1f71113',
+      },
+      pages: [blankPage],
+    },
+    meta: {
+      app: FileFormat.BundleId.Testing,
+      appVersion: '72',
+      commit: '6896e2bfdb0a2a03f745e4054a8c5fc58565f9f1',
+      pagesAndArtboards: {},
+      version: 136,
+      autosaved: 0,
+      build: 0,
+      compatibilityVersion: 99,
+      fonts: [''],
+      variant: 'TESTING',
+      created: {
+        commit: '6896e2bfdb0a2a03f745e4054a8c5fc58565f9f1',
+        appVersion: '72',
+        build: 0,
+        app: FileFormat.BundleId.Testing,
+        compatibilityVersion: 99,
+        variant: 'TESTING',
+        version: 136,
+      },
+      saveHistory: [''],
+    },
+    user: {
+      document: {
+        pageListCollapsed: 0,
+        pageListHeight: 100,
+        expandedSymbolPathsInSidebar: [],
+        expandedTextStylePathsInPopover: [],
+      },
+    },
+    workspace: {
+      one: 'string',
+      two: [1, 2, 3],
+      three: {
+        a: true,
+        b: ['foo', 'bar', 'baz'],
+      },
+    },
+  }
+
+  let file: SketchFile = {
+    filepath: OUTPUT,
+    contents: contents,
+  }
+  test('saves a file correctly', () => {
+    toFile(file).then(() => {
+      //console.log('File saved succesfully')
+      expect(fs.existsSync(OUTPUT)).toBeTruthy()
+    })
+  })
+  test('reads workspace from previously generated file', async () => {
+    var file = await fromFile(OUTPUT)
+    console.log(file.contents.user)
+    console.log(file.contents.document)
+    console.log(file.contents.workspace)
+    expect(Object.keys(file.contents.workspace).length).toBe(3)
+  })
+  afterAll(() => {
+    fs.rmSync(OUTPUT)
+  })
+})
+// TODO: make sure workspaces are stored correctly
+// TODO: what it we use the files generated here as mock data for `fromFile`?
 
 describe('fromFile', () => {
   var file: SketchFile
@@ -26,7 +165,12 @@ describe('fromFile', () => {
       `87.5`,
     )
   })
+  test('parses random data in the workspace folder', async () => {
+    var file = await fromFile(
+      resolve(__dirname, './sketch-file-with-random-workspace-data.sketch'),
+    )
+    expect(Object.keys(file.contents.workspace).length).toBe(3)
+    expect(file.contents.workspace.fruit.fruit).toBe('Apple')
+    expect(file.contents.workspace.quiz.quiz.maths.q2.options[0]).toBe('1')
+  })
 })
-/**
-TODO: toFile tests
- */
