@@ -120,25 +120,24 @@ describe('toFile', () => {
     filepath: OUTPUT,
     contents: contents,
   }
-  test('saves a file correctly', () => {
+
+  test('saves a file successfully', () => {
     toFile(file).then(() => {
-      //console.log('File saved succesfully')
       expect(fs.existsSync(OUTPUT)).toBeTruthy()
     })
   })
+
   test('reads workspace from previously generated file', async () => {
     var file = await fromFile(OUTPUT)
-    console.log(file.contents.user)
-    console.log(file.contents.document)
-    console.log(file.contents.workspace)
     expect(Object.keys(file.contents.workspace).length).toBe(3)
+    expect(file.contents.workspace.one).toBe('string')
+    expect(file.contents.workspace.two[1]).toBe(2)
+    expect(file.contents.workspace.three.a).toBeTruthy()
   })
   afterAll(() => {
     fs.rmSync(OUTPUT)
   })
 })
-// TODO: make sure workspaces are stored correctly
-// TODO: what it we use the files generated here as mock data for `fromFile`?
 
 describe('fromFile', () => {
   var file: SketchFile
