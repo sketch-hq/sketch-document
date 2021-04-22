@@ -76,6 +76,16 @@ const toFile = async (obj: SketchFile): Promise<void> => {
       },
     )
 
+    // Store workspace data
+    Object.keys(obj.contents.workspace).map((key) => {
+      const p = JSON.stringify(obj.contents.workspace[key])
+      sketch.addFile(
+        path.join('workspace', `${key}.json`),
+        Buffer.alloc(p.length, p),
+        `workspace data for: ${key}`,
+      )
+    })
+
     const data = {
       document: JSON.stringify(<FileFormat.Document>{
         ...obj.contents.document,
@@ -83,7 +93,6 @@ const toFile = async (obj: SketchFile): Promise<void> => {
       }),
       user: JSON.stringify(obj.contents.user),
       meta: JSON.stringify(obj.contents.meta),
-      workspace: JSON.stringify(obj.contents.workspace),
     }
 
     Object.entries(data).map(([key, val]) => {
@@ -105,8 +114,8 @@ const toFile = async (obj: SketchFile): Promise<void> => {
 }
 
 /**
- * Represents a Sketch file that is on disk. Collates the filepath with an object typed as Contents
- * from the file format.
+ * Represents a Sketch file that is (or will be) on disk. Collates the
+ * filepath with an object typed as Contents from the file format.
  */
 type SketchFile = {
   filepath: string
