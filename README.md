@@ -5,18 +5,15 @@ archive of JSON formatted data and binary data such as images.
 
 ## Sketch file format schemas and APIs.
 
-This projects contains the file format specification and TypeScript types to
-strongly type objects representing Sketch documents, or fragments of Sketch
-documents in TypeScript projects.
+This project contains the file format specification and APIs to work with Sketch
+documents and document elements in TypeScript.
 
-- [JSON Schema](./packages/file-format)
-- [TypeScript types](./packages/file-format-ts)
-
-Additionaly, it contains a package with tools to read, parse and write Sketch
-documents from TypeScript. This package is platform agnostic and does not
-require the Sketch application:
-
-- [Sketch File](./packages/file)
+- `@sketch-hq/sketch-file-format`: JSON Schema describing the `.sketch` document
+  format.
+- `@sketch-hq/sketch-file-format-ts`: TypeScript types to strongly type objects
+  representing Sketch documents, or fragments of Sketch documents in TypeScript
+  projects.
+- `@sketch-hq/sketch-file`: TypeScript APIs to read and write `.sketch` files.
 
 ## Development
 
