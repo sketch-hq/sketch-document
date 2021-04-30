@@ -4,8 +4,10 @@ import FileFormat from '@sketch-hq/sketch-file-format-ts'
 import Zip from 'adm-zip'
 
 /**
- * Given a path to a Sketch file on the file system, this function unzips the
- * JSON entries and parses them out into a SketchFile object.
+ * Returns a {@link Promise} that resolves with a fully parsed {@link SketchFile}
+ * object once the file at the given path has been unzipped and read successfully.
+ *
+ * @param filepath -  The file path to the Sketch document
  */
 const fromFile = async (filepath: string): Promise<SketchFile> => {
   const archive = new StreamZip({
