@@ -10,7 +10,7 @@ const main = async () => {
   const filepath = process.argv[2]
   const file: SketchFile = await fromFile(filepath)
   const ajv = getAjvInstance()
-  ajv.validate(schema, file)
+  ajv.validate(schema, file.contents)
   if (ajv.errors) {
     let output = ''
     ajv.errors!.forEach((error: ErrorObject) => {
