@@ -4,10 +4,10 @@ import FileFormat from '@sketch-hq/sketch-file-format-ts'
 import Zip from 'adm-zip'
 
 /**
- * Returns a {@link Promise} that resolves with a fully parsed {@link SketchFile}
- * object once the file at the given path has been unzipped and read successfully.
+ * Reads and parses Sketch documents.
  *
- * @param filepath -  The file path to the Sketch document
+ * @param filepath - The file path to the Sketch document
+ * @returns A {@link Promise} that resolves with a fully parsed {@link SketchFile} object once the file at the given path has been unzipped and read successfully
  */
 const fromFile = async (filepath: string): Promise<SketchFile> => {
   const archive = new StreamZip({
@@ -53,7 +53,10 @@ const fromFile = async (filepath: string): Promise<SketchFile> => {
 }
 
 /**
- * Given a SketchFile object, this function saves a valid Sketch document.
+ * Saves a valid Sketch document.
+ *
+ * @param obj - The {@link SketchFile} object to be saved.
+ * @returns A void Promise
  */
 const toFile = async (obj: SketchFile): Promise<void> => {
   await new Promise((resolve, reject): void => {
