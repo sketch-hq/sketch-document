@@ -29,7 +29,7 @@ type ColorToken = {
 fromFile(resolve(__dirname, sketchDocumentPath)).then((parsedFile) => {
   const doc = parsedFile.contents.document
   if (!doc.sharedSwatches) return
-  
+
   var colors: Array<ColorToken> = []
   doc.sharedSwatches.objects.forEach((color) => {
     colors.push({
@@ -42,7 +42,7 @@ fromFile(resolve(__dirname, sketchDocumentPath)).then((parsedFile) => {
       },
     })
   })
-  
+
   console.log(JSON.stringify(colors, null, 2))
 })
 ```
