@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format-ts
 
+## 6.0.2
+
+### Patch Changes
+
+- 1ceb662: Remove includeInCloudUpload
+
 ## 6.0.1
 
 ### Patch Changes
