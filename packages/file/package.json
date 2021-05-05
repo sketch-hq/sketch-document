@@ -1,0 +1,28 @@
+{
+  "name": "@sketch-hq/sketch-file",
+  "description": "Utilities to read and write Sketch documents",
+  "license": "MIT",
+  "main": "dist/index",
+  "types": "dist/index",
+  "repository": "github:sketch-hq/sketch-document",
+  "version": "1.0.0",
+  "keywords": [
+    "sketch",
+    "sketch files"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -Rf dist",
+    "build": "yarn clean && tsc --project tsconfig.json",
+    "test": "jest",
+    "format-check": "prettier --check **.{ts,md} --ignore-path ../../.prettierignore"
+  },
+  "devDependencies": {
+    "@sketch-hq/sketch-file-format-ts": "6.0.1",
+    "@types/adm-zip": "0.4.34",
+    "adm-zip": "0.5.5",
+    "node-stream-zip": "1.13.3"
+  }
+}

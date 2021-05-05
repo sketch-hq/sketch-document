@@ -3,7 +3,7 @@ description:
   This schema describes a representation of an expanded Sketch file, that is, a
   Sketch file that has been unzipped, all of its entries parsed to JSON and
   merged into a single object. A concrete example of an expanded sketch file is
-  the return value of the `fromFile` function
+  the return value of the `fromFile` function in `@sketch-hq/sketch-file`
 type: object
 optional:
   - workspace

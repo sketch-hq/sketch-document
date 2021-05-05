@@ -3,6 +3,7 @@
   "include": [],
   "references": [
     { "path": "./packages/file-format" },
-    { "path": "./packages/file-format-ts" }
+    { "path": "./packages/file-format-ts" },
+    { "path": "./packages/file" }
   ]
 }

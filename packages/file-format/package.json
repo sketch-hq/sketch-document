@@ -20,6 +20,7 @@
     "@types/json-schema": "7.0.7"
   },
   "devDependencies": {
+    "@sketch-hq/sketch-file": "1.0.0",
     "@sketch-hq/sketch-reference-files": "2.3.0",
     "@types/js-yaml": "4.0.0",
     "@types/json-schema-merge-allof": "0.6.0",
@@ -40,8 +41,8 @@
     "build:schemas": "ts-node ./scripts/build-schemas.ts",
     "build:pkg": "rm -rf dist && mkdir -p dist && tsc",
     "validate-schemas": "ts-node ./scripts/validate-schemas.ts",
-    "validate-reference-files": "yarn build:schemas && ts-node ./scripts/validate-reference-files.ts",
-    "validate-file": "yarn build:schemas && ts-node ./scripts/validate-file.ts",
+    "validate-reference-files": "yarn build:schemas  ./schema ./src && ts-node ./scripts/validate-reference-files.ts",
+    "validate-file": "yarn build:schemas ./schema ./src && ts-node ./scripts/validate-file.ts",
     "test": "echo \"No test specified\"",
     "format-check": "prettier --check {**.{ts,md,json},schema/**/*.yaml} --ignore-path ../../.prettierignore"
   }
