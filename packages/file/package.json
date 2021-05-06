@@ -19,10 +19,12 @@
     "test": "jest",
     "format-check": "prettier --check **.{ts,md} --ignore-path ../../.prettierignore"
   },
-  "devDependencies": {
-    "@sketch-hq/sketch-file-format-ts": "6.0.2",
-    "@types/adm-zip": "0.4.34",
+  "dependencies": {
     "adm-zip": "0.5.5",
-    "node-stream-zip": "1.13.3"
+    "node-stream-zip": "1.13.3",
+    "@sketch-hq/sketch-file-format-ts": "6.0.2"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "0.4.34"
   }
 }
