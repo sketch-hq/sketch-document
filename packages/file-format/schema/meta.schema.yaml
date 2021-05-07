@@ -43,9 +43,6 @@ properties:
       - 134
       - 135
       - 136
-  fonts:
-    type: array
-    items: { type: string }
   compatibilityVersion: { const: 99 }
   coeditCompatibilityVersion: { type: number }
   app: { $ref: ./enums/bundle-id.schema.yaml }
