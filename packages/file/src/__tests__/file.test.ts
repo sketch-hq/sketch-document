@@ -95,7 +95,6 @@ describe('toFile', () => {
       autosaved: 0,
       build: 0,
       compatibilityVersion: 99,
-      fonts: [''],
       variant: 'TESTING',
       created: {
         commit: '6896e2bfdb0a2a03f745e4054a8c5fc58565f9f1',
