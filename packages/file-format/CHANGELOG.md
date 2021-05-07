@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 6.0.3
+
+### Patch Changes
+
+- fd65032: Removed fonts property from meta.json
+
 ## 6.0.2
 
 ### Patch Changes

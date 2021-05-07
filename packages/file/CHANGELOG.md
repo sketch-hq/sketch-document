@@ -1,5 +1,12 @@
 # @sketch-hq/sketch-file
 
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [fd65032]
+  - @sketch-hq/sketch-file-format-ts@6.0.3
+
 ## 1.0.2
 
 ### Patch Changes
