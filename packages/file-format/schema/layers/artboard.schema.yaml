@@ -13,6 +13,7 @@ allOf:
     properties:
       _class: { const: artboard }
       backgroundColor: { $ref: ../objects/color.schema.yaml }
+      didManuallyDisableResizingContent: { type: boolean }
       hasBackgroundColor: { type: boolean }
       includeBackgroundColorInExport: { type: boolean }
       isFlowHome: { type: boolean }
