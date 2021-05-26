@@ -3,5 +3,4 @@
 '@sketch-hq/sketch-file-format-ts': minor
 ---
 
-Added didManuallyDisableResizingContent property to stop artboards from
-automatically enabling resizesContent.
+Added `didManuallyDisableResizingContent` property to stop `resizesContent` from being enabled automatically when setting a constraint on a child layer.
