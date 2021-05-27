@@ -1,5 +1,17 @@
 # @sketch-hq/sketch-file-format-ts
 
+## 6.1.0
+
+### Minor Changes
+
+- dd2e77d: Added `didManuallyDisableResizingContent` property to stop
+  `resizesContent` from being enabled automatically when setting a constraint on
+  a child layer.
+
+### Patch Changes
+
+- d5af64e: Updated dependencies
+
 ## 6.0.3
 
 ### Patch Changes
