@@ -5,7 +5,7 @@
   "main": "dist/index",
   "types": "dist/index",
   "repository": "github:sketch-hq/sketch-document",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "keywords": [
     "sketch",
     "sketch files"
@@ -22,7 +22,7 @@
   "dependencies": {
     "adm-zip": "0.5.5",
     "node-stream-zip": "1.13.4",
-    "@sketch-hq/sketch-file-format-ts": "6.0.3"
+    "@sketch-hq/sketch-file-format-ts": "6.1.0"
   },
   "devDependencies": {
     "@types/adm-zip": "0.4.34"
