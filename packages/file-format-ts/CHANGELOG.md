@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format-ts
 
+## 6.1.1
+
+### Patch Changes
+
+- 9853403: Revert adding didManuallyDisableResizingContent
+
 ## 6.1.0
 
 ### Minor Changes
