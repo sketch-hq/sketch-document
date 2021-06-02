@@ -13,11 +13,6 @@ allOf:
     properties:
       _class: { const: artboard }
       backgroundColor: { $ref: ../objects/color.schema.yaml }
-      didManuallyDisableResizingContent:
-        type: boolean
-        description:
-          If set to `true`, enabling a constraint on a child layer will not
-          automatically enable `resizesContent`
       hasBackgroundColor: { type: boolean }
       includeBackgroundColorInExport: { type: boolean }
       isFlowHome: { type: boolean }
