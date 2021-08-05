@@ -46,3 +46,31 @@ fromFile(resolve(__dirname, sketchDocumentPath)).then((parsedFile) => {
   console.log(JSON.stringify(colors, null, 2))
 })
 ```
+
+### `toFile` function
+
+Set the'Background color › Include in Export' option to `true` for all Artboards
+in a Sketch document:
+
+```ts
+import { fromFile, SketchFile, toFile } from '@sketch-hq/sketch-file'
+import { Artboard } from '@sketch-hq/sketch-file-format-ts/dist/cjs/types'
+import { resolve } from 'path'
+
+const sketchDocumentPath = './artboards-with-background.sketch'
+
+fromFile(resolve(__dirname, sketchDocumentPath)).then((parsedFile) => {
+  parsedFile.contents.document.pages.forEach((page) => {
+    page.layers
+      .filter((layer): layer is Artboard => true)
+      .forEach((artboard) => {
+        artboard.includeBackgroundColorInExport = true
+      })
+  })
+  var exportableFile: SketchFile = {
+    contents: parsedFile.contents,
+    filepath: sketchDocumentPath,
+  }
+  toFile(exportableFile)
+})
+```
