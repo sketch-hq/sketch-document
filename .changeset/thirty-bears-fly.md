@@ -3,4 +3,4 @@
 '@sketch-hq/sketch-file-format-ts': minor
 ---
 
-Add ``strikethroughStyle` property to text style.
+Add `strikethroughStyle` property to text style.
