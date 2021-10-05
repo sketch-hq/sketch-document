@@ -13,7 +13,7 @@ properties:
       - expandedTextStylePathsInPopover
       - libraryListCollapsed
     properties:
-      pageListHeight: { type: integer }
+      pageListHeight: { type: number }
       pageListCollapsed: { $ref: ../utils/numerical-bool.schema.yaml }
       expandedSymbolPathsInSidebar: { type: array }
       expandedTextStylePathsInPopover: { type: array }
