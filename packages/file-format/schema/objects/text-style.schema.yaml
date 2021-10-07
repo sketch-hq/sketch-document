@@ -19,7 +19,7 @@ properties:
       MSAttributedStringTextTransformAttribute:
         $ref: ../enums/text-transform.schema.yaml
       underlineStyle: { $ref: ../enums/underline-style.schema.yaml }
-      strikethroughStyle: { const: 0 } # TODO What is this? Is it in use? Should it be an enum?
+      strikethroughStyle: { $ref: ../enums/strikethrough-style.schema.yaml }
       kerning: { type: number }
       MSAttributedStringFontAttribute: { $ref: ./font-descriptor.schema.yaml }
       textStyleVerticalAlignmentKey:
