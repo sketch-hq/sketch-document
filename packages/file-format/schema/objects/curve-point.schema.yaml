@@ -4,6 +4,7 @@ type: object
 properties:
   _class: { const: curvePoint }
   cornerRadius: { type: number }
+  cornerStyle: { $ref: ../enums/corner-style.schema.yaml }
   curveFrom: { $ref: ../utils/point-string.schema.yaml }
   curveTo: { $ref: ../utils/point-string.schema.yaml }
   hasCurveFrom: { type: boolean }
