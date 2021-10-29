@@ -1,5 +1,6 @@
 title: Corner Style
-description: Enumeration of the corner styles that can be applied to vector points
+description:
+  Enumeration of the corner styles that can be applied to vector points
 type: integer
 enum:
   - 0
