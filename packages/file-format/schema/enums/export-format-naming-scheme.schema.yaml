@@ -4,6 +4,8 @@ type: integer
 enum:
   - 0
   - 1
+  - 2
 enumDescriptions:
   - Suffix
-  - Prefix
+  - Secondary Prefix
+  - Primary Prefix
