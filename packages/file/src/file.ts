@@ -68,10 +68,6 @@ const toFile = async (obj: SketchFile): Promise<void> => {
       const p = JSON.stringify(page)
       sketch.addFile(
         path.join('pages', `${page.do_objectID}.json`),
-        // When using double-byte characters (like •), the length of the string
-        // won't match the bytes needed to store the string data on disk.
-        // So, we'd better use a proper method to find the length, like `Buffer.byteLength(p)`,
-        // instead of the more brittle `p.length` we were using.
         Buffer.alloc(Buffer.byteLength(p), p),
         `page data for: ${page.name}`,
       )
