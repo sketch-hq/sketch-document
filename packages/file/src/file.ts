@@ -88,7 +88,7 @@ const toFile = async (obj: SketchFile): Promise<void> => {
       const p = JSON.stringify(obj.contents.workspace[key])
       sketch.addFile(
         path.join('workspace', `${key}.json`),
-        Buffer.alloc(p.length, p),
+        Buffer.alloc(Buffer.byteLength(p), p),
         `workspace data for: ${key}`,
       )
     })
@@ -105,7 +105,7 @@ const toFile = async (obj: SketchFile): Promise<void> => {
     Object.entries(data).map(([key, val]) => {
       sketch.addFile(
         `${key}.json`,
-        Buffer.alloc(val.length, val),
+        Buffer.alloc(Buffer.byteLength(val), val),
         `${key} data`,
       )
     })
