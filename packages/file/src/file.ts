@@ -64,22 +64,24 @@ const toFile = async (obj: SketchFile): Promise<void> => {
 
     // Write pages first and use the resulting paths for the file
     // references that are stored within the main document.json.
-    const refs = obj.contents.document.pages.map(
-      (page): FileFormat.FileRef => {
-        const p = JSON.stringify(page)
-        sketch.addFile(
-          path.join('pages', `${page.do_objectID}.json`),
-          Buffer.alloc(p.length, p),
-          `page data for: ${page.name}`,
-        )
+    const refs = obj.contents.document.pages.map((page): FileFormat.FileRef => {
+      const p = JSON.stringify(page)
+      sketch.addFile(
+        path.join('pages', `${page.do_objectID}.json`),
+        // When using double-byte characters (like •), the length of the string
+        // won't match the bytes needed to store the string data on disk.
+        // So, we'd better use a proper method to find the length, like `Buffer.byteLength(p)`,
+        // instead of the more brittle `p.length` we were using.
+        Buffer.alloc(Buffer.byteLength(p), p),
+        `page data for: ${page.name}`,
+      )
 
-        return {
-          _class: 'MSJSONFileReference',
-          _ref_class: 'MSImmutablePage',
-          _ref: `pages/${page.do_objectID}`,
-        }
-      },
-    )
+      return {
+        _class: 'MSJSONFileReference',
+        _ref_class: 'MSImmutablePage',
+        _ref: `pages/${page.do_objectID}`,
+      }
+    })
 
     // Store workspace data
     Object.keys(obj.contents.workspace).map((key) => {
