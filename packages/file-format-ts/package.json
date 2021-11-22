@@ -21,7 +21,7 @@
   "dependencies": {},
   "devDependencies": {
     "@sketch-hq/sketch-file-format": "6.1.1",
-    "@types/humps": "2.0.0",
+    "@types/humps": "2.0.1",
     "humps": "2.0.1"
   },
   "scripts": {
