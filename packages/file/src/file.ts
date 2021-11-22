@@ -64,29 +64,27 @@ const toFile = async (obj: SketchFile): Promise<void> => {
 
     // Write pages first and use the resulting paths for the file
     // references that are stored within the main document.json.
-    const refs = obj.contents.document.pages.map(
-      (page): FileFormat.FileRef => {
-        const p = JSON.stringify(page)
-        sketch.addFile(
-          path.join('pages', `${page.do_objectID}.json`),
-          Buffer.alloc(p.length, p),
-          `page data for: ${page.name}`,
-        )
+    const refs = obj.contents.document.pages.map((page): FileFormat.FileRef => {
+      const p = JSON.stringify(page)
+      sketch.addFile(
+        path.join('pages', `${page.do_objectID}.json`),
+        Buffer.alloc(Buffer.byteLength(p), p),
+        `page data for: ${page.name}`,
+      )
 
-        return {
-          _class: 'MSJSONFileReference',
-          _ref_class: 'MSImmutablePage',
-          _ref: `pages/${page.do_objectID}`,
-        }
-      },
-    )
+      return {
+        _class: 'MSJSONFileReference',
+        _ref_class: 'MSImmutablePage',
+        _ref: `pages/${page.do_objectID}`,
+      }
+    })
 
     // Store workspace data
     Object.keys(obj.contents.workspace).map((key) => {
       const p = JSON.stringify(obj.contents.workspace[key])
       sketch.addFile(
         path.join('workspace', `${key}.json`),
-        Buffer.alloc(p.length, p),
+        Buffer.alloc(Buffer.byteLength(p), p),
         `workspace data for: ${key}`,
       )
     })
@@ -103,7 +101,7 @@ const toFile = async (obj: SketchFile): Promise<void> => {
     Object.entries(data).map(([key, val]) => {
       sketch.addFile(
         `${key}.json`,
-        Buffer.alloc(val.length, val),
+        Buffer.alloc(Buffer.byteLength(val), val),
         `${key} data`,
       )
     })
