@@ -181,7 +181,6 @@ describe('fromFile', () => {
 
   test('parses Assistants data', async () => {
     var file = await fromFile(FILE_WITH_ASSISTANTS)
-    console.log(file.contents.workspace.assistants)
     expect(
       Object.keys(file.contents.workspace.assistants.dependencies).length,
     ).toBe(2)

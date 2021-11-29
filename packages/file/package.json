@@ -20,8 +20,8 @@
     "format-check": "prettier --check **.{ts,md} --ignore-path ../../.prettierignore"
   },
   "dependencies": {
-    "adm-zip": "0.5.5",
-    "node-stream-zip": "1.13.4",
+    "adm-zip": "0.5.9",
+    "node-stream-zip": "1.15.0",
     "@sketch-hq/sketch-file-format-ts": "6.1.1"
   },
   "devDependencies": {
