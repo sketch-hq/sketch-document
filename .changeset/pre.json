@@ -1,0 +1,10 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "@sketch-hq/sketch-file": "1.0.5",
+    "@sketch-hq/sketch-file-format": "6.1.1",
+    "@sketch-hq/sketch-file-format-ts": "6.1.1"
+  },
+  "changesets": []
+}
