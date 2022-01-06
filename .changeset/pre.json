@@ -6,5 +6,12 @@
     "@sketch-hq/sketch-file-format": "6.1.1",
     "@sketch-hq/sketch-file-format-ts": "6.1.1"
   },
-  "changesets": []
+  "changesets": [
+    "few-years-worry",
+    "great-waves-drive",
+    "hungry-avocados-love",
+    "olive-rats-sniff",
+    "thirty-bears-fly",
+    "warm-rats-grin"
+  ]
 }
