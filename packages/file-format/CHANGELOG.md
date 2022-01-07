@@ -1,5 +1,18 @@
 # @sketch-hq/sketch-file-format
 
+## 6.2.0
+
+### Minor Changes
+
+- e22c7f3: Add a new export prefix naming scheme
+- 4ca5853: Add `strikethroughStyle` property to text style.
+- 91a0f47: Add `cornerStyle` to curve point
+
+### Patch Changes
+
+- bc328f6: Bump Sketch document version.
+- 28270c7: Update dependencies
+
 ## 6.2.0-next.0
 
 ### Minor Changes
