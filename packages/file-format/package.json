@@ -1,6 +1,6 @@
 {
   "name": "@sketch-hq/sketch-file-format",
-  "version": "6.2.0-next.0",
+  "version": "6.2.0",
   "license": "MIT",
   "main": "dist/index",
   "types": "dist/index",
@@ -20,7 +20,7 @@
     "@types/json-schema": "7.0.9"
   },
   "devDependencies": {
-    "@sketch-hq/sketch-file": "1.1.0-next.0",
+    "@sketch-hq/sketch-file": "1.1.0",
     "@sketch-hq/sketch-reference-files": "2.3.0",
     "@types/js-yaml": "4.0.5",
     "@types/json-schema-merge-allof": "0.6.1",
