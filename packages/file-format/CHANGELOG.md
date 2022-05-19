@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 6.2.1
+
+### Patch Changes
+
+- 52af1d1: Bump document version reflecting changes in Sketch.
+
 ## 6.2.0
 
 ### Minor Changes
