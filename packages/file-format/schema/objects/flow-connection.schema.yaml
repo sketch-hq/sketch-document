@@ -9,5 +9,6 @@ properties:
     oneOf:
       - { $ref: ../utils/uuid.schema.yaml }
       - { const: back }
+      - { const: automatic }
   animationType: { $ref: ../enums/animation-type.schema.yaml }
   maintainScrollPosition: { type: boolean }
