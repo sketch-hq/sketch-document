@@ -1,5 +1,7 @@
 title: Prototype Viewport
-description: Defines a prototype viewport with a reference to the original template layer that was used defining it.
+description:
+  Defines a prototype viewport with a reference to the original template layer
+  that was used defining it.
 type: object
 optional:
   - templateID
