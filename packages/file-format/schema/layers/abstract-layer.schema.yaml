@@ -19,6 +19,7 @@ properties:
   isFlippedHorizontal: { type: boolean }
   isFlippedVertical: { type: boolean }
   isLocked: { type: boolean }
+  isTemplate: { type: boolean }
   isVisible: { type: boolean }
   layerListExpandedType: { $ref: ../enums/layer-list-expanded.schema.yaml }
   name: { type: string }
