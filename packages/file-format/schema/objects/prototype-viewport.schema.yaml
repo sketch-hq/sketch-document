@@ -10,5 +10,5 @@ properties:
   _class: { const: MSImmutablePrototypeViewport }
   name: { type: string }
   size: { $ref: ../utils/size-string.schema.yaml }
-  templateID: { type: string }
-  libraryID: { type: string }
+  templateID: { $ref: ../utils/uuid.schema.yaml }
+  libraryID: { $ref: ../utils/uuid.schema.yaml }
