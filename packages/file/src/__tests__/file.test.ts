@@ -24,6 +24,7 @@ describe('toFile', () => {
     isFlippedHorizontal: false,
     isFlippedVertical: false,
     isLocked: false,
+    isTemplate: false,
     isVisible: true,
     layerListExpandedType: 0,
     nameIsFixed: false,
