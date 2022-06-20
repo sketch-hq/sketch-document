@@ -1,0 +1,5 @@
+title: Size String
+description: |
+  A formatted string representation of a rectangle size, e.g. {10.5, 10}.
+type: string
+pattern: '^{-?\d+(.\d+)?(e-\d+)?, -?\d+(.\d+)?(e-\d+)?}$'

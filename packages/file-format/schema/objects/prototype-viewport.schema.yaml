@@ -1,0 +1,14 @@
+title: Prototype Viewport
+description:
+  Defines a prototype viewport with a reference to the original template layer
+  that was used defining it.
+type: object
+optional:
+  - templateID
+  - libraryID
+properties:
+  _class: { const: MSImmutablePrototypeViewport }
+  name: { type: string }
+  size: { $ref: ../utils/size-string.schema.yaml }
+  templateID: { $ref: ../utils/uuid.schema.yaml }
+  libraryID: { $ref: ../utils/uuid.schema.yaml }

@@ -9,7 +9,7 @@ allOf:
   # inherit directly for simplicity of inheritence tree.
   - type: object
     optional:
-      - presetDictionary
+      - prototypeViewport
     properties:
       _class: { const: artboard }
       backgroundColor: { $ref: ../objects/color.schema.yaml }
@@ -17,7 +17,7 @@ allOf:
       includeBackgroundColorInExport: { type: boolean }
       isFlowHome: { type: boolean }
       resizesContent: { type: boolean }
-      presetDictionary: { type: object }
+      prototypeViewport: { $ref: ../objects/prototype-viewport.schema.yaml }
       layers:
         type: array
         items:
