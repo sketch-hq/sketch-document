@@ -4,6 +4,8 @@ type: object
 allOf:
   - $ref: ./abstract-layer.schema.yaml
   - type: object
+    optional:
+      - preservesSpaceWhenHidden
     properties:
       _class: { const: symbolInstance }
       overrideValues:
@@ -13,3 +15,4 @@ allOf:
       symbolID: { $ref: ../utils/uuid.schema.yaml }
       verticalSpacing: { type: number } # TODO: Confirm this is just a value and not an enum
       horizontalSpacing: { type: number } # TODO: Confirm this is just a value and not an enum
+      preservesSpaceWhenHidden: { type: boolean }
