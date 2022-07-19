@@ -59,19 +59,18 @@ export const schemaToTypeNode = (schema: JSONSchema7): ts.TypeNode => {
         const additionalProps =
           typeof schema.additionalProperties === 'undefined' ||
           !!schema.additionalProperties
-        const elements: ts.TypeElement[] = Object.keys(
-          schema.properties,
-        ).map((key) =>
-          factory.createPropertySignature(
-            undefined,
-            key.includes('-')
-              ? factory.createStringLiteral(key)
-              : factory.createIdentifier(key),
-            required.includes(key)
-              ? undefined
-              : factory.createToken(ts.SyntaxKind.QuestionToken),
-            schemaToTypeNode(schema.properties![key] as JSONSchema7),
-          ),
+        const elements: ts.TypeElement[] = Object.keys(schema.properties).map(
+          (key) =>
+            factory.createPropertySignature(
+              undefined,
+              key.includes('-')
+                ? factory.createStringLiteral(key)
+                : factory.createIdentifier(key),
+              required.includes(key)
+                ? undefined
+                : factory.createToken(ts.SyntaxKind.QuestionToken),
+              schemaToTypeNode(schema.properties![key] as JSONSchema7),
+            ),
         )
         if (additionalProps) {
           elements.push(
