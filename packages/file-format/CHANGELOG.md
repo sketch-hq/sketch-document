@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- 6a66fb9: Added preservesSpaceWhenHidden to SymbolInstance Updated dependencies
+- 6a66fb9: Added `preservesSpaceWhenHidden` to SymbolInstance and updated dependencies
 - 582e216: - Add `isTemplate` attribute to Layer to mark it as template for
   insertion of copies elsewhere.
   - Artboards now contain a `prototypeViewport` attribute with a
