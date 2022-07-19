@@ -17,15 +17,15 @@
     "dist"
   ],
   "dependencies": {
-    "@types/json-schema": "7.0.9"
+    "@types/json-schema": "7.0.11"
   },
   "devDependencies": {
     "@sketch-hq/sketch-file": "1.1.1",
     "@sketch-hq/sketch-reference-files": "2.3.0",
     "@types/js-yaml": "4.0.5",
     "@types/json-schema-merge-allof": "0.6.1",
-    "@types/lodash": "4.14.177",
-    "ajv": "8.8.2",
+    "@types/lodash": "4.14.182",
+    "ajv": "8.11.0",
     "chalk": "4.1.2",
     "change-case": "4.1.2",
     "deepdash": "5.3.9",
