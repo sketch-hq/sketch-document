@@ -1,5 +1,17 @@
 # @sketch-hq/sketch-file-format
 
+## 6.3.0
+
+### Minor Changes
+
+- 6a66fb9: Added `preservesSpaceWhenHidden` to SymbolInstance and updated dependencies
+- 582e216: - Add `isTemplate` attribute to Layer to mark it as template for
+  insertion of copies elsewhere.
+  - Artboards now contain a `prototypeViewport` attribute with a
+    `PrototypeViewport` object to describe the associated viewport for
+    prototypes, replacing the untyped presetDictionary attribute.
+  - FlowConnection now contains an automatic destination option.
+
 ## 6.2.1
 
 ### Patch Changes
