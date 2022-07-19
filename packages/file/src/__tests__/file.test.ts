@@ -167,7 +167,7 @@ describe('fromFile', () => {
   })
 
   test('parses meta entry', async (): Promise<void> => {
-    expect(file.contents.meta.version).toMatchInlineSnapshot(`136`)
+    expect(file.contents.meta.version).toMatchInlineSnapshot(`144`)
   })
 
   test('parses user entry', async (): Promise<void> => {
