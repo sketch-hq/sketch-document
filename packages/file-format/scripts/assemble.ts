@@ -193,9 +193,8 @@ const assemble = async (entry: string) => {
         '.$ref',
         ({ context, match }: { context: any; match: any }) => {
           if (typeof match === 'string' && match.includes('abstract')) {
-            const { title, description, $id, $ref, ...rest } = abstractSchemas[
-              pathToId(match)
-            ]
+            const { title, description, $id, $ref, ...rest } =
+              abstractSchemas[pathToId(match)]
             return _.cloneDeep(rest)
           } else {
             return context

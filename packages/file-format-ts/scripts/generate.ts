@@ -125,9 +125,9 @@ const generate = (path: string, schemas: Schemas) => {
     ClassMap: classMap,
   }
 
-  const types: ts.DeclarationStatement[] = Object.keys(
-    allDefinitions,
-  ).map((key) => schemaToTopLevelDeclaration(allDefinitions[key]))
+  const types: ts.DeclarationStatement[] = Object.keys(allDefinitions).map(
+    (key) => schemaToTopLevelDeclaration(allDefinitions[key]),
+  )
 
   writeFileSync(
     path,
