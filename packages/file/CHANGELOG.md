@@ -1,10 +1,18 @@
 # @sketch-hq/sketch-file
 
+## 1.1.3
+
+### Patch Changes
+
+- Updated dependencies [a1323c4]
+  - @sketch-hq/sketch-file-format-ts@6.3.1
+
 ## 1.1.2
 
 ### Patch Changes
 
-- 6a66fb9: Added `preservesSpaceWhenHidden` to SymbolInstance and updated dependencies
+- 6a66fb9: Added `preservesSpaceWhenHidden` to SymbolInstance and updated
+  dependencies
 - Updated dependencies [6a66fb9]
 - Updated dependencies [582e216]
   - @sketch-hq/sketch-file-format-ts@6.3.0
