@@ -1,0 +1,13 @@
+title: Document Library Type
+description:
+  Enumeration of the asset library type. Roughly represents all library types
+  from Preferences... > Libraries tab
+type: integer
+enum:
+  - 0
+  - 1
+  - 2
+enumDescriptions:
+  - Local
+  - Workspace
+  - Third-Party

@@ -35,3 +35,6 @@ properties:
     items: { $ref: ./objects/font-ref.schema.yaml }
   documentState: { $ref: ./objects/document-state.schema.yaml }
   patchInfo: { $ref: ./objects/patch-info.schema.yaml }
+  perDocumentLibraries:
+    type: array
+    items: { $ref: ./objects/document-library-info.schema.yaml }

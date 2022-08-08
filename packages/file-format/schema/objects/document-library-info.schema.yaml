@@ -1,0 +1,18 @@
+title: Document Library Info
+description:
+  Represents a "reference" to the asset library, that is used in the document
+type: object
+optional:
+  - name
+  - appcastURL
+  - documentID
+  - shareID
+  - workspaceName
+properties:
+  _class: { const: MSImmutableDocumentLibraryInfo }
+  libraryType: { $ref: ../enums/document-library-type.schema.yaml }
+  name: { type: string }
+  appcastURL: { type: string }
+  documentID: { $ref: ./utils/uuid.schema.yaml }
+  shareID: { $ref: ./utils/uuid.schema.yaml }
+  workspaceName: { type: string }
