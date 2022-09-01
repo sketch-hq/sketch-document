@@ -86,6 +86,7 @@ describe('toFile', () => {
         do_objectID: 'b08e8447-b31d-4901-abb7-8284e1f71113',
       },
       pages: [blankPage],
+      perDocumentLibraries: []
     },
     meta: {
       app: FileFormat.BundleId.Testing,
