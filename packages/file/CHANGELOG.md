@@ -1,5 +1,13 @@
 # @sketch-hq/sketch-file
 
+## 1.1.4
+
+### Patch Changes
+
+- Updated dependencies [0cf07f5]
+- Updated dependencies [2d515aa]
+  - @sketch-hq/sketch-file-format-ts@6.4.0
+
 ## 1.1.3
 
 ### Patch Changes
