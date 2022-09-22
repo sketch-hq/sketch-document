@@ -1,5 +1,12 @@
 # @sketch-hq/sketch-file-format-ts
 
+## 6.4.0
+
+### Minor Changes
+
+- 0cf07f5: Bump document version to reflect per-document library changes
+- 2d515aa: Add per-document libraries info
+
 ## 6.3.1
 
 ### Patch Changes
