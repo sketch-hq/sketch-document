@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-file-format
 
+## 6.5.0
+
+### Minor Changes
+
+- 147fb8a: Add support for per-document libraries
+
 ## 6.4.0
 
 ### Minor Changes
