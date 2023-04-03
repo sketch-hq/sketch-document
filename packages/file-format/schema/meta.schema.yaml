@@ -52,6 +52,7 @@ properties:
       - 143
       - 144
       - 145
+      - 146
   compatibilityVersion: { const: 99 }
   coeditCompatibilityVersion: { type: number }
   app: { $ref: ./enums/bundle-id.schema.yaml }
