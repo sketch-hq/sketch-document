@@ -3,6 +3,7 @@ description:
   Represents a "reference" to the asset library, that is used in the document
 type: object
 optional:
+  - do_objectID
   - name
   - appcastURL
   - documentID
@@ -10,6 +11,7 @@ optional:
   - workspaceName
 properties:
   _class: { const: MSImmutableDocumentLibraryInfo }
+  do_objectID: { $ref: ./utils/uuid.schema.yaml }
   libraryType: { $ref: ../enums/document-library-type.schema.yaml }
   name: { type: string }
   appcastURL: { type: string }
