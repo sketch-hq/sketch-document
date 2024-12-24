@@ -9,15 +9,21 @@ properties:
   attributes:
     type: object
     optional:
+      - paragraphStyle
+      - MSAttributedStringTextTransformAttribute
+      - underlineStyle
+      - strikethroughStyle
+      - kerning
       - textStyleVerticalAlignmentKey
       - MSAttributedStringColorAttribute
-      - kerning
-      - paragraphStyle
     properties:
-      kerning: { type: number }
-      textStyleVerticalAlignmentKey:
-        { $ref: ../enums/text-vertical-alignment.schema.yaml }
-      MSAttributedStringFontAttribute:
-        { $ref: ../objects/font-descriptor.schema.yaml }
-      MSAttributedStringColorAttribute: { $ref: ../objects/color.schema.yaml }
       paragraphStyle: { $ref: ./paragraph-style.schema.yaml }
+      MSAttributedStringTextTransformAttribute:
+        $ref: ../enums/text-transform.schema.yaml
+      underlineStyle: { $ref: ../enums/underline-style.schema.yaml }
+      strikethroughStyle: { $ref: ../enums/strikethrough-style.schema.yaml }
+      kerning: { type: number }
+      MSAttributedStringFontAttribute: { $ref: ./font-descriptor.schema.yaml }
+      textStyleVerticalAlignmentKey:
+        $ref: ../enums/text-vertical-alignment.schema.yaml # TODO What is this? How does it differ from verticalAlignment?
+      MSAttributedStringColorAttribute: { $ref: ./color.schema.yaml }
